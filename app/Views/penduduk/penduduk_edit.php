@@ -74,11 +74,10 @@
             <div class="col-md-6">
                 <label>Status Perkawinan</label>
                 <select name="status_perkawinan" class="form-select" value="<?= old('status_perkawinan') ?>">
-                    <option value="<?= $data_penduduk['status_perkawinan'] ?>"><?= $data_penduduk['status_perkawinan'] ?></option>
-                    <option value="Lajang">Lajang</option>
-                    <option value="Kawin">Kawin</option>
-                    <option value="Janda">Janda</option>
-                    <option value="Duda">Duda</option>
+                    <option value="1" <?= $data_penduduk['status_perkawinan'] = 1 ? 'selected' : '' ?>>Lajang</option>
+                    <option value="2" <?= $data_penduduk['status_perkawinan'] = 2 ? 'selected' : '' ?>>Kawin</option>
+                    <option value="3" <?= $data_penduduk['status_perkawinan'] = 3 ? 'selected' : '' ?>>Janda</option>
+                    <option value="4" <?= $data_penduduk['status_perkawinan'] = 4 ? 'selected' : '' ?>>Duda</option>
                 </select>
                 <p class="text-danger"><?= $validasi->getError('status_perkawinan') ?></p>
             </div>

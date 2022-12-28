@@ -1,8087 +1,8002 @@
--- phpMyAdmin SQL Dump
--- version 5.2.0
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1:3306
--- Generation Time: Dec 28, 2022 at 01:31 PM
--- Server version: 5.7.40
--- PHP Version: 7.4.33
+/*
+ Navicat Premium Data Transfer
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
+ Source Server         : MySQL
+ Source Server Type    : MySQL
+ Source Server Version : 50740 (5.7.40)
+ Source Host           : localhost:3306
+ Source Schema         : spd-situhiang
 
+ Target Server Type    : MySQL
+ Target Server Version : 50740 (5.7.40)
+ File Encoding         : 65001
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+ Date: 28/12/2022 22:50:13
+*/
 
---
--- Database: `spd-situhiang`
---
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_bantuan`
---
-
+-- ----------------------------
+-- Table structure for tbl_bantuan
+-- ----------------------------
 DROP TABLE IF EXISTS `tbl_bantuan`;
-CREATE TABLE IF NOT EXISTS `tbl_bantuan` (
+CREATE TABLE `tbl_bantuan`  (
   `id_bantuan` int(11) NOT NULL AUTO_INCREMENT,
-  `jenis_bantuan` varchar(255) DEFAULT NULL,
+  `jenis_bantuan` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_bantuan`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE = MyISAM AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
---
--- Dumping data for table `tbl_bantuan`
---
+-- ----------------------------
+-- Records of tbl_bantuan
+-- ----------------------------
+INSERT INTO `tbl_bantuan` VALUES (1, 'BLT BBM');
+INSERT INTO `tbl_bantuan` VALUES (2, 'BLT Dana Desa');
+INSERT INTO `tbl_bantuan` VALUES (3, 'Bantuan Sembako');
+INSERT INTO `tbl_bantuan` VALUES (4, 'BLT UMKM');
+INSERT INTO `tbl_bantuan` VALUES (5, 'Bantuan Subsidi Upah (BSU)');
 
-INSERT INTO `tbl_bantuan` (`id_bantuan`, `jenis_bantuan`) VALUES
-(1, 'BLT BBM'),
-(2, 'BLT Dana Desa'),
-(3, 'Bantuan Sembako'),
-(4, 'BLT UMKM'),
-(5, 'Bantuan Subsidi Upah (BSU)');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_jabatan`
---
-
+-- ----------------------------
+-- Table structure for tbl_jabatan
+-- ----------------------------
 DROP TABLE IF EXISTS `tbl_jabatan`;
-CREATE TABLE IF NOT EXISTS `tbl_jabatan` (
+CREATE TABLE `tbl_jabatan`  (
   `id_jabatan` int(2) NOT NULL,
-  `nama_jabatan` varchar(15) NOT NULL,
-  PRIMARY KEY (`id_jabatan`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `nama_jabatan` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id_jabatan`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
---
--- Dumping data for table `tbl_jabatan`
---
+-- ----------------------------
+-- Records of tbl_jabatan
+-- ----------------------------
+INSERT INTO `tbl_jabatan` VALUES (1, 'Kepala Desa');
+INSERT INTO `tbl_jabatan` VALUES (2, 'Kasi Pemerintah');
 
-INSERT INTO `tbl_jabatan` (`id_jabatan`, `nama_jabatan`) VALUES
-(1, 'Kepala Desa'),
-(2, 'Kasi Pemerintah');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_kabupaten`
---
-
+-- ----------------------------
+-- Table structure for tbl_kabupaten
+-- ----------------------------
 DROP TABLE IF EXISTS `tbl_kabupaten`;
-CREATE TABLE IF NOT EXISTS `tbl_kabupaten` (
-  `id_kabupaten` char(4) COLLATE utf8_unicode_ci NOT NULL,
-  `id_provinsi` char(2) COLLATE utf8_unicode_ci NOT NULL,
-  `nama_kabupaten` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+CREATE TABLE `tbl_kabupaten`  (
+  `id_kabupaten` char(4) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `id_provinsi` char(2) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `nama_kabupaten` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id_kabupaten`) USING BTREE,
-  KEY `regencies_province_id_index` (`id_provinsi`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
+  INDEX `regencies_province_id_index`(`id_provinsi`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = DYNAMIC;
 
---
--- Dumping data for table `tbl_kabupaten`
---
+-- ----------------------------
+-- Records of tbl_kabupaten
+-- ----------------------------
+INSERT INTO `tbl_kabupaten` VALUES ('1101', '11', 'KABUPATEN SIMEULUE');
+INSERT INTO `tbl_kabupaten` VALUES ('1102', '11', 'KABUPATEN ACEH SINGKIL');
+INSERT INTO `tbl_kabupaten` VALUES ('1103', '11', 'KABUPATEN ACEH SELATAN');
+INSERT INTO `tbl_kabupaten` VALUES ('1104', '11', 'KABUPATEN ACEH TENGGARA');
+INSERT INTO `tbl_kabupaten` VALUES ('1105', '11', 'KABUPATEN ACEH TIMUR');
+INSERT INTO `tbl_kabupaten` VALUES ('1106', '11', 'KABUPATEN ACEH TENGAH');
+INSERT INTO `tbl_kabupaten` VALUES ('1107', '11', 'KABUPATEN ACEH BARAT');
+INSERT INTO `tbl_kabupaten` VALUES ('1108', '11', 'KABUPATEN ACEH BESAR');
+INSERT INTO `tbl_kabupaten` VALUES ('1109', '11', 'KABUPATEN PIDIE');
+INSERT INTO `tbl_kabupaten` VALUES ('1110', '11', 'KABUPATEN BIREUEN');
+INSERT INTO `tbl_kabupaten` VALUES ('1111', '11', 'KABUPATEN ACEH UTARA');
+INSERT INTO `tbl_kabupaten` VALUES ('1112', '11', 'KABUPATEN ACEH BARAT DAYA');
+INSERT INTO `tbl_kabupaten` VALUES ('1113', '11', 'KABUPATEN GAYO LUES');
+INSERT INTO `tbl_kabupaten` VALUES ('1114', '11', 'KABUPATEN ACEH TAMIANG');
+INSERT INTO `tbl_kabupaten` VALUES ('1115', '11', 'KABUPATEN NAGAN RAYA');
+INSERT INTO `tbl_kabupaten` VALUES ('1116', '11', 'KABUPATEN ACEH JAYA');
+INSERT INTO `tbl_kabupaten` VALUES ('1117', '11', 'KABUPATEN BENER MERIAH');
+INSERT INTO `tbl_kabupaten` VALUES ('1118', '11', 'KABUPATEN PIDIE JAYA');
+INSERT INTO `tbl_kabupaten` VALUES ('1171', '11', 'KOTA BANDA ACEH');
+INSERT INTO `tbl_kabupaten` VALUES ('1172', '11', 'KOTA SABANG');
+INSERT INTO `tbl_kabupaten` VALUES ('1173', '11', 'KOTA LANGSA');
+INSERT INTO `tbl_kabupaten` VALUES ('1174', '11', 'KOTA LHOKSEUMAWE');
+INSERT INTO `tbl_kabupaten` VALUES ('1175', '11', 'KOTA SUBULUSSALAM');
+INSERT INTO `tbl_kabupaten` VALUES ('1201', '12', 'KABUPATEN NIAS');
+INSERT INTO `tbl_kabupaten` VALUES ('1202', '12', 'KABUPATEN MANDAILING NATAL');
+INSERT INTO `tbl_kabupaten` VALUES ('1203', '12', 'KABUPATEN TAPANULI SELATAN');
+INSERT INTO `tbl_kabupaten` VALUES ('1204', '12', 'KABUPATEN TAPANULI TENGAH');
+INSERT INTO `tbl_kabupaten` VALUES ('1205', '12', 'KABUPATEN TAPANULI UTARA');
+INSERT INTO `tbl_kabupaten` VALUES ('1206', '12', 'KABUPATEN TOBA SAMOSIR');
+INSERT INTO `tbl_kabupaten` VALUES ('1207', '12', 'KABUPATEN LABUHAN BATU');
+INSERT INTO `tbl_kabupaten` VALUES ('1208', '12', 'KABUPATEN ASAHAN');
+INSERT INTO `tbl_kabupaten` VALUES ('1209', '12', 'KABUPATEN SIMALUNGUN');
+INSERT INTO `tbl_kabupaten` VALUES ('1210', '12', 'KABUPATEN DAIRI');
+INSERT INTO `tbl_kabupaten` VALUES ('1211', '12', 'KABUPATEN KARO');
+INSERT INTO `tbl_kabupaten` VALUES ('1212', '12', 'KABUPATEN DELI SERDANG');
+INSERT INTO `tbl_kabupaten` VALUES ('1213', '12', 'KABUPATEN LANGKAT');
+INSERT INTO `tbl_kabupaten` VALUES ('1214', '12', 'KABUPATEN NIAS SELATAN');
+INSERT INTO `tbl_kabupaten` VALUES ('1215', '12', 'KABUPATEN HUMBANG HASUNDUTAN');
+INSERT INTO `tbl_kabupaten` VALUES ('1216', '12', 'KABUPATEN PAKPAK BHARAT');
+INSERT INTO `tbl_kabupaten` VALUES ('1217', '12', 'KABUPATEN SAMOSIR');
+INSERT INTO `tbl_kabupaten` VALUES ('1218', '12', 'KABUPATEN SERDANG BEDAGAI');
+INSERT INTO `tbl_kabupaten` VALUES ('1219', '12', 'KABUPATEN BATU BARA');
+INSERT INTO `tbl_kabupaten` VALUES ('1220', '12', 'KABUPATEN PADANG LAWAS UTARA');
+INSERT INTO `tbl_kabupaten` VALUES ('1221', '12', 'KABUPATEN PADANG LAWAS');
+INSERT INTO `tbl_kabupaten` VALUES ('1222', '12', 'KABUPATEN LABUHAN BATU SELATAN');
+INSERT INTO `tbl_kabupaten` VALUES ('1223', '12', 'KABUPATEN LABUHAN BATU UTARA');
+INSERT INTO `tbl_kabupaten` VALUES ('1224', '12', 'KABUPATEN NIAS UTARA');
+INSERT INTO `tbl_kabupaten` VALUES ('1225', '12', 'KABUPATEN NIAS BARAT');
+INSERT INTO `tbl_kabupaten` VALUES ('1271', '12', 'KOTA SIBOLGA');
+INSERT INTO `tbl_kabupaten` VALUES ('1272', '12', 'KOTA TANJUNG BALAI');
+INSERT INTO `tbl_kabupaten` VALUES ('1273', '12', 'KOTA PEMATANG SIANTAR');
+INSERT INTO `tbl_kabupaten` VALUES ('1274', '12', 'KOTA TEBING TINGGI');
+INSERT INTO `tbl_kabupaten` VALUES ('1275', '12', 'KOTA MEDAN');
+INSERT INTO `tbl_kabupaten` VALUES ('1276', '12', 'KOTA BINJAI');
+INSERT INTO `tbl_kabupaten` VALUES ('1277', '12', 'KOTA PADANGSIDIMPUAN');
+INSERT INTO `tbl_kabupaten` VALUES ('1278', '12', 'KOTA GUNUNGSITOLI');
+INSERT INTO `tbl_kabupaten` VALUES ('1301', '13', 'KABUPATEN KEPULAUAN MENTAWAI');
+INSERT INTO `tbl_kabupaten` VALUES ('1302', '13', 'KABUPATEN PESISIR SELATAN');
+INSERT INTO `tbl_kabupaten` VALUES ('1303', '13', 'KABUPATEN SOLOK');
+INSERT INTO `tbl_kabupaten` VALUES ('1304', '13', 'KABUPATEN SIJUNJUNG');
+INSERT INTO `tbl_kabupaten` VALUES ('1305', '13', 'KABUPATEN TANAH DATAR');
+INSERT INTO `tbl_kabupaten` VALUES ('1306', '13', 'KABUPATEN PADANG PARIAMAN');
+INSERT INTO `tbl_kabupaten` VALUES ('1307', '13', 'KABUPATEN AGAM');
+INSERT INTO `tbl_kabupaten` VALUES ('1308', '13', 'KABUPATEN LIMA PULUH KOTA');
+INSERT INTO `tbl_kabupaten` VALUES ('1309', '13', 'KABUPATEN PASAMAN');
+INSERT INTO `tbl_kabupaten` VALUES ('1310', '13', 'KABUPATEN SOLOK SELATAN');
+INSERT INTO `tbl_kabupaten` VALUES ('1311', '13', 'KABUPATEN DHARMASRAYA');
+INSERT INTO `tbl_kabupaten` VALUES ('1312', '13', 'KABUPATEN PASAMAN BARAT');
+INSERT INTO `tbl_kabupaten` VALUES ('1371', '13', 'KOTA PADANG');
+INSERT INTO `tbl_kabupaten` VALUES ('1372', '13', 'KOTA SOLOK');
+INSERT INTO `tbl_kabupaten` VALUES ('1373', '13', 'KOTA SAWAH LUNTO');
+INSERT INTO `tbl_kabupaten` VALUES ('1374', '13', 'KOTA PADANG PANJANG');
+INSERT INTO `tbl_kabupaten` VALUES ('1375', '13', 'KOTA BUKITTINGGI');
+INSERT INTO `tbl_kabupaten` VALUES ('1376', '13', 'KOTA PAYAKUMBUH');
+INSERT INTO `tbl_kabupaten` VALUES ('1377', '13', 'KOTA PARIAMAN');
+INSERT INTO `tbl_kabupaten` VALUES ('1401', '14', 'KABUPATEN KUANTAN SINGINGI');
+INSERT INTO `tbl_kabupaten` VALUES ('1402', '14', 'KABUPATEN INDRAGIRI HULU');
+INSERT INTO `tbl_kabupaten` VALUES ('1403', '14', 'KABUPATEN INDRAGIRI HILIR');
+INSERT INTO `tbl_kabupaten` VALUES ('1404', '14', 'KABUPATEN PELALAWAN');
+INSERT INTO `tbl_kabupaten` VALUES ('1405', '14', 'KABUPATEN S I A K');
+INSERT INTO `tbl_kabupaten` VALUES ('1406', '14', 'KABUPATEN KAMPAR');
+INSERT INTO `tbl_kabupaten` VALUES ('1407', '14', 'KABUPATEN ROKAN HULU');
+INSERT INTO `tbl_kabupaten` VALUES ('1408', '14', 'KABUPATEN BENGKALIS');
+INSERT INTO `tbl_kabupaten` VALUES ('1409', '14', 'KABUPATEN ROKAN HILIR');
+INSERT INTO `tbl_kabupaten` VALUES ('1410', '14', 'KABUPATEN KEPULAUAN MERANTI');
+INSERT INTO `tbl_kabupaten` VALUES ('1471', '14', 'KOTA PEKANBARU');
+INSERT INTO `tbl_kabupaten` VALUES ('1473', '14', 'KOTA D U M A I');
+INSERT INTO `tbl_kabupaten` VALUES ('1501', '15', 'KABUPATEN KERINCI');
+INSERT INTO `tbl_kabupaten` VALUES ('1502', '15', 'KABUPATEN MERANGIN');
+INSERT INTO `tbl_kabupaten` VALUES ('1503', '15', 'KABUPATEN SAROLANGUN');
+INSERT INTO `tbl_kabupaten` VALUES ('1504', '15', 'KABUPATEN BATANG HARI');
+INSERT INTO `tbl_kabupaten` VALUES ('1505', '15', 'KABUPATEN MUARO JAMBI');
+INSERT INTO `tbl_kabupaten` VALUES ('1506', '15', 'KABUPATEN TANJUNG JABUNG TIMUR');
+INSERT INTO `tbl_kabupaten` VALUES ('1507', '15', 'KABUPATEN TANJUNG JABUNG BARAT');
+INSERT INTO `tbl_kabupaten` VALUES ('1508', '15', 'KABUPATEN TEBO');
+INSERT INTO `tbl_kabupaten` VALUES ('1509', '15', 'KABUPATEN BUNGO');
+INSERT INTO `tbl_kabupaten` VALUES ('1571', '15', 'KOTA JAMBI');
+INSERT INTO `tbl_kabupaten` VALUES ('1572', '15', 'KOTA SUNGAI PENUH');
+INSERT INTO `tbl_kabupaten` VALUES ('1601', '16', 'KABUPATEN OGAN KOMERING ULU');
+INSERT INTO `tbl_kabupaten` VALUES ('1602', '16', 'KABUPATEN OGAN KOMERING ILIR');
+INSERT INTO `tbl_kabupaten` VALUES ('1603', '16', 'KABUPATEN MUARA ENIM');
+INSERT INTO `tbl_kabupaten` VALUES ('1604', '16', 'KABUPATEN LAHAT');
+INSERT INTO `tbl_kabupaten` VALUES ('1605', '16', 'KABUPATEN MUSI RAWAS');
+INSERT INTO `tbl_kabupaten` VALUES ('1606', '16', 'KABUPATEN MUSI BANYUASIN');
+INSERT INTO `tbl_kabupaten` VALUES ('1607', '16', 'KABUPATEN BANYU ASIN');
+INSERT INTO `tbl_kabupaten` VALUES ('1608', '16', 'KABUPATEN OGAN KOMERING ULU SELATAN');
+INSERT INTO `tbl_kabupaten` VALUES ('1609', '16', 'KABUPATEN OGAN KOMERING ULU TIMUR');
+INSERT INTO `tbl_kabupaten` VALUES ('1610', '16', 'KABUPATEN OGAN ILIR');
+INSERT INTO `tbl_kabupaten` VALUES ('1611', '16', 'KABUPATEN EMPAT LAWANG');
+INSERT INTO `tbl_kabupaten` VALUES ('1612', '16', 'KABUPATEN PENUKAL ABAB LEMATANG ILIR');
+INSERT INTO `tbl_kabupaten` VALUES ('1613', '16', 'KABUPATEN MUSI RAWAS UTARA');
+INSERT INTO `tbl_kabupaten` VALUES ('1671', '16', 'KOTA PALEMBANG');
+INSERT INTO `tbl_kabupaten` VALUES ('1672', '16', 'KOTA PRABUMULIH');
+INSERT INTO `tbl_kabupaten` VALUES ('1673', '16', 'KOTA PAGAR ALAM');
+INSERT INTO `tbl_kabupaten` VALUES ('1674', '16', 'KOTA LUBUKLINGGAU');
+INSERT INTO `tbl_kabupaten` VALUES ('1701', '17', 'KABUPATEN BENGKULU SELATAN');
+INSERT INTO `tbl_kabupaten` VALUES ('1702', '17', 'KABUPATEN REJANG LEBONG');
+INSERT INTO `tbl_kabupaten` VALUES ('1703', '17', 'KABUPATEN BENGKULU UTARA');
+INSERT INTO `tbl_kabupaten` VALUES ('1704', '17', 'KABUPATEN KAUR');
+INSERT INTO `tbl_kabupaten` VALUES ('1705', '17', 'KABUPATEN SELUMA');
+INSERT INTO `tbl_kabupaten` VALUES ('1706', '17', 'KABUPATEN MUKOMUKO');
+INSERT INTO `tbl_kabupaten` VALUES ('1707', '17', 'KABUPATEN LEBONG');
+INSERT INTO `tbl_kabupaten` VALUES ('1708', '17', 'KABUPATEN KEPAHIANG');
+INSERT INTO `tbl_kabupaten` VALUES ('1709', '17', 'KABUPATEN BENGKULU TENGAH');
+INSERT INTO `tbl_kabupaten` VALUES ('1771', '17', 'KOTA BENGKULU');
+INSERT INTO `tbl_kabupaten` VALUES ('1801', '18', 'KABUPATEN LAMPUNG BARAT');
+INSERT INTO `tbl_kabupaten` VALUES ('1802', '18', 'KABUPATEN TANGGAMUS');
+INSERT INTO `tbl_kabupaten` VALUES ('1803', '18', 'KABUPATEN LAMPUNG SELATAN');
+INSERT INTO `tbl_kabupaten` VALUES ('1804', '18', 'KABUPATEN LAMPUNG TIMUR');
+INSERT INTO `tbl_kabupaten` VALUES ('1805', '18', 'KABUPATEN LAMPUNG TENGAH');
+INSERT INTO `tbl_kabupaten` VALUES ('1806', '18', 'KABUPATEN LAMPUNG UTARA');
+INSERT INTO `tbl_kabupaten` VALUES ('1807', '18', 'KABUPATEN WAY KANAN');
+INSERT INTO `tbl_kabupaten` VALUES ('1808', '18', 'KABUPATEN TULANGBAWANG');
+INSERT INTO `tbl_kabupaten` VALUES ('1809', '18', 'KABUPATEN PESAWARAN');
+INSERT INTO `tbl_kabupaten` VALUES ('1810', '18', 'KABUPATEN PRINGSEWU');
+INSERT INTO `tbl_kabupaten` VALUES ('1811', '18', 'KABUPATEN MESUJI');
+INSERT INTO `tbl_kabupaten` VALUES ('1812', '18', 'KABUPATEN TULANG BAWANG BARAT');
+INSERT INTO `tbl_kabupaten` VALUES ('1813', '18', 'KABUPATEN PESISIR BARAT');
+INSERT INTO `tbl_kabupaten` VALUES ('1871', '18', 'KOTA BANDAR LAMPUNG');
+INSERT INTO `tbl_kabupaten` VALUES ('1872', '18', 'KOTA METRO');
+INSERT INTO `tbl_kabupaten` VALUES ('1901', '19', 'KABUPATEN BANGKA');
+INSERT INTO `tbl_kabupaten` VALUES ('1902', '19', 'KABUPATEN BELITUNG');
+INSERT INTO `tbl_kabupaten` VALUES ('1903', '19', 'KABUPATEN BANGKA BARAT');
+INSERT INTO `tbl_kabupaten` VALUES ('1904', '19', 'KABUPATEN BANGKA TENGAH');
+INSERT INTO `tbl_kabupaten` VALUES ('1905', '19', 'KABUPATEN BANGKA SELATAN');
+INSERT INTO `tbl_kabupaten` VALUES ('1906', '19', 'KABUPATEN BELITUNG TIMUR');
+INSERT INTO `tbl_kabupaten` VALUES ('1971', '19', 'KOTA PANGKAL PINANG');
+INSERT INTO `tbl_kabupaten` VALUES ('2101', '21', 'KABUPATEN KARIMUN');
+INSERT INTO `tbl_kabupaten` VALUES ('2102', '21', 'KABUPATEN BINTAN');
+INSERT INTO `tbl_kabupaten` VALUES ('2103', '21', 'KABUPATEN NATUNA');
+INSERT INTO `tbl_kabupaten` VALUES ('2104', '21', 'KABUPATEN LINGGA');
+INSERT INTO `tbl_kabupaten` VALUES ('2105', '21', 'KABUPATEN KEPULAUAN ANAMBAS');
+INSERT INTO `tbl_kabupaten` VALUES ('2171', '21', 'KOTA B A T A M');
+INSERT INTO `tbl_kabupaten` VALUES ('2172', '21', 'KOTA TANJUNG PINANG');
+INSERT INTO `tbl_kabupaten` VALUES ('3101', '31', 'KABUPATEN KEPULAUAN SERIBU');
+INSERT INTO `tbl_kabupaten` VALUES ('3171', '31', 'KOTA JAKARTA SELATAN');
+INSERT INTO `tbl_kabupaten` VALUES ('3172', '31', 'KOTA JAKARTA TIMUR');
+INSERT INTO `tbl_kabupaten` VALUES ('3173', '31', 'KOTA JAKARTA PUSAT');
+INSERT INTO `tbl_kabupaten` VALUES ('3174', '31', 'KOTA JAKARTA BARAT');
+INSERT INTO `tbl_kabupaten` VALUES ('3175', '31', 'KOTA JAKARTA UTARA');
+INSERT INTO `tbl_kabupaten` VALUES ('3201', '32', 'KABUPATEN BOGOR');
+INSERT INTO `tbl_kabupaten` VALUES ('3202', '32', 'KABUPATEN SUKABUMI');
+INSERT INTO `tbl_kabupaten` VALUES ('3203', '32', 'KABUPATEN CIANJUR');
+INSERT INTO `tbl_kabupaten` VALUES ('3204', '32', 'KABUPATEN BANDUNG');
+INSERT INTO `tbl_kabupaten` VALUES ('3205', '32', 'KABUPATEN GARUT');
+INSERT INTO `tbl_kabupaten` VALUES ('3206', '32', 'KABUPATEN TASIKMALAYA');
+INSERT INTO `tbl_kabupaten` VALUES ('3207', '32', 'KABUPATEN CIAMIS');
+INSERT INTO `tbl_kabupaten` VALUES ('3208', '32', 'KABUPATEN KUNINGAN');
+INSERT INTO `tbl_kabupaten` VALUES ('3209', '32', 'KABUPATEN CIREBON');
+INSERT INTO `tbl_kabupaten` VALUES ('3210', '32', 'KABUPATEN MAJALENGKA');
+INSERT INTO `tbl_kabupaten` VALUES ('3211', '32', 'KABUPATEN SUMEDANG');
+INSERT INTO `tbl_kabupaten` VALUES ('3212', '32', 'KABUPATEN INDRAMAYU');
+INSERT INTO `tbl_kabupaten` VALUES ('3213', '32', 'KABUPATEN SUBANG');
+INSERT INTO `tbl_kabupaten` VALUES ('3214', '32', 'KABUPATEN PURWAKARTA');
+INSERT INTO `tbl_kabupaten` VALUES ('3215', '32', 'KABUPATEN KARAWANG');
+INSERT INTO `tbl_kabupaten` VALUES ('3216', '32', 'KABUPATEN BEKASI');
+INSERT INTO `tbl_kabupaten` VALUES ('3217', '32', 'KABUPATEN BANDUNG BARAT');
+INSERT INTO `tbl_kabupaten` VALUES ('3218', '32', 'KABUPATEN PANGANDARAN');
+INSERT INTO `tbl_kabupaten` VALUES ('3271', '32', 'KOTA BOGOR');
+INSERT INTO `tbl_kabupaten` VALUES ('3272', '32', 'KOTA SUKABUMI');
+INSERT INTO `tbl_kabupaten` VALUES ('3273', '32', 'KOTA BANDUNG');
+INSERT INTO `tbl_kabupaten` VALUES ('3274', '32', 'KOTA CIREBON');
+INSERT INTO `tbl_kabupaten` VALUES ('3275', '32', 'KOTA BEKASI');
+INSERT INTO `tbl_kabupaten` VALUES ('3276', '32', 'KOTA DEPOK');
+INSERT INTO `tbl_kabupaten` VALUES ('3277', '32', 'KOTA CIMAHI');
+INSERT INTO `tbl_kabupaten` VALUES ('3278', '32', 'KOTA TASIKMALAYA');
+INSERT INTO `tbl_kabupaten` VALUES ('3279', '32', 'KOTA BANJAR');
+INSERT INTO `tbl_kabupaten` VALUES ('3301', '33', 'KABUPATEN CILACAP');
+INSERT INTO `tbl_kabupaten` VALUES ('3302', '33', 'KABUPATEN BANYUMAS');
+INSERT INTO `tbl_kabupaten` VALUES ('3303', '33', 'KABUPATEN PURBALINGGA');
+INSERT INTO `tbl_kabupaten` VALUES ('3304', '33', 'KABUPATEN BANJARNEGARA');
+INSERT INTO `tbl_kabupaten` VALUES ('3305', '33', 'KABUPATEN KEBUMEN');
+INSERT INTO `tbl_kabupaten` VALUES ('3306', '33', 'KABUPATEN PURWOREJO');
+INSERT INTO `tbl_kabupaten` VALUES ('3307', '33', 'KABUPATEN WONOSOBO');
+INSERT INTO `tbl_kabupaten` VALUES ('3308', '33', 'KABUPATEN MAGELANG');
+INSERT INTO `tbl_kabupaten` VALUES ('3309', '33', 'KABUPATEN BOYOLALI');
+INSERT INTO `tbl_kabupaten` VALUES ('3310', '33', 'KABUPATEN KLATEN');
+INSERT INTO `tbl_kabupaten` VALUES ('3311', '33', 'KABUPATEN SUKOHARJO');
+INSERT INTO `tbl_kabupaten` VALUES ('3312', '33', 'KABUPATEN WONOGIRI');
+INSERT INTO `tbl_kabupaten` VALUES ('3313', '33', 'KABUPATEN KARANGANYAR');
+INSERT INTO `tbl_kabupaten` VALUES ('3314', '33', 'KABUPATEN SRAGEN');
+INSERT INTO `tbl_kabupaten` VALUES ('3315', '33', 'KABUPATEN GROBOGAN');
+INSERT INTO `tbl_kabupaten` VALUES ('3316', '33', 'KABUPATEN BLORA');
+INSERT INTO `tbl_kabupaten` VALUES ('3317', '33', 'KABUPATEN REMBANG');
+INSERT INTO `tbl_kabupaten` VALUES ('3318', '33', 'KABUPATEN PATI');
+INSERT INTO `tbl_kabupaten` VALUES ('3319', '33', 'KABUPATEN KUDUS');
+INSERT INTO `tbl_kabupaten` VALUES ('3320', '33', 'KABUPATEN JEPARA');
+INSERT INTO `tbl_kabupaten` VALUES ('3321', '33', 'KABUPATEN DEMAK');
+INSERT INTO `tbl_kabupaten` VALUES ('3322', '33', 'KABUPATEN SEMARANG');
+INSERT INTO `tbl_kabupaten` VALUES ('3323', '33', 'KABUPATEN TEMANGGUNG');
+INSERT INTO `tbl_kabupaten` VALUES ('3324', '33', 'KABUPATEN KENDAL');
+INSERT INTO `tbl_kabupaten` VALUES ('3325', '33', 'KABUPATEN BATANG');
+INSERT INTO `tbl_kabupaten` VALUES ('3326', '33', 'KABUPATEN PEKALONGAN');
+INSERT INTO `tbl_kabupaten` VALUES ('3327', '33', 'KABUPATEN PEMALANG');
+INSERT INTO `tbl_kabupaten` VALUES ('3328', '33', 'KABUPATEN TEGAL');
+INSERT INTO `tbl_kabupaten` VALUES ('3329', '33', 'KABUPATEN BREBES');
+INSERT INTO `tbl_kabupaten` VALUES ('3371', '33', 'KOTA MAGELANG');
+INSERT INTO `tbl_kabupaten` VALUES ('3372', '33', 'KOTA SURAKARTA');
+INSERT INTO `tbl_kabupaten` VALUES ('3373', '33', 'KOTA SALATIGA');
+INSERT INTO `tbl_kabupaten` VALUES ('3374', '33', 'KOTA SEMARANG');
+INSERT INTO `tbl_kabupaten` VALUES ('3375', '33', 'KOTA PEKALONGAN');
+INSERT INTO `tbl_kabupaten` VALUES ('3376', '33', 'KOTA TEGAL');
+INSERT INTO `tbl_kabupaten` VALUES ('3401', '34', 'KABUPATEN KULON PROGO');
+INSERT INTO `tbl_kabupaten` VALUES ('3402', '34', 'KABUPATEN BANTUL');
+INSERT INTO `tbl_kabupaten` VALUES ('3403', '34', 'KABUPATEN GUNUNG KIDUL');
+INSERT INTO `tbl_kabupaten` VALUES ('3404', '34', 'KABUPATEN SLEMAN');
+INSERT INTO `tbl_kabupaten` VALUES ('3471', '34', 'KOTA YOGYAKARTA');
+INSERT INTO `tbl_kabupaten` VALUES ('3501', '35', 'KABUPATEN PACITAN');
+INSERT INTO `tbl_kabupaten` VALUES ('3502', '35', 'KABUPATEN PONOROGO');
+INSERT INTO `tbl_kabupaten` VALUES ('3503', '35', 'KABUPATEN TRENGGALEK');
+INSERT INTO `tbl_kabupaten` VALUES ('3504', '35', 'KABUPATEN TULUNGAGUNG');
+INSERT INTO `tbl_kabupaten` VALUES ('3505', '35', 'KABUPATEN BLITAR');
+INSERT INTO `tbl_kabupaten` VALUES ('3506', '35', 'KABUPATEN KEDIRI');
+INSERT INTO `tbl_kabupaten` VALUES ('3507', '35', 'KABUPATEN MALANG');
+INSERT INTO `tbl_kabupaten` VALUES ('3508', '35', 'KABUPATEN LUMAJANG');
+INSERT INTO `tbl_kabupaten` VALUES ('3509', '35', 'KABUPATEN JEMBER');
+INSERT INTO `tbl_kabupaten` VALUES ('3510', '35', 'KABUPATEN BANYUWANGI');
+INSERT INTO `tbl_kabupaten` VALUES ('3511', '35', 'KABUPATEN BONDOWOSO');
+INSERT INTO `tbl_kabupaten` VALUES ('3512', '35', 'KABUPATEN SITUBONDO');
+INSERT INTO `tbl_kabupaten` VALUES ('3513', '35', 'KABUPATEN PROBOLINGGO');
+INSERT INTO `tbl_kabupaten` VALUES ('3514', '35', 'KABUPATEN PASURUAN');
+INSERT INTO `tbl_kabupaten` VALUES ('3515', '35', 'KABUPATEN SIDOARJO');
+INSERT INTO `tbl_kabupaten` VALUES ('3516', '35', 'KABUPATEN MOJOKERTO');
+INSERT INTO `tbl_kabupaten` VALUES ('3517', '35', 'KABUPATEN JOMBANG');
+INSERT INTO `tbl_kabupaten` VALUES ('3518', '35', 'KABUPATEN NGANJUK');
+INSERT INTO `tbl_kabupaten` VALUES ('3519', '35', 'KABUPATEN MADIUN');
+INSERT INTO `tbl_kabupaten` VALUES ('3520', '35', 'KABUPATEN MAGETAN');
+INSERT INTO `tbl_kabupaten` VALUES ('3521', '35', 'KABUPATEN NGAWI');
+INSERT INTO `tbl_kabupaten` VALUES ('3522', '35', 'KABUPATEN BOJONEGORO');
+INSERT INTO `tbl_kabupaten` VALUES ('3523', '35', 'KABUPATEN TUBAN');
+INSERT INTO `tbl_kabupaten` VALUES ('3524', '35', 'KABUPATEN LAMONGAN');
+INSERT INTO `tbl_kabupaten` VALUES ('3525', '35', 'KABUPATEN GRESIK');
+INSERT INTO `tbl_kabupaten` VALUES ('3526', '35', 'KABUPATEN BANGKALAN');
+INSERT INTO `tbl_kabupaten` VALUES ('3527', '35', 'KABUPATEN SAMPANG');
+INSERT INTO `tbl_kabupaten` VALUES ('3528', '35', 'KABUPATEN PAMEKASAN');
+INSERT INTO `tbl_kabupaten` VALUES ('3529', '35', 'KABUPATEN SUMENEP');
+INSERT INTO `tbl_kabupaten` VALUES ('3571', '35', 'KOTA KEDIRI');
+INSERT INTO `tbl_kabupaten` VALUES ('3572', '35', 'KOTA BLITAR');
+INSERT INTO `tbl_kabupaten` VALUES ('3573', '35', 'KOTA MALANG');
+INSERT INTO `tbl_kabupaten` VALUES ('3574', '35', 'KOTA PROBOLINGGO');
+INSERT INTO `tbl_kabupaten` VALUES ('3575', '35', 'KOTA PASURUAN');
+INSERT INTO `tbl_kabupaten` VALUES ('3576', '35', 'KOTA MOJOKERTO');
+INSERT INTO `tbl_kabupaten` VALUES ('3577', '35', 'KOTA MADIUN');
+INSERT INTO `tbl_kabupaten` VALUES ('3578', '35', 'KOTA SURABAYA');
+INSERT INTO `tbl_kabupaten` VALUES ('3579', '35', 'KOTA BATU');
+INSERT INTO `tbl_kabupaten` VALUES ('3601', '36', 'KABUPATEN PANDEGLANG');
+INSERT INTO `tbl_kabupaten` VALUES ('3602', '36', 'KABUPATEN LEBAK');
+INSERT INTO `tbl_kabupaten` VALUES ('3603', '36', 'KABUPATEN TANGERANG');
+INSERT INTO `tbl_kabupaten` VALUES ('3604', '36', 'KABUPATEN SERANG');
+INSERT INTO `tbl_kabupaten` VALUES ('3671', '36', 'KOTA TANGERANG');
+INSERT INTO `tbl_kabupaten` VALUES ('3672', '36', 'KOTA CILEGON');
+INSERT INTO `tbl_kabupaten` VALUES ('3673', '36', 'KOTA SERANG');
+INSERT INTO `tbl_kabupaten` VALUES ('3674', '36', 'KOTA TANGERANG SELATAN');
+INSERT INTO `tbl_kabupaten` VALUES ('5101', '51', 'KABUPATEN JEMBRANA');
+INSERT INTO `tbl_kabupaten` VALUES ('5102', '51', 'KABUPATEN TABANAN');
+INSERT INTO `tbl_kabupaten` VALUES ('5103', '51', 'KABUPATEN BADUNG');
+INSERT INTO `tbl_kabupaten` VALUES ('5104', '51', 'KABUPATEN GIANYAR');
+INSERT INTO `tbl_kabupaten` VALUES ('5105', '51', 'KABUPATEN KLUNGKUNG');
+INSERT INTO `tbl_kabupaten` VALUES ('5106', '51', 'KABUPATEN BANGLI');
+INSERT INTO `tbl_kabupaten` VALUES ('5107', '51', 'KABUPATEN KARANG ASEM');
+INSERT INTO `tbl_kabupaten` VALUES ('5108', '51', 'KABUPATEN BULELENG');
+INSERT INTO `tbl_kabupaten` VALUES ('5171', '51', 'KOTA DENPASAR');
+INSERT INTO `tbl_kabupaten` VALUES ('5201', '52', 'KABUPATEN LOMBOK BARAT');
+INSERT INTO `tbl_kabupaten` VALUES ('5202', '52', 'KABUPATEN LOMBOK TENGAH');
+INSERT INTO `tbl_kabupaten` VALUES ('5203', '52', 'KABUPATEN LOMBOK TIMUR');
+INSERT INTO `tbl_kabupaten` VALUES ('5204', '52', 'KABUPATEN SUMBAWA');
+INSERT INTO `tbl_kabupaten` VALUES ('5205', '52', 'KABUPATEN DOMPU');
+INSERT INTO `tbl_kabupaten` VALUES ('5206', '52', 'KABUPATEN BIMA');
+INSERT INTO `tbl_kabupaten` VALUES ('5207', '52', 'KABUPATEN SUMBAWA BARAT');
+INSERT INTO `tbl_kabupaten` VALUES ('5208', '52', 'KABUPATEN LOMBOK UTARA');
+INSERT INTO `tbl_kabupaten` VALUES ('5271', '52', 'KOTA MATARAM');
+INSERT INTO `tbl_kabupaten` VALUES ('5272', '52', 'KOTA BIMA');
+INSERT INTO `tbl_kabupaten` VALUES ('5301', '53', 'KABUPATEN SUMBA BARAT');
+INSERT INTO `tbl_kabupaten` VALUES ('5302', '53', 'KABUPATEN SUMBA TIMUR');
+INSERT INTO `tbl_kabupaten` VALUES ('5303', '53', 'KABUPATEN KUPANG');
+INSERT INTO `tbl_kabupaten` VALUES ('5304', '53', 'KABUPATEN TIMOR TENGAH SELATAN');
+INSERT INTO `tbl_kabupaten` VALUES ('5305', '53', 'KABUPATEN TIMOR TENGAH UTARA');
+INSERT INTO `tbl_kabupaten` VALUES ('5306', '53', 'KABUPATEN BELU');
+INSERT INTO `tbl_kabupaten` VALUES ('5307', '53', 'KABUPATEN ALOR');
+INSERT INTO `tbl_kabupaten` VALUES ('5308', '53', 'KABUPATEN LEMBATA');
+INSERT INTO `tbl_kabupaten` VALUES ('5309', '53', 'KABUPATEN FLORES TIMUR');
+INSERT INTO `tbl_kabupaten` VALUES ('5310', '53', 'KABUPATEN SIKKA');
+INSERT INTO `tbl_kabupaten` VALUES ('5311', '53', 'KABUPATEN ENDE');
+INSERT INTO `tbl_kabupaten` VALUES ('5312', '53', 'KABUPATEN NGADA');
+INSERT INTO `tbl_kabupaten` VALUES ('5313', '53', 'KABUPATEN MANGGARAI');
+INSERT INTO `tbl_kabupaten` VALUES ('5314', '53', 'KABUPATEN ROTE NDAO');
+INSERT INTO `tbl_kabupaten` VALUES ('5315', '53', 'KABUPATEN MANGGARAI BARAT');
+INSERT INTO `tbl_kabupaten` VALUES ('5316', '53', 'KABUPATEN SUMBA TENGAH');
+INSERT INTO `tbl_kabupaten` VALUES ('5317', '53', 'KABUPATEN SUMBA BARAT DAYA');
+INSERT INTO `tbl_kabupaten` VALUES ('5318', '53', 'KABUPATEN NAGEKEO');
+INSERT INTO `tbl_kabupaten` VALUES ('5319', '53', 'KABUPATEN MANGGARAI TIMUR');
+INSERT INTO `tbl_kabupaten` VALUES ('5320', '53', 'KABUPATEN SABU RAIJUA');
+INSERT INTO `tbl_kabupaten` VALUES ('5321', '53', 'KABUPATEN MALAKA');
+INSERT INTO `tbl_kabupaten` VALUES ('5371', '53', 'KOTA KUPANG');
+INSERT INTO `tbl_kabupaten` VALUES ('6101', '61', 'KABUPATEN SAMBAS');
+INSERT INTO `tbl_kabupaten` VALUES ('6102', '61', 'KABUPATEN BENGKAYANG');
+INSERT INTO `tbl_kabupaten` VALUES ('6103', '61', 'KABUPATEN LANDAK');
+INSERT INTO `tbl_kabupaten` VALUES ('6104', '61', 'KABUPATEN MEMPAWAH');
+INSERT INTO `tbl_kabupaten` VALUES ('6105', '61', 'KABUPATEN SANGGAU');
+INSERT INTO `tbl_kabupaten` VALUES ('6106', '61', 'KABUPATEN KETAPANG');
+INSERT INTO `tbl_kabupaten` VALUES ('6107', '61', 'KABUPATEN SINTANG');
+INSERT INTO `tbl_kabupaten` VALUES ('6108', '61', 'KABUPATEN KAPUAS HULU');
+INSERT INTO `tbl_kabupaten` VALUES ('6109', '61', 'KABUPATEN SEKADAU');
+INSERT INTO `tbl_kabupaten` VALUES ('6110', '61', 'KABUPATEN MELAWI');
+INSERT INTO `tbl_kabupaten` VALUES ('6111', '61', 'KABUPATEN KAYONG UTARA');
+INSERT INTO `tbl_kabupaten` VALUES ('6112', '61', 'KABUPATEN KUBU RAYA');
+INSERT INTO `tbl_kabupaten` VALUES ('6171', '61', 'KOTA PONTIANAK');
+INSERT INTO `tbl_kabupaten` VALUES ('6172', '61', 'KOTA SINGKAWANG');
+INSERT INTO `tbl_kabupaten` VALUES ('6201', '62', 'KABUPATEN KOTAWARINGIN BARAT');
+INSERT INTO `tbl_kabupaten` VALUES ('6202', '62', 'KABUPATEN KOTAWARINGIN TIMUR');
+INSERT INTO `tbl_kabupaten` VALUES ('6203', '62', 'KABUPATEN KAPUAS');
+INSERT INTO `tbl_kabupaten` VALUES ('6204', '62', 'KABUPATEN BARITO SELATAN');
+INSERT INTO `tbl_kabupaten` VALUES ('6205', '62', 'KABUPATEN BARITO UTARA');
+INSERT INTO `tbl_kabupaten` VALUES ('6206', '62', 'KABUPATEN SUKAMARA');
+INSERT INTO `tbl_kabupaten` VALUES ('6207', '62', 'KABUPATEN LAMANDAU');
+INSERT INTO `tbl_kabupaten` VALUES ('6208', '62', 'KABUPATEN SERUYAN');
+INSERT INTO `tbl_kabupaten` VALUES ('6209', '62', 'KABUPATEN KATINGAN');
+INSERT INTO `tbl_kabupaten` VALUES ('6210', '62', 'KABUPATEN PULANG PISAU');
+INSERT INTO `tbl_kabupaten` VALUES ('6211', '62', 'KABUPATEN GUNUNG MAS');
+INSERT INTO `tbl_kabupaten` VALUES ('6212', '62', 'KABUPATEN BARITO TIMUR');
+INSERT INTO `tbl_kabupaten` VALUES ('6213', '62', 'KABUPATEN MURUNG RAYA');
+INSERT INTO `tbl_kabupaten` VALUES ('6271', '62', 'KOTA PALANGKA RAYA');
+INSERT INTO `tbl_kabupaten` VALUES ('6301', '63', 'KABUPATEN TANAH LAUT');
+INSERT INTO `tbl_kabupaten` VALUES ('6302', '63', 'KABUPATEN KOTA BARU');
+INSERT INTO `tbl_kabupaten` VALUES ('6303', '63', 'KABUPATEN BANJAR');
+INSERT INTO `tbl_kabupaten` VALUES ('6304', '63', 'KABUPATEN BARITO KUALA');
+INSERT INTO `tbl_kabupaten` VALUES ('6305', '63', 'KABUPATEN TAPIN');
+INSERT INTO `tbl_kabupaten` VALUES ('6306', '63', 'KABUPATEN HULU SUNGAI SELATAN');
+INSERT INTO `tbl_kabupaten` VALUES ('6307', '63', 'KABUPATEN HULU SUNGAI TENGAH');
+INSERT INTO `tbl_kabupaten` VALUES ('6308', '63', 'KABUPATEN HULU SUNGAI UTARA');
+INSERT INTO `tbl_kabupaten` VALUES ('6309', '63', 'KABUPATEN TABALONG');
+INSERT INTO `tbl_kabupaten` VALUES ('6310', '63', 'KABUPATEN TANAH BUMBU');
+INSERT INTO `tbl_kabupaten` VALUES ('6311', '63', 'KABUPATEN BALANGAN');
+INSERT INTO `tbl_kabupaten` VALUES ('6371', '63', 'KOTA BANJARMASIN');
+INSERT INTO `tbl_kabupaten` VALUES ('6372', '63', 'KOTA BANJAR BARU');
+INSERT INTO `tbl_kabupaten` VALUES ('6401', '64', 'KABUPATEN PASER');
+INSERT INTO `tbl_kabupaten` VALUES ('6402', '64', 'KABUPATEN KUTAI BARAT');
+INSERT INTO `tbl_kabupaten` VALUES ('6403', '64', 'KABUPATEN KUTAI KARTANEGARA');
+INSERT INTO `tbl_kabupaten` VALUES ('6404', '64', 'KABUPATEN KUTAI TIMUR');
+INSERT INTO `tbl_kabupaten` VALUES ('6405', '64', 'KABUPATEN BERAU');
+INSERT INTO `tbl_kabupaten` VALUES ('6409', '64', 'KABUPATEN PENAJAM PASER UTARA');
+INSERT INTO `tbl_kabupaten` VALUES ('6411', '64', 'KABUPATEN MAHAKAM HULU');
+INSERT INTO `tbl_kabupaten` VALUES ('6471', '64', 'KOTA BALIKPAPAN');
+INSERT INTO `tbl_kabupaten` VALUES ('6472', '64', 'KOTA SAMARINDA');
+INSERT INTO `tbl_kabupaten` VALUES ('6474', '64', 'KOTA BONTANG');
+INSERT INTO `tbl_kabupaten` VALUES ('6501', '65', 'KABUPATEN MALINAU');
+INSERT INTO `tbl_kabupaten` VALUES ('6502', '65', 'KABUPATEN BULUNGAN');
+INSERT INTO `tbl_kabupaten` VALUES ('6503', '65', 'KABUPATEN TANA TIDUNG');
+INSERT INTO `tbl_kabupaten` VALUES ('6504', '65', 'KABUPATEN NUNUKAN');
+INSERT INTO `tbl_kabupaten` VALUES ('6571', '65', 'KOTA TARAKAN');
+INSERT INTO `tbl_kabupaten` VALUES ('7101', '71', 'KABUPATEN BOLAANG MONGONDOW');
+INSERT INTO `tbl_kabupaten` VALUES ('7102', '71', 'KABUPATEN MINAHASA');
+INSERT INTO `tbl_kabupaten` VALUES ('7103', '71', 'KABUPATEN KEPULAUAN SANGIHE');
+INSERT INTO `tbl_kabupaten` VALUES ('7104', '71', 'KABUPATEN KEPULAUAN TALAUD');
+INSERT INTO `tbl_kabupaten` VALUES ('7105', '71', 'KABUPATEN MINAHASA SELATAN');
+INSERT INTO `tbl_kabupaten` VALUES ('7106', '71', 'KABUPATEN MINAHASA UTARA');
+INSERT INTO `tbl_kabupaten` VALUES ('7107', '71', 'KABUPATEN BOLAANG MONGONDOW UTARA');
+INSERT INTO `tbl_kabupaten` VALUES ('7108', '71', 'KABUPATEN SIAU TAGULANDANG BIARO');
+INSERT INTO `tbl_kabupaten` VALUES ('7109', '71', 'KABUPATEN MINAHASA TENGGARA');
+INSERT INTO `tbl_kabupaten` VALUES ('7110', '71', 'KABUPATEN BOLAANG MONGONDOW SELATAN');
+INSERT INTO `tbl_kabupaten` VALUES ('7111', '71', 'KABUPATEN BOLAANG MONGONDOW TIMUR');
+INSERT INTO `tbl_kabupaten` VALUES ('7171', '71', 'KOTA MANADO');
+INSERT INTO `tbl_kabupaten` VALUES ('7172', '71', 'KOTA BITUNG');
+INSERT INTO `tbl_kabupaten` VALUES ('7173', '71', 'KOTA TOMOHON');
+INSERT INTO `tbl_kabupaten` VALUES ('7174', '71', 'KOTA KOTAMOBAGU');
+INSERT INTO `tbl_kabupaten` VALUES ('7201', '72', 'KABUPATEN BANGGAI KEPULAUAN');
+INSERT INTO `tbl_kabupaten` VALUES ('7202', '72', 'KABUPATEN BANGGAI');
+INSERT INTO `tbl_kabupaten` VALUES ('7203', '72', 'KABUPATEN MOROWALI');
+INSERT INTO `tbl_kabupaten` VALUES ('7204', '72', 'KABUPATEN POSO');
+INSERT INTO `tbl_kabupaten` VALUES ('7205', '72', 'KABUPATEN DONGGALA');
+INSERT INTO `tbl_kabupaten` VALUES ('7206', '72', 'KABUPATEN TOLI-TOLI');
+INSERT INTO `tbl_kabupaten` VALUES ('7207', '72', 'KABUPATEN BUOL');
+INSERT INTO `tbl_kabupaten` VALUES ('7208', '72', 'KABUPATEN PARIGI MOUTONG');
+INSERT INTO `tbl_kabupaten` VALUES ('7209', '72', 'KABUPATEN TOJO UNA-UNA');
+INSERT INTO `tbl_kabupaten` VALUES ('7210', '72', 'KABUPATEN SIGI');
+INSERT INTO `tbl_kabupaten` VALUES ('7211', '72', 'KABUPATEN BANGGAI LAUT');
+INSERT INTO `tbl_kabupaten` VALUES ('7212', '72', 'KABUPATEN MOROWALI UTARA');
+INSERT INTO `tbl_kabupaten` VALUES ('7271', '72', 'KOTA PALU');
+INSERT INTO `tbl_kabupaten` VALUES ('7301', '73', 'KABUPATEN KEPULAUAN SELAYAR');
+INSERT INTO `tbl_kabupaten` VALUES ('7302', '73', 'KABUPATEN BULUKUMBA');
+INSERT INTO `tbl_kabupaten` VALUES ('7303', '73', 'KABUPATEN BANTAENG');
+INSERT INTO `tbl_kabupaten` VALUES ('7304', '73', 'KABUPATEN JENEPONTO');
+INSERT INTO `tbl_kabupaten` VALUES ('7305', '73', 'KABUPATEN TAKALAR');
+INSERT INTO `tbl_kabupaten` VALUES ('7306', '73', 'KABUPATEN GOWA');
+INSERT INTO `tbl_kabupaten` VALUES ('7307', '73', 'KABUPATEN SINJAI');
+INSERT INTO `tbl_kabupaten` VALUES ('7308', '73', 'KABUPATEN MAROS');
+INSERT INTO `tbl_kabupaten` VALUES ('7309', '73', 'KABUPATEN PANGKAJENE DAN KEPULAUAN');
+INSERT INTO `tbl_kabupaten` VALUES ('7310', '73', 'KABUPATEN BARRU');
+INSERT INTO `tbl_kabupaten` VALUES ('7311', '73', 'KABUPATEN BONE');
+INSERT INTO `tbl_kabupaten` VALUES ('7312', '73', 'KABUPATEN SOPPENG');
+INSERT INTO `tbl_kabupaten` VALUES ('7313', '73', 'KABUPATEN WAJO');
+INSERT INTO `tbl_kabupaten` VALUES ('7314', '73', 'KABUPATEN SIDENRENG RAPPANG');
+INSERT INTO `tbl_kabupaten` VALUES ('7315', '73', 'KABUPATEN PINRANG');
+INSERT INTO `tbl_kabupaten` VALUES ('7316', '73', 'KABUPATEN ENREKANG');
+INSERT INTO `tbl_kabupaten` VALUES ('7317', '73', 'KABUPATEN LUWU');
+INSERT INTO `tbl_kabupaten` VALUES ('7318', '73', 'KABUPATEN TANA TORAJA');
+INSERT INTO `tbl_kabupaten` VALUES ('7322', '73', 'KABUPATEN LUWU UTARA');
+INSERT INTO `tbl_kabupaten` VALUES ('7325', '73', 'KABUPATEN LUWU TIMUR');
+INSERT INTO `tbl_kabupaten` VALUES ('7326', '73', 'KABUPATEN TORAJA UTARA');
+INSERT INTO `tbl_kabupaten` VALUES ('7371', '73', 'KOTA MAKASSAR');
+INSERT INTO `tbl_kabupaten` VALUES ('7372', '73', 'KOTA PAREPARE');
+INSERT INTO `tbl_kabupaten` VALUES ('7373', '73', 'KOTA PALOPO');
+INSERT INTO `tbl_kabupaten` VALUES ('7401', '74', 'KABUPATEN BUTON');
+INSERT INTO `tbl_kabupaten` VALUES ('7402', '74', 'KABUPATEN MUNA');
+INSERT INTO `tbl_kabupaten` VALUES ('7403', '74', 'KABUPATEN KONAWE');
+INSERT INTO `tbl_kabupaten` VALUES ('7404', '74', 'KABUPATEN KOLAKA');
+INSERT INTO `tbl_kabupaten` VALUES ('7405', '74', 'KABUPATEN KONAWE SELATAN');
+INSERT INTO `tbl_kabupaten` VALUES ('7406', '74', 'KABUPATEN BOMBANA');
+INSERT INTO `tbl_kabupaten` VALUES ('7407', '74', 'KABUPATEN WAKATOBI');
+INSERT INTO `tbl_kabupaten` VALUES ('7408', '74', 'KABUPATEN KOLAKA UTARA');
+INSERT INTO `tbl_kabupaten` VALUES ('7409', '74', 'KABUPATEN BUTON UTARA');
+INSERT INTO `tbl_kabupaten` VALUES ('7410', '74', 'KABUPATEN KONAWE UTARA');
+INSERT INTO `tbl_kabupaten` VALUES ('7411', '74', 'KABUPATEN KOLAKA TIMUR');
+INSERT INTO `tbl_kabupaten` VALUES ('7412', '74', 'KABUPATEN KONAWE KEPULAUAN');
+INSERT INTO `tbl_kabupaten` VALUES ('7413', '74', 'KABUPATEN MUNA BARAT');
+INSERT INTO `tbl_kabupaten` VALUES ('7414', '74', 'KABUPATEN BUTON TENGAH');
+INSERT INTO `tbl_kabupaten` VALUES ('7415', '74', 'KABUPATEN BUTON SELATAN');
+INSERT INTO `tbl_kabupaten` VALUES ('7471', '74', 'KOTA KENDARI');
+INSERT INTO `tbl_kabupaten` VALUES ('7472', '74', 'KOTA BAUBAU');
+INSERT INTO `tbl_kabupaten` VALUES ('7501', '75', 'KABUPATEN BOALEMO');
+INSERT INTO `tbl_kabupaten` VALUES ('7502', '75', 'KABUPATEN GORONTALO');
+INSERT INTO `tbl_kabupaten` VALUES ('7503', '75', 'KABUPATEN POHUWATO');
+INSERT INTO `tbl_kabupaten` VALUES ('7504', '75', 'KABUPATEN BONE BOLANGO');
+INSERT INTO `tbl_kabupaten` VALUES ('7505', '75', 'KABUPATEN GORONTALO UTARA');
+INSERT INTO `tbl_kabupaten` VALUES ('7571', '75', 'KOTA GORONTALO');
+INSERT INTO `tbl_kabupaten` VALUES ('7601', '76', 'KABUPATEN MAJENE');
+INSERT INTO `tbl_kabupaten` VALUES ('7602', '76', 'KABUPATEN POLEWALI MANDAR');
+INSERT INTO `tbl_kabupaten` VALUES ('7603', '76', 'KABUPATEN MAMASA');
+INSERT INTO `tbl_kabupaten` VALUES ('7604', '76', 'KABUPATEN MAMUJU');
+INSERT INTO `tbl_kabupaten` VALUES ('7605', '76', 'KABUPATEN MAMUJU UTARA');
+INSERT INTO `tbl_kabupaten` VALUES ('7606', '76', 'KABUPATEN MAMUJU TENGAH');
+INSERT INTO `tbl_kabupaten` VALUES ('8101', '81', 'KABUPATEN MALUKU TENGGARA BARAT');
+INSERT INTO `tbl_kabupaten` VALUES ('8102', '81', 'KABUPATEN MALUKU TENGGARA');
+INSERT INTO `tbl_kabupaten` VALUES ('8103', '81', 'KABUPATEN MALUKU TENGAH');
+INSERT INTO `tbl_kabupaten` VALUES ('8104', '81', 'KABUPATEN BURU');
+INSERT INTO `tbl_kabupaten` VALUES ('8105', '81', 'KABUPATEN KEPULAUAN ARU');
+INSERT INTO `tbl_kabupaten` VALUES ('8106', '81', 'KABUPATEN SERAM BAGIAN BARAT');
+INSERT INTO `tbl_kabupaten` VALUES ('8107', '81', 'KABUPATEN SERAM BAGIAN TIMUR');
+INSERT INTO `tbl_kabupaten` VALUES ('8108', '81', 'KABUPATEN MALUKU BARAT DAYA');
+INSERT INTO `tbl_kabupaten` VALUES ('8109', '81', 'KABUPATEN BURU SELATAN');
+INSERT INTO `tbl_kabupaten` VALUES ('8171', '81', 'KOTA AMBON');
+INSERT INTO `tbl_kabupaten` VALUES ('8172', '81', 'KOTA TUAL');
+INSERT INTO `tbl_kabupaten` VALUES ('8201', '82', 'KABUPATEN HALMAHERA BARAT');
+INSERT INTO `tbl_kabupaten` VALUES ('8202', '82', 'KABUPATEN HALMAHERA TENGAH');
+INSERT INTO `tbl_kabupaten` VALUES ('8203', '82', 'KABUPATEN KEPULAUAN SULA');
+INSERT INTO `tbl_kabupaten` VALUES ('8204', '82', 'KABUPATEN HALMAHERA SELATAN');
+INSERT INTO `tbl_kabupaten` VALUES ('8205', '82', 'KABUPATEN HALMAHERA UTARA');
+INSERT INTO `tbl_kabupaten` VALUES ('8206', '82', 'KABUPATEN HALMAHERA TIMUR');
+INSERT INTO `tbl_kabupaten` VALUES ('8207', '82', 'KABUPATEN PULAU MOROTAI');
+INSERT INTO `tbl_kabupaten` VALUES ('8208', '82', 'KABUPATEN PULAU TALIABU');
+INSERT INTO `tbl_kabupaten` VALUES ('8271', '82', 'KOTA TERNATE');
+INSERT INTO `tbl_kabupaten` VALUES ('8272', '82', 'KOTA TIDORE KEPULAUAN');
+INSERT INTO `tbl_kabupaten` VALUES ('9101', '91', 'KABUPATEN FAKFAK');
+INSERT INTO `tbl_kabupaten` VALUES ('9102', '91', 'KABUPATEN KAIMANA');
+INSERT INTO `tbl_kabupaten` VALUES ('9103', '91', 'KABUPATEN TELUK WONDAMA');
+INSERT INTO `tbl_kabupaten` VALUES ('9104', '91', 'KABUPATEN TELUK BINTUNI');
+INSERT INTO `tbl_kabupaten` VALUES ('9105', '91', 'KABUPATEN MANOKWARI');
+INSERT INTO `tbl_kabupaten` VALUES ('9106', '91', 'KABUPATEN SORONG SELATAN');
+INSERT INTO `tbl_kabupaten` VALUES ('9107', '91', 'KABUPATEN SORONG');
+INSERT INTO `tbl_kabupaten` VALUES ('9108', '91', 'KABUPATEN RAJA AMPAT');
+INSERT INTO `tbl_kabupaten` VALUES ('9109', '91', 'KABUPATEN TAMBRAUW');
+INSERT INTO `tbl_kabupaten` VALUES ('9110', '91', 'KABUPATEN MAYBRAT');
+INSERT INTO `tbl_kabupaten` VALUES ('9111', '91', 'KABUPATEN MANOKWARI SELATAN');
+INSERT INTO `tbl_kabupaten` VALUES ('9112', '91', 'KABUPATEN PEGUNUNGAN ARFAK');
+INSERT INTO `tbl_kabupaten` VALUES ('9171', '91', 'KOTA SORONG');
+INSERT INTO `tbl_kabupaten` VALUES ('9401', '94', 'KABUPATEN MERAUKE');
+INSERT INTO `tbl_kabupaten` VALUES ('9402', '94', 'KABUPATEN JAYAWIJAYA');
+INSERT INTO `tbl_kabupaten` VALUES ('9403', '94', 'KABUPATEN JAYAPURA');
+INSERT INTO `tbl_kabupaten` VALUES ('9404', '94', 'KABUPATEN NABIRE');
+INSERT INTO `tbl_kabupaten` VALUES ('9408', '94', 'KABUPATEN KEPULAUAN YAPEN');
+INSERT INTO `tbl_kabupaten` VALUES ('9409', '94', 'KABUPATEN BIAK NUMFOR');
+INSERT INTO `tbl_kabupaten` VALUES ('9410', '94', 'KABUPATEN PANIAI');
+INSERT INTO `tbl_kabupaten` VALUES ('9411', '94', 'KABUPATEN PUNCAK JAYA');
+INSERT INTO `tbl_kabupaten` VALUES ('9412', '94', 'KABUPATEN MIMIKA');
+INSERT INTO `tbl_kabupaten` VALUES ('9413', '94', 'KABUPATEN BOVEN DIGOEL');
+INSERT INTO `tbl_kabupaten` VALUES ('9414', '94', 'KABUPATEN MAPPI');
+INSERT INTO `tbl_kabupaten` VALUES ('9415', '94', 'KABUPATEN ASMAT');
+INSERT INTO `tbl_kabupaten` VALUES ('9416', '94', 'KABUPATEN YAHUKIMO');
+INSERT INTO `tbl_kabupaten` VALUES ('9417', '94', 'KABUPATEN PEGUNUNGAN BINTANG');
+INSERT INTO `tbl_kabupaten` VALUES ('9418', '94', 'KABUPATEN TOLIKARA');
+INSERT INTO `tbl_kabupaten` VALUES ('9419', '94', 'KABUPATEN SARMI');
+INSERT INTO `tbl_kabupaten` VALUES ('9420', '94', 'KABUPATEN KEEROM');
+INSERT INTO `tbl_kabupaten` VALUES ('9426', '94', 'KABUPATEN WAROPEN');
+INSERT INTO `tbl_kabupaten` VALUES ('9427', '94', 'KABUPATEN SUPIORI');
+INSERT INTO `tbl_kabupaten` VALUES ('9428', '94', 'KABUPATEN MAMBERAMO RAYA');
+INSERT INTO `tbl_kabupaten` VALUES ('9429', '94', 'KABUPATEN NDUGA');
+INSERT INTO `tbl_kabupaten` VALUES ('9430', '94', 'KABUPATEN LANNY JAYA');
+INSERT INTO `tbl_kabupaten` VALUES ('9431', '94', 'KABUPATEN MAMBERAMO TENGAH');
+INSERT INTO `tbl_kabupaten` VALUES ('9432', '94', 'KABUPATEN YALIMO');
+INSERT INTO `tbl_kabupaten` VALUES ('9433', '94', 'KABUPATEN PUNCAK');
+INSERT INTO `tbl_kabupaten` VALUES ('9434', '94', 'KABUPATEN DOGIYAI');
+INSERT INTO `tbl_kabupaten` VALUES ('9435', '94', 'KABUPATEN INTAN JAYA');
+INSERT INTO `tbl_kabupaten` VALUES ('9436', '94', 'KABUPATEN DEIYAI');
+INSERT INTO `tbl_kabupaten` VALUES ('9471', '94', 'KOTA JAYAPURA');
 
-INSERT INTO `tbl_kabupaten` (`id_kabupaten`, `id_provinsi`, `nama_kabupaten`) VALUES
-('1101', '11', 'KABUPATEN SIMEULUE'),
-('1102', '11', 'KABUPATEN ACEH SINGKIL'),
-('1103', '11', 'KABUPATEN ACEH SELATAN'),
-('1104', '11', 'KABUPATEN ACEH TENGGARA'),
-('1105', '11', 'KABUPATEN ACEH TIMUR'),
-('1106', '11', 'KABUPATEN ACEH TENGAH'),
-('1107', '11', 'KABUPATEN ACEH BARAT'),
-('1108', '11', 'KABUPATEN ACEH BESAR'),
-('1109', '11', 'KABUPATEN PIDIE'),
-('1110', '11', 'KABUPATEN BIREUEN'),
-('1111', '11', 'KABUPATEN ACEH UTARA'),
-('1112', '11', 'KABUPATEN ACEH BARAT DAYA'),
-('1113', '11', 'KABUPATEN GAYO LUES'),
-('1114', '11', 'KABUPATEN ACEH TAMIANG'),
-('1115', '11', 'KABUPATEN NAGAN RAYA'),
-('1116', '11', 'KABUPATEN ACEH JAYA'),
-('1117', '11', 'KABUPATEN BENER MERIAH'),
-('1118', '11', 'KABUPATEN PIDIE JAYA'),
-('1171', '11', 'KOTA BANDA ACEH'),
-('1172', '11', 'KOTA SABANG'),
-('1173', '11', 'KOTA LANGSA'),
-('1174', '11', 'KOTA LHOKSEUMAWE'),
-('1175', '11', 'KOTA SUBULUSSALAM'),
-('1201', '12', 'KABUPATEN NIAS'),
-('1202', '12', 'KABUPATEN MANDAILING NATAL'),
-('1203', '12', 'KABUPATEN TAPANULI SELATAN'),
-('1204', '12', 'KABUPATEN TAPANULI TENGAH'),
-('1205', '12', 'KABUPATEN TAPANULI UTARA'),
-('1206', '12', 'KABUPATEN TOBA SAMOSIR'),
-('1207', '12', 'KABUPATEN LABUHAN BATU'),
-('1208', '12', 'KABUPATEN ASAHAN'),
-('1209', '12', 'KABUPATEN SIMALUNGUN'),
-('1210', '12', 'KABUPATEN DAIRI'),
-('1211', '12', 'KABUPATEN KARO'),
-('1212', '12', 'KABUPATEN DELI SERDANG'),
-('1213', '12', 'KABUPATEN LANGKAT'),
-('1214', '12', 'KABUPATEN NIAS SELATAN'),
-('1215', '12', 'KABUPATEN HUMBANG HASUNDUTAN'),
-('1216', '12', 'KABUPATEN PAKPAK BHARAT'),
-('1217', '12', 'KABUPATEN SAMOSIR'),
-('1218', '12', 'KABUPATEN SERDANG BEDAGAI'),
-('1219', '12', 'KABUPATEN BATU BARA'),
-('1220', '12', 'KABUPATEN PADANG LAWAS UTARA'),
-('1221', '12', 'KABUPATEN PADANG LAWAS'),
-('1222', '12', 'KABUPATEN LABUHAN BATU SELATAN'),
-('1223', '12', 'KABUPATEN LABUHAN BATU UTARA'),
-('1224', '12', 'KABUPATEN NIAS UTARA'),
-('1225', '12', 'KABUPATEN NIAS BARAT'),
-('1271', '12', 'KOTA SIBOLGA'),
-('1272', '12', 'KOTA TANJUNG BALAI'),
-('1273', '12', 'KOTA PEMATANG SIANTAR'),
-('1274', '12', 'KOTA TEBING TINGGI'),
-('1275', '12', 'KOTA MEDAN'),
-('1276', '12', 'KOTA BINJAI'),
-('1277', '12', 'KOTA PADANGSIDIMPUAN'),
-('1278', '12', 'KOTA GUNUNGSITOLI'),
-('1301', '13', 'KABUPATEN KEPULAUAN MENTAWAI'),
-('1302', '13', 'KABUPATEN PESISIR SELATAN'),
-('1303', '13', 'KABUPATEN SOLOK'),
-('1304', '13', 'KABUPATEN SIJUNJUNG'),
-('1305', '13', 'KABUPATEN TANAH DATAR'),
-('1306', '13', 'KABUPATEN PADANG PARIAMAN'),
-('1307', '13', 'KABUPATEN AGAM'),
-('1308', '13', 'KABUPATEN LIMA PULUH KOTA'),
-('1309', '13', 'KABUPATEN PASAMAN'),
-('1310', '13', 'KABUPATEN SOLOK SELATAN'),
-('1311', '13', 'KABUPATEN DHARMASRAYA'),
-('1312', '13', 'KABUPATEN PASAMAN BARAT'),
-('1371', '13', 'KOTA PADANG'),
-('1372', '13', 'KOTA SOLOK'),
-('1373', '13', 'KOTA SAWAH LUNTO'),
-('1374', '13', 'KOTA PADANG PANJANG'),
-('1375', '13', 'KOTA BUKITTINGGI'),
-('1376', '13', 'KOTA PAYAKUMBUH'),
-('1377', '13', 'KOTA PARIAMAN'),
-('1401', '14', 'KABUPATEN KUANTAN SINGINGI'),
-('1402', '14', 'KABUPATEN INDRAGIRI HULU'),
-('1403', '14', 'KABUPATEN INDRAGIRI HILIR'),
-('1404', '14', 'KABUPATEN PELALAWAN'),
-('1405', '14', 'KABUPATEN S I A K'),
-('1406', '14', 'KABUPATEN KAMPAR'),
-('1407', '14', 'KABUPATEN ROKAN HULU'),
-('1408', '14', 'KABUPATEN BENGKALIS'),
-('1409', '14', 'KABUPATEN ROKAN HILIR'),
-('1410', '14', 'KABUPATEN KEPULAUAN MERANTI'),
-('1471', '14', 'KOTA PEKANBARU'),
-('1473', '14', 'KOTA D U M A I'),
-('1501', '15', 'KABUPATEN KERINCI'),
-('1502', '15', 'KABUPATEN MERANGIN'),
-('1503', '15', 'KABUPATEN SAROLANGUN'),
-('1504', '15', 'KABUPATEN BATANG HARI'),
-('1505', '15', 'KABUPATEN MUARO JAMBI'),
-('1506', '15', 'KABUPATEN TANJUNG JABUNG TIMUR'),
-('1507', '15', 'KABUPATEN TANJUNG JABUNG BARAT'),
-('1508', '15', 'KABUPATEN TEBO'),
-('1509', '15', 'KABUPATEN BUNGO'),
-('1571', '15', 'KOTA JAMBI'),
-('1572', '15', 'KOTA SUNGAI PENUH'),
-('1601', '16', 'KABUPATEN OGAN KOMERING ULU'),
-('1602', '16', 'KABUPATEN OGAN KOMERING ILIR'),
-('1603', '16', 'KABUPATEN MUARA ENIM'),
-('1604', '16', 'KABUPATEN LAHAT'),
-('1605', '16', 'KABUPATEN MUSI RAWAS'),
-('1606', '16', 'KABUPATEN MUSI BANYUASIN'),
-('1607', '16', 'KABUPATEN BANYU ASIN'),
-('1608', '16', 'KABUPATEN OGAN KOMERING ULU SELATAN'),
-('1609', '16', 'KABUPATEN OGAN KOMERING ULU TIMUR'),
-('1610', '16', 'KABUPATEN OGAN ILIR'),
-('1611', '16', 'KABUPATEN EMPAT LAWANG'),
-('1612', '16', 'KABUPATEN PENUKAL ABAB LEMATANG ILIR'),
-('1613', '16', 'KABUPATEN MUSI RAWAS UTARA'),
-('1671', '16', 'KOTA PALEMBANG'),
-('1672', '16', 'KOTA PRABUMULIH'),
-('1673', '16', 'KOTA PAGAR ALAM'),
-('1674', '16', 'KOTA LUBUKLINGGAU'),
-('1701', '17', 'KABUPATEN BENGKULU SELATAN'),
-('1702', '17', 'KABUPATEN REJANG LEBONG'),
-('1703', '17', 'KABUPATEN BENGKULU UTARA'),
-('1704', '17', 'KABUPATEN KAUR'),
-('1705', '17', 'KABUPATEN SELUMA'),
-('1706', '17', 'KABUPATEN MUKOMUKO'),
-('1707', '17', 'KABUPATEN LEBONG'),
-('1708', '17', 'KABUPATEN KEPAHIANG'),
-('1709', '17', 'KABUPATEN BENGKULU TENGAH'),
-('1771', '17', 'KOTA BENGKULU'),
-('1801', '18', 'KABUPATEN LAMPUNG BARAT'),
-('1802', '18', 'KABUPATEN TANGGAMUS'),
-('1803', '18', 'KABUPATEN LAMPUNG SELATAN'),
-('1804', '18', 'KABUPATEN LAMPUNG TIMUR'),
-('1805', '18', 'KABUPATEN LAMPUNG TENGAH'),
-('1806', '18', 'KABUPATEN LAMPUNG UTARA'),
-('1807', '18', 'KABUPATEN WAY KANAN'),
-('1808', '18', 'KABUPATEN TULANGBAWANG'),
-('1809', '18', 'KABUPATEN PESAWARAN'),
-('1810', '18', 'KABUPATEN PRINGSEWU'),
-('1811', '18', 'KABUPATEN MESUJI'),
-('1812', '18', 'KABUPATEN TULANG BAWANG BARAT'),
-('1813', '18', 'KABUPATEN PESISIR BARAT'),
-('1871', '18', 'KOTA BANDAR LAMPUNG'),
-('1872', '18', 'KOTA METRO'),
-('1901', '19', 'KABUPATEN BANGKA'),
-('1902', '19', 'KABUPATEN BELITUNG'),
-('1903', '19', 'KABUPATEN BANGKA BARAT'),
-('1904', '19', 'KABUPATEN BANGKA TENGAH'),
-('1905', '19', 'KABUPATEN BANGKA SELATAN'),
-('1906', '19', 'KABUPATEN BELITUNG TIMUR'),
-('1971', '19', 'KOTA PANGKAL PINANG'),
-('2101', '21', 'KABUPATEN KARIMUN'),
-('2102', '21', 'KABUPATEN BINTAN'),
-('2103', '21', 'KABUPATEN NATUNA'),
-('2104', '21', 'KABUPATEN LINGGA'),
-('2105', '21', 'KABUPATEN KEPULAUAN ANAMBAS'),
-('2171', '21', 'KOTA B A T A M'),
-('2172', '21', 'KOTA TANJUNG PINANG'),
-('3101', '31', 'KABUPATEN KEPULAUAN SERIBU'),
-('3171', '31', 'KOTA JAKARTA SELATAN'),
-('3172', '31', 'KOTA JAKARTA TIMUR'),
-('3173', '31', 'KOTA JAKARTA PUSAT'),
-('3174', '31', 'KOTA JAKARTA BARAT'),
-('3175', '31', 'KOTA JAKARTA UTARA'),
-('3201', '32', 'KABUPATEN BOGOR'),
-('3202', '32', 'KABUPATEN SUKABUMI'),
-('3203', '32', 'KABUPATEN CIANJUR'),
-('3204', '32', 'KABUPATEN BANDUNG'),
-('3205', '32', 'KABUPATEN GARUT'),
-('3206', '32', 'KABUPATEN TASIKMALAYA'),
-('3207', '32', 'KABUPATEN CIAMIS'),
-('3208', '32', 'KABUPATEN KUNINGAN'),
-('3209', '32', 'KABUPATEN CIREBON'),
-('3210', '32', 'KABUPATEN MAJALENGKA'),
-('3211', '32', 'KABUPATEN SUMEDANG'),
-('3212', '32', 'KABUPATEN INDRAMAYU'),
-('3213', '32', 'KABUPATEN SUBANG'),
-('3214', '32', 'KABUPATEN PURWAKARTA'),
-('3215', '32', 'KABUPATEN KARAWANG'),
-('3216', '32', 'KABUPATEN BEKASI'),
-('3217', '32', 'KABUPATEN BANDUNG BARAT'),
-('3218', '32', 'KABUPATEN PANGANDARAN'),
-('3271', '32', 'KOTA BOGOR'),
-('3272', '32', 'KOTA SUKABUMI'),
-('3273', '32', 'KOTA BANDUNG'),
-('3274', '32', 'KOTA CIREBON'),
-('3275', '32', 'KOTA BEKASI'),
-('3276', '32', 'KOTA DEPOK'),
-('3277', '32', 'KOTA CIMAHI'),
-('3278', '32', 'KOTA TASIKMALAYA'),
-('3279', '32', 'KOTA BANJAR'),
-('3301', '33', 'KABUPATEN CILACAP'),
-('3302', '33', 'KABUPATEN BANYUMAS'),
-('3303', '33', 'KABUPATEN PURBALINGGA'),
-('3304', '33', 'KABUPATEN BANJARNEGARA'),
-('3305', '33', 'KABUPATEN KEBUMEN'),
-('3306', '33', 'KABUPATEN PURWOREJO'),
-('3307', '33', 'KABUPATEN WONOSOBO'),
-('3308', '33', 'KABUPATEN MAGELANG'),
-('3309', '33', 'KABUPATEN BOYOLALI'),
-('3310', '33', 'KABUPATEN KLATEN'),
-('3311', '33', 'KABUPATEN SUKOHARJO'),
-('3312', '33', 'KABUPATEN WONOGIRI'),
-('3313', '33', 'KABUPATEN KARANGANYAR'),
-('3314', '33', 'KABUPATEN SRAGEN'),
-('3315', '33', 'KABUPATEN GROBOGAN'),
-('3316', '33', 'KABUPATEN BLORA'),
-('3317', '33', 'KABUPATEN REMBANG'),
-('3318', '33', 'KABUPATEN PATI'),
-('3319', '33', 'KABUPATEN KUDUS'),
-('3320', '33', 'KABUPATEN JEPARA'),
-('3321', '33', 'KABUPATEN DEMAK'),
-('3322', '33', 'KABUPATEN SEMARANG'),
-('3323', '33', 'KABUPATEN TEMANGGUNG'),
-('3324', '33', 'KABUPATEN KENDAL'),
-('3325', '33', 'KABUPATEN BATANG'),
-('3326', '33', 'KABUPATEN PEKALONGAN'),
-('3327', '33', 'KABUPATEN PEMALANG'),
-('3328', '33', 'KABUPATEN TEGAL'),
-('3329', '33', 'KABUPATEN BREBES'),
-('3371', '33', 'KOTA MAGELANG'),
-('3372', '33', 'KOTA SURAKARTA'),
-('3373', '33', 'KOTA SALATIGA'),
-('3374', '33', 'KOTA SEMARANG'),
-('3375', '33', 'KOTA PEKALONGAN'),
-('3376', '33', 'KOTA TEGAL'),
-('3401', '34', 'KABUPATEN KULON PROGO'),
-('3402', '34', 'KABUPATEN BANTUL'),
-('3403', '34', 'KABUPATEN GUNUNG KIDUL'),
-('3404', '34', 'KABUPATEN SLEMAN'),
-('3471', '34', 'KOTA YOGYAKARTA'),
-('3501', '35', 'KABUPATEN PACITAN'),
-('3502', '35', 'KABUPATEN PONOROGO'),
-('3503', '35', 'KABUPATEN TRENGGALEK'),
-('3504', '35', 'KABUPATEN TULUNGAGUNG'),
-('3505', '35', 'KABUPATEN BLITAR'),
-('3506', '35', 'KABUPATEN KEDIRI'),
-('3507', '35', 'KABUPATEN MALANG'),
-('3508', '35', 'KABUPATEN LUMAJANG'),
-('3509', '35', 'KABUPATEN JEMBER'),
-('3510', '35', 'KABUPATEN BANYUWANGI'),
-('3511', '35', 'KABUPATEN BONDOWOSO'),
-('3512', '35', 'KABUPATEN SITUBONDO'),
-('3513', '35', 'KABUPATEN PROBOLINGGO'),
-('3514', '35', 'KABUPATEN PASURUAN'),
-('3515', '35', 'KABUPATEN SIDOARJO'),
-('3516', '35', 'KABUPATEN MOJOKERTO'),
-('3517', '35', 'KABUPATEN JOMBANG'),
-('3518', '35', 'KABUPATEN NGANJUK'),
-('3519', '35', 'KABUPATEN MADIUN'),
-('3520', '35', 'KABUPATEN MAGETAN'),
-('3521', '35', 'KABUPATEN NGAWI'),
-('3522', '35', 'KABUPATEN BOJONEGORO'),
-('3523', '35', 'KABUPATEN TUBAN'),
-('3524', '35', 'KABUPATEN LAMONGAN'),
-('3525', '35', 'KABUPATEN GRESIK'),
-('3526', '35', 'KABUPATEN BANGKALAN'),
-('3527', '35', 'KABUPATEN SAMPANG'),
-('3528', '35', 'KABUPATEN PAMEKASAN'),
-('3529', '35', 'KABUPATEN SUMENEP'),
-('3571', '35', 'KOTA KEDIRI'),
-('3572', '35', 'KOTA BLITAR'),
-('3573', '35', 'KOTA MALANG'),
-('3574', '35', 'KOTA PROBOLINGGO'),
-('3575', '35', 'KOTA PASURUAN'),
-('3576', '35', 'KOTA MOJOKERTO'),
-('3577', '35', 'KOTA MADIUN'),
-('3578', '35', 'KOTA SURABAYA'),
-('3579', '35', 'KOTA BATU'),
-('3601', '36', 'KABUPATEN PANDEGLANG'),
-('3602', '36', 'KABUPATEN LEBAK'),
-('3603', '36', 'KABUPATEN TANGERANG'),
-('3604', '36', 'KABUPATEN SERANG'),
-('3671', '36', 'KOTA TANGERANG'),
-('3672', '36', 'KOTA CILEGON'),
-('3673', '36', 'KOTA SERANG'),
-('3674', '36', 'KOTA TANGERANG SELATAN'),
-('5101', '51', 'KABUPATEN JEMBRANA'),
-('5102', '51', 'KABUPATEN TABANAN'),
-('5103', '51', 'KABUPATEN BADUNG'),
-('5104', '51', 'KABUPATEN GIANYAR'),
-('5105', '51', 'KABUPATEN KLUNGKUNG'),
-('5106', '51', 'KABUPATEN BANGLI'),
-('5107', '51', 'KABUPATEN KARANG ASEM'),
-('5108', '51', 'KABUPATEN BULELENG'),
-('5171', '51', 'KOTA DENPASAR'),
-('5201', '52', 'KABUPATEN LOMBOK BARAT'),
-('5202', '52', 'KABUPATEN LOMBOK TENGAH'),
-('5203', '52', 'KABUPATEN LOMBOK TIMUR'),
-('5204', '52', 'KABUPATEN SUMBAWA'),
-('5205', '52', 'KABUPATEN DOMPU'),
-('5206', '52', 'KABUPATEN BIMA'),
-('5207', '52', 'KABUPATEN SUMBAWA BARAT'),
-('5208', '52', 'KABUPATEN LOMBOK UTARA'),
-('5271', '52', 'KOTA MATARAM'),
-('5272', '52', 'KOTA BIMA'),
-('5301', '53', 'KABUPATEN SUMBA BARAT'),
-('5302', '53', 'KABUPATEN SUMBA TIMUR'),
-('5303', '53', 'KABUPATEN KUPANG'),
-('5304', '53', 'KABUPATEN TIMOR TENGAH SELATAN'),
-('5305', '53', 'KABUPATEN TIMOR TENGAH UTARA'),
-('5306', '53', 'KABUPATEN BELU'),
-('5307', '53', 'KABUPATEN ALOR'),
-('5308', '53', 'KABUPATEN LEMBATA'),
-('5309', '53', 'KABUPATEN FLORES TIMUR'),
-('5310', '53', 'KABUPATEN SIKKA'),
-('5311', '53', 'KABUPATEN ENDE'),
-('5312', '53', 'KABUPATEN NGADA'),
-('5313', '53', 'KABUPATEN MANGGARAI'),
-('5314', '53', 'KABUPATEN ROTE NDAO'),
-('5315', '53', 'KABUPATEN MANGGARAI BARAT'),
-('5316', '53', 'KABUPATEN SUMBA TENGAH'),
-('5317', '53', 'KABUPATEN SUMBA BARAT DAYA'),
-('5318', '53', 'KABUPATEN NAGEKEO'),
-('5319', '53', 'KABUPATEN MANGGARAI TIMUR'),
-('5320', '53', 'KABUPATEN SABU RAIJUA'),
-('5321', '53', 'KABUPATEN MALAKA'),
-('5371', '53', 'KOTA KUPANG'),
-('6101', '61', 'KABUPATEN SAMBAS'),
-('6102', '61', 'KABUPATEN BENGKAYANG'),
-('6103', '61', 'KABUPATEN LANDAK'),
-('6104', '61', 'KABUPATEN MEMPAWAH'),
-('6105', '61', 'KABUPATEN SANGGAU'),
-('6106', '61', 'KABUPATEN KETAPANG'),
-('6107', '61', 'KABUPATEN SINTANG'),
-('6108', '61', 'KABUPATEN KAPUAS HULU'),
-('6109', '61', 'KABUPATEN SEKADAU'),
-('6110', '61', 'KABUPATEN MELAWI'),
-('6111', '61', 'KABUPATEN KAYONG UTARA'),
-('6112', '61', 'KABUPATEN KUBU RAYA'),
-('6171', '61', 'KOTA PONTIANAK'),
-('6172', '61', 'KOTA SINGKAWANG'),
-('6201', '62', 'KABUPATEN KOTAWARINGIN BARAT'),
-('6202', '62', 'KABUPATEN KOTAWARINGIN TIMUR'),
-('6203', '62', 'KABUPATEN KAPUAS'),
-('6204', '62', 'KABUPATEN BARITO SELATAN'),
-('6205', '62', 'KABUPATEN BARITO UTARA'),
-('6206', '62', 'KABUPATEN SUKAMARA'),
-('6207', '62', 'KABUPATEN LAMANDAU'),
-('6208', '62', 'KABUPATEN SERUYAN'),
-('6209', '62', 'KABUPATEN KATINGAN'),
-('6210', '62', 'KABUPATEN PULANG PISAU'),
-('6211', '62', 'KABUPATEN GUNUNG MAS'),
-('6212', '62', 'KABUPATEN BARITO TIMUR'),
-('6213', '62', 'KABUPATEN MURUNG RAYA'),
-('6271', '62', 'KOTA PALANGKA RAYA'),
-('6301', '63', 'KABUPATEN TANAH LAUT'),
-('6302', '63', 'KABUPATEN KOTA BARU'),
-('6303', '63', 'KABUPATEN BANJAR'),
-('6304', '63', 'KABUPATEN BARITO KUALA'),
-('6305', '63', 'KABUPATEN TAPIN'),
-('6306', '63', 'KABUPATEN HULU SUNGAI SELATAN'),
-('6307', '63', 'KABUPATEN HULU SUNGAI TENGAH'),
-('6308', '63', 'KABUPATEN HULU SUNGAI UTARA'),
-('6309', '63', 'KABUPATEN TABALONG'),
-('6310', '63', 'KABUPATEN TANAH BUMBU'),
-('6311', '63', 'KABUPATEN BALANGAN'),
-('6371', '63', 'KOTA BANJARMASIN'),
-('6372', '63', 'KOTA BANJAR BARU'),
-('6401', '64', 'KABUPATEN PASER'),
-('6402', '64', 'KABUPATEN KUTAI BARAT'),
-('6403', '64', 'KABUPATEN KUTAI KARTANEGARA'),
-('6404', '64', 'KABUPATEN KUTAI TIMUR'),
-('6405', '64', 'KABUPATEN BERAU'),
-('6409', '64', 'KABUPATEN PENAJAM PASER UTARA'),
-('6411', '64', 'KABUPATEN MAHAKAM HULU'),
-('6471', '64', 'KOTA BALIKPAPAN'),
-('6472', '64', 'KOTA SAMARINDA'),
-('6474', '64', 'KOTA BONTANG'),
-('6501', '65', 'KABUPATEN MALINAU'),
-('6502', '65', 'KABUPATEN BULUNGAN'),
-('6503', '65', 'KABUPATEN TANA TIDUNG'),
-('6504', '65', 'KABUPATEN NUNUKAN'),
-('6571', '65', 'KOTA TARAKAN'),
-('7101', '71', 'KABUPATEN BOLAANG MONGONDOW'),
-('7102', '71', 'KABUPATEN MINAHASA'),
-('7103', '71', 'KABUPATEN KEPULAUAN SANGIHE'),
-('7104', '71', 'KABUPATEN KEPULAUAN TALAUD'),
-('7105', '71', 'KABUPATEN MINAHASA SELATAN'),
-('7106', '71', 'KABUPATEN MINAHASA UTARA'),
-('7107', '71', 'KABUPATEN BOLAANG MONGONDOW UTARA'),
-('7108', '71', 'KABUPATEN SIAU TAGULANDANG BIARO'),
-('7109', '71', 'KABUPATEN MINAHASA TENGGARA'),
-('7110', '71', 'KABUPATEN BOLAANG MONGONDOW SELATAN'),
-('7111', '71', 'KABUPATEN BOLAANG MONGONDOW TIMUR'),
-('7171', '71', 'KOTA MANADO'),
-('7172', '71', 'KOTA BITUNG'),
-('7173', '71', 'KOTA TOMOHON'),
-('7174', '71', 'KOTA KOTAMOBAGU'),
-('7201', '72', 'KABUPATEN BANGGAI KEPULAUAN'),
-('7202', '72', 'KABUPATEN BANGGAI'),
-('7203', '72', 'KABUPATEN MOROWALI'),
-('7204', '72', 'KABUPATEN POSO'),
-('7205', '72', 'KABUPATEN DONGGALA'),
-('7206', '72', 'KABUPATEN TOLI-TOLI'),
-('7207', '72', 'KABUPATEN BUOL'),
-('7208', '72', 'KABUPATEN PARIGI MOUTONG'),
-('7209', '72', 'KABUPATEN TOJO UNA-UNA'),
-('7210', '72', 'KABUPATEN SIGI'),
-('7211', '72', 'KABUPATEN BANGGAI LAUT'),
-('7212', '72', 'KABUPATEN MOROWALI UTARA'),
-('7271', '72', 'KOTA PALU'),
-('7301', '73', 'KABUPATEN KEPULAUAN SELAYAR'),
-('7302', '73', 'KABUPATEN BULUKUMBA'),
-('7303', '73', 'KABUPATEN BANTAENG'),
-('7304', '73', 'KABUPATEN JENEPONTO'),
-('7305', '73', 'KABUPATEN TAKALAR'),
-('7306', '73', 'KABUPATEN GOWA'),
-('7307', '73', 'KABUPATEN SINJAI'),
-('7308', '73', 'KABUPATEN MAROS'),
-('7309', '73', 'KABUPATEN PANGKAJENE DAN KEPULAUAN'),
-('7310', '73', 'KABUPATEN BARRU'),
-('7311', '73', 'KABUPATEN BONE'),
-('7312', '73', 'KABUPATEN SOPPENG'),
-('7313', '73', 'KABUPATEN WAJO'),
-('7314', '73', 'KABUPATEN SIDENRENG RAPPANG'),
-('7315', '73', 'KABUPATEN PINRANG'),
-('7316', '73', 'KABUPATEN ENREKANG'),
-('7317', '73', 'KABUPATEN LUWU'),
-('7318', '73', 'KABUPATEN TANA TORAJA'),
-('7322', '73', 'KABUPATEN LUWU UTARA'),
-('7325', '73', 'KABUPATEN LUWU TIMUR'),
-('7326', '73', 'KABUPATEN TORAJA UTARA'),
-('7371', '73', 'KOTA MAKASSAR'),
-('7372', '73', 'KOTA PAREPARE'),
-('7373', '73', 'KOTA PALOPO'),
-('7401', '74', 'KABUPATEN BUTON'),
-('7402', '74', 'KABUPATEN MUNA'),
-('7403', '74', 'KABUPATEN KONAWE'),
-('7404', '74', 'KABUPATEN KOLAKA'),
-('7405', '74', 'KABUPATEN KONAWE SELATAN'),
-('7406', '74', 'KABUPATEN BOMBANA'),
-('7407', '74', 'KABUPATEN WAKATOBI'),
-('7408', '74', 'KABUPATEN KOLAKA UTARA'),
-('7409', '74', 'KABUPATEN BUTON UTARA'),
-('7410', '74', 'KABUPATEN KONAWE UTARA'),
-('7411', '74', 'KABUPATEN KOLAKA TIMUR'),
-('7412', '74', 'KABUPATEN KONAWE KEPULAUAN'),
-('7413', '74', 'KABUPATEN MUNA BARAT'),
-('7414', '74', 'KABUPATEN BUTON TENGAH'),
-('7415', '74', 'KABUPATEN BUTON SELATAN'),
-('7471', '74', 'KOTA KENDARI'),
-('7472', '74', 'KOTA BAUBAU'),
-('7501', '75', 'KABUPATEN BOALEMO'),
-('7502', '75', 'KABUPATEN GORONTALO'),
-('7503', '75', 'KABUPATEN POHUWATO'),
-('7504', '75', 'KABUPATEN BONE BOLANGO'),
-('7505', '75', 'KABUPATEN GORONTALO UTARA'),
-('7571', '75', 'KOTA GORONTALO'),
-('7601', '76', 'KABUPATEN MAJENE'),
-('7602', '76', 'KABUPATEN POLEWALI MANDAR'),
-('7603', '76', 'KABUPATEN MAMASA'),
-('7604', '76', 'KABUPATEN MAMUJU'),
-('7605', '76', 'KABUPATEN MAMUJU UTARA'),
-('7606', '76', 'KABUPATEN MAMUJU TENGAH'),
-('8101', '81', 'KABUPATEN MALUKU TENGGARA BARAT'),
-('8102', '81', 'KABUPATEN MALUKU TENGGARA'),
-('8103', '81', 'KABUPATEN MALUKU TENGAH'),
-('8104', '81', 'KABUPATEN BURU'),
-('8105', '81', 'KABUPATEN KEPULAUAN ARU'),
-('8106', '81', 'KABUPATEN SERAM BAGIAN BARAT'),
-('8107', '81', 'KABUPATEN SERAM BAGIAN TIMUR'),
-('8108', '81', 'KABUPATEN MALUKU BARAT DAYA'),
-('8109', '81', 'KABUPATEN BURU SELATAN'),
-('8171', '81', 'KOTA AMBON'),
-('8172', '81', 'KOTA TUAL'),
-('8201', '82', 'KABUPATEN HALMAHERA BARAT'),
-('8202', '82', 'KABUPATEN HALMAHERA TENGAH'),
-('8203', '82', 'KABUPATEN KEPULAUAN SULA'),
-('8204', '82', 'KABUPATEN HALMAHERA SELATAN'),
-('8205', '82', 'KABUPATEN HALMAHERA UTARA'),
-('8206', '82', 'KABUPATEN HALMAHERA TIMUR'),
-('8207', '82', 'KABUPATEN PULAU MOROTAI'),
-('8208', '82', 'KABUPATEN PULAU TALIABU'),
-('8271', '82', 'KOTA TERNATE'),
-('8272', '82', 'KOTA TIDORE KEPULAUAN'),
-('9101', '91', 'KABUPATEN FAKFAK'),
-('9102', '91', 'KABUPATEN KAIMANA'),
-('9103', '91', 'KABUPATEN TELUK WONDAMA'),
-('9104', '91', 'KABUPATEN TELUK BINTUNI'),
-('9105', '91', 'KABUPATEN MANOKWARI'),
-('9106', '91', 'KABUPATEN SORONG SELATAN'),
-('9107', '91', 'KABUPATEN SORONG'),
-('9108', '91', 'KABUPATEN RAJA AMPAT'),
-('9109', '91', 'KABUPATEN TAMBRAUW'),
-('9110', '91', 'KABUPATEN MAYBRAT'),
-('9111', '91', 'KABUPATEN MANOKWARI SELATAN'),
-('9112', '91', 'KABUPATEN PEGUNUNGAN ARFAK'),
-('9171', '91', 'KOTA SORONG'),
-('9401', '94', 'KABUPATEN MERAUKE'),
-('9402', '94', 'KABUPATEN JAYAWIJAYA'),
-('9403', '94', 'KABUPATEN JAYAPURA'),
-('9404', '94', 'KABUPATEN NABIRE'),
-('9408', '94', 'KABUPATEN KEPULAUAN YAPEN'),
-('9409', '94', 'KABUPATEN BIAK NUMFOR'),
-('9410', '94', 'KABUPATEN PANIAI'),
-('9411', '94', 'KABUPATEN PUNCAK JAYA'),
-('9412', '94', 'KABUPATEN MIMIKA'),
-('9413', '94', 'KABUPATEN BOVEN DIGOEL'),
-('9414', '94', 'KABUPATEN MAPPI'),
-('9415', '94', 'KABUPATEN ASMAT'),
-('9416', '94', 'KABUPATEN YAHUKIMO'),
-('9417', '94', 'KABUPATEN PEGUNUNGAN BINTANG'),
-('9418', '94', 'KABUPATEN TOLIKARA'),
-('9419', '94', 'KABUPATEN SARMI'),
-('9420', '94', 'KABUPATEN KEEROM'),
-('9426', '94', 'KABUPATEN WAROPEN'),
-('9427', '94', 'KABUPATEN SUPIORI'),
-('9428', '94', 'KABUPATEN MAMBERAMO RAYA'),
-('9429', '94', 'KABUPATEN NDUGA'),
-('9430', '94', 'KABUPATEN LANNY JAYA'),
-('9431', '94', 'KABUPATEN MAMBERAMO TENGAH'),
-('9432', '94', 'KABUPATEN YALIMO'),
-('9433', '94', 'KABUPATEN PUNCAK'),
-('9434', '94', 'KABUPATEN DOGIYAI'),
-('9435', '94', 'KABUPATEN INTAN JAYA'),
-('9436', '94', 'KABUPATEN DEIYAI'),
-('9471', '94', 'KOTA JAYAPURA');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_kecamatan`
---
-
+-- ----------------------------
+-- Table structure for tbl_kecamatan
+-- ----------------------------
 DROP TABLE IF EXISTS `tbl_kecamatan`;
-CREATE TABLE IF NOT EXISTS `tbl_kecamatan` (
-  `id_kecamatan` char(7) COLLATE utf8_unicode_ci NOT NULL,
-  `id_kabupaten` char(4) COLLATE utf8_unicode_ci NOT NULL,
-  `nama_kecamatan` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+CREATE TABLE `tbl_kecamatan`  (
+  `id_kecamatan` char(7) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `id_kabupaten` char(4) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `nama_kecamatan` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id_kecamatan`) USING BTREE,
-  KEY `districts_regency_id_index` (`id_kabupaten`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
+  INDEX `districts_regency_id_index`(`id_kabupaten`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = DYNAMIC;
 
---
--- Dumping data for table `tbl_kecamatan`
---
+-- ----------------------------
+-- Records of tbl_kecamatan
+-- ----------------------------
+INSERT INTO `tbl_kecamatan` VALUES ('1101010', '1101', 'TEUPAH SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1101020', '1101', 'SIMEULUE TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1101021', '1101', 'TEUPAH BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1101022', '1101', 'TEUPAH TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1101030', '1101', 'SIMEULUE TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1101031', '1101', 'TELUK DALAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1101032', '1101', 'SIMEULUE CUT');
+INSERT INTO `tbl_kecamatan` VALUES ('1101040', '1101', 'SALANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1101050', '1101', 'SIMEULUE BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1101051', '1101', 'ALAFAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1102010', '1102', 'PULAU BANYAK');
+INSERT INTO `tbl_kecamatan` VALUES ('1102011', '1102', 'PULAU BANYAK BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1102020', '1102', 'SINGKIL');
+INSERT INTO `tbl_kecamatan` VALUES ('1102021', '1102', 'SINGKIL UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1102022', '1102', 'KUALA BARU');
+INSERT INTO `tbl_kecamatan` VALUES ('1102030', '1102', 'SIMPANG KANAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1102031', '1102', 'GUNUNG MERIAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1102032', '1102', 'DANAU PARIS');
+INSERT INTO `tbl_kecamatan` VALUES ('1102033', '1102', 'SURO');
+INSERT INTO `tbl_kecamatan` VALUES ('1102042', '1102', 'SINGKOHOR');
+INSERT INTO `tbl_kecamatan` VALUES ('1102043', '1102', 'KOTA BAHARU');
+INSERT INTO `tbl_kecamatan` VALUES ('1103010', '1103', 'TRUMON');
+INSERT INTO `tbl_kecamatan` VALUES ('1103011', '1103', 'TRUMON TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1103012', '1103', 'TRUMON TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1103020', '1103', 'BAKONGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1103021', '1103', 'BAKONGAN TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1103022', '1103', 'KOTA BAHAGIA');
+INSERT INTO `tbl_kecamatan` VALUES ('1103030', '1103', 'KLUET SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1103031', '1103', 'KLUET TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1103040', '1103', 'KLUET UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1103041', '1103', 'PASIE RAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('1103042', '1103', 'KLUET TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1103050', '1103', 'TAPAK TUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1103060', '1103', 'SAMA DUA');
+INSERT INTO `tbl_kecamatan` VALUES ('1103070', '1103', 'SAWANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1103080', '1103', 'MEUKEK');
+INSERT INTO `tbl_kecamatan` VALUES ('1103090', '1103', 'LABUHAN HAJI');
+INSERT INTO `tbl_kecamatan` VALUES ('1103091', '1103', 'LABUHAN HAJI TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1103092', '1103', 'LABUHAN HAJI BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1104010', '1104', 'LAWE ALAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1104011', '1104', 'BABUL RAHMAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1104012', '1104', 'TANOH ALAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1104020', '1104', 'LAWE SIGALA-GALA');
+INSERT INTO `tbl_kecamatan` VALUES ('1104021', '1104', 'BABUL MAKMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1104022', '1104', 'SEMADAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1104023', '1104', 'LAUSER');
+INSERT INTO `tbl_kecamatan` VALUES ('1104030', '1104', 'BAMBEL');
+INSERT INTO `tbl_kecamatan` VALUES ('1104031', '1104', 'BUKIT TUSAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1104032', '1104', 'LAWE SUMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1104040', '1104', 'BABUSSALAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1104041', '1104', 'LAWE BULAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1104050', '1104', 'BADAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1104051', '1104', 'DARUL HASANAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1104052', '1104', 'KETAMBE');
+INSERT INTO `tbl_kecamatan` VALUES ('1104053', '1104', 'DELENG POKHKISEN');
+INSERT INTO `tbl_kecamatan` VALUES ('1105080', '1105', 'SERBA JADI');
+INSERT INTO `tbl_kecamatan` VALUES ('1105081', '1105', 'SIMPANG JERNIH');
+INSERT INTO `tbl_kecamatan` VALUES ('1105082', '1105', 'PEUNARON');
+INSERT INTO `tbl_kecamatan` VALUES ('1105090', '1105', 'BIREM BAYEUN');
+INSERT INTO `tbl_kecamatan` VALUES ('1105100', '1105', 'RANTAU SELAMAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1105101', '1105', 'SUNGAI RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1105110', '1105', 'PEUREULAK');
+INSERT INTO `tbl_kecamatan` VALUES ('1105111', '1105', 'PEUREULAK TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1105112', '1105', 'PEUREULAK BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1105120', '1105', 'RANTO PEUREULAK');
+INSERT INTO `tbl_kecamatan` VALUES ('1105130', '1105', 'IDI RAYEUK');
+INSERT INTO `tbl_kecamatan` VALUES ('1105131', '1105', 'PEUDAWA');
+INSERT INTO `tbl_kecamatan` VALUES ('1105132', '1105', 'BANDA ALAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1105133', '1105', 'IDI TUNONG');
+INSERT INTO `tbl_kecamatan` VALUES ('1105134', '1105', 'DARUL IHSAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1105135', '1105', 'IDI TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1105140', '1105', 'DARUL AMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1105150', '1105', 'NURUSSALAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1105151', '1105', 'DARUL FALAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1105160', '1105', 'JULOK');
+INSERT INTO `tbl_kecamatan` VALUES ('1105161', '1105', 'INDRA MAKMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1105170', '1105', 'PANTE BIDARI');
+INSERT INTO `tbl_kecamatan` VALUES ('1105180', '1105', 'SIMPANG ULIM');
+INSERT INTO `tbl_kecamatan` VALUES ('1105181', '1105', 'MADAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1106010', '1106', 'LINGE');
+INSERT INTO `tbl_kecamatan` VALUES ('1106011', '1106', 'ATU LINTANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1106012', '1106', 'JAGONG JEGET');
+INSERT INTO `tbl_kecamatan` VALUES ('1106020', '1106', 'BINTANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1106031', '1106', 'LUT TAWAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1106032', '1106', 'KEBAYAKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1106040', '1106', 'PEGASING');
+INSERT INTO `tbl_kecamatan` VALUES ('1106041', '1106', 'BIES');
+INSERT INTO `tbl_kecamatan` VALUES ('1106050', '1106', 'BEBESEN');
+INSERT INTO `tbl_kecamatan` VALUES ('1106051', '1106', 'KUTE PANANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1106060', '1106', 'SILIH NARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1106061', '1106', 'KETOL');
+INSERT INTO `tbl_kecamatan` VALUES ('1106062', '1106', 'CELALA');
+INSERT INTO `tbl_kecamatan` VALUES ('1106063', '1106', 'RUSIP ANTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1107050', '1107', 'JOHAN PAHLAWAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1107060', '1107', 'SAMATIGA');
+INSERT INTO `tbl_kecamatan` VALUES ('1107061', '1107', 'BUBON');
+INSERT INTO `tbl_kecamatan` VALUES ('1107062', '1107', 'ARONGAN LAMBALEK');
+INSERT INTO `tbl_kecamatan` VALUES ('1107070', '1107', 'WOYLA');
+INSERT INTO `tbl_kecamatan` VALUES ('1107071', '1107', 'WOYLA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1107072', '1107', 'WOYLA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1107080', '1107', 'KAWAY XVI');
+INSERT INTO `tbl_kecamatan` VALUES ('1107081', '1107', 'MEUREUBO');
+INSERT INTO `tbl_kecamatan` VALUES ('1107082', '1107', 'PANTAI CEUREMEN');
+INSERT INTO `tbl_kecamatan` VALUES ('1107083', '1107', 'PANTON REU');
+INSERT INTO `tbl_kecamatan` VALUES ('1107090', '1107', 'SUNGAI MAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1108010', '1108', 'LHOONG');
+INSERT INTO `tbl_kecamatan` VALUES ('1108020', '1108', 'LHOKNGA');
+INSERT INTO `tbl_kecamatan` VALUES ('1108021', '1108', 'LEUPUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1108030', '1108', 'INDRAPURI');
+INSERT INTO `tbl_kecamatan` VALUES ('1108031', '1108', 'KUTA COT GLIE');
+INSERT INTO `tbl_kecamatan` VALUES ('1108040', '1108', 'SEULIMEUM');
+INSERT INTO `tbl_kecamatan` VALUES ('1108041', '1108', 'KOTA JANTHO');
+INSERT INTO `tbl_kecamatan` VALUES ('1108042', '1108', 'LEMBAH SEULAWAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1108050', '1108', 'MESJID RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1108060', '1108', 'DARUSSALAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1108061', '1108', 'BAITUSSALAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1108070', '1108', 'KUTA BARO');
+INSERT INTO `tbl_kecamatan` VALUES ('1108080', '1108', 'MONTASIK');
+INSERT INTO `tbl_kecamatan` VALUES ('1108081', '1108', 'BLANG BINTANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1108090', '1108', 'INGIN JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1108091', '1108', 'KRUENG BARONA JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1108100', '1108', 'SUKA MAKMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1108101', '1108', 'KUTA MALAKA');
+INSERT INTO `tbl_kecamatan` VALUES ('1108102', '1108', 'SIMPANG TIGA');
+INSERT INTO `tbl_kecamatan` VALUES ('1108110', '1108', 'DARUL IMARAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1108111', '1108', 'DARUL KAMAL');
+INSERT INTO `tbl_kecamatan` VALUES ('1108120', '1108', 'PEUKAN BADA');
+INSERT INTO `tbl_kecamatan` VALUES ('1108130', '1108', 'PULO ACEH');
+INSERT INTO `tbl_kecamatan` VALUES ('1109010', '1109', 'GEUMPANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1109011', '1109', 'MANE');
+INSERT INTO `tbl_kecamatan` VALUES ('1109070', '1109', 'GLUMPANG TIGA');
+INSERT INTO `tbl_kecamatan` VALUES ('1109071', '1109', 'GLUMPANG BARO');
+INSERT INTO `tbl_kecamatan` VALUES ('1109080', '1109', 'MUTIARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1109081', '1109', 'MUTIARA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1109090', '1109', 'TIRO/TRUSEB');
+INSERT INTO `tbl_kecamatan` VALUES ('1109100', '1109', 'TANGSE');
+INSERT INTO `tbl_kecamatan` VALUES ('1109111', '1109', 'KEUMALA');
+INSERT INTO `tbl_kecamatan` VALUES ('1109112', '1109', 'TITEUE');
+INSERT INTO `tbl_kecamatan` VALUES ('1109120', '1109', 'SAKTI');
+INSERT INTO `tbl_kecamatan` VALUES ('1109130', '1109', 'MILA');
+INSERT INTO `tbl_kecamatan` VALUES ('1109140', '1109', 'PADANG TIJI');
+INSERT INTO `tbl_kecamatan` VALUES ('1109150', '1109', 'DELIMA');
+INSERT INTO `tbl_kecamatan` VALUES ('1109151', '1109', 'GRONG GRONG');
+INSERT INTO `tbl_kecamatan` VALUES ('1109160', '1109', 'INDRAJAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1109170', '1109', 'PEUKAN BARO');
+INSERT INTO `tbl_kecamatan` VALUES ('1109180', '1109', 'KEMBANG TANJONG');
+INSERT INTO `tbl_kecamatan` VALUES ('1109190', '1109', 'SIMPANG TIGA');
+INSERT INTO `tbl_kecamatan` VALUES ('1109200', '1109', 'KOTA SIGLI');
+INSERT INTO `tbl_kecamatan` VALUES ('1109210', '1109', 'PIDIE');
+INSERT INTO `tbl_kecamatan` VALUES ('1109220', '1109', 'BATEE');
+INSERT INTO `tbl_kecamatan` VALUES ('1109230', '1109', 'MUARA TIGA');
+INSERT INTO `tbl_kecamatan` VALUES ('1110010', '1110', 'SAMALANGA');
+INSERT INTO `tbl_kecamatan` VALUES ('1110011', '1110', 'SIMPANG MAMPLAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1110020', '1110', 'PANDRAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1110030', '1110', 'JEUNIEB');
+INSERT INTO `tbl_kecamatan` VALUES ('1110031', '1110', 'PEULIMBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1110040', '1110', 'PEUDADA');
+INSERT INTO `tbl_kecamatan` VALUES ('1110050', '1110', 'JULI');
+INSERT INTO `tbl_kecamatan` VALUES ('1110060', '1110', 'JEUMPA');
+INSERT INTO `tbl_kecamatan` VALUES ('1110061', '1110', 'KOTA JUANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1110062', '1110', 'KUALA');
+INSERT INTO `tbl_kecamatan` VALUES ('1110070', '1110', 'JANGKA');
+INSERT INTO `tbl_kecamatan` VALUES ('1110080', '1110', 'PEUSANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1110081', '1110', 'PEUSANGAN SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1110082', '1110', 'PEUSANGAN SIBLAH KRUENG');
+INSERT INTO `tbl_kecamatan` VALUES ('1110090', '1110', 'MAKMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1110100', '1110', 'GANDA PURA');
+INSERT INTO `tbl_kecamatan` VALUES ('1110101', '1110', 'KUTA BLANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1111010', '1111', 'SAWANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1111020', '1111', 'NISAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1111021', '1111', 'NISAM ANTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1111022', '1111', 'BANDA BARO');
+INSERT INTO `tbl_kecamatan` VALUES ('1111030', '1111', 'KUTA MAKMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1111031', '1111', 'SIMPANG KERAMAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1111040', '1111', 'SYAMTALIRA BAYU');
+INSERT INTO `tbl_kecamatan` VALUES ('1111041', '1111', 'GEUREUDONG PASE');
+INSERT INTO `tbl_kecamatan` VALUES ('1111050', '1111', 'MEURAH MULIA');
+INSERT INTO `tbl_kecamatan` VALUES ('1111060', '1111', 'MATANGKULI');
+INSERT INTO `tbl_kecamatan` VALUES ('1111061', '1111', 'PAYA BAKONG');
+INSERT INTO `tbl_kecamatan` VALUES ('1111062', '1111', 'PIRAK TIMU');
+INSERT INTO `tbl_kecamatan` VALUES ('1111070', '1111', 'COT GIREK');
+INSERT INTO `tbl_kecamatan` VALUES ('1111080', '1111', 'TANAH JAMBO AYE');
+INSERT INTO `tbl_kecamatan` VALUES ('1111081', '1111', 'LANGKAHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1111090', '1111', 'SEUNUDDON');
+INSERT INTO `tbl_kecamatan` VALUES ('1111100', '1111', 'BAKTIYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1111101', '1111', 'BAKTIYA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1111110', '1111', 'LHOKSUKON');
+INSERT INTO `tbl_kecamatan` VALUES ('1111120', '1111', 'TANAH LUAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1111121', '1111', 'NIBONG');
+INSERT INTO `tbl_kecamatan` VALUES ('1111130', '1111', 'SAMUDERA');
+INSERT INTO `tbl_kecamatan` VALUES ('1111140', '1111', 'SYAMTALIRA ARON');
+INSERT INTO `tbl_kecamatan` VALUES ('1111150', '1111', 'TANAH PASIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1111151', '1111', 'LAPANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1111160', '1111', 'MUARA BATU');
+INSERT INTO `tbl_kecamatan` VALUES ('1111170', '1111', 'DEWANTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1112010', '1112', 'MANGGENG');
+INSERT INTO `tbl_kecamatan` VALUES ('1112011', '1112', 'LEMBAH SABIL');
+INSERT INTO `tbl_kecamatan` VALUES ('1112020', '1112', 'TANGAN-TANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1112021', '1112', 'SETIA');
+INSERT INTO `tbl_kecamatan` VALUES ('1112030', '1112', 'BLANG PIDIE');
+INSERT INTO `tbl_kecamatan` VALUES ('1112031', '1112', 'JEUMPA');
+INSERT INTO `tbl_kecamatan` VALUES ('1112040', '1112', 'SUSOH');
+INSERT INTO `tbl_kecamatan` VALUES ('1112050', '1112', 'KUALA BATEE');
+INSERT INTO `tbl_kecamatan` VALUES ('1112060', '1112', 'BABAH ROT');
+INSERT INTO `tbl_kecamatan` VALUES ('1113010', '1113', 'KUTA PANJANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1113011', '1113', 'BLANG JERANGO');
+INSERT INTO `tbl_kecamatan` VALUES ('1113020', '1113', 'BLANGKEJEREN');
+INSERT INTO `tbl_kecamatan` VALUES ('1113021', '1113', 'PUTRI BETUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1113022', '1113', 'DABUN GELANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1113023', '1113', 'BLANG PEGAYON');
+INSERT INTO `tbl_kecamatan` VALUES ('1113030', '1113', 'PINING');
+INSERT INTO `tbl_kecamatan` VALUES ('1113040', '1113', 'RIKIT GAIB');
+INSERT INTO `tbl_kecamatan` VALUES ('1113041', '1113', 'PANTAN CUACA');
+INSERT INTO `tbl_kecamatan` VALUES ('1113050', '1113', 'TERANGUN');
+INSERT INTO `tbl_kecamatan` VALUES ('1113051', '1113', 'TRIPE JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1114010', '1114', 'TAMIANG HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1114011', '1114', 'BANDAR PUSAKA');
+INSERT INTO `tbl_kecamatan` VALUES ('1114020', '1114', 'KEJURUAN MUDA');
+INSERT INTO `tbl_kecamatan` VALUES ('1114021', '1114', 'TENGGULUN');
+INSERT INTO `tbl_kecamatan` VALUES ('1114030', '1114', 'RANTAU');
+INSERT INTO `tbl_kecamatan` VALUES ('1114040', '1114', 'KOTA KUALA SIMPANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1114050', '1114', 'SERUWAY');
+INSERT INTO `tbl_kecamatan` VALUES ('1114060', '1114', 'BENDAHARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1114061', '1114', 'BANDA MULIA');
+INSERT INTO `tbl_kecamatan` VALUES ('1114070', '1114', 'KARANG BARU');
+INSERT INTO `tbl_kecamatan` VALUES ('1114071', '1114', 'SEKERAK');
+INSERT INTO `tbl_kecamatan` VALUES ('1114080', '1114', 'MANYAK PAYED');
+INSERT INTO `tbl_kecamatan` VALUES ('1115010', '1115', 'DARUL MAKMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1115011', '1115', 'TRIPA MAKMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1115020', '1115', 'KUALA');
+INSERT INTO `tbl_kecamatan` VALUES ('1115021', '1115', 'KUALA PESISIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1115022', '1115', 'TADU RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1115030', '1115', 'BEUTONG');
+INSERT INTO `tbl_kecamatan` VALUES ('1115031', '1115', 'BEUTONG ATEUH BANGGALANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1115040', '1115', 'SEUNAGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1115041', '1115', 'SUKA MAKMUE');
+INSERT INTO `tbl_kecamatan` VALUES ('1115050', '1115', 'SEUNAGAN TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1116010', '1116', 'TEUNOM');
+INSERT INTO `tbl_kecamatan` VALUES ('1116011', '1116', 'PASIE RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1116020', '1116', 'PANGA');
+INSERT INTO `tbl_kecamatan` VALUES ('1116030', '1116', 'KRUENG SABEE');
+INSERT INTO `tbl_kecamatan` VALUES ('1116040', '1116', 'SETIA BAKTI');
+INSERT INTO `tbl_kecamatan` VALUES ('1116050', '1116', 'SAMPOINIET');
+INSERT INTO `tbl_kecamatan` VALUES ('1116051', '1116', 'DARUL HIKMAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1116060', '1116', 'JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1116061', '1116', 'INDRA JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1117010', '1117', 'TIMANG GAJAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1117011', '1117', 'GAJAH PUTIH');
+INSERT INTO `tbl_kecamatan` VALUES ('1117020', '1117', 'PINTU RIME GAYO');
+INSERT INTO `tbl_kecamatan` VALUES ('1117030', '1117', 'BUKIT');
+INSERT INTO `tbl_kecamatan` VALUES ('1117040', '1117', 'WIH PESAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1117050', '1117', 'BANDAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1117051', '1117', 'BENER KELIPAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1117060', '1117', 'SYIAH UTAMA');
+INSERT INTO `tbl_kecamatan` VALUES ('1117061', '1117', 'MESIDAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1117070', '1117', 'PERMATA');
+INSERT INTO `tbl_kecamatan` VALUES ('1118010', '1118', 'MEUREUDU');
+INSERT INTO `tbl_kecamatan` VALUES ('1118020', '1118', 'MEURAH DUA');
+INSERT INTO `tbl_kecamatan` VALUES ('1118030', '1118', 'BANDAR DUA');
+INSERT INTO `tbl_kecamatan` VALUES ('1118040', '1118', 'JANGKA BUYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1118050', '1118', 'ULIM');
+INSERT INTO `tbl_kecamatan` VALUES ('1118060', '1118', 'TRIENGGADENG');
+INSERT INTO `tbl_kecamatan` VALUES ('1118070', '1118', 'PANTERAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('1118080', '1118', 'BANDAR BARU');
+INSERT INTO `tbl_kecamatan` VALUES ('1171010', '1171', 'MEURAXA');
+INSERT INTO `tbl_kecamatan` VALUES ('1171011', '1171', 'JAYA BARU');
+INSERT INTO `tbl_kecamatan` VALUES ('1171012', '1171', 'BANDA RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1171020', '1171', 'BAITURRAHMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1171021', '1171', 'LUENG BATA');
+INSERT INTO `tbl_kecamatan` VALUES ('1171030', '1171', 'KUTA ALAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1171031', '1171', 'KUTA RAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('1171040', '1171', 'SYIAH KUALA');
+INSERT INTO `tbl_kecamatan` VALUES ('1171041', '1171', 'ULEE KARENG');
+INSERT INTO `tbl_kecamatan` VALUES ('1172010', '1172', 'SUKAJAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1172020', '1172', 'SUKAKARYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1173010', '1173', 'LANGSA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1173011', '1173', 'LANGSA LAMA');
+INSERT INTO `tbl_kecamatan` VALUES ('1173020', '1173', 'LANGSA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1173021', '1173', 'LANGSA BARO');
+INSERT INTO `tbl_kecamatan` VALUES ('1173030', '1173', 'LANGSA KOTA');
+INSERT INTO `tbl_kecamatan` VALUES ('1174010', '1174', 'BLANG MANGAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1174020', '1174', 'MUARA DUA');
+INSERT INTO `tbl_kecamatan` VALUES ('1174021', '1174', 'MUARA SATU');
+INSERT INTO `tbl_kecamatan` VALUES ('1174030', '1174', 'BANDA SAKTI');
+INSERT INTO `tbl_kecamatan` VALUES ('1175010', '1175', 'SIMPANG KIRI');
+INSERT INTO `tbl_kecamatan` VALUES ('1175020', '1175', 'PENANGGALAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1175030', '1175', 'RUNDENG');
+INSERT INTO `tbl_kecamatan` VALUES ('1175040', '1175', 'SULTAN DAULAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1175050', '1175', 'LONGKIB');
+INSERT INTO `tbl_kecamatan` VALUES ('1201060', '1201', 'IDANO GAWO');
+INSERT INTO `tbl_kecamatan` VALUES ('1201061', '1201', 'BAWOLATO');
+INSERT INTO `tbl_kecamatan` VALUES ('1201062', '1201', 'ULUGAWO');
+INSERT INTO `tbl_kecamatan` VALUES ('1201070', '1201', 'GIDO');
+INSERT INTO `tbl_kecamatan` VALUES ('1201071', '1201', 'SOGAEADU');
+INSERT INTO `tbl_kecamatan` VALUES ('1201081', '1201', 'MA U');
+INSERT INTO `tbl_kecamatan` VALUES ('1201082', '1201', 'SOMOLO - MOLO');
+INSERT INTO `tbl_kecamatan` VALUES ('1201130', '1201', 'HILIDUHO');
+INSERT INTO `tbl_kecamatan` VALUES ('1201131', '1201', 'HILI SERANGKAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1201132', '1201', 'BOTOMUZOI');
+INSERT INTO `tbl_kecamatan` VALUES ('1202010', '1202', 'BATAHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1202011', '1202', 'SINUNUKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1202020', '1202', 'BATANG NATAL');
+INSERT INTO `tbl_kecamatan` VALUES ('1202021', '1202', 'LINGGA BAYU');
+INSERT INTO `tbl_kecamatan` VALUES ('1202022', '1202', 'RANTO BAEK');
+INSERT INTO `tbl_kecamatan` VALUES ('1202030', '1202', 'KOTANOPAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1202031', '1202', 'ULU PUNGKUT');
+INSERT INTO `tbl_kecamatan` VALUES ('1202032', '1202', 'TAMBANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1202033', '1202', 'LEMBAH SORIK MARAPI');
+INSERT INTO `tbl_kecamatan` VALUES ('1202034', '1202', 'PUNCAK SORIK MARAPI');
+INSERT INTO `tbl_kecamatan` VALUES ('1202040', '1202', 'MUARA SIPONGI');
+INSERT INTO `tbl_kecamatan` VALUES ('1202041', '1202', 'PAKANTAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1202050', '1202', 'PANYABUNGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1202051', '1202', 'PANYABUNGAN SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1202052', '1202', 'PANYABUNGAN BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1202053', '1202', 'PANYABUNGAN UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1202054', '1202', 'PANYABUNGAN TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1202055', '1202', 'HUTA BARGOT');
+INSERT INTO `tbl_kecamatan` VALUES ('1202060', '1202', 'NATAL');
+INSERT INTO `tbl_kecamatan` VALUES ('1202070', '1202', 'MUARA BATANG GADIS');
+INSERT INTO `tbl_kecamatan` VALUES ('1202080', '1202', 'SIABU');
+INSERT INTO `tbl_kecamatan` VALUES ('1202081', '1202', 'BUKIT MALINTANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1202082', '1202', 'NAGA JUANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1203010', '1203', 'BATANG ANGKOLA');
+INSERT INTO `tbl_kecamatan` VALUES ('1203011', '1203', 'SAYUR MATINGGI');
+INSERT INTO `tbl_kecamatan` VALUES ('1203012', '1203', 'TANO TOMBANGAN ANGKOLA');
+INSERT INTO `tbl_kecamatan` VALUES ('1203070', '1203', 'ANGKOLA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1203080', '1203', 'ANGKOLA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1203090', '1203', 'ANGKOLA  BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1203091', '1203', 'ANGKOLA SANGKUNUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1203100', '1203', 'BATANG TORU');
+INSERT INTO `tbl_kecamatan` VALUES ('1203101', '1203', 'MARANCAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1203102', '1203', 'MUARA BATANG TORU');
+INSERT INTO `tbl_kecamatan` VALUES ('1203110', '1203', 'SIPIROK');
+INSERT INTO `tbl_kecamatan` VALUES ('1203120', '1203', 'ARSE');
+INSERT INTO `tbl_kecamatan` VALUES ('1203160', '1203', 'SAIPAR DOLOK HOLE');
+INSERT INTO `tbl_kecamatan` VALUES ('1203161', '1203', 'AEK BILAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1204010', '1204', 'PINANG SORI');
+INSERT INTO `tbl_kecamatan` VALUES ('1204011', '1204', 'BADIRI');
+INSERT INTO `tbl_kecamatan` VALUES ('1204020', '1204', 'SIBABANGUN');
+INSERT INTO `tbl_kecamatan` VALUES ('1204021', '1204', 'LUMUT');
+INSERT INTO `tbl_kecamatan` VALUES ('1204022', '1204', 'SUKABANGUN');
+INSERT INTO `tbl_kecamatan` VALUES ('1204030', '1204', 'PANDAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1204031', '1204', 'TUKKA');
+INSERT INTO `tbl_kecamatan` VALUES ('1204032', '1204', 'SARUDIK');
+INSERT INTO `tbl_kecamatan` VALUES ('1204040', '1204', 'TAPIAN NAULI');
+INSERT INTO `tbl_kecamatan` VALUES ('1204041', '1204', 'SITAHUIS');
+INSERT INTO `tbl_kecamatan` VALUES ('1204050', '1204', 'KOLANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1204060', '1204', 'SORKAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1204061', '1204', 'SORKAM BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1204062', '1204', 'PASARIBU TOBING');
+INSERT INTO `tbl_kecamatan` VALUES ('1204070', '1204', 'BARUS');
+INSERT INTO `tbl_kecamatan` VALUES ('1204071', '1204', 'SOSOR GADONG');
+INSERT INTO `tbl_kecamatan` VALUES ('1204072', '1204', 'ANDAM DEWI');
+INSERT INTO `tbl_kecamatan` VALUES ('1204073', '1204', 'BARUS UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1204080', '1204', 'MANDUAMAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1204081', '1204', 'SIRANDORUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1205030', '1205', 'PARMONANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1205040', '1205', 'ADIAN KOTING');
+INSERT INTO `tbl_kecamatan` VALUES ('1205050', '1205', 'SIPOHOLON');
+INSERT INTO `tbl_kecamatan` VALUES ('1205060', '1205', 'TARUTUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1205061', '1205', 'SIATAS BARITA');
+INSERT INTO `tbl_kecamatan` VALUES ('1205070', '1205', 'PAHAE JULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1205080', '1205', 'PAHAE JAE');
+INSERT INTO `tbl_kecamatan` VALUES ('1205081', '1205', 'PURBATUA');
+INSERT INTO `tbl_kecamatan` VALUES ('1205082', '1205', 'SIMANGUMBAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1205090', '1205', 'PANGARIBUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1205100', '1205', 'GAROGA');
+INSERT INTO `tbl_kecamatan` VALUES ('1205110', '1205', 'SIPAHUTAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1205120', '1205', 'SIBORONG-BORONG');
+INSERT INTO `tbl_kecamatan` VALUES ('1205130', '1205', 'PAGARAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1205180', '1205', 'MUARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1206030', '1206', 'BALIGE');
+INSERT INTO `tbl_kecamatan` VALUES ('1206031', '1206', 'TAMPAHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1206040', '1206', 'LAGUBOTI');
+INSERT INTO `tbl_kecamatan` VALUES ('1206050', '1206', 'HABINSARAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1206051', '1206', 'BORBOR');
+INSERT INTO `tbl_kecamatan` VALUES ('1206052', '1206', 'NASSAU');
+INSERT INTO `tbl_kecamatan` VALUES ('1206060', '1206', 'SILAEN');
+INSERT INTO `tbl_kecamatan` VALUES ('1206061', '1206', 'SIGUMPAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1206070', '1206', 'PORSEA');
+INSERT INTO `tbl_kecamatan` VALUES ('1206071', '1206', 'PINTU POHAN MERANTI');
+INSERT INTO `tbl_kecamatan` VALUES ('1206072', '1206', 'SIANTAR NARUMONDA');
+INSERT INTO `tbl_kecamatan` VALUES ('1206073', '1206', 'PARMAKSIAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1206080', '1206', 'LUMBAN JULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1206081', '1206', 'ULUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1206082', '1206', 'AJIBATA');
+INSERT INTO `tbl_kecamatan` VALUES ('1206083', '1206', 'BONATUA LUNASI');
+INSERT INTO `tbl_kecamatan` VALUES ('1207050', '1207', 'BILAH HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1207070', '1207', 'PANGKATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1207080', '1207', 'BILAH BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1207130', '1207', 'BILAH HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1207140', '1207', 'PANAI HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1207150', '1207', 'PANAI TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1207160', '1207', 'PANAI HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1207210', '1207', 'RANTAU SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1207220', '1207', 'RANTAU UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1208010', '1208', 'BANDAR PASIR MANDOGE');
+INSERT INTO `tbl_kecamatan` VALUES ('1208020', '1208', 'BANDAR PULAU');
+INSERT INTO `tbl_kecamatan` VALUES ('1208021', '1208', 'AEK SONGSONGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1208022', '1208', 'RAHUNING');
+INSERT INTO `tbl_kecamatan` VALUES ('1208030', '1208', 'PULAU RAKYAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1208031', '1208', 'AEK KUASAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1208032', '1208', 'AEK LEDONG');
+INSERT INTO `tbl_kecamatan` VALUES ('1208040', '1208', 'SEI KEPAYANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1208041', '1208', 'SEI KEPAYANG BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1208042', '1208', 'SEI KEPAYANG TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1208050', '1208', 'TANJUNG BALAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1208060', '1208', 'SIMPANG EMPAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1208061', '1208', 'TELUK DALAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1208070', '1208', 'AIR BATU');
+INSERT INTO `tbl_kecamatan` VALUES ('1208071', '1208', 'SEI DADAP');
+INSERT INTO `tbl_kecamatan` VALUES ('1208080', '1208', 'BUNTU PANE');
+INSERT INTO `tbl_kecamatan` VALUES ('1208081', '1208', 'TINGGI RAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('1208082', '1208', 'SETIA JANJI');
+INSERT INTO `tbl_kecamatan` VALUES ('1208090', '1208', 'MERANTI');
+INSERT INTO `tbl_kecamatan` VALUES ('1208091', '1208', 'PULO BANDRING');
+INSERT INTO `tbl_kecamatan` VALUES ('1208092', '1208', 'RAWANG PANCA ARGA');
+INSERT INTO `tbl_kecamatan` VALUES ('1208100', '1208', 'AIR JOMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1208101', '1208', 'SILAU LAUT');
+INSERT INTO `tbl_kecamatan` VALUES ('1208160', '1208', 'KISARAN BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1208170', '1208', 'KISARAN TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1209010', '1209', 'SILIMAKUTA');
+INSERT INTO `tbl_kecamatan` VALUES ('1209011', '1209', 'PEMATANG SILIMAHUTA');
+INSERT INTO `tbl_kecamatan` VALUES ('1209020', '1209', 'PURBA');
+INSERT INTO `tbl_kecamatan` VALUES ('1209021', '1209', 'HARANGGAOL HORISON');
+INSERT INTO `tbl_kecamatan` VALUES ('1209030', '1209', 'DOLOK PARDAMEAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1209040', '1209', 'SIDAMANIK');
+INSERT INTO `tbl_kecamatan` VALUES ('1209041', '1209', 'PEMATANG SIDAMANIK');
+INSERT INTO `tbl_kecamatan` VALUES ('1209050', '1209', 'GIRSANG SIPANGAN BOLON');
+INSERT INTO `tbl_kecamatan` VALUES ('1209060', '1209', 'TANAH JAWA');
+INSERT INTO `tbl_kecamatan` VALUES ('1209061', '1209', 'HATONDUHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1209070', '1209', 'DOLOK PANRIBUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1209080', '1209', 'JORLANG HATARAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1209090', '1209', 'PANEI');
+INSERT INTO `tbl_kecamatan` VALUES ('1209091', '1209', 'PANOMBEAN PANEI');
+INSERT INTO `tbl_kecamatan` VALUES ('1209100', '1209', 'RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1209110', '1209', 'DOLOK SILAU');
+INSERT INTO `tbl_kecamatan` VALUES ('1209120', '1209', 'SILAU KAHEAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1209130', '1209', 'RAYA KAHEAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1209140', '1209', 'TAPIAN DOLOK');
+INSERT INTO `tbl_kecamatan` VALUES ('1209150', '1209', 'DOLOK BATU NANGGAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1209160', '1209', 'SIANTAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1209161', '1209', 'GUNUNG MALELA');
+INSERT INTO `tbl_kecamatan` VALUES ('1209162', '1209', 'GUNUNG MALIGAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1209170', '1209', 'HUTABAYU RAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('1209171', '1209', 'JAWA MARAJA BAH JAMBI');
+INSERT INTO `tbl_kecamatan` VALUES ('1209180', '1209', 'PEMATANG BANDAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1209181', '1209', 'BANDAR HULUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1209190', '1209', 'BANDAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1209191', '1209', 'BANDAR MASILAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1209200', '1209', 'BOSAR MALIGAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1209210', '1209', 'UJUNG PADANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1210030', '1210', 'SIDIKALANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1210031', '1210', 'BERAMPU');
+INSERT INTO `tbl_kecamatan` VALUES ('1210032', '1210', 'SITINJO');
+INSERT INTO `tbl_kecamatan` VALUES ('1210040', '1210', 'PARBULUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1210050', '1210', 'SUMBUL');
+INSERT INTO `tbl_kecamatan` VALUES ('1210051', '1210', 'SILAHI SABUNGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1210060', '1210', 'SILIMA PUNGGA-PUNGGA');
+INSERT INTO `tbl_kecamatan` VALUES ('1210061', '1210', 'LAE PARIRA');
+INSERT INTO `tbl_kecamatan` VALUES ('1210070', '1210', 'SIEMPAT NEMPU');
+INSERT INTO `tbl_kecamatan` VALUES ('1210080', '1210', 'SIEMPAT NEMPU HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1210090', '1210', 'SIEMPAT NEMPU HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1210100', '1210', 'TIGA LINGGA');
+INSERT INTO `tbl_kecamatan` VALUES ('1210101', '1210', 'GUNUNG SITEMBER');
+INSERT INTO `tbl_kecamatan` VALUES ('1210110', '1210', 'PEGAGAN HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1210120', '1210', 'TANAH PINEM');
+INSERT INTO `tbl_kecamatan` VALUES ('1211010', '1211', 'MARDINGDING');
+INSERT INTO `tbl_kecamatan` VALUES ('1211020', '1211', 'LAUBALENG');
+INSERT INTO `tbl_kecamatan` VALUES ('1211030', '1211', 'TIGA BINANGA');
+INSERT INTO `tbl_kecamatan` VALUES ('1211040', '1211', 'JUHAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1211050', '1211', 'MUNTE');
+INSERT INTO `tbl_kecamatan` VALUES ('1211060', '1211', 'KUTA BULUH');
+INSERT INTO `tbl_kecamatan` VALUES ('1211070', '1211', 'PAYUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1211071', '1211', 'TIGANDERKET');
+INSERT INTO `tbl_kecamatan` VALUES ('1211080', '1211', 'SIMPANG EMPAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1211081', '1211', 'NAMAN TERAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1211082', '1211', 'MERDEKA');
+INSERT INTO `tbl_kecamatan` VALUES ('1211090', '1211', 'KABANJAHE');
+INSERT INTO `tbl_kecamatan` VALUES ('1211100', '1211', 'BERASTAGI');
+INSERT INTO `tbl_kecamatan` VALUES ('1211110', '1211', 'TIGAPANAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1211111', '1211', 'DOLAT RAYAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1211120', '1211', 'MEREK');
+INSERT INTO `tbl_kecamatan` VALUES ('1211130', '1211', 'BARUSJAHE');
+INSERT INTO `tbl_kecamatan` VALUES ('1212010', '1212', 'GUNUNG MERIAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1212020', '1212', 'SINEMBAH TANJUNG MUDA HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1212030', '1212', 'SIBOLANGIT');
+INSERT INTO `tbl_kecamatan` VALUES ('1212040', '1212', 'KUTALIMBARU');
+INSERT INTO `tbl_kecamatan` VALUES ('1212050', '1212', 'PANCUR BATU');
+INSERT INTO `tbl_kecamatan` VALUES ('1212060', '1212', 'NAMO RAMBE');
+INSERT INTO `tbl_kecamatan` VALUES ('1212070', '1212', 'BIRU-BIRU');
+INSERT INTO `tbl_kecamatan` VALUES ('1212080', '1212', 'SINEMBAH TANJUNG MUDA HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1212090', '1212', 'BANGUN PURBA');
+INSERT INTO `tbl_kecamatan` VALUES ('1212190', '1212', 'GALANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1212200', '1212', 'TANJUNG MORAWA');
+INSERT INTO `tbl_kecamatan` VALUES ('1212210', '1212', 'PATUMBAK');
+INSERT INTO `tbl_kecamatan` VALUES ('1212220', '1212', 'DELI TUA');
+INSERT INTO `tbl_kecamatan` VALUES ('1212230', '1212', 'SUNGGAL');
+INSERT INTO `tbl_kecamatan` VALUES ('1212240', '1212', 'HAMPARAN PERAK');
+INSERT INTO `tbl_kecamatan` VALUES ('1212250', '1212', 'LABUHAN DELI');
+INSERT INTO `tbl_kecamatan` VALUES ('1212260', '1212', 'PERCUT SEI TUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1212270', '1212', 'BATANG KUIS');
+INSERT INTO `tbl_kecamatan` VALUES ('1212280', '1212', 'PANTAI LABU');
+INSERT INTO `tbl_kecamatan` VALUES ('1212290', '1212', 'BERINGIN');
+INSERT INTO `tbl_kecamatan` VALUES ('1212300', '1212', 'LUBUK PAKAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1212310', '1212', 'PAGAR MERBAU');
+INSERT INTO `tbl_kecamatan` VALUES ('1213010', '1213', 'BOHOROK');
+INSERT INTO `tbl_kecamatan` VALUES ('1213011', '1213', 'SIRAPIT');
+INSERT INTO `tbl_kecamatan` VALUES ('1213020', '1213', 'SALAPIAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1213021', '1213', 'KUTAMBARU');
+INSERT INTO `tbl_kecamatan` VALUES ('1213030', '1213', 'SEI BINGAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1213040', '1213', 'KUALA');
+INSERT INTO `tbl_kecamatan` VALUES ('1213050', '1213', 'SELESAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1213060', '1213', 'BINJAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1213070', '1213', 'STABAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1213080', '1213', 'WAMPU');
+INSERT INTO `tbl_kecamatan` VALUES ('1213090', '1213', 'BATANG SERANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1213100', '1213', 'SAWIT SEBERANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1213110', '1213', 'PADANG TUALANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1213120', '1213', 'HINAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1213130', '1213', 'SECANGGANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1213140', '1213', 'TANJUNG PURA');
+INSERT INTO `tbl_kecamatan` VALUES ('1213150', '1213', 'GEBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1213160', '1213', 'BABALAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1213170', '1213', 'SEI LEPAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1213180', '1213', 'BRANDAN BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1213190', '1213', 'BESITANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1213200', '1213', 'PANGKALAN SUSU');
+INSERT INTO `tbl_kecamatan` VALUES ('1213201', '1213', 'PEMATANG JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1214010', '1214', 'HIBALA');
+INSERT INTO `tbl_kecamatan` VALUES ('1214011', '1214', 'TANAH MASA');
+INSERT INTO `tbl_kecamatan` VALUES ('1214020', '1214', 'PULAU-PULAU BATU');
+INSERT INTO `tbl_kecamatan` VALUES ('1214021', '1214', 'PULAU-PULAU BATU TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1214022', '1214', 'SIMUK');
+INSERT INTO `tbl_kecamatan` VALUES ('1214023', '1214', 'PULAU-PULAU BATU BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1214024', '1214', 'PULAU-PULAU BATU UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1214030', '1214', 'TELUK DALAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1214031', '1214', 'FANAYAMA');
+INSERT INTO `tbl_kecamatan` VALUES ('1214032', '1214', 'TOMA');
+INSERT INTO `tbl_kecamatan` VALUES ('1214033', '1214', 'MANIAMOLO');
+INSERT INTO `tbl_kecamatan` VALUES ('1214034', '1214', 'MAZINO');
+INSERT INTO `tbl_kecamatan` VALUES ('1214035', '1214', 'LUAHAGUNDRE MANIAMOLO');
+INSERT INTO `tbl_kecamatan` VALUES ('1214036', '1214', 'ONOLALU');
+INSERT INTO `tbl_kecamatan` VALUES ('1214040', '1214', 'AMANDRAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1214041', '1214', 'ARAMO');
+INSERT INTO `tbl_kecamatan` VALUES ('1214042', '1214', 'ULUSUSUA');
+INSERT INTO `tbl_kecamatan` VALUES ('1214050', '1214', 'LAHUSA');
+INSERT INTO `tbl_kecamatan` VALUES ('1214051', '1214', 'SIDUAORI');
+INSERT INTO `tbl_kecamatan` VALUES ('1214052', '1214', 'SOMAMBAWA');
+INSERT INTO `tbl_kecamatan` VALUES ('1214060', '1214', 'GOMO');
+INSERT INTO `tbl_kecamatan` VALUES ('1214061', '1214', 'SUSUA');
+INSERT INTO `tbl_kecamatan` VALUES ('1214062', '1214', 'MAZO');
+INSERT INTO `tbl_kecamatan` VALUES ('1214063', '1214', 'UMBUNASI');
+INSERT INTO `tbl_kecamatan` VALUES ('1214064', '1214', 'IDANOTAE');
+INSERT INTO `tbl_kecamatan` VALUES ('1214065', '1214', 'ULUIDANOTAE');
+INSERT INTO `tbl_kecamatan` VALUES ('1214066', '1214', 'BORONADU');
+INSERT INTO `tbl_kecamatan` VALUES ('1214070', '1214', 'LOLOMATUA');
+INSERT INTO `tbl_kecamatan` VALUES ('1214071', '1214', 'ULUNOYO');
+INSERT INTO `tbl_kecamatan` VALUES ('1214072', '1214', 'HURUNA');
+INSERT INTO `tbl_kecamatan` VALUES ('1214080', '1214', 'LOLOWA\'U');
+INSERT INTO `tbl_kecamatan` VALUES ('1214081', '1214', 'HILIMEGAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1214082', '1214', 'OOU');
+INSERT INTO `tbl_kecamatan` VALUES ('1214083', '1214', 'ONOHAZUMBA');
+INSERT INTO `tbl_kecamatan` VALUES ('1214084', '1214', 'HILISALAWAAHE');
+INSERT INTO `tbl_kecamatan` VALUES ('1215010', '1215', 'PAKKAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1215020', '1215', 'ONAN GANJANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1215030', '1215', 'SIJAMA POLANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1215040', '1215', 'DOLOK SANGGUL');
+INSERT INTO `tbl_kecamatan` VALUES ('1215050', '1215', 'LINTONG NIHUTA');
+INSERT INTO `tbl_kecamatan` VALUES ('1215060', '1215', 'PARANGINAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1215070', '1215', 'BAKTI RAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('1215080', '1215', 'POLLUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1215090', '1215', 'PARLILITAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1215100', '1215', 'TARA BINTANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1216010', '1216', 'SALAK');
+INSERT INTO `tbl_kecamatan` VALUES ('1216011', '1216', 'SITELLU TALI URANG JEHE');
+INSERT INTO `tbl_kecamatan` VALUES ('1216012', '1216', 'PAGINDAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1216013', '1216', 'SITELLU TALI URANG JULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1216014', '1216', 'PERGETTENG-GETTENG SENGKUT');
+INSERT INTO `tbl_kecamatan` VALUES ('1216020', '1216', 'KERAJAAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1216021', '1216', 'TINADA');
+INSERT INTO `tbl_kecamatan` VALUES ('1216022', '1216', 'SIEMPAT RUBE');
+INSERT INTO `tbl_kecamatan` VALUES ('1217010', '1217', 'SIANJUR MULA MULA');
+INSERT INTO `tbl_kecamatan` VALUES ('1217020', '1217', 'HARIAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1217030', '1217', 'SITIO-TIO');
+INSERT INTO `tbl_kecamatan` VALUES ('1217040', '1217', 'ONAN RUNGGU');
+INSERT INTO `tbl_kecamatan` VALUES ('1217050', '1217', 'NAINGGOLAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1217060', '1217', 'PALIPI');
+INSERT INTO `tbl_kecamatan` VALUES ('1217070', '1217', 'RONGGUR NIHUTA');
+INSERT INTO `tbl_kecamatan` VALUES ('1217080', '1217', 'PANGURURAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1217090', '1217', 'SIMANINDO');
+INSERT INTO `tbl_kecamatan` VALUES ('1218010', '1218', 'KOTARIH');
+INSERT INTO `tbl_kecamatan` VALUES ('1218011', '1218', 'SILINDA');
+INSERT INTO `tbl_kecamatan` VALUES ('1218012', '1218', 'BINTANG BAYU');
+INSERT INTO `tbl_kecamatan` VALUES ('1218020', '1218', 'DOLOK MASIHUL');
+INSERT INTO `tbl_kecamatan` VALUES ('1218021', '1218', 'SERBAJADI');
+INSERT INTO `tbl_kecamatan` VALUES ('1218030', '1218', 'SIPISPIS');
+INSERT INTO `tbl_kecamatan` VALUES ('1218040', '1218', 'DOLOK MERAWAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1218050', '1218', 'TEBINGTINGGI');
+INSERT INTO `tbl_kecamatan` VALUES ('1218051', '1218', 'TEBING SYAHBANDAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1218060', '1218', 'BANDAR KHALIPAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1218070', '1218', 'TANJUNG BERINGIN');
+INSERT INTO `tbl_kecamatan` VALUES ('1218080', '1218', 'SEI RAMPAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1218081', '1218', 'SEI BAMBAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1218090', '1218', 'TELUK MENGKUDU');
+INSERT INTO `tbl_kecamatan` VALUES ('1218100', '1218', 'PERBAUNGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1218101', '1218', 'PEGAJAHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1218110', '1218', 'PANTAI CERMIN');
+INSERT INTO `tbl_kecamatan` VALUES ('1219010', '1219', 'SEI BALAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1219020', '1219', 'TANJUNG TIRAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1219030', '1219', 'TALAWI');
+INSERT INTO `tbl_kecamatan` VALUES ('1219040', '1219', 'LIMAPULUH');
+INSERT INTO `tbl_kecamatan` VALUES ('1219050', '1219', 'AIR PUTIH');
+INSERT INTO `tbl_kecamatan` VALUES ('1219060', '1219', 'SEI SUKA');
+INSERT INTO `tbl_kecamatan` VALUES ('1219070', '1219', 'MEDANG DERAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1220010', '1220', 'BATANG ONANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1220020', '1220', 'PADANG BOLAK JULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1220030', '1220', 'PORTIBI');
+INSERT INTO `tbl_kecamatan` VALUES ('1220040', '1220', 'PADANG BOLAK');
+INSERT INTO `tbl_kecamatan` VALUES ('1220050', '1220', 'SIMANGAMBAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1220060', '1220', 'HALONGONAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1220070', '1220', 'DOLOK');
+INSERT INTO `tbl_kecamatan` VALUES ('1220080', '1220', 'DOLOK SIGOMPULON');
+INSERT INTO `tbl_kecamatan` VALUES ('1220090', '1220', 'HULU SIHAPAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1221010', '1221', 'SOSOPAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1221020', '1221', 'ULU BARUMUN');
+INSERT INTO `tbl_kecamatan` VALUES ('1221030', '1221', 'BARUMUN');
+INSERT INTO `tbl_kecamatan` VALUES ('1221031', '1221', 'BARUMUN SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1221040', '1221', 'LUBUK BARUMUN');
+INSERT INTO `tbl_kecamatan` VALUES ('1221050', '1221', 'SOSA');
+INSERT INTO `tbl_kecamatan` VALUES ('1221060', '1221', 'BATANG LUBU SUTAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1221070', '1221', 'HUTA RAJA TINGGI');
+INSERT INTO `tbl_kecamatan` VALUES ('1221080', '1221', 'HURISTAK');
+INSERT INTO `tbl_kecamatan` VALUES ('1221090', '1221', 'BARUMUN TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1221091', '1221', 'AEK NABARA BARUMUN');
+INSERT INTO `tbl_kecamatan` VALUES ('1221092', '1221', 'SIHAPAS BARUMUN');
+INSERT INTO `tbl_kecamatan` VALUES ('1222010', '1222', 'SUNGAI KANAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1222020', '1222', 'TORGAMBA');
+INSERT INTO `tbl_kecamatan` VALUES ('1222030', '1222', 'KOTA PINANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1222040', '1222', 'SILANGKITANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1222050', '1222', 'KAMPUNG RAKYAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1223010', '1223', 'NA IX-X');
+INSERT INTO `tbl_kecamatan` VALUES ('1223020', '1223', 'MARBAU');
+INSERT INTO `tbl_kecamatan` VALUES ('1223030', '1223', 'AEK KUO');
+INSERT INTO `tbl_kecamatan` VALUES ('1223040', '1223', 'AEK NATAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1223050', '1223', 'KUALUH SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1223060', '1223', 'KUALUH HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1223070', '1223', 'KUALUH HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1223080', '1223', 'KUALUH LEIDONG');
+INSERT INTO `tbl_kecamatan` VALUES ('1224010', '1224', 'TUGALA OYO');
+INSERT INTO `tbl_kecamatan` VALUES ('1224020', '1224', 'ALASA');
+INSERT INTO `tbl_kecamatan` VALUES ('1224030', '1224', 'ALASA TALU MUZOI');
+INSERT INTO `tbl_kecamatan` VALUES ('1224040', '1224', 'NAMOHALU ESIWA');
+INSERT INTO `tbl_kecamatan` VALUES ('1224050', '1224', 'SITOLU ORI');
+INSERT INTO `tbl_kecamatan` VALUES ('1224060', '1224', 'TUHEMBERUA');
+INSERT INTO `tbl_kecamatan` VALUES ('1224070', '1224', 'SAWO');
+INSERT INTO `tbl_kecamatan` VALUES ('1224080', '1224', 'LOTU');
+INSERT INTO `tbl_kecamatan` VALUES ('1224090', '1224', 'LAHEWA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1224100', '1224', 'AFULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1224110', '1224', 'LAHEWA');
+INSERT INTO `tbl_kecamatan` VALUES ('1225010', '1225', 'SIROMBU');
+INSERT INTO `tbl_kecamatan` VALUES ('1225020', '1225', 'LAHOMI');
+INSERT INTO `tbl_kecamatan` VALUES ('1225030', '1225', 'ULU MORO O');
+INSERT INTO `tbl_kecamatan` VALUES ('1225040', '1225', 'LOLOFITU MOI');
+INSERT INTO `tbl_kecamatan` VALUES ('1225050', '1225', 'MANDREHE UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1225060', '1225', 'MANDREHE');
+INSERT INTO `tbl_kecamatan` VALUES ('1225070', '1225', 'MANDREHE BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1225080', '1225', 'MORO O');
+INSERT INTO `tbl_kecamatan` VALUES ('1271010', '1271', 'SIBOLGA UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1271020', '1271', 'SIBOLGA KOTA');
+INSERT INTO `tbl_kecamatan` VALUES ('1271030', '1271', 'SIBOLGA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1271031', '1271', 'SIBOLGA SAMBAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1272010', '1272', 'DATUK BANDAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1272011', '1272', 'DATUK BANDAR TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1272020', '1272', 'TANJUNG BALAI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1272030', '1272', 'TANJUNG BALAI UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1272040', '1272', 'SEI TUALANG RASO');
+INSERT INTO `tbl_kecamatan` VALUES ('1272050', '1272', 'TELUK NIBUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1273010', '1273', 'SIANTAR MARIHAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1273011', '1273', 'SIANTAR MARIMBUN');
+INSERT INTO `tbl_kecamatan` VALUES ('1273020', '1273', 'SIANTAR SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1273030', '1273', 'SIANTAR BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1273040', '1273', 'SIANTAR UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1273050', '1273', 'SIANTAR TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1273060', '1273', 'SIANTAR MARTOBA');
+INSERT INTO `tbl_kecamatan` VALUES ('1273061', '1273', 'SIANTAR SITALASARI');
+INSERT INTO `tbl_kecamatan` VALUES ('1274010', '1274', 'PADANG HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1274011', '1274', 'TEBING TINGGI KOTA');
+INSERT INTO `tbl_kecamatan` VALUES ('1274020', '1274', 'RAMBUTAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1274021', '1274', 'BAJENIS');
+INSERT INTO `tbl_kecamatan` VALUES ('1274030', '1274', 'PADANG HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1275010', '1275', 'MEDAN TUNTUNGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1275020', '1275', 'MEDAN JOHOR');
+INSERT INTO `tbl_kecamatan` VALUES ('1275030', '1275', 'MEDAN AMPLAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1275040', '1275', 'MEDAN DENAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1275050', '1275', 'MEDAN AREA');
+INSERT INTO `tbl_kecamatan` VALUES ('1275060', '1275', 'MEDAN KOTA');
+INSERT INTO `tbl_kecamatan` VALUES ('1275070', '1275', 'MEDAN MAIMUN');
+INSERT INTO `tbl_kecamatan` VALUES ('1275080', '1275', 'MEDAN POLONIA');
+INSERT INTO `tbl_kecamatan` VALUES ('1275090', '1275', 'MEDAN BARU');
+INSERT INTO `tbl_kecamatan` VALUES ('1275100', '1275', 'MEDAN SELAYANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1275110', '1275', 'MEDAN SUNGGAL');
+INSERT INTO `tbl_kecamatan` VALUES ('1275120', '1275', 'MEDAN HELVETIA');
+INSERT INTO `tbl_kecamatan` VALUES ('1275130', '1275', 'MEDAN PETISAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1275140', '1275', 'MEDAN BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1275150', '1275', 'MEDAN TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1275160', '1275', 'MEDAN PERJUANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1275170', '1275', 'MEDAN TEMBUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1275180', '1275', 'MEDAN DELI');
+INSERT INTO `tbl_kecamatan` VALUES ('1275190', '1275', 'MEDAN LABUHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1275200', '1275', 'MEDAN MARELAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1275210', '1275', 'MEDAN BELAWAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1276010', '1276', 'BINJAI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1276020', '1276', 'BINJAI KOTA');
+INSERT INTO `tbl_kecamatan` VALUES ('1276030', '1276', 'BINJAI TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1276040', '1276', 'BINJAI UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1276050', '1276', 'BINJAI BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1277010', '1277', 'PADANGSIDIMPUAN TENGGARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1277020', '1277', 'PADANGSIDIMPUAN SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1277030', '1277', 'PADANGSIDIMPUAN BATUNADUA');
+INSERT INTO `tbl_kecamatan` VALUES ('1277040', '1277', 'PADANGSIDIMPUAN UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1277050', '1277', 'PADANGSIDIMPUAN HUTAIMBARU');
+INSERT INTO `tbl_kecamatan` VALUES ('1277051', '1277', 'PADANGSIDIMPUAN ANGKOLA JULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1278010', '1278', 'GUNUNGSITOLI IDANOI');
+INSERT INTO `tbl_kecamatan` VALUES ('1278020', '1278', 'GUNUNGSITOLI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1278030', '1278', 'GUNUNGSITOLI BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1278040', '1278', 'GUNUNG SITOLI');
+INSERT INTO `tbl_kecamatan` VALUES ('1278050', '1278', 'GUNUNGSITOLI ALO OA');
+INSERT INTO `tbl_kecamatan` VALUES ('1278060', '1278', 'GUNUNGSITOLI UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1301011', '1301', 'PAGAI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1301012', '1301', 'SIKAKAP');
+INSERT INTO `tbl_kecamatan` VALUES ('1301013', '1301', 'PAGAI UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1301021', '1301', 'SIPORA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1301022', '1301', 'SIPORA UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1301030', '1301', 'SIBERUT SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1301031', '1301', 'SEBERUT BARAT DAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1301032', '1301', 'SIBERUT TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1301040', '1301', 'SIBERUT UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1301041', '1301', 'SIBERUT BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1302011', '1302', 'SILAUT');
+INSERT INTO `tbl_kecamatan` VALUES ('1302012', '1302', 'LUNANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1302020', '1302', 'BASA AMPEK BALAI TAPAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1302021', '1302', 'RANAH AMPEK HULU TAPAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1302030', '1302', 'PANCUNG SOAL');
+INSERT INTO `tbl_kecamatan` VALUES ('1302031', '1302', 'AIRPURA');
+INSERT INTO `tbl_kecamatan` VALUES ('1302040', '1302', 'LINGGO SARI BAGANTI');
+INSERT INTO `tbl_kecamatan` VALUES ('1302050', '1302', 'RANAH PESISIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1302060', '1302', 'LENGAYANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1302070', '1302', 'SUTERA');
+INSERT INTO `tbl_kecamatan` VALUES ('1302080', '1302', 'BATANG KAPAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1302090', '1302', 'IV JURAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1302100', '1302', 'BAYANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1302101', '1302', 'IV  NAGARI BAYANG UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1302110', '1302', 'KOTO XI TARUSAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1303040', '1303', 'PANTAI CERMIN');
+INSERT INTO `tbl_kecamatan` VALUES ('1303050', '1303', 'LEMBAH GUMANTI');
+INSERT INTO `tbl_kecamatan` VALUES ('1303051', '1303', 'HILIRAN GUMANTI');
+INSERT INTO `tbl_kecamatan` VALUES ('1303060', '1303', 'PAYUNG SEKAKI');
+INSERT INTO `tbl_kecamatan` VALUES ('1303061', '1303', 'TIGO LURAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1303070', '1303', 'LEMBANG JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1303071', '1303', 'DANAU KEMBAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1303080', '1303', 'GUNUNG TALANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1303090', '1303', 'BUKIT SUNDI');
+INSERT INTO `tbl_kecamatan` VALUES ('1303100', '1303', 'IX KOTO SUNGAI LASI');
+INSERT INTO `tbl_kecamatan` VALUES ('1303110', '1303', 'KUBUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1303120', '1303', 'X KOTO DIATAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1303130', '1303', 'X KOTO SINGKARAK');
+INSERT INTO `tbl_kecamatan` VALUES ('1303140', '1303', 'JUNJUNG SIRIH');
+INSERT INTO `tbl_kecamatan` VALUES ('1304050', '1304', 'KAMANG BARU');
+INSERT INTO `tbl_kecamatan` VALUES ('1304060', '1304', 'TANJUNG GADANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1304070', '1304', 'SIJUNJUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1304071', '1304', 'LUBUK TAROK');
+INSERT INTO `tbl_kecamatan` VALUES ('1304080', '1304', 'IV NAGARI');
+INSERT INTO `tbl_kecamatan` VALUES ('1304090', '1304', 'KUPITAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1304100', '1304', 'KOTO TUJUH');
+INSERT INTO `tbl_kecamatan` VALUES ('1304110', '1304', 'SUMPUR KUDUS');
+INSERT INTO `tbl_kecamatan` VALUES ('1305010', '1305', 'SEPULUH KOTO');
+INSERT INTO `tbl_kecamatan` VALUES ('1305020', '1305', 'BATIPUH');
+INSERT INTO `tbl_kecamatan` VALUES ('1305021', '1305', 'BATIPUH SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1305030', '1305', 'PARIANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1305040', '1305', 'RAMBATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1305050', '1305', 'LIMA KAUM');
+INSERT INTO `tbl_kecamatan` VALUES ('1305060', '1305', 'TANJUNG EMAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1305070', '1305', 'PADANG GANTING');
+INSERT INTO `tbl_kecamatan` VALUES ('1305080', '1305', 'LINTAU BUO');
+INSERT INTO `tbl_kecamatan` VALUES ('1305081', '1305', 'LINTAU BUO UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1305090', '1305', 'SUNGAYANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1305100', '1305', 'SUNGAI TARAB');
+INSERT INTO `tbl_kecamatan` VALUES ('1305110', '1305', 'SALIMPAUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1305111', '1305', 'TANJUNG BARU');
+INSERT INTO `tbl_kecamatan` VALUES ('1306010', '1306', 'BATANG ANAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1306020', '1306', 'LUBUK ALUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1306021', '1306', 'SINTUK TOBOH GADANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1306030', '1306', 'ULAKAN TAPAKIS');
+INSERT INTO `tbl_kecamatan` VALUES ('1306040', '1306', 'NAN SABARIS');
+INSERT INTO `tbl_kecamatan` VALUES ('1306050', '1306', '2 X 11 ENAM LINGKUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1306051', '1306', 'ENAM LINGKUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1306052', '1306', '2 X 11 KAYU TANAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1306060', '1306', 'VII KOTO SUNGAI SARIAK');
+INSERT INTO `tbl_kecamatan` VALUES ('1306061', '1306', 'PATAMUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1306062', '1306', 'PADANG SAGO');
+INSERT INTO `tbl_kecamatan` VALUES ('1306070', '1306', 'V KOTO KP DALAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1306071', '1306', 'V KOTO TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1306080', '1306', 'SUNGAI LIMAU');
+INSERT INTO `tbl_kecamatan` VALUES ('1306081', '1306', 'BATANG GASAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1306090', '1306', 'SUNGAI GERINGGING');
+INSERT INTO `tbl_kecamatan` VALUES ('1306100', '1306', 'IV KOTO AUR MALINTANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1307010', '1307', 'TANJUNG MUTIARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1307020', '1307', 'LUBUK BASUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1307021', '1307', 'AMPEK NAGARI');
+INSERT INTO `tbl_kecamatan` VALUES ('1307030', '1307', 'TANJUNG RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1307040', '1307', 'MATUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1307050', '1307', 'IV KOTO');
+INSERT INTO `tbl_kecamatan` VALUES ('1307051', '1307', 'MALALAK');
+INSERT INTO `tbl_kecamatan` VALUES ('1307061', '1307', 'BANUHAMPU');
+INSERT INTO `tbl_kecamatan` VALUES ('1307062', '1307', 'SUNGAI PUA');
+INSERT INTO `tbl_kecamatan` VALUES ('1307070', '1307', 'AMPEK ANGKEK');
+INSERT INTO `tbl_kecamatan` VALUES ('1307071', '1307', 'CANDUANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1307080', '1307', 'BASO');
+INSERT INTO `tbl_kecamatan` VALUES ('1307090', '1307', 'TILATANG KAMANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1307091', '1307', 'KAMANG MAGEK');
+INSERT INTO `tbl_kecamatan` VALUES ('1307100', '1307', 'PALEMBAYAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1307110', '1307', 'PALUPUH');
+INSERT INTO `tbl_kecamatan` VALUES ('1308010', '1308', 'PAYAKUMBUH');
+INSERT INTO `tbl_kecamatan` VALUES ('1308011', '1308', 'AKABILURU');
+INSERT INTO `tbl_kecamatan` VALUES ('1308020', '1308', 'LUAK');
+INSERT INTO `tbl_kecamatan` VALUES ('1308021', '1308', 'LAREH SAGO HALABAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1308022', '1308', 'SITUJUAH LIMO NAGARI');
+INSERT INTO `tbl_kecamatan` VALUES ('1308030', '1308', 'HARAU');
+INSERT INTO `tbl_kecamatan` VALUES ('1308040', '1308', 'GUGUAK');
+INSERT INTO `tbl_kecamatan` VALUES ('1308041', '1308', 'MUNGKA');
+INSERT INTO `tbl_kecamatan` VALUES ('1308050', '1308', 'SULIKI');
+INSERT INTO `tbl_kecamatan` VALUES ('1308051', '1308', 'BUKIK BARISAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1308060', '1308', 'GUNUANG OMEH');
+INSERT INTO `tbl_kecamatan` VALUES ('1308070', '1308', 'KAPUR IX');
+INSERT INTO `tbl_kecamatan` VALUES ('1308080', '1308', 'PANGKALAN KOTO BARU');
+INSERT INTO `tbl_kecamatan` VALUES ('1309070', '1309', 'BONJOL');
+INSERT INTO `tbl_kecamatan` VALUES ('1309071', '1309', 'TIGO NAGARI');
+INSERT INTO `tbl_kecamatan` VALUES ('1309072', '1309', 'SIMPANG ALAHAN MATI');
+INSERT INTO `tbl_kecamatan` VALUES ('1309080', '1309', 'LUBUK SIKAPING');
+INSERT INTO `tbl_kecamatan` VALUES ('1309100', '1309', 'DUA KOTO');
+INSERT INTO `tbl_kecamatan` VALUES ('1309110', '1309', 'PANTI');
+INSERT INTO `tbl_kecamatan` VALUES ('1309111', '1309', 'PADANG GELUGUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1309121', '1309', 'RAO');
+INSERT INTO `tbl_kecamatan` VALUES ('1309122', '1309', 'MAPAT TUNGGUL');
+INSERT INTO `tbl_kecamatan` VALUES ('1309123', '1309', 'MAPAT TUNGGUL SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1309124', '1309', 'RAO SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1309125', '1309', 'RAO UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1310010', '1310', 'SANGIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1310020', '1310', 'SANGIR JUJUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1310021', '1310', 'SANGIR BALAI JANGGO');
+INSERT INTO `tbl_kecamatan` VALUES ('1310030', '1310', 'SANGIR BATANG HARI');
+INSERT INTO `tbl_kecamatan` VALUES ('1310040', '1310', 'SUNGAI PAGU');
+INSERT INTO `tbl_kecamatan` VALUES ('1310041', '1310', 'PAUAH DUO');
+INSERT INTO `tbl_kecamatan` VALUES ('1310050', '1310', 'KOTO PARIK GADANG DIATEH');
+INSERT INTO `tbl_kecamatan` VALUES ('1311010', '1311', 'SUNGAI RUMBAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1311011', '1311', 'KOTO BESAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1311012', '1311', 'ASAM JUJUHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1311020', '1311', 'KOTO BARU');
+INSERT INTO `tbl_kecamatan` VALUES ('1311021', '1311', 'KOTO SALAK');
+INSERT INTO `tbl_kecamatan` VALUES ('1311022', '1311', 'TIUMANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1311023', '1311', 'PADANG LAWEH');
+INSERT INTO `tbl_kecamatan` VALUES ('1311030', '1311', 'SITIUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1311031', '1311', 'TIMPEH');
+INSERT INTO `tbl_kecamatan` VALUES ('1311040', '1311', 'PULAU PUNJUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1311041', '1311', 'IX KOTO');
+INSERT INTO `tbl_kecamatan` VALUES ('1312010', '1312', 'SUNGAI BEREMAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1312020', '1312', 'RANAH BATAHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1312030', '1312', 'KOTO BALINGKA');
+INSERT INTO `tbl_kecamatan` VALUES ('1312040', '1312', 'SUNGAI AUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1312050', '1312', 'LEMBAH MALINTANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1312060', '1312', 'GUNUNG TULEH');
+INSERT INTO `tbl_kecamatan` VALUES ('1312070', '1312', 'TALAMAU');
+INSERT INTO `tbl_kecamatan` VALUES ('1312080', '1312', 'PASAMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1312090', '1312', 'LUHAK NAN DUO');
+INSERT INTO `tbl_kecamatan` VALUES ('1312100', '1312', 'SASAK RANAH PASISIE');
+INSERT INTO `tbl_kecamatan` VALUES ('1312110', '1312', 'KINALI');
+INSERT INTO `tbl_kecamatan` VALUES ('1371010', '1371', 'BUNGUS TELUK KABUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1371020', '1371', 'LUBUK KILANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1371030', '1371', 'LUBUK BEGALUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1371040', '1371', 'PADANG SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1371050', '1371', 'PADANG TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1371060', '1371', 'PADANG BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1371070', '1371', 'PADANG UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1371080', '1371', 'NANGGALO');
+INSERT INTO `tbl_kecamatan` VALUES ('1371090', '1371', 'KURANJI');
+INSERT INTO `tbl_kecamatan` VALUES ('1371100', '1371', 'PAUH');
+INSERT INTO `tbl_kecamatan` VALUES ('1371110', '1371', 'KOTO TANGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1372010', '1372', 'LUBUK SIKARAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1372020', '1372', 'TANJUNG HARAPAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1373010', '1373', 'SILUNGKANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1373020', '1373', 'LEMBAH SEGAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1373030', '1373', 'BARANGIN');
+INSERT INTO `tbl_kecamatan` VALUES ('1373040', '1373', 'TALAWI');
+INSERT INTO `tbl_kecamatan` VALUES ('1374010', '1374', 'PADANG PANJANG BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1374020', '1374', 'PADANG PANJANG TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1375010', '1375', 'GUGUK PANJANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1375020', '1375', 'MANDIANGIN KOTO SELAYAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1375030', '1375', 'AUR BIRUGO TIGO BALEH');
+INSERT INTO `tbl_kecamatan` VALUES ('1376010', '1376', 'PAYAKUMBUH BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1376011', '1376', 'PAYAKUMBUH SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1376020', '1376', 'PAYAKUMBUH TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1376030', '1376', 'PAYAKUMBUH UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1376031', '1376', 'LAMPOSI TIGO NAGORI');
+INSERT INTO `tbl_kecamatan` VALUES ('1377010', '1377', 'PARIAMAN SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1377020', '1377', 'PARIAMAN TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1377021', '1377', 'PARIAMAN TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1377030', '1377', 'PARIAMAN UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1401010', '1401', 'KUANTAN MUDIK');
+INSERT INTO `tbl_kecamatan` VALUES ('1401011', '1401', 'HULU KUANTAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1401012', '1401', 'GUNUNG TOAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1401013', '1401', 'PUCUK RANTAU');
+INSERT INTO `tbl_kecamatan` VALUES ('1401020', '1401', 'SINGINGI');
+INSERT INTO `tbl_kecamatan` VALUES ('1401021', '1401', 'SINGINGI HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1401030', '1401', 'KUANTAN TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1401031', '1401', 'SENTAJO RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1401040', '1401', 'BENAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1401050', '1401', 'KUANTAN HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1401051', '1401', 'PANGEAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1401052', '1401', 'LOGAS TANAH DARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1401053', '1401', 'KUANTAN HILIR SEBERANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1401060', '1401', 'CERENTI');
+INSERT INTO `tbl_kecamatan` VALUES ('1401061', '1401', 'INUMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1402010', '1402', 'PERANAP');
+INSERT INTO `tbl_kecamatan` VALUES ('1402011', '1402', 'BATANG PERANAP');
+INSERT INTO `tbl_kecamatan` VALUES ('1402020', '1402', 'SEBERIDA');
+INSERT INTO `tbl_kecamatan` VALUES ('1402021', '1402', 'BATANG CENAKU');
+INSERT INTO `tbl_kecamatan` VALUES ('1402022', '1402', 'BATANG GANSAL');
+INSERT INTO `tbl_kecamatan` VALUES ('1402030', '1402', 'KELAYANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1402031', '1402', 'RAKIT KULIM');
+INSERT INTO `tbl_kecamatan` VALUES ('1402040', '1402', 'PASIR PENYU');
+INSERT INTO `tbl_kecamatan` VALUES ('1402041', '1402', 'LIRIK');
+INSERT INTO `tbl_kecamatan` VALUES ('1402042', '1402', 'SUNGAI LALA');
+INSERT INTO `tbl_kecamatan` VALUES ('1402043', '1402', 'LUBUK BATU JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1402050', '1402', 'RENGAT BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1402060', '1402', 'RENGAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1402061', '1402', 'KUALA CENAKU');
+INSERT INTO `tbl_kecamatan` VALUES ('1403010', '1403', 'KERITANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1403011', '1403', 'KEMUNING');
+INSERT INTO `tbl_kecamatan` VALUES ('1403020', '1403', 'RETEH');
+INSERT INTO `tbl_kecamatan` VALUES ('1403021', '1403', 'SUNGAI BATANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1403030', '1403', 'ENOK');
+INSERT INTO `tbl_kecamatan` VALUES ('1403040', '1403', 'TANAH MERAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1403050', '1403', 'KUALA INDRAGIRI');
+INSERT INTO `tbl_kecamatan` VALUES ('1403051', '1403', 'CONCONG');
+INSERT INTO `tbl_kecamatan` VALUES ('1403060', '1403', 'TEMBILAHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1403061', '1403', 'TEMBILAHAN HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1403070', '1403', 'TEMPULING');
+INSERT INTO `tbl_kecamatan` VALUES ('1403071', '1403', 'KEMPAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1403080', '1403', 'BATANG TUAKA');
+INSERT INTO `tbl_kecamatan` VALUES ('1403090', '1403', 'GAUNG ANAK SERKA');
+INSERT INTO `tbl_kecamatan` VALUES ('1403100', '1403', 'GAUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1403110', '1403', 'MANDAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1403120', '1403', 'KATEMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1403121', '1403', 'PELANGIRAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1403122', '1403', 'TELUK BELENGKONG');
+INSERT INTO `tbl_kecamatan` VALUES ('1403123', '1403', 'PULAU BURUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1404010', '1404', 'LANGGAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1404011', '1404', 'PANGKALAN KERINCI');
+INSERT INTO `tbl_kecamatan` VALUES ('1404012', '1404', 'BANDAR SEIKIJANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1404020', '1404', 'PANGKALAN KURAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1404021', '1404', 'UKUI');
+INSERT INTO `tbl_kecamatan` VALUES ('1404022', '1404', 'PANGKALAN LESUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1404030', '1404', 'BUNUT');
+INSERT INTO `tbl_kecamatan` VALUES ('1404031', '1404', 'PELALAWAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1404032', '1404', 'BANDAR PETALANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1404040', '1404', 'KUALA KAMPAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1404041', '1404', 'KERUMUTAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1404042', '1404', 'TELUK MERANTI');
+INSERT INTO `tbl_kecamatan` VALUES ('1405010', '1405', 'MINAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1405011', '1405', 'SUNGAI MANDAU');
+INSERT INTO `tbl_kecamatan` VALUES ('1405012', '1405', 'KANDIS');
+INSERT INTO `tbl_kecamatan` VALUES ('1405020', '1405', 'SIAK');
+INSERT INTO `tbl_kecamatan` VALUES ('1405021', '1405', 'KERINCI KANAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1405022', '1405', 'TUALANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1405023', '1405', 'DAYUN');
+INSERT INTO `tbl_kecamatan` VALUES ('1405024', '1405', 'LUBUK DALAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1405025', '1405', 'KOTO GASIB');
+INSERT INTO `tbl_kecamatan` VALUES ('1405026', '1405', 'MEMPURA');
+INSERT INTO `tbl_kecamatan` VALUES ('1405030', '1405', 'SUNGAI APIT');
+INSERT INTO `tbl_kecamatan` VALUES ('1405031', '1405', 'BUNGA RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1405032', '1405', 'SABAK AUH');
+INSERT INTO `tbl_kecamatan` VALUES ('1405033', '1405', 'PUSAKO');
+INSERT INTO `tbl_kecamatan` VALUES ('1406010', '1406', 'KAMPAR KIRI');
+INSERT INTO `tbl_kecamatan` VALUES ('1406011', '1406', 'KAMPAR KIRI HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1406012', '1406', 'KAMPAR KIRI HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1406013', '1406', 'GUNUNG SAHILAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1406014', '1406', 'KAMPAR KIRI TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1406020', '1406', 'XIII KOTO KAMPAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1406021', '1406', 'KOTO KAMPAR HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1406030', '1406', 'KUOK');
+INSERT INTO `tbl_kecamatan` VALUES ('1406031', '1406', 'SALO');
+INSERT INTO `tbl_kecamatan` VALUES ('1406040', '1406', 'TAPUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1406041', '1406', 'TAPUNG HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1406042', '1406', 'TAPUNG HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1406050', '1406', 'BANGKINANG KOTA');
+INSERT INTO `tbl_kecamatan` VALUES ('1406051', '1406', 'BANGKINANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1406060', '1406', 'KAMPAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1406061', '1406', 'KAMPAR TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1406062', '1406', 'RUMBIO JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1406063', '1406', 'KAMPAR UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1406070', '1406', 'TAMBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1406080', '1406', 'SIAK HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1406081', '1406', 'PERHENTIAN RAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('1407010', '1407', 'ROKAN IV KOTO');
+INSERT INTO `tbl_kecamatan` VALUES ('1407011', '1407', 'PENDALIAN IV KOTO');
+INSERT INTO `tbl_kecamatan` VALUES ('1407020', '1407', 'TANDUN');
+INSERT INTO `tbl_kecamatan` VALUES ('1407021', '1407', 'KABUN');
+INSERT INTO `tbl_kecamatan` VALUES ('1407022', '1407', 'UJUNG BATU');
+INSERT INTO `tbl_kecamatan` VALUES ('1407030', '1407', 'RAMBAH SAMO');
+INSERT INTO `tbl_kecamatan` VALUES ('1407040', '1407', 'RAMBAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1407041', '1407', 'RAMBAH HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1407042', '1407', 'BANGUN PURBA');
+INSERT INTO `tbl_kecamatan` VALUES ('1407050', '1407', 'TAMBUSAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1407051', '1407', 'TAMBUSAI UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1407060', '1407', 'KEPENUHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1407061', '1407', 'KEPENUHAN HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1407070', '1407', 'KUNTO DARUSSALAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1407071', '1407', 'PAGARAN TAPAH DARUSSALAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1407072', '1407', 'BONAI DARUSSALAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1408010', '1408', 'MANDAU');
+INSERT INTO `tbl_kecamatan` VALUES ('1408011', '1408', 'PINGGIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1408020', '1408', 'BUKIT BATU');
+INSERT INTO `tbl_kecamatan` VALUES ('1408021', '1408', 'SIAK KECIL');
+INSERT INTO `tbl_kecamatan` VALUES ('1408030', '1408', 'RUPAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1408031', '1408', 'RUPAT UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1408040', '1408', 'BENGKALIS');
+INSERT INTO `tbl_kecamatan` VALUES ('1408050', '1408', 'BANTAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1409010', '1409', 'TANAH PUTIH');
+INSERT INTO `tbl_kecamatan` VALUES ('1409011', '1409', 'PUJUD');
+INSERT INTO `tbl_kecamatan` VALUES ('1409012', '1409', 'TANAH PUTIH TANJUNG MELAWAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1409013', '1409', 'RANTAU KOPAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1409014', '1409', 'TANJUNG MEDAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1409020', '1409', 'BAGAN SINEMBAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1409021', '1409', 'SIMPANG KANAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1409022', '1409', 'BAGAN SINEMBAH RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1409023', '1409', 'BALAI JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1409030', '1409', 'KUBU');
+INSERT INTO `tbl_kecamatan` VALUES ('1409031', '1409', 'PASIR LIMAU KAPAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1409032', '1409', 'KUBU BABUSSALAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1409040', '1409', 'BANGKO');
+INSERT INTO `tbl_kecamatan` VALUES ('1409041', '1409', 'SINABOI');
+INSERT INTO `tbl_kecamatan` VALUES ('1409042', '1409', 'BATU HAMPAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1409043', '1409', 'PEKAITAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1409050', '1409', 'RIMBA MELINTANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1409051', '1409', 'BANGKO PUSAKO');
+INSERT INTO `tbl_kecamatan` VALUES ('1410010', '1410', 'TEBING TINGGI BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1410020', '1410', 'TEBING TINGGI');
+INSERT INTO `tbl_kecamatan` VALUES ('1410021', '1410', 'TEBING TINGGI TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1410030', '1410', 'RANGSANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1410031', '1410', 'RANGSANG PESISIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1410040', '1410', 'RANGSANG BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1410050', '1410', 'MERBAU');
+INSERT INTO `tbl_kecamatan` VALUES ('1410051', '1410', 'PULAU MERBAU');
+INSERT INTO `tbl_kecamatan` VALUES ('1410052', '1410', 'PUTRI PUYU');
+INSERT INTO `tbl_kecamatan` VALUES ('1471010', '1471', 'TAMPAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1471011', '1471', 'PAYUNG SEKAKI');
+INSERT INTO `tbl_kecamatan` VALUES ('1471020', '1471', 'BUKIT RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1471021', '1471', 'MARPOYAN DAMAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1471022', '1471', 'TENAYAN RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1471030', '1471', 'LIMAPULUH');
+INSERT INTO `tbl_kecamatan` VALUES ('1471040', '1471', 'SAIL');
+INSERT INTO `tbl_kecamatan` VALUES ('1471050', '1471', 'PEKANBARU KOTA');
+INSERT INTO `tbl_kecamatan` VALUES ('1471060', '1471', 'SUKAJADI');
+INSERT INTO `tbl_kecamatan` VALUES ('1471070', '1471', 'SENAPELAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1471080', '1471', 'RUMBAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1471081', '1471', 'RUMBAI PESISIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1473010', '1473', 'BUKIT KAPUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1473011', '1473', 'MEDANG KAMPAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1473012', '1473', 'SUNGAI SEMBILAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1473020', '1473', 'DUMAI BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1473021', '1473', 'DUMAI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1473030', '1473', 'DUMAI TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1473031', '1473', 'DUMAI KOTA');
+INSERT INTO `tbl_kecamatan` VALUES ('1501010', '1501', 'GUNUNG RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1501011', '1501', 'BUKIT KERMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1501020', '1501', 'BATANG MERANGIN');
+INSERT INTO `tbl_kecamatan` VALUES ('1501030', '1501', 'KELILING DANAU');
+INSERT INTO `tbl_kecamatan` VALUES ('1501040', '1501', 'DANAU KERINCI');
+INSERT INTO `tbl_kecamatan` VALUES ('1501050', '1501', 'SITINJAU LAUT');
+INSERT INTO `tbl_kecamatan` VALUES ('1501070', '1501', 'AIR HANGAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1501071', '1501', 'AIR HANGAT TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1501072', '1501', 'DEPATI VII');
+INSERT INTO `tbl_kecamatan` VALUES ('1501073', '1501', 'AIR HANGAT BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1501080', '1501', 'GUNUNG KERINCI');
+INSERT INTO `tbl_kecamatan` VALUES ('1501081', '1501', 'SIULAK');
+INSERT INTO `tbl_kecamatan` VALUES ('1501082', '1501', 'SIULAK MUKAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1501090', '1501', 'KAYU ARO');
+INSERT INTO `tbl_kecamatan` VALUES ('1501091', '1501', 'GUNUNG TUJUH');
+INSERT INTO `tbl_kecamatan` VALUES ('1501092', '1501', 'KAYU ARO BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1502010', '1502', 'JANGKAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1502011', '1502', 'SUNGAI TENANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1502020', '1502', 'MUARA SIAU');
+INSERT INTO `tbl_kecamatan` VALUES ('1502021', '1502', 'LEMBAH MASURAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1502022', '1502', 'TIANG PUMPUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1502030', '1502', 'PAMENANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1502031', '1502', 'PAMENANG BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1502032', '1502', 'RENAH PAMENANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1502033', '1502', 'PAMENANG SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1502040', '1502', 'BANGKO');
+INSERT INTO `tbl_kecamatan` VALUES ('1502041', '1502', 'BANGKO BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1502042', '1502', 'NALO TANTAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1502043', '1502', 'BATANG MASUMAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1502050', '1502', 'SUNGAI MANAU');
+INSERT INTO `tbl_kecamatan` VALUES ('1502051', '1502', 'RENAH PEMBARAP');
+INSERT INTO `tbl_kecamatan` VALUES ('1502052', '1502', 'PANGKALAN JAMBU');
+INSERT INTO `tbl_kecamatan` VALUES ('1502060', '1502', 'TABIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1502061', '1502', 'TABIR ULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1502062', '1502', 'TABIR SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1502063', '1502', 'TABIR ILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1502064', '1502', 'TABIR TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1502065', '1502', 'TABIR LINTAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1502066', '1502', 'MARGO TABIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1502067', '1502', 'TABIR BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1503010', '1503', 'BATANG ASAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1503020', '1503', 'LIMUN');
+INSERT INTO `tbl_kecamatan` VALUES ('1503021', '1503', 'CERMIN NAN GEDANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1503030', '1503', 'PELAWAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1503031', '1503', 'SINGKUT');
+INSERT INTO `tbl_kecamatan` VALUES ('1503040', '1503', 'SAROLANGUN');
+INSERT INTO `tbl_kecamatan` VALUES ('1503041', '1503', 'BATHIN VIII');
+INSERT INTO `tbl_kecamatan` VALUES ('1503050', '1503', 'PAUH');
+INSERT INTO `tbl_kecamatan` VALUES ('1503051', '1503', 'AIR HITAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1503060', '1503', 'MANDIANGIN');
+INSERT INTO `tbl_kecamatan` VALUES ('1504010', '1504', 'MERSAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1504011', '1504', 'MARO SEBO ULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1504020', '1504', 'BATIN XXIV');
+INSERT INTO `tbl_kecamatan` VALUES ('1504030', '1504', 'MUARA TEMBESI');
+INSERT INTO `tbl_kecamatan` VALUES ('1504040', '1504', 'MUARA BULIAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1504041', '1504', 'BAJUBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1504042', '1504', 'MARO SEBO ILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1504050', '1504', 'PEMAYUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1505010', '1505', 'MESTONG');
+INSERT INTO `tbl_kecamatan` VALUES ('1505011', '1505', 'SUNGAI BAHAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1505012', '1505', 'BAHAR SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1505013', '1505', 'BAHAR UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1505020', '1505', 'KUMPEH ULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1505021', '1505', 'SUNGAI GELAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1505030', '1505', 'KUMPEH');
+INSERT INTO `tbl_kecamatan` VALUES ('1505040', '1505', 'MARO SEBO');
+INSERT INTO `tbl_kecamatan` VALUES ('1505041', '1505', 'TAMAN RAJO');
+INSERT INTO `tbl_kecamatan` VALUES ('1505050', '1505', 'JAMBI LUAR KOTA');
+INSERT INTO `tbl_kecamatan` VALUES ('1505060', '1505', 'SEKERNAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1506010', '1506', 'MENDAHARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1506011', '1506', 'MENDAHARA ULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1506012', '1506', 'GERAGAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1506020', '1506', 'DENDANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1506031', '1506', 'MUARA SABAK BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1506032', '1506', 'MUARA SABAK TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1506033', '1506', 'KUALA JAMBI');
+INSERT INTO `tbl_kecamatan` VALUES ('1506040', '1506', 'RANTAU RASAU');
+INSERT INTO `tbl_kecamatan` VALUES ('1506041', '1506', 'BERBAK');
+INSERT INTO `tbl_kecamatan` VALUES ('1506050', '1506', 'NIPAH PANJANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1506060', '1506', 'SADU');
+INSERT INTO `tbl_kecamatan` VALUES ('1507010', '1507', 'TUNGKAL ULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1507011', '1507', 'MERLUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1507012', '1507', 'BATANG ASAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1507013', '1507', 'TEBING TINGGI');
+INSERT INTO `tbl_kecamatan` VALUES ('1507014', '1507', 'RENAH MENDALUH');
+INSERT INTO `tbl_kecamatan` VALUES ('1507015', '1507', 'MUARA PAPALIK');
+INSERT INTO `tbl_kecamatan` VALUES ('1507020', '1507', 'PENGABUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1507021', '1507', 'SENYERANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1507030', '1507', 'TUNGKAL ILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1507031', '1507', 'BRAM ITAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1507032', '1507', 'SEBERANG KOTA');
+INSERT INTO `tbl_kecamatan` VALUES ('1507040', '1507', 'BETARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1507041', '1507', 'KUALA BETARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1508010', '1508', 'TEBO ILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1508011', '1508', 'MUARA TABIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1508020', '1508', 'TEBO TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1508021', '1508', 'SUMAY');
+INSERT INTO `tbl_kecamatan` VALUES ('1508022', '1508', 'TENGAH ILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1508030', '1508', 'RIMBO BUJANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1508031', '1508', 'RIMBO ULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1508032', '1508', 'RIMBO ILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1508040', '1508', 'TEBO ULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1508041', '1508', 'VII KOTO');
+INSERT INTO `tbl_kecamatan` VALUES ('1508042', '1508', 'SERAI SERUMPUN');
+INSERT INTO `tbl_kecamatan` VALUES ('1508043', '1508', 'VII KOTO ILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1509010', '1509', 'PELEPAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1509011', '1509', 'PELEPAT ILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1509021', '1509', 'BATHIN II BABEKO');
+INSERT INTO `tbl_kecamatan` VALUES ('1509022', '1509', 'RIMBO TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1509023', '1509', 'BUNGO DANI');
+INSERT INTO `tbl_kecamatan` VALUES ('1509024', '1509', 'PASAR MUARA BUNGO');
+INSERT INTO `tbl_kecamatan` VALUES ('1509025', '1509', 'BATHIN III');
+INSERT INTO `tbl_kecamatan` VALUES ('1509030', '1509', 'RANTAU PANDAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1509031', '1509', 'MUKO-MUKO BATHIN VII');
+INSERT INTO `tbl_kecamatan` VALUES ('1509032', '1509', 'BATHIN III ULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1509040', '1509', 'TANAH SEPENGGAL');
+INSERT INTO `tbl_kecamatan` VALUES ('1509041', '1509', 'TANAH SEPENGGAL LINTAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1509050', '1509', 'TANAH TUMBUH');
+INSERT INTO `tbl_kecamatan` VALUES ('1509051', '1509', 'LIMBUR LUBUK MENGKUANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1509052', '1509', 'BATHIN II PELAYANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1509060', '1509', 'JUJUHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1509061', '1509', 'JUJUHAN ILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1571010', '1571', 'KOTA BARU');
+INSERT INTO `tbl_kecamatan` VALUES ('1571020', '1571', 'JAMBI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1571030', '1571', 'JELUTUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1571040', '1571', 'PASAR JAMBI');
+INSERT INTO `tbl_kecamatan` VALUES ('1571050', '1571', 'TELANAIPURA');
+INSERT INTO `tbl_kecamatan` VALUES ('1571060', '1571', 'DANAU TELUK');
+INSERT INTO `tbl_kecamatan` VALUES ('1571070', '1571', 'PELAYANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1571080', '1571', 'JAMBI TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1572010', '1572', 'TANAH KAMPUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1572020', '1572', 'KUMUN DEBAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1572030', '1572', 'SUNGAI PENUH');
+INSERT INTO `tbl_kecamatan` VALUES ('1572031', '1572', 'PONDOK TINGGGI');
+INSERT INTO `tbl_kecamatan` VALUES ('1572032', '1572', 'SUNGAI BUNGKAL');
+INSERT INTO `tbl_kecamatan` VALUES ('1572040', '1572', 'HAMPARAN RAWANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1572050', '1572', 'PESISIR BUKIT');
+INSERT INTO `tbl_kecamatan` VALUES ('1572051', '1572', 'KOTO BARU');
+INSERT INTO `tbl_kecamatan` VALUES ('1601052', '1601', 'LENGKITI');
+INSERT INTO `tbl_kecamatan` VALUES ('1601070', '1601', 'SOSOH BUAY RAYAP');
+INSERT INTO `tbl_kecamatan` VALUES ('1601080', '1601', 'PENGANDONAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1601081', '1601', 'SEMIDANG AJI');
+INSERT INTO `tbl_kecamatan` VALUES ('1601082', '1601', 'ULU OGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1601083', '1601', 'MUARA JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1601090', '1601', 'PENINJAUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1601091', '1601', 'LUBUK BATANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1601092', '1601', 'SINAR PENINJAUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1601130', '1601', 'BATU RAJA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1601131', '1601', 'LUBUK RAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('1601140', '1601', 'BATU RAJA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1602010', '1602', 'LEMPUING');
+INSERT INTO `tbl_kecamatan` VALUES ('1602011', '1602', 'LEMPUING JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1602020', '1602', 'MESUJI');
+INSERT INTO `tbl_kecamatan` VALUES ('1602021', '1602', 'SUNGAI MENANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1602022', '1602', 'MESUJI MAKMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1602023', '1602', 'MESUJI RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1602030', '1602', 'TULUNG SELAPAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1602031', '1602', 'CENGAL');
+INSERT INTO `tbl_kecamatan` VALUES ('1602040', '1602', 'PEDAMARAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1602041', '1602', 'PEDAMARAN TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1602050', '1602', 'TANJUNG LUBUK');
+INSERT INTO `tbl_kecamatan` VALUES ('1602051', '1602', 'TELUK GELAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1602060', '1602', 'KOTA KAYU AGUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1602120', '1602', 'SIRAH PULAU PADANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1602121', '1602', 'JEJAWI');
+INSERT INTO `tbl_kecamatan` VALUES ('1602130', '1602', 'PAMPANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1602131', '1602', 'PANGKALAN LAPAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1602140', '1602', 'AIR SUGIHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1603010', '1603', 'SEMENDO DARAT LAUT');
+INSERT INTO `tbl_kecamatan` VALUES ('1603011', '1603', 'SEMENDO DARAT ULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1603012', '1603', 'SEMENDO DARAT TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1603020', '1603', 'TANJUNG AGUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1603031', '1603', 'RAMBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1603032', '1603', 'LUBAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1603033', '1603', 'LUBAI ULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1603040', '1603', 'LAWANG KIDUL');
+INSERT INTO `tbl_kecamatan` VALUES ('1603050', '1603', 'MUARA ENIM');
+INSERT INTO `tbl_kecamatan` VALUES ('1603051', '1603', 'UJAN MAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1603060', '1603', 'GUNUNG MEGANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1603061', '1603', 'BENAKAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1603062', '1603', 'BELIMBING');
+INSERT INTO `tbl_kecamatan` VALUES ('1603070', '1603', 'RAMBANG DANGKU');
+INSERT INTO `tbl_kecamatan` VALUES ('1603090', '1603', 'GELUMBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1603091', '1603', 'LEMBAK');
+INSERT INTO `tbl_kecamatan` VALUES ('1603092', '1603', 'SUNGAI ROTAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1603093', '1603', 'MUARA BELIDA');
+INSERT INTO `tbl_kecamatan` VALUES ('1603094', '1603', 'KELEKAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1603095', '1603', 'BELIDA DARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1604011', '1604', 'TANJUNG SAKTI PUMI');
+INSERT INTO `tbl_kecamatan` VALUES ('1604012', '1604', 'TANJUNG SAKTI PUMU');
+INSERT INTO `tbl_kecamatan` VALUES ('1604040', '1604', 'KOTA AGUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1604041', '1604', 'MULAK ULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1604042', '1604', 'TANJUNG TEBAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1604050', '1604', 'PULAU PINANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1604051', '1604', 'PAGAR GUNUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1604052', '1604', 'GUMAY ULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1604060', '1604', 'JARAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1604061', '1604', 'PAJAR BULAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1604062', '1604', 'MUARA PAYANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1604063', '1604', 'SUKAMERINDU');
+INSERT INTO `tbl_kecamatan` VALUES ('1604111', '1604', 'KIKIM BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1604112', '1604', 'KIKIM TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1604113', '1604', 'KIKIM SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1604114', '1604', 'KIKIM TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1604120', '1604', 'LAHAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1604121', '1604', 'GUMAY TALANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1604122', '1604', 'PSEKSU');
+INSERT INTO `tbl_kecamatan` VALUES ('1604131', '1604', 'MERAPI BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1604132', '1604', 'MERAPI TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1604133', '1604', 'MERAPI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1605030', '1605', 'SUKU TENGAH LAKITAN ULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1605031', '1605', 'SELANGIT');
+INSERT INTO `tbl_kecamatan` VALUES ('1605032', '1605', 'SUMBER HARTA');
+INSERT INTO `tbl_kecamatan` VALUES ('1605040', '1605', 'TUGUMULYO');
+INSERT INTO `tbl_kecamatan` VALUES ('1605041', '1605', 'PURWODADI');
+INSERT INTO `tbl_kecamatan` VALUES ('1605050', '1605', 'MUARA BELITI');
+INSERT INTO `tbl_kecamatan` VALUES ('1605051', '1605', 'TIANG PUMPUNG KEPUNGUT');
+INSERT INTO `tbl_kecamatan` VALUES ('1605060', '1605', 'JAYALOKA');
+INSERT INTO `tbl_kecamatan` VALUES ('1605061', '1605', 'SUKA KARYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1605070', '1605', 'MUARA KELINGI');
+INSERT INTO `tbl_kecamatan` VALUES ('1605071', '1605', 'BULANG TENGAH SUKU ULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1605072', '1605', 'TUAH NEGERI');
+INSERT INTO `tbl_kecamatan` VALUES ('1605080', '1605', 'MUARA LAKITAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1605090', '1605', 'MEGANG SAKTI');
+INSERT INTO `tbl_kecamatan` VALUES ('1606010', '1606', 'SANGA DESA');
+INSERT INTO `tbl_kecamatan` VALUES ('1606020', '1606', 'BABAT TOMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1606021', '1606', 'BATANGHARI LEKO');
+INSERT INTO `tbl_kecamatan` VALUES ('1606022', '1606', 'PLAKAT TINGGI');
+INSERT INTO `tbl_kecamatan` VALUES ('1606023', '1606', 'LAWANG WETAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1606030', '1606', 'SUNGAI KERUH');
+INSERT INTO `tbl_kecamatan` VALUES ('1606040', '1606', 'SEKAYU');
+INSERT INTO `tbl_kecamatan` VALUES ('1606041', '1606', 'LAIS');
+INSERT INTO `tbl_kecamatan` VALUES ('1606090', '1606', 'SUNGAI LILIN');
+INSERT INTO `tbl_kecamatan` VALUES ('1606091', '1606', 'KELUANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1606092', '1606', 'BABAT SUPAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1606100', '1606', 'BAYUNG LENCIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1606101', '1606', 'LALAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1606102', '1606', 'TUNGKAL JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1607010', '1607', 'RANTAU BAYUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1607020', '1607', 'BETUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1607021', '1607', 'SUAK TAPEH');
+INSERT INTO `tbl_kecamatan` VALUES ('1607030', '1607', 'PULAU RIMAU');
+INSERT INTO `tbl_kecamatan` VALUES ('1607031', '1607', 'TUNGKAL ILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1607040', '1607', 'BANYUASIN III');
+INSERT INTO `tbl_kecamatan` VALUES ('1607041', '1607', 'SEMBAWA');
+INSERT INTO `tbl_kecamatan` VALUES ('1607050', '1607', 'TALANG KELAPA');
+INSERT INTO `tbl_kecamatan` VALUES ('1607051', '1607', 'TANJUNG LAGO');
+INSERT INTO `tbl_kecamatan` VALUES ('1607060', '1607', 'BANYUASIN I');
+INSERT INTO `tbl_kecamatan` VALUES ('1607061', '1607', 'AIR KUMBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1607070', '1607', 'RAMBUTAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1607080', '1607', 'MUARA PADANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1607081', '1607', 'MUARA SUGIHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1607090', '1607', 'MAKARTI JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1607091', '1607', 'AIR SALEH');
+INSERT INTO `tbl_kecamatan` VALUES ('1607100', '1607', 'BANYUASIN II');
+INSERT INTO `tbl_kecamatan` VALUES ('1607110', '1607', 'MUARA TELANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1607111', '1607', 'SUMBER MARGA TELANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1608010', '1608', 'MEKAKAU ILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1608020', '1608', 'BANDING AGUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1608021', '1608', 'WARKUK RANAU SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1608022', '1608', 'BUAY PEMATANG RIBU RANAU TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1608030', '1608', 'BUAY PEMACA');
+INSERT INTO `tbl_kecamatan` VALUES ('1608040', '1608', 'SIMPANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1608041', '1608', 'BUANA PEMACA');
+INSERT INTO `tbl_kecamatan` VALUES ('1608050', '1608', 'MUARADUA');
+INSERT INTO `tbl_kecamatan` VALUES ('1608051', '1608', 'BUAY RAWAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1608060', '1608', 'BUAY SANDANG AJI');
+INSERT INTO `tbl_kecamatan` VALUES ('1608061', '1608', 'TIGA DIHAJI');
+INSERT INTO `tbl_kecamatan` VALUES ('1608070', '1608', 'BUAY RUNJUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1608071', '1608', 'RUNJUNG AGUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1608080', '1608', 'KISAM TINGGI');
+INSERT INTO `tbl_kecamatan` VALUES ('1608090', '1608', 'MUARADUA KISAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1608091', '1608', 'KISAM ILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1608100', '1608', 'PULAU BERINGIN');
+INSERT INTO `tbl_kecamatan` VALUES ('1608101', '1608', 'SINDANG DANAU');
+INSERT INTO `tbl_kecamatan` VALUES ('1608102', '1608', 'SUNGAI ARE');
+INSERT INTO `tbl_kecamatan` VALUES ('1609010', '1609', 'MARTAPURA');
+INSERT INTO `tbl_kecamatan` VALUES ('1609011', '1609', 'BUNGA MAYANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1609012', '1609', 'JAYA PURA');
+INSERT INTO `tbl_kecamatan` VALUES ('1609020', '1609', 'BUAY PEMUKA PELIUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1609030', '1609', 'BUAY MADANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1609031', '1609', 'BUAY MADANG TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1609032', '1609', 'BUAY PEMUKA BANGSA RAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('1609040', '1609', 'MADANG SUKU II');
+INSERT INTO `tbl_kecamatan` VALUES ('1609041', '1609', 'MADANG SUKU III');
+INSERT INTO `tbl_kecamatan` VALUES ('1609050', '1609', 'MADANG SUKU I');
+INSERT INTO `tbl_kecamatan` VALUES ('1609051', '1609', 'BELITANG MADANG RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1609060', '1609', 'BELITANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1609061', '1609', 'BELITANG JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1609070', '1609', 'BELITANG III');
+INSERT INTO `tbl_kecamatan` VALUES ('1609080', '1609', 'BELITANG II');
+INSERT INTO `tbl_kecamatan` VALUES ('1609081', '1609', 'BELITANG MULYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1609090', '1609', 'SEMENDAWAI SUKU III');
+INSERT INTO `tbl_kecamatan` VALUES ('1609091', '1609', 'SEMENDAWAI TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1609100', '1609', 'CEMPAKA');
+INSERT INTO `tbl_kecamatan` VALUES ('1609101', '1609', 'SEMENDAWAI BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1610010', '1610', 'MUARA KUANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1610011', '1610', 'RAMBANG KUANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1610012', '1610', 'LUBUK KELIAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1610020', '1610', 'TANJUNG BATU');
+INSERT INTO `tbl_kecamatan` VALUES ('1610021', '1610', 'PAYARAMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1610030', '1610', 'RANTAU ALAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1610031', '1610', 'KANDIS');
+INSERT INTO `tbl_kecamatan` VALUES ('1610040', '1610', 'TANJUNG RAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('1610041', '1610', 'RANTAU PANJANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1610042', '1610', 'SUNGAI PINANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1610050', '1610', 'PEMULUTAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1610051', '1610', 'PEMULUTAN SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1610052', '1610', 'PEMULUTAN BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1610060', '1610', 'INDRALAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1610061', '1610', 'INDRALAYA UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1610062', '1610', 'INDRALAYA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1611010', '1611', 'MUARA PINANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1611020', '1611', 'LINTANG KANAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1611030', '1611', 'PENDOPO');
+INSERT INTO `tbl_kecamatan` VALUES ('1611031', '1611', 'PENDOPO BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1611040', '1611', 'PASEMAH AIR KERUH');
+INSERT INTO `tbl_kecamatan` VALUES ('1611050', '1611', 'ULU MUSI');
+INSERT INTO `tbl_kecamatan` VALUES ('1611051', '1611', 'SIKAP DALAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1611060', '1611', 'TALANG PADANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1611070', '1611', 'TEBING TINGGI');
+INSERT INTO `tbl_kecamatan` VALUES ('1611071', '1611', 'SALING');
+INSERT INTO `tbl_kecamatan` VALUES ('1612010', '1612', 'TALANG UBI');
+INSERT INTO `tbl_kecamatan` VALUES ('1612020', '1612', 'TANAH ABANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1612030', '1612', 'ABAB');
+INSERT INTO `tbl_kecamatan` VALUES ('1612040', '1612', 'PENUKAL');
+INSERT INTO `tbl_kecamatan` VALUES ('1612050', '1612', 'PENUKAL UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1613010', '1613', 'ULU RAWAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1613020', '1613', 'KARANG JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1613030', '1613', 'RAWAS ULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1613040', '1613', 'RUPIT');
+INSERT INTO `tbl_kecamatan` VALUES ('1613050', '1613', 'KARANG DAPO');
+INSERT INTO `tbl_kecamatan` VALUES ('1613060', '1613', 'RAWAS ILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1613070', '1613', 'NIBUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1671010', '1671', 'ILIR BARAT II');
+INSERT INTO `tbl_kecamatan` VALUES ('1671011', '1671', 'GANDUS');
+INSERT INTO `tbl_kecamatan` VALUES ('1671020', '1671', 'SEBERANG ULU I');
+INSERT INTO `tbl_kecamatan` VALUES ('1671021', '1671', 'KERTAPATI');
+INSERT INTO `tbl_kecamatan` VALUES ('1671030', '1671', 'SEBERANG ULU II');
+INSERT INTO `tbl_kecamatan` VALUES ('1671031', '1671', 'PLAJU');
+INSERT INTO `tbl_kecamatan` VALUES ('1671040', '1671', 'ILIR BARAT I');
+INSERT INTO `tbl_kecamatan` VALUES ('1671041', '1671', 'BUKIT KECIL');
+INSERT INTO `tbl_kecamatan` VALUES ('1671050', '1671', 'ILIR TIMUR I');
+INSERT INTO `tbl_kecamatan` VALUES ('1671051', '1671', 'KEMUNING');
+INSERT INTO `tbl_kecamatan` VALUES ('1671060', '1671', 'ILIR TIMUR II');
+INSERT INTO `tbl_kecamatan` VALUES ('1671061', '1671', 'KALIDONI');
+INSERT INTO `tbl_kecamatan` VALUES ('1671070', '1671', 'SAKO');
+INSERT INTO `tbl_kecamatan` VALUES ('1671071', '1671', 'SEMATANG BORANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1671080', '1671', 'SUKARAMI');
+INSERT INTO `tbl_kecamatan` VALUES ('1671081', '1671', 'ALANG ALANG LEBAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1672010', '1672', 'RAMBANG KAPAK TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1672020', '1672', 'PRABUMULIH TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1672021', '1672', 'PRABUMULIH SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1672030', '1672', 'PRABUMULIH BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1672031', '1672', 'PRABUMULIH UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1672040', '1672', 'CAMBAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1673010', '1673', 'DEMPO SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1673011', '1673', 'DEMPO TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1673020', '1673', 'DEMPO UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1673030', '1673', 'PAGAR ALAM SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1673040', '1673', 'PAGAR ALAM UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1674011', '1674', 'LUBUK LINGGAU BARAT I');
+INSERT INTO `tbl_kecamatan` VALUES ('1674012', '1674', 'LUBUK LINGGAU BARAT II');
+INSERT INTO `tbl_kecamatan` VALUES ('1674021', '1674', 'LUBUK LINGGAU SELATAN I');
+INSERT INTO `tbl_kecamatan` VALUES ('1674022', '1674', 'LUBUK LINGGAU SELATAN II');
+INSERT INTO `tbl_kecamatan` VALUES ('1674031', '1674', 'LUBUK LINGGAU TIMUR I');
+INSERT INTO `tbl_kecamatan` VALUES ('1674032', '1674', 'LUBUK LINGGAU TIMUR II');
+INSERT INTO `tbl_kecamatan` VALUES ('1674041', '1674', 'LUBUK LINGGAU UTARA I');
+INSERT INTO `tbl_kecamatan` VALUES ('1674042', '1674', 'LUBUK LINGGAU UTARA II');
+INSERT INTO `tbl_kecamatan` VALUES ('1701040', '1701', 'MANNA');
+INSERT INTO `tbl_kecamatan` VALUES ('1701041', '1701', 'KOTA MANNA');
+INSERT INTO `tbl_kecamatan` VALUES ('1701042', '1701', 'KEDURANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1701043', '1701', 'BUNGA MAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1701044', '1701', 'PASAR MANNA');
+INSERT INTO `tbl_kecamatan` VALUES ('1701045', '1701', 'KEDURANG ILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1701050', '1701', 'SEGINIM');
+INSERT INTO `tbl_kecamatan` VALUES ('1701051', '1701', 'AIR NIPIS');
+INSERT INTO `tbl_kecamatan` VALUES ('1701060', '1701', 'PINO');
+INSERT INTO `tbl_kecamatan` VALUES ('1701061', '1701', 'PINORAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1701062', '1701', 'ULU MANNA');
+INSERT INTO `tbl_kecamatan` VALUES ('1702020', '1702', 'KOTA PADANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1702021', '1702', 'SINDANG BELITI ILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1702030', '1702', 'PADANG ULAK TANDING');
+INSERT INTO `tbl_kecamatan` VALUES ('1702031', '1702', 'SINDANG KELINGI');
+INSERT INTO `tbl_kecamatan` VALUES ('1702032', '1702', 'BINDU RIANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1702033', '1702', 'SINDANG BELITI ULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1702034', '1702', 'SINDANG DATARAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1702040', '1702', 'CURUP');
+INSERT INTO `tbl_kecamatan` VALUES ('1702041', '1702', 'BERMANI ULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1702042', '1702', 'SELUPU REJANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1702043', '1702', 'CURUP SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1702044', '1702', 'CURUP TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1702045', '1702', 'BERMANI ULU RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1702046', '1702', 'CURUP UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1702047', '1702', 'CURUP TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1703010', '1703', 'ENGGANO');
+INSERT INTO `tbl_kecamatan` VALUES ('1703050', '1703', 'KERKAP');
+INSERT INTO `tbl_kecamatan` VALUES ('1703051', '1703', 'AIR NAPAL');
+INSERT INTO `tbl_kecamatan` VALUES ('1703052', '1703', 'AIR BESI');
+INSERT INTO `tbl_kecamatan` VALUES ('1703053', '1703', 'HULU PALIK');
+INSERT INTO `tbl_kecamatan` VALUES ('1703054', '1703', 'TANJUNG AGUNG PALIK');
+INSERT INTO `tbl_kecamatan` VALUES ('1703060', '1703', 'ARGA MAKMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1703061', '1703', 'ARMA JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1703070', '1703', 'LAIS');
+INSERT INTO `tbl_kecamatan` VALUES ('1703071', '1703', 'BATIK NAU');
+INSERT INTO `tbl_kecamatan` VALUES ('1703072', '1703', 'GIRI MULYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1703073', '1703', 'AIR PADANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1703080', '1703', 'PADANG JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1703090', '1703', 'KETAHUN');
+INSERT INTO `tbl_kecamatan` VALUES ('1703091', '1703', 'NAPAL PUTIH');
+INSERT INTO `tbl_kecamatan` VALUES ('1703092', '1703', 'ULOK KUPAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1703100', '1703', 'PUTRI HIJAU');
+INSERT INTO `tbl_kecamatan` VALUES ('1704010', '1704', 'NASAL');
+INSERT INTO `tbl_kecamatan` VALUES ('1704020', '1704', 'MAJE');
+INSERT INTO `tbl_kecamatan` VALUES ('1704030', '1704', 'KAUR SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1704031', '1704', 'TETAP');
+INSERT INTO `tbl_kecamatan` VALUES ('1704040', '1704', 'KAUR TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1704041', '1704', 'LUAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1704042', '1704', 'MUARA SAHUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1704050', '1704', 'KINAL');
+INSERT INTO `tbl_kecamatan` VALUES ('1704051', '1704', 'SEMIDANG GUMAY');
+INSERT INTO `tbl_kecamatan` VALUES ('1704060', '1704', 'TANJUNG KEMUNING');
+INSERT INTO `tbl_kecamatan` VALUES ('1704061', '1704', 'KELAM TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1704070', '1704', 'KAUR UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1704071', '1704', 'PADANG GUCI HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1704072', '1704', 'LUNGKANG KULE');
+INSERT INTO `tbl_kecamatan` VALUES ('1704073', '1704', 'PADANG GUCI HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1705010', '1705', 'SEMIDANG ALAS MARAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1705020', '1705', 'SEMIDANG ALAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1705030', '1705', 'TALO');
+INSERT INTO `tbl_kecamatan` VALUES ('1705031', '1705', 'ILIR TALO');
+INSERT INTO `tbl_kecamatan` VALUES ('1705032', '1705', 'TALO KECIL');
+INSERT INTO `tbl_kecamatan` VALUES ('1705033', '1705', 'ULU TALO');
+INSERT INTO `tbl_kecamatan` VALUES ('1705040', '1705', 'SELUMA');
+INSERT INTO `tbl_kecamatan` VALUES ('1705041', '1705', 'SELUMA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1705042', '1705', 'SELUMA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1705043', '1705', 'SELUMA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1705044', '1705', 'SELUMA UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1705050', '1705', 'SUKARAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('1705051', '1705', 'AIR PERIUKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1705052', '1705', 'LUBUK SANDI');
+INSERT INTO `tbl_kecamatan` VALUES ('1706010', '1706', 'IPUH');
+INSERT INTO `tbl_kecamatan` VALUES ('1706011', '1706', 'AIR RAMI');
+INSERT INTO `tbl_kecamatan` VALUES ('1706012', '1706', 'MALIN DEMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1706020', '1706', 'PONDOK SUGUH');
+INSERT INTO `tbl_kecamatan` VALUES ('1706021', '1706', 'SUNGAI RUMBAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1706022', '1706', 'TERAMANG JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1706030', '1706', 'TERAS TERUNJAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1706031', '1706', 'PENARIK');
+INSERT INTO `tbl_kecamatan` VALUES ('1706032', '1706', 'SELAGAN RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1706040', '1706', 'KOTA MUKOMUKO');
+INSERT INTO `tbl_kecamatan` VALUES ('1706041', '1706', 'AIR DIKIT');
+INSERT INTO `tbl_kecamatan` VALUES ('1706042', '1706', 'XIV KOTO');
+INSERT INTO `tbl_kecamatan` VALUES ('1706050', '1706', 'LUBUK PINANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1706051', '1706', 'AIR MANJUNTO');
+INSERT INTO `tbl_kecamatan` VALUES ('1706052', '1706', 'V KOTO');
+INSERT INTO `tbl_kecamatan` VALUES ('1707010', '1707', 'RIMBO PENGADANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1707011', '1707', 'TOPOS');
+INSERT INTO `tbl_kecamatan` VALUES ('1707020', '1707', 'LEBONG SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1707021', '1707', 'BINGIN KUNING');
+INSERT INTO `tbl_kecamatan` VALUES ('1707030', '1707', 'LEBONG TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1707031', '1707', 'LEBONG SAKTI');
+INSERT INTO `tbl_kecamatan` VALUES ('1707040', '1707', 'LEBONG ATAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1707041', '1707', 'PADANG BANO');
+INSERT INTO `tbl_kecamatan` VALUES ('1707042', '1707', 'PELABAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1707050', '1707', 'LEBONG UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1707051', '1707', 'AMEN');
+INSERT INTO `tbl_kecamatan` VALUES ('1707052', '1707', 'URAM JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1707053', '1707', 'PINANG BELAPIS');
+INSERT INTO `tbl_kecamatan` VALUES ('1708010', '1708', 'MUARA KEMUMU');
+INSERT INTO `tbl_kecamatan` VALUES ('1708020', '1708', 'BERMANI ILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('1708030', '1708', 'SEBERANG MUSI');
+INSERT INTO `tbl_kecamatan` VALUES ('1708040', '1708', 'TEBAT KARAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1708050', '1708', 'KEPAHIANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1708060', '1708', 'KABA WETAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1708070', '1708', 'UJAN MAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1708080', '1708', 'MERIGI');
+INSERT INTO `tbl_kecamatan` VALUES ('1709010', '1709', 'TALANG EMPAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1709020', '1709', 'KARANG TINGGI');
+INSERT INTO `tbl_kecamatan` VALUES ('1709030', '1709', 'TABA PENANJUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1709031', '1709', 'MERIGI KELINDANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1709040', '1709', 'PAGAR JATI');
+INSERT INTO `tbl_kecamatan` VALUES ('1709041', '1709', 'MERIGI SAKTI');
+INSERT INTO `tbl_kecamatan` VALUES ('1709050', '1709', 'PONDOK KELAPA');
+INSERT INTO `tbl_kecamatan` VALUES ('1709051', '1709', 'PONDOK KUBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1709060', '1709', 'PEMATANG TIGA');
+INSERT INTO `tbl_kecamatan` VALUES ('1709061', '1709', 'BANG HAJI');
+INSERT INTO `tbl_kecamatan` VALUES ('1771010', '1771', 'SELEBAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1771011', '1771', 'KAMPUNG MELAYU');
+INSERT INTO `tbl_kecamatan` VALUES ('1771020', '1771', 'GADING CEMPAKA');
+INSERT INTO `tbl_kecamatan` VALUES ('1771021', '1771', 'RATU AGUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1771022', '1771', 'RATU SAMBAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1771023', '1771', 'SINGARAN PATI');
+INSERT INTO `tbl_kecamatan` VALUES ('1771030', '1771', 'TELUK SEGARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1771031', '1771', 'SUNGAI SERUT');
+INSERT INTO `tbl_kecamatan` VALUES ('1771040', '1771', 'MUARA BANGKA HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('1801040', '1801', 'BALIK BUKIT');
+INSERT INTO `tbl_kecamatan` VALUES ('1801041', '1801', 'SUKAU');
+INSERT INTO `tbl_kecamatan` VALUES ('1801042', '1801', 'LUMBOK SEMINUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1801050', '1801', 'BELALAU');
+INSERT INTO `tbl_kecamatan` VALUES ('1801051', '1801', 'SEKINCAU');
+INSERT INTO `tbl_kecamatan` VALUES ('1801052', '1801', 'SUOH');
+INSERT INTO `tbl_kecamatan` VALUES ('1801053', '1801', 'BATU BRAK');
+INSERT INTO `tbl_kecamatan` VALUES ('1801054', '1801', 'PAGAR DEWA');
+INSERT INTO `tbl_kecamatan` VALUES ('1801055', '1801', 'BATU KETULIS');
+INSERT INTO `tbl_kecamatan` VALUES ('1801056', '1801', 'BANDAR NEGERI SUOH');
+INSERT INTO `tbl_kecamatan` VALUES ('1801060', '1801', 'SUMBER JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1801061', '1801', 'WAY TENONG');
+INSERT INTO `tbl_kecamatan` VALUES ('1801062', '1801', 'GEDUNG SURIAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1801063', '1801', 'KEBUN TEBU');
+INSERT INTO `tbl_kecamatan` VALUES ('1801064', '1801', 'AIR HITAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1802010', '1802', 'WONOSOBO');
+INSERT INTO `tbl_kecamatan` VALUES ('1802011', '1802', 'SEMAKA');
+INSERT INTO `tbl_kecamatan` VALUES ('1802012', '1802', 'BANDAR NEGERI SEMUONG');
+INSERT INTO `tbl_kecamatan` VALUES ('1802020', '1802', 'KOTA AGUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1802021', '1802', 'PEMATANG SAWA');
+INSERT INTO `tbl_kecamatan` VALUES ('1802022', '1802', 'KOTA AGUNG TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1802023', '1802', 'KOTA AGUNG BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1802030', '1802', 'PULAU PANGGUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1802031', '1802', 'ULUBELU');
+INSERT INTO `tbl_kecamatan` VALUES ('1802032', '1802', 'AIR NANINGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1802040', '1802', 'TALANG PADANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1802041', '1802', 'SUMBEREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('1802042', '1802', 'GISTING');
+INSERT INTO `tbl_kecamatan` VALUES ('1802043', '1802', 'GUNUNG ALIP');
+INSERT INTO `tbl_kecamatan` VALUES ('1802050', '1802', 'PUGUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1802101', '1802', 'BULOK');
+INSERT INTO `tbl_kecamatan` VALUES ('1802110', '1802', 'CUKUH BALAK');
+INSERT INTO `tbl_kecamatan` VALUES ('1802111', '1802', 'KELUMBAYAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1802112', '1802', 'LIMAU');
+INSERT INTO `tbl_kecamatan` VALUES ('1802113', '1802', 'KELUMBAYAN BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1803060', '1803', 'NATAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1803070', '1803', 'JATI AGUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1803080', '1803', 'TANJUNG BINTANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1803081', '1803', 'TANJUNG SARI');
+INSERT INTO `tbl_kecamatan` VALUES ('1803090', '1803', 'KATIBUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1803091', '1803', 'MERBAU MATARAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1803092', '1803', 'WAY SULAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1803100', '1803', 'SIDOMULYO');
+INSERT INTO `tbl_kecamatan` VALUES ('1803101', '1803', 'CANDIPURO');
+INSERT INTO `tbl_kecamatan` VALUES ('1803102', '1803', 'WAY PANJI');
+INSERT INTO `tbl_kecamatan` VALUES ('1803110', '1803', 'KALIANDA');
+INSERT INTO `tbl_kecamatan` VALUES ('1803111', '1803', 'RAJABASA');
+INSERT INTO `tbl_kecamatan` VALUES ('1803120', '1803', 'PALAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1803121', '1803', 'SRAGI');
+INSERT INTO `tbl_kecamatan` VALUES ('1803130', '1803', 'PENENGAHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1803131', '1803', 'KETAPANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1803132', '1803', 'BAKAUHENI');
+INSERT INTO `tbl_kecamatan` VALUES ('1804010', '1804', 'METRO KIBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1804020', '1804', 'BATANGHARI');
+INSERT INTO `tbl_kecamatan` VALUES ('1804030', '1804', 'SEKAMPUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1804040', '1804', 'MARGATIGA');
+INSERT INTO `tbl_kecamatan` VALUES ('1804050', '1804', 'SEKAMPUNG UDIK');
+INSERT INTO `tbl_kecamatan` VALUES ('1804060', '1804', 'JABUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1804061', '1804', 'PASIR SAKTI');
+INSERT INTO `tbl_kecamatan` VALUES ('1804062', '1804', 'WAWAY KARYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1804063', '1804', 'MARGA SEKAMPUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1804070', '1804', 'LABUHAN MARINGGAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1804071', '1804', 'MATARAM BARU');
+INSERT INTO `tbl_kecamatan` VALUES ('1804072', '1804', 'BANDAR SRIBAWONO');
+INSERT INTO `tbl_kecamatan` VALUES ('1804073', '1804', 'MELINTING');
+INSERT INTO `tbl_kecamatan` VALUES ('1804074', '1804', 'GUNUNG PELINDUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1804080', '1804', 'WAY JEPARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1804081', '1804', 'BRAJA SLEBAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1804082', '1804', 'LABUHAN RATU');
+INSERT INTO `tbl_kecamatan` VALUES ('1804090', '1804', 'SUKADANA');
+INSERT INTO `tbl_kecamatan` VALUES ('1804091', '1804', 'BUMI AGUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1804092', '1804', 'BATANGHARI NUBAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1804100', '1804', 'PEKALONGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1804110', '1804', 'RAMAN UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1804120', '1804', 'PURBOLINGGO');
+INSERT INTO `tbl_kecamatan` VALUES ('1804121', '1804', 'WAY BUNGUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1805010', '1805', 'PADANG RATU');
+INSERT INTO `tbl_kecamatan` VALUES ('1805011', '1805', 'SELAGAI LINGGA');
+INSERT INTO `tbl_kecamatan` VALUES ('1805012', '1805', 'PUBIAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1805013', '1805', 'ANAK TUHA');
+INSERT INTO `tbl_kecamatan` VALUES ('1805014', '1805', 'ANAK RATU AJI');
+INSERT INTO `tbl_kecamatan` VALUES ('1805020', '1805', 'KALIREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('1805021', '1805', 'SENDANG AGUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1805030', '1805', 'BANGUNREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('1805040', '1805', 'GUNUNG SUGIH');
+INSERT INTO `tbl_kecamatan` VALUES ('1805041', '1805', 'BEKRI');
+INSERT INTO `tbl_kecamatan` VALUES ('1805042', '1805', 'BUMI RATU NUBAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1805050', '1805', 'TRIMURJO');
+INSERT INTO `tbl_kecamatan` VALUES ('1805060', '1805', 'PUNGGUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1805061', '1805', 'KOTA GAJAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1805070', '1805', 'SEPUTIH RAMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1805080', '1805', 'TERBANGGI BESAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1805081', '1805', 'SEPUTIH AGUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1805082', '1805', 'WAY PENGUBUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1805090', '1805', 'TERUSAN NUNYAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1805100', '1805', 'SEPUTIH MATARAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1805101', '1805', 'BANDAR MATARAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1805110', '1805', 'SEPUTIH BANYAK');
+INSERT INTO `tbl_kecamatan` VALUES ('1805111', '1805', 'WAY SEPUTIH');
+INSERT INTO `tbl_kecamatan` VALUES ('1805120', '1805', 'RUMBIA');
+INSERT INTO `tbl_kecamatan` VALUES ('1805121', '1805', 'BUMI NABUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1805122', '1805', 'PUTRA RUMBIA');
+INSERT INTO `tbl_kecamatan` VALUES ('1805130', '1805', 'SEPUTIH SURABAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1805131', '1805', 'BANDAR SURABAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1806010', '1806', 'BUKIT KEMUNING');
+INSERT INTO `tbl_kecamatan` VALUES ('1806011', '1806', 'ABUNG TINGGI');
+INSERT INTO `tbl_kecamatan` VALUES ('1806020', '1806', 'TANJUNG RAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('1806030', '1806', 'ABUNG BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1806031', '1806', 'ABUNG TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1806032', '1806', 'ABUNG  KUNANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1806033', '1806', 'ABUNG PEKURUN');
+INSERT INTO `tbl_kecamatan` VALUES ('1806040', '1806', 'KOTABUMI');
+INSERT INTO `tbl_kecamatan` VALUES ('1806041', '1806', 'KOTABUMI UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1806042', '1806', 'KOTABUMI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1806050', '1806', 'ABUNG SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1806051', '1806', 'ABUNG SEMULI');
+INSERT INTO `tbl_kecamatan` VALUES ('1806052', '1806', 'BLAMBANGAN PAGAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1806060', '1806', 'ABUNG TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1806061', '1806', 'ABUNG SURAKARTA');
+INSERT INTO `tbl_kecamatan` VALUES ('1806070', '1806', 'SUNGKAI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1806071', '1806', 'MUARA SUNGKAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1806072', '1806', 'BUNGA MAYANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1806073', '1806', 'SUNGKAI  BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1806074', '1806', 'SUNGKAI JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1806080', '1806', 'SUNGKAI UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1806081', '1806', 'HULUSUNGKAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1806082', '1806', 'SUNGKAI TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1807010', '1807', 'BANJIT');
+INSERT INTO `tbl_kecamatan` VALUES ('1807020', '1807', 'BARADATU');
+INSERT INTO `tbl_kecamatan` VALUES ('1807021', '1807', 'GUNUNG LABUHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1807030', '1807', 'KASUI');
+INSERT INTO `tbl_kecamatan` VALUES ('1807031', '1807', 'REBANG TANGKAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1807040', '1807', 'BLAMBANGAN UMPU');
+INSERT INTO `tbl_kecamatan` VALUES ('1807041', '1807', 'WAY TUBA');
+INSERT INTO `tbl_kecamatan` VALUES ('1807042', '1807', 'NEGERI AGUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1807050', '1807', 'BAHUGA');
+INSERT INTO `tbl_kecamatan` VALUES ('1807051', '1807', 'BUAY  BAHUGA');
+INSERT INTO `tbl_kecamatan` VALUES ('1807052', '1807', 'BUMI AGUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1807060', '1807', 'PAKUAN RATU');
+INSERT INTO `tbl_kecamatan` VALUES ('1807061', '1807', 'NEGARA BATIN');
+INSERT INTO `tbl_kecamatan` VALUES ('1807062', '1807', 'NEGERI BESAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1808030', '1808', 'BANJAR AGUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1808031', '1808', 'BANJAR MARGO');
+INSERT INTO `tbl_kecamatan` VALUES ('1808032', '1808', 'BANJAR BARU');
+INSERT INTO `tbl_kecamatan` VALUES ('1808040', '1808', 'GEDUNG AJI');
+INSERT INTO `tbl_kecamatan` VALUES ('1808041', '1808', 'PENAWAR AJI');
+INSERT INTO `tbl_kecamatan` VALUES ('1808042', '1808', 'MERAKSA AJI');
+INSERT INTO `tbl_kecamatan` VALUES ('1808050', '1808', 'MENGGALA');
+INSERT INTO `tbl_kecamatan` VALUES ('1808051', '1808', 'PENAWAR TAMA');
+INSERT INTO `tbl_kecamatan` VALUES ('1808052', '1808', 'RAWAJITU SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1808053', '1808', 'GEDUNG MENENG');
+INSERT INTO `tbl_kecamatan` VALUES ('1808054', '1808', 'RAWAJITU TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1808055', '1808', 'RAWA PITU');
+INSERT INTO `tbl_kecamatan` VALUES ('1808056', '1808', 'GEDUNG AJI BARU');
+INSERT INTO `tbl_kecamatan` VALUES ('1808057', '1808', 'DENTE TELADAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1808058', '1808', 'MENGGALA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1809010', '1809', 'PUNDUH PIDADA');
+INSERT INTO `tbl_kecamatan` VALUES ('1809011', '1809', 'MARGA PUNDUH');
+INSERT INTO `tbl_kecamatan` VALUES ('1809020', '1809', 'PADANG CERMIN');
+INSERT INTO `tbl_kecamatan` VALUES ('1809021', '1809', 'TELUK PANDAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1809022', '1809', 'WAY RATAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1809030', '1809', 'KEDONDONG');
+INSERT INTO `tbl_kecamatan` VALUES ('1809031', '1809', 'WAY KHILAU');
+INSERT INTO `tbl_kecamatan` VALUES ('1809040', '1809', 'WAY LIMA');
+INSERT INTO `tbl_kecamatan` VALUES ('1809050', '1809', 'GEDUNG TATAAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1809060', '1809', 'NEGERI KATON');
+INSERT INTO `tbl_kecamatan` VALUES ('1809070', '1809', 'TEGINENENG');
+INSERT INTO `tbl_kecamatan` VALUES ('1810010', '1810', 'PARDASUKA');
+INSERT INTO `tbl_kecamatan` VALUES ('1810020', '1810', 'AMBARAWA');
+INSERT INTO `tbl_kecamatan` VALUES ('1810030', '1810', 'PAGELARAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1810031', '1810', 'PAGELARAN UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1810040', '1810', 'PRINGSEWU');
+INSERT INTO `tbl_kecamatan` VALUES ('1810050', '1810', 'GADING REJO');
+INSERT INTO `tbl_kecamatan` VALUES ('1810060', '1810', 'SUKOHARJO');
+INSERT INTO `tbl_kecamatan` VALUES ('1810070', '1810', 'BANYUMAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1810080', '1810', 'ADI LUWIH');
+INSERT INTO `tbl_kecamatan` VALUES ('1811010', '1811', 'WAY SERDANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1811020', '1811', 'SIMPANG PEMATANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1811030', '1811', 'PANCA JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1811040', '1811', 'TANJUNG RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1811050', '1811', 'MESUJI');
+INSERT INTO `tbl_kecamatan` VALUES ('1811060', '1811', 'MESUJI TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1811070', '1811', 'RAWAJITU UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1812010', '1812', 'TULANG BAWANG UDIK');
+INSERT INTO `tbl_kecamatan` VALUES ('1812020', '1812', 'TUMI JAJAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1812030', '1812', 'TULANG BAWANG TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1812040', '1812', 'PAGAR DEWA');
+INSERT INTO `tbl_kecamatan` VALUES ('1812050', '1812', 'LAMBU KIBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1812060', '1812', 'GUNUNG TERANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1812070', '1812', 'GUNUNG AGUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1812080', '1812', 'WAY KENANGA');
+INSERT INTO `tbl_kecamatan` VALUES ('1813010', '1813', 'LEMONG');
+INSERT INTO `tbl_kecamatan` VALUES ('1813020', '1813', 'PESISIR UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1813030', '1813', 'PULAU PISANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1813040', '1813', 'KARYA PENGGAWA');
+INSERT INTO `tbl_kecamatan` VALUES ('1813050', '1813', 'WAY KRUI');
+INSERT INTO `tbl_kecamatan` VALUES ('1813060', '1813', 'PESISIR TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('1813070', '1813', 'KRUI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1813080', '1813', 'PESISIR SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1813090', '1813', 'NGAMBUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1813100', '1813', 'BENGKUNAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1813110', '1813', 'BENGKUNAT BELIMBING');
+INSERT INTO `tbl_kecamatan` VALUES ('1871010', '1871', 'TELUK BETUNG BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1871011', '1871', 'TELUKBETUNG TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1871020', '1871', 'TELUK BETUNG SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1871021', '1871', 'BUMI WARAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1871030', '1871', 'PANJANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1871040', '1871', 'TANJUNG KARANG TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1871041', '1871', 'KEDAMAIAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1871050', '1871', 'TELUK BETUNG UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1871060', '1871', 'TANJUNG KARANG PUSAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1871061', '1871', 'ENGGAL');
+INSERT INTO `tbl_kecamatan` VALUES ('1871070', '1871', 'TANJUNG KARANG BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1871071', '1871', 'KEMILING');
+INSERT INTO `tbl_kecamatan` VALUES ('1871072', '1871', 'LANGKAPURA');
+INSERT INTO `tbl_kecamatan` VALUES ('1871080', '1871', 'KEDATON');
+INSERT INTO `tbl_kecamatan` VALUES ('1871081', '1871', 'RAJABASA');
+INSERT INTO `tbl_kecamatan` VALUES ('1871082', '1871', 'TANJUNG SENANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1871083', '1871', 'LABUHAN RATU');
+INSERT INTO `tbl_kecamatan` VALUES ('1871090', '1871', 'SUKARAME');
+INSERT INTO `tbl_kecamatan` VALUES ('1871091', '1871', 'SUKABUMI');
+INSERT INTO `tbl_kecamatan` VALUES ('1871092', '1871', 'WAY HALIM');
+INSERT INTO `tbl_kecamatan` VALUES ('1872011', '1872', 'METRO SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1872012', '1872', 'METRO BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1872021', '1872', 'METRO TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('1872022', '1872', 'METRO PUSAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1872023', '1872', 'METRO UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('1901070', '1901', 'MENDO BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1901080', '1901', 'MERAWANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1901081', '1901', 'PUDING BESAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1901090', '1901', 'SUNGAI LIAT');
+INSERT INTO `tbl_kecamatan` VALUES ('1901091', '1901', 'PEMALI');
+INSERT INTO `tbl_kecamatan` VALUES ('1901092', '1901', 'BAKAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1901130', '1901', 'BELINYU');
+INSERT INTO `tbl_kecamatan` VALUES ('1901131', '1901', 'RIAU SILIP');
+INSERT INTO `tbl_kecamatan` VALUES ('1902010', '1902', 'MEMBALONG');
+INSERT INTO `tbl_kecamatan` VALUES ('1902060', '1902', 'TANJUNG PANDAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1902061', '1902', 'BADAU');
+INSERT INTO `tbl_kecamatan` VALUES ('1902062', '1902', 'SIJUK');
+INSERT INTO `tbl_kecamatan` VALUES ('1902063', '1902', 'SELAT NASIK');
+INSERT INTO `tbl_kecamatan` VALUES ('1903010', '1903', 'KELAPA');
+INSERT INTO `tbl_kecamatan` VALUES ('1903020', '1903', 'TEMPILANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1903030', '1903', 'MENTOK');
+INSERT INTO `tbl_kecamatan` VALUES ('1903040', '1903', 'SIMPANG TERITIP');
+INSERT INTO `tbl_kecamatan` VALUES ('1903050', '1903', 'JEBUS');
+INSERT INTO `tbl_kecamatan` VALUES ('1903051', '1903', 'PARITTIGA');
+INSERT INTO `tbl_kecamatan` VALUES ('1904010', '1904', 'KOBA');
+INSERT INTO `tbl_kecamatan` VALUES ('1904011', '1904', 'LUBUK BESAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1904020', '1904', 'PANGKALAN BARU');
+INSERT INTO `tbl_kecamatan` VALUES ('1904021', '1904', 'NAMANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1904030', '1904', 'SUNGAI SELAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1904040', '1904', 'SIMPANG KATIS');
+INSERT INTO `tbl_kecamatan` VALUES ('1905010', '1905', 'PAYUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1905011', '1905', 'PULAU BESAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1905020', '1905', 'SIMPANG RIMBA');
+INSERT INTO `tbl_kecamatan` VALUES ('1905030', '1905', 'TOBOALI');
+INSERT INTO `tbl_kecamatan` VALUES ('1905031', '1905', 'TUKAK SADAI');
+INSERT INTO `tbl_kecamatan` VALUES ('1905040', '1905', 'AIR GEGAS');
+INSERT INTO `tbl_kecamatan` VALUES ('1905050', '1905', 'LEPAR PONGOK');
+INSERT INTO `tbl_kecamatan` VALUES ('1905051', '1905', 'KEPULAUAN PONGOK');
+INSERT INTO `tbl_kecamatan` VALUES ('1906010', '1906', 'DENDANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1906011', '1906', 'SIMPANG PESAK');
+INSERT INTO `tbl_kecamatan` VALUES ('1906020', '1906', 'GANTUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('1906021', '1906', 'SIMPANG RENGGIANG');
+INSERT INTO `tbl_kecamatan` VALUES ('1906030', '1906', 'MANGGAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1906031', '1906', 'DAMAR');
+INSERT INTO `tbl_kecamatan` VALUES ('1906040', '1906', 'KELAPA KAMPIT');
+INSERT INTO `tbl_kecamatan` VALUES ('1971010', '1971', 'RANGKUI');
+INSERT INTO `tbl_kecamatan` VALUES ('1971020', '1971', 'BUKIT INTAN');
+INSERT INTO `tbl_kecamatan` VALUES ('1971021', '1971', 'GIRIMAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('1971030', '1971', 'PANGKAL BALAM');
+INSERT INTO `tbl_kecamatan` VALUES ('1971031', '1971', 'GABEK');
+INSERT INTO `tbl_kecamatan` VALUES ('1971040', '1971', 'TAMAN SARI');
+INSERT INTO `tbl_kecamatan` VALUES ('1971041', '1971', 'GERUNGGANG');
+INSERT INTO `tbl_kecamatan` VALUES ('2101010', '2101', 'MORO');
+INSERT INTO `tbl_kecamatan` VALUES ('2101011', '2101', 'DURAI');
+INSERT INTO `tbl_kecamatan` VALUES ('2101020', '2101', 'KUNDUR');
+INSERT INTO `tbl_kecamatan` VALUES ('2101021', '2101', 'KUNDUR UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('2101022', '2101', 'KUNDUR BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('2101023', '2101', 'UNGAR');
+INSERT INTO `tbl_kecamatan` VALUES ('2101024', '2101', 'BELAT');
+INSERT INTO `tbl_kecamatan` VALUES ('2101030', '2101', 'KARIMUN');
+INSERT INTO `tbl_kecamatan` VALUES ('2101031', '2101', 'BURU');
+INSERT INTO `tbl_kecamatan` VALUES ('2101032', '2101', 'MERAL');
+INSERT INTO `tbl_kecamatan` VALUES ('2101033', '2101', 'TEBING');
+INSERT INTO `tbl_kecamatan` VALUES ('2101034', '2101', 'MERAL BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('2102040', '2102', 'TELUK BINTAN');
+INSERT INTO `tbl_kecamatan` VALUES ('2102050', '2102', 'BINTAN UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('2102051', '2102', 'TELUK SEBONG');
+INSERT INTO `tbl_kecamatan` VALUES ('2102052', '2102', 'SERI KUALA LOBAM');
+INSERT INTO `tbl_kecamatan` VALUES ('2102060', '2102', 'BINTAN TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('2102061', '2102', 'GUNUNG KIJANG');
+INSERT INTO `tbl_kecamatan` VALUES ('2102062', '2102', 'MANTANG');
+INSERT INTO `tbl_kecamatan` VALUES ('2102063', '2102', 'BINTAN PESISIR');
+INSERT INTO `tbl_kecamatan` VALUES ('2102064', '2102', 'TOAPAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('2102070', '2102', 'TAMBELAN');
+INSERT INTO `tbl_kecamatan` VALUES ('2103030', '2103', 'MIDAI');
+INSERT INTO `tbl_kecamatan` VALUES ('2103040', '2103', 'BUNGURAN BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('2103041', '2103', 'BUNGURAN UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('2103042', '2103', 'PULAU LAUT');
+INSERT INTO `tbl_kecamatan` VALUES ('2103043', '2103', 'PULAU TIGA');
+INSERT INTO `tbl_kecamatan` VALUES ('2103050', '2103', 'BUNGURAN TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('2103051', '2103', 'BUNGURAN TIMUR LAUT');
+INSERT INTO `tbl_kecamatan` VALUES ('2103052', '2103', 'BUNGURAN TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('2103053', '2103', 'BUNGURAN SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('2103060', '2103', 'SERASAN');
+INSERT INTO `tbl_kecamatan` VALUES ('2103061', '2103', 'SUBI');
+INSERT INTO `tbl_kecamatan` VALUES ('2103062', '2103', 'SERASAN TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('2104010', '2104', 'SINGKEP BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('2104020', '2104', 'SINGKEP');
+INSERT INTO `tbl_kecamatan` VALUES ('2104021', '2104', 'SINGKEP SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('2104022', '2104', 'SINGKEP PESISIR');
+INSERT INTO `tbl_kecamatan` VALUES ('2104030', '2104', 'LINGGA');
+INSERT INTO `tbl_kecamatan` VALUES ('2104031', '2104', 'SELAYAR');
+INSERT INTO `tbl_kecamatan` VALUES ('2104032', '2104', 'LINGGA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('2104040', '2104', 'LINGGA UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('2104050', '2104', 'SENAYANG');
+INSERT INTO `tbl_kecamatan` VALUES ('2105010', '2105', 'JEMAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('2105020', '2105', 'JEMAJA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('2105030', '2105', 'SIANTAN SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('2105040', '2105', 'SIANTAN');
+INSERT INTO `tbl_kecamatan` VALUES ('2105050', '2105', 'SIANTAN TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('2105060', '2105', 'SIANTAN TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('2105070', '2105', 'PALMATAK');
+INSERT INTO `tbl_kecamatan` VALUES ('2171010', '2171', 'BELAKANG PADANG');
+INSERT INTO `tbl_kecamatan` VALUES ('2171020', '2171', 'BULANG');
+INSERT INTO `tbl_kecamatan` VALUES ('2171030', '2171', 'GALANG');
+INSERT INTO `tbl_kecamatan` VALUES ('2171040', '2171', 'SEI BEDUK');
+INSERT INTO `tbl_kecamatan` VALUES ('2171041', '2171', 'SAGULUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('2171050', '2171', 'NONGSA');
+INSERT INTO `tbl_kecamatan` VALUES ('2171051', '2171', 'BATAM KOTA');
+INSERT INTO `tbl_kecamatan` VALUES ('2171060', '2171', 'SEKUPANG');
+INSERT INTO `tbl_kecamatan` VALUES ('2171061', '2171', 'BATU AJI');
+INSERT INTO `tbl_kecamatan` VALUES ('2171070', '2171', 'LUBUK BAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('2171080', '2171', 'BATU AMPAR');
+INSERT INTO `tbl_kecamatan` VALUES ('2171081', '2171', 'BENGKONG');
+INSERT INTO `tbl_kecamatan` VALUES ('2172010', '2172', 'BUKIT BESTARI');
+INSERT INTO `tbl_kecamatan` VALUES ('2172020', '2172', 'TANJUNGPINANG TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('2172030', '2172', 'TANJUNGPINANG KOTA');
+INSERT INTO `tbl_kecamatan` VALUES ('2172040', '2172', 'TANJUNGPINANG BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('3101010', '3101', 'KEPULAUAN SERIBU SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3101020', '3101', 'KEPULAUAN SERIBU UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('3171010', '3171', 'JAGAKARSA');
+INSERT INTO `tbl_kecamatan` VALUES ('3171020', '3171', 'PASAR MINGGU');
+INSERT INTO `tbl_kecamatan` VALUES ('3171030', '3171', 'CILANDAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3171040', '3171', 'PESANGGRAHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3171050', '3171', 'KEBAYORAN LAMA');
+INSERT INTO `tbl_kecamatan` VALUES ('3171060', '3171', 'KEBAYORAN BARU');
+INSERT INTO `tbl_kecamatan` VALUES ('3171070', '3171', 'MAMPANG PRAPATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3171080', '3171', 'PANCORAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3171090', '3171', 'TEBET');
+INSERT INTO `tbl_kecamatan` VALUES ('3171100', '3171', 'SETIA BUDI');
+INSERT INTO `tbl_kecamatan` VALUES ('3172010', '3172', 'PASAR REBO');
+INSERT INTO `tbl_kecamatan` VALUES ('3172020', '3172', 'CIRACAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3172030', '3172', 'CIPAYUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3172040', '3172', 'MAKASAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3172050', '3172', 'KRAMAT JATI');
+INSERT INTO `tbl_kecamatan` VALUES ('3172060', '3172', 'JATINEGARA');
+INSERT INTO `tbl_kecamatan` VALUES ('3172070', '3172', 'DUREN SAWIT');
+INSERT INTO `tbl_kecamatan` VALUES ('3172080', '3172', 'CAKUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3172090', '3172', 'PULO GADUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3172100', '3172', 'MATRAMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3173010', '3173', 'TANAH ABANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3173020', '3173', 'MENTENG');
+INSERT INTO `tbl_kecamatan` VALUES ('3173030', '3173', 'SENEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3173040', '3173', 'JOHAR BARU');
+INSERT INTO `tbl_kecamatan` VALUES ('3173050', '3173', 'CEMPAKA PUTIH');
+INSERT INTO `tbl_kecamatan` VALUES ('3173060', '3173', 'KEMAYORAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3173070', '3173', 'SAWAH BESAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3173080', '3173', 'GAMBIR');
+INSERT INTO `tbl_kecamatan` VALUES ('3174010', '3174', 'KEMBANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3174020', '3174', 'KEBON JERUK');
+INSERT INTO `tbl_kecamatan` VALUES ('3174030', '3174', 'PALMERAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3174040', '3174', 'GROGOL PETAMBURAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3174050', '3174', 'TAMBORA');
+INSERT INTO `tbl_kecamatan` VALUES ('3174060', '3174', 'TAMAN SARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3174070', '3174', 'CENGKARENG');
+INSERT INTO `tbl_kecamatan` VALUES ('3174080', '3174', 'KALI DERES');
+INSERT INTO `tbl_kecamatan` VALUES ('3175010', '3175', 'PENJARINGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3175020', '3175', 'PADEMANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3175030', '3175', 'TANJUNG PRIOK');
+INSERT INTO `tbl_kecamatan` VALUES ('3175040', '3175', 'KOJA');
+INSERT INTO `tbl_kecamatan` VALUES ('3175050', '3175', 'KELAPA GADING');
+INSERT INTO `tbl_kecamatan` VALUES ('3175060', '3175', 'CILINCING');
+INSERT INTO `tbl_kecamatan` VALUES ('3201010', '3201', 'NANGGUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3201020', '3201', 'LEUWILIANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3201021', '3201', 'LEUWISADENG');
+INSERT INTO `tbl_kecamatan` VALUES ('3201030', '3201', 'PAMIJAHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3201040', '3201', 'CIBUNGBULANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3201050', '3201', 'CIAMPEA');
+INSERT INTO `tbl_kecamatan` VALUES ('3201051', '3201', 'TENJOLAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3201060', '3201', 'DRAMAGA');
+INSERT INTO `tbl_kecamatan` VALUES ('3201070', '3201', 'CIOMAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3201071', '3201', 'TAMANSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3201080', '3201', 'CIJERUK');
+INSERT INTO `tbl_kecamatan` VALUES ('3201081', '3201', 'CIGOMBONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3201090', '3201', 'CARINGIN');
+INSERT INTO `tbl_kecamatan` VALUES ('3201100', '3201', 'CIAWI');
+INSERT INTO `tbl_kecamatan` VALUES ('3201110', '3201', 'CISARUA');
+INSERT INTO `tbl_kecamatan` VALUES ('3201120', '3201', 'MEGAMENDUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3201130', '3201', 'SUKARAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('3201140', '3201', 'BABAKAN MADANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3201150', '3201', 'SUKAMAKMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3201160', '3201', 'CARIU');
+INSERT INTO `tbl_kecamatan` VALUES ('3201161', '3201', 'TANJUNGSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3201170', '3201', 'JONGGOL');
+INSERT INTO `tbl_kecamatan` VALUES ('3201180', '3201', 'CILEUNGSI');
+INSERT INTO `tbl_kecamatan` VALUES ('3201181', '3201', 'KELAPA NUNGGAL');
+INSERT INTO `tbl_kecamatan` VALUES ('3201190', '3201', 'GUNUNG PUTRI');
+INSERT INTO `tbl_kecamatan` VALUES ('3201200', '3201', 'CITEUREUP');
+INSERT INTO `tbl_kecamatan` VALUES ('3201210', '3201', 'CIBINONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3201220', '3201', 'BOJONG GEDE');
+INSERT INTO `tbl_kecamatan` VALUES ('3201221', '3201', 'TAJUR HALANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3201230', '3201', 'KEMANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3201231', '3201', 'RANCA BUNGUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3201240', '3201', 'PARUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3201241', '3201', 'CISEENG');
+INSERT INTO `tbl_kecamatan` VALUES ('3201250', '3201', 'GUNUNG SINDUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3201260', '3201', 'RUMPIN');
+INSERT INTO `tbl_kecamatan` VALUES ('3201270', '3201', 'CIGUDEG');
+INSERT INTO `tbl_kecamatan` VALUES ('3201271', '3201', 'SUKAJAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3201280', '3201', 'JASINGA');
+INSERT INTO `tbl_kecamatan` VALUES ('3201290', '3201', 'TENJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3201300', '3201', 'PARUNG PANJANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3202010', '3202', 'CIEMAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3202020', '3202', 'CIRACAP');
+INSERT INTO `tbl_kecamatan` VALUES ('3202021', '3202', 'WALURAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3202030', '3202', 'SURADE');
+INSERT INTO `tbl_kecamatan` VALUES ('3202031', '3202', 'CIBITUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3202040', '3202', 'JAMPANG KULON');
+INSERT INTO `tbl_kecamatan` VALUES ('3202041', '3202', 'CIMANGGU');
+INSERT INTO `tbl_kecamatan` VALUES ('3202050', '3202', 'KALI BUNDER');
+INSERT INTO `tbl_kecamatan` VALUES ('3202060', '3202', 'TEGAL BULEUD');
+INSERT INTO `tbl_kecamatan` VALUES ('3202070', '3202', 'CIDOLOG');
+INSERT INTO `tbl_kecamatan` VALUES ('3202080', '3202', 'SAGARANTEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3202081', '3202', 'CIDADAP');
+INSERT INTO `tbl_kecamatan` VALUES ('3202082', '3202', 'CURUGKEMBAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3202090', '3202', 'PABUARAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3202100', '3202', 'LENGKONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3202110', '3202', 'PALABUHANRATU');
+INSERT INTO `tbl_kecamatan` VALUES ('3202111', '3202', 'SIMPENAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3202120', '3202', 'WARUNG KIARA');
+INSERT INTO `tbl_kecamatan` VALUES ('3202121', '3202', 'BANTARGADUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3202130', '3202', 'JAMPANG TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3202131', '3202', 'PURABAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3202140', '3202', 'CIKEMBAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3202150', '3202', 'NYALINDUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3202160', '3202', 'GEGER BITUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3202170', '3202', 'SUKARAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('3202171', '3202', 'KEBONPEDES');
+INSERT INTO `tbl_kecamatan` VALUES ('3202172', '3202', 'CIREUNGHAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3202173', '3202', 'SUKALARANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3202180', '3202', 'SUKABUMI');
+INSERT INTO `tbl_kecamatan` VALUES ('3202190', '3202', 'KADUDAMPIT');
+INSERT INTO `tbl_kecamatan` VALUES ('3202200', '3202', 'CISAAT');
+INSERT INTO `tbl_kecamatan` VALUES ('3202201', '3202', 'GUNUNGGURUH');
+INSERT INTO `tbl_kecamatan` VALUES ('3202210', '3202', 'CIBADAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3202211', '3202', 'CICANTAYAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3202212', '3202', 'CARINGIN');
+INSERT INTO `tbl_kecamatan` VALUES ('3202220', '3202', 'NAGRAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3202221', '3202', 'CIAMBAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3202230', '3202', 'CICURUG');
+INSERT INTO `tbl_kecamatan` VALUES ('3202240', '3202', 'CIDAHU');
+INSERT INTO `tbl_kecamatan` VALUES ('3202250', '3202', 'PARAKAN SALAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3202260', '3202', 'PARUNG KUDA');
+INSERT INTO `tbl_kecamatan` VALUES ('3202261', '3202', 'BOJONG GENTENG');
+INSERT INTO `tbl_kecamatan` VALUES ('3202270', '3202', 'KALAPA NUNGGAL');
+INSERT INTO `tbl_kecamatan` VALUES ('3202280', '3202', 'CIKIDANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3202290', '3202', 'CISOLOK');
+INSERT INTO `tbl_kecamatan` VALUES ('3202291', '3202', 'CIKAKAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3202300', '3202', 'KABANDUNGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3203010', '3203', 'AGRABINTA');
+INSERT INTO `tbl_kecamatan` VALUES ('3203011', '3203', 'LELES');
+INSERT INTO `tbl_kecamatan` VALUES ('3203020', '3203', 'SINDANGBARANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3203030', '3203', 'CIDAUN');
+INSERT INTO `tbl_kecamatan` VALUES ('3203040', '3203', 'NARINGGUL');
+INSERT INTO `tbl_kecamatan` VALUES ('3203050', '3203', 'CIBINONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3203051', '3203', 'CIKADU');
+INSERT INTO `tbl_kecamatan` VALUES ('3203060', '3203', 'TANGGEUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3203061', '3203', 'PASIRKUDA');
+INSERT INTO `tbl_kecamatan` VALUES ('3203070', '3203', 'KADUPANDAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3203071', '3203', 'CIJATI');
+INSERT INTO `tbl_kecamatan` VALUES ('3203080', '3203', 'TAKOKAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3203090', '3203', 'SUKANAGARA');
+INSERT INTO `tbl_kecamatan` VALUES ('3203100', '3203', 'PAGELARAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3203110', '3203', 'CAMPAKA');
+INSERT INTO `tbl_kecamatan` VALUES ('3203111', '3203', 'CAMPAKA MULYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3203120', '3203', 'CIBEBER');
+INSERT INTO `tbl_kecamatan` VALUES ('3203130', '3203', 'WARUNGKONDANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3203131', '3203', 'GEKBRONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3203140', '3203', 'CILAKU');
+INSERT INTO `tbl_kecamatan` VALUES ('3203150', '3203', 'SUKALUYU');
+INSERT INTO `tbl_kecamatan` VALUES ('3203160', '3203', 'BOJONGPICUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3203161', '3203', 'HAURWANGI');
+INSERT INTO `tbl_kecamatan` VALUES ('3203170', '3203', 'CIRANJANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3203180', '3203', 'MANDE');
+INSERT INTO `tbl_kecamatan` VALUES ('3203190', '3203', 'KARANGTENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3203200', '3203', 'CIANJUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3203210', '3203', 'CUGENANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3203220', '3203', 'PACET');
+INSERT INTO `tbl_kecamatan` VALUES ('3203221', '3203', 'CIPANAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3203230', '3203', 'SUKARESMI');
+INSERT INTO `tbl_kecamatan` VALUES ('3203240', '3203', 'CIKALONGKULON');
+INSERT INTO `tbl_kecamatan` VALUES ('3204010', '3204', 'CIWIDEY');
+INSERT INTO `tbl_kecamatan` VALUES ('3204011', '3204', 'RANCABALI');
+INSERT INTO `tbl_kecamatan` VALUES ('3204020', '3204', 'PASIRJAMBU');
+INSERT INTO `tbl_kecamatan` VALUES ('3204030', '3204', 'CIMAUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3204040', '3204', 'PANGALENGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3204050', '3204', 'KERTASARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3204060', '3204', 'PACET');
+INSERT INTO `tbl_kecamatan` VALUES ('3204070', '3204', 'IBUN');
+INSERT INTO `tbl_kecamatan` VALUES ('3204080', '3204', 'PASEH');
+INSERT INTO `tbl_kecamatan` VALUES ('3204090', '3204', 'CIKANCUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3204100', '3204', 'CICALENGKA');
+INSERT INTO `tbl_kecamatan` VALUES ('3204101', '3204', 'NAGREG');
+INSERT INTO `tbl_kecamatan` VALUES ('3204110', '3204', 'RANCAEKEK');
+INSERT INTO `tbl_kecamatan` VALUES ('3204120', '3204', 'MAJALAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3204121', '3204', 'SOLOKAN JERUK');
+INSERT INTO `tbl_kecamatan` VALUES ('3204130', '3204', 'CIPARAY');
+INSERT INTO `tbl_kecamatan` VALUES ('3204140', '3204', 'BALEENDAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3204150', '3204', 'ARJASARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3204160', '3204', 'BANJARAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3204161', '3204', 'CANGKUANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3204170', '3204', 'PAMEUNGPEUK');
+INSERT INTO `tbl_kecamatan` VALUES ('3204180', '3204', 'KATAPANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3204190', '3204', 'SOREANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3204191', '3204', 'KUTAWARINGIN');
+INSERT INTO `tbl_kecamatan` VALUES ('3204250', '3204', 'MARGAASIH');
+INSERT INTO `tbl_kecamatan` VALUES ('3204260', '3204', 'MARGAHAYU');
+INSERT INTO `tbl_kecamatan` VALUES ('3204270', '3204', 'DAYEUHKOLOT');
+INSERT INTO `tbl_kecamatan` VALUES ('3204280', '3204', 'BOJONGSOANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3204290', '3204', 'CILEUNYI');
+INSERT INTO `tbl_kecamatan` VALUES ('3204300', '3204', 'CILENGKRANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3204310', '3204', 'CIMENYAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3205010', '3205', 'CISEWU');
+INSERT INTO `tbl_kecamatan` VALUES ('3205011', '3205', 'CARINGIN');
+INSERT INTO `tbl_kecamatan` VALUES ('3205020', '3205', 'TALEGONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3205030', '3205', 'BUNGBULANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3205031', '3205', 'MEKARMUKTI');
+INSERT INTO `tbl_kecamatan` VALUES ('3205040', '3205', 'PAMULIHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3205050', '3205', 'PAKENJENG');
+INSERT INTO `tbl_kecamatan` VALUES ('3205060', '3205', 'CIKELET');
+INSERT INTO `tbl_kecamatan` VALUES ('3205070', '3205', 'PAMEUNGPEUK');
+INSERT INTO `tbl_kecamatan` VALUES ('3205080', '3205', 'CIBALONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3205090', '3205', 'CISOMPET');
+INSERT INTO `tbl_kecamatan` VALUES ('3205100', '3205', 'PEUNDEUY');
+INSERT INTO `tbl_kecamatan` VALUES ('3205110', '3205', 'SINGAJAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3205111', '3205', 'CIHURIP');
+INSERT INTO `tbl_kecamatan` VALUES ('3205120', '3205', 'CIKAJANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3205130', '3205', 'BANJARWANGI');
+INSERT INTO `tbl_kecamatan` VALUES ('3205140', '3205', 'CILAWU');
+INSERT INTO `tbl_kecamatan` VALUES ('3205150', '3205', 'BAYONGBONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3205151', '3205', 'CIGEDUG');
+INSERT INTO `tbl_kecamatan` VALUES ('3205160', '3205', 'CISURUPAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3205161', '3205', 'SUKARESMI');
+INSERT INTO `tbl_kecamatan` VALUES ('3205170', '3205', 'SAMARANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3205171', '3205', 'PASIRWANGI');
+INSERT INTO `tbl_kecamatan` VALUES ('3205181', '3205', 'TAROGONG KIDUL');
+INSERT INTO `tbl_kecamatan` VALUES ('3205182', '3205', 'TAROGONG KALER');
+INSERT INTO `tbl_kecamatan` VALUES ('3205190', '3205', 'GARUT KOTA');
+INSERT INTO `tbl_kecamatan` VALUES ('3205200', '3205', 'KARANGPAWITAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3205210', '3205', 'WANARAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('3205211', '3205', 'SUCINARAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('3205212', '3205', 'PANGATIKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3205220', '3205', 'SUKAWENING');
+INSERT INTO `tbl_kecamatan` VALUES ('3205221', '3205', 'KARANGTENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3205230', '3205', 'BANYURESMI');
+INSERT INTO `tbl_kecamatan` VALUES ('3205240', '3205', 'LELES');
+INSERT INTO `tbl_kecamatan` VALUES ('3205250', '3205', 'LEUWIGOONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3205260', '3205', 'CIBATU');
+INSERT INTO `tbl_kecamatan` VALUES ('3205261', '3205', 'KERSAMANAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3205270', '3205', 'CIBIUK');
+INSERT INTO `tbl_kecamatan` VALUES ('3205280', '3205', 'KADUNGORA');
+INSERT INTO `tbl_kecamatan` VALUES ('3205290', '3205', 'BLUBUR LIMBANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3205300', '3205', 'SELAAWI');
+INSERT INTO `tbl_kecamatan` VALUES ('3205310', '3205', 'MALANGBONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3206010', '3206', 'CIPATUJAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3206020', '3206', 'KARANGNUNGGAL');
+INSERT INTO `tbl_kecamatan` VALUES ('3206030', '3206', 'CIKALONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3206040', '3206', 'PANCATENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3206050', '3206', 'CIKATOMAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3206060', '3206', 'CIBALONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3206061', '3206', 'PARUNGPONTENG');
+INSERT INTO `tbl_kecamatan` VALUES ('3206070', '3206', 'BANTARKALONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3206071', '3206', 'BOJONGASIH');
+INSERT INTO `tbl_kecamatan` VALUES ('3206072', '3206', 'CULAMEGA');
+INSERT INTO `tbl_kecamatan` VALUES ('3206080', '3206', 'BOJONGGAMBIR');
+INSERT INTO `tbl_kecamatan` VALUES ('3206090', '3206', 'SODONGHILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('3206100', '3206', 'TARAJU');
+INSERT INTO `tbl_kecamatan` VALUES ('3206110', '3206', 'SALAWU');
+INSERT INTO `tbl_kecamatan` VALUES ('3206111', '3206', 'PUSPAHIANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3206120', '3206', 'TANJUNGJAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3206130', '3206', 'SUKARAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('3206140', '3206', 'SALOPA');
+INSERT INTO `tbl_kecamatan` VALUES ('3206141', '3206', 'JATIWARAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3206150', '3206', 'CINEAM');
+INSERT INTO `tbl_kecamatan` VALUES ('3206151', '3206', 'KARANGJAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3206160', '3206', 'MANONJAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3206161', '3206', 'GUNUNGTANJUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3206190', '3206', 'SINGAPARNA');
+INSERT INTO `tbl_kecamatan` VALUES ('3206191', '3206', 'SUKARAME');
+INSERT INTO `tbl_kecamatan` VALUES ('3206192', '3206', 'MANGUNREJA');
+INSERT INTO `tbl_kecamatan` VALUES ('3206200', '3206', 'CIGALONTANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3206210', '3206', 'LEUWISARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3206211', '3206', 'SARIWANGI');
+INSERT INTO `tbl_kecamatan` VALUES ('3206212', '3206', 'PADAKEMBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3206221', '3206', 'SUKARATU');
+INSERT INTO `tbl_kecamatan` VALUES ('3206230', '3206', 'CISAYONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3206231', '3206', 'SUKAHENING');
+INSERT INTO `tbl_kecamatan` VALUES ('3206240', '3206', 'RAJAPOLAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3206250', '3206', 'JAMANIS');
+INSERT INTO `tbl_kecamatan` VALUES ('3206260', '3206', 'CIAWI');
+INSERT INTO `tbl_kecamatan` VALUES ('3206261', '3206', 'KADIPATEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3206270', '3206', 'PAGERAGEUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3206271', '3206', 'SUKARESIK');
+INSERT INTO `tbl_kecamatan` VALUES ('3207100', '3207', 'BANJARSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3207110', '3207', 'LAKBOK');
+INSERT INTO `tbl_kecamatan` VALUES ('3207111', '3207', 'PURWADADI');
+INSERT INTO `tbl_kecamatan` VALUES ('3207120', '3207', 'PAMARICAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3207130', '3207', 'CIDOLOG');
+INSERT INTO `tbl_kecamatan` VALUES ('3207140', '3207', 'CIMARAGAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3207150', '3207', 'CIJEUNGJING');
+INSERT INTO `tbl_kecamatan` VALUES ('3207160', '3207', 'CISAGA');
+INSERT INTO `tbl_kecamatan` VALUES ('3207170', '3207', 'TAMBAKSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3207180', '3207', 'RANCAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3207190', '3207', 'RAJADESA');
+INSERT INTO `tbl_kecamatan` VALUES ('3207200', '3207', 'SUKADANA');
+INSERT INTO `tbl_kecamatan` VALUES ('3207210', '3207', 'CIAMIS');
+INSERT INTO `tbl_kecamatan` VALUES ('3207211', '3207', 'BAREGBEG');
+INSERT INTO `tbl_kecamatan` VALUES ('3207220', '3207', 'CIKONENG');
+INSERT INTO `tbl_kecamatan` VALUES ('3207221', '3207', 'SINDANGKASIH');
+INSERT INTO `tbl_kecamatan` VALUES ('3207230', '3207', 'CIHAURBEUTI');
+INSERT INTO `tbl_kecamatan` VALUES ('3207240', '3207', 'SADANANYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3207250', '3207', 'CIPAKU');
+INSERT INTO `tbl_kecamatan` VALUES ('3207260', '3207', 'JATINAGARA');
+INSERT INTO `tbl_kecamatan` VALUES ('3207270', '3207', 'PANAWANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3207280', '3207', 'KAWALI');
+INSERT INTO `tbl_kecamatan` VALUES ('3207281', '3207', 'LUMBUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3207290', '3207', 'PANJALU');
+INSERT INTO `tbl_kecamatan` VALUES ('3207291', '3207', 'SUKAMANTRI');
+INSERT INTO `tbl_kecamatan` VALUES ('3207300', '3207', 'PANUMBANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3208010', '3208', 'DARMA');
+INSERT INTO `tbl_kecamatan` VALUES ('3208020', '3208', 'KADUGEDE');
+INSERT INTO `tbl_kecamatan` VALUES ('3208021', '3208', 'NUSAHERANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3208030', '3208', 'CINIRU');
+INSERT INTO `tbl_kecamatan` VALUES ('3208031', '3208', 'HANTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('3208040', '3208', 'SELAJAMBE');
+INSERT INTO `tbl_kecamatan` VALUES ('3208050', '3208', 'SUBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3208051', '3208', 'CILEBAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3208060', '3208', 'CIWARU');
+INSERT INTO `tbl_kecamatan` VALUES ('3208061', '3208', 'KARANGKANCANA');
+INSERT INTO `tbl_kecamatan` VALUES ('3208070', '3208', 'CIBINGBIN');
+INSERT INTO `tbl_kecamatan` VALUES ('3208071', '3208', 'CIBEUREUM');
+INSERT INTO `tbl_kecamatan` VALUES ('3208080', '3208', 'LURAGUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3208081', '3208', 'CIMAHI');
+INSERT INTO `tbl_kecamatan` VALUES ('3208090', '3208', 'CIDAHU');
+INSERT INTO `tbl_kecamatan` VALUES ('3208091', '3208', 'KALIMANGGIS');
+INSERT INTO `tbl_kecamatan` VALUES ('3208100', '3208', 'CIAWIGEBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3208101', '3208', 'CIPICUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3208110', '3208', 'LEBAKWANGI');
+INSERT INTO `tbl_kecamatan` VALUES ('3208111', '3208', 'MALEBER');
+INSERT INTO `tbl_kecamatan` VALUES ('3208120', '3208', 'GARAWANGI');
+INSERT INTO `tbl_kecamatan` VALUES ('3208121', '3208', 'SINDANGAGUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3208130', '3208', 'KUNINGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3208140', '3208', 'CIGUGUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3208150', '3208', 'KRAMATMULYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3208160', '3208', 'JALAKSANA');
+INSERT INTO `tbl_kecamatan` VALUES ('3208161', '3208', 'JAPARA');
+INSERT INTO `tbl_kecamatan` VALUES ('3208170', '3208', 'CILIMUS');
+INSERT INTO `tbl_kecamatan` VALUES ('3208171', '3208', 'CIGANDAMEKAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3208180', '3208', 'MANDIRANCAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3208181', '3208', 'PANCALANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3208190', '3208', 'PASAWAHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3209010', '3209', 'WALED');
+INSERT INTO `tbl_kecamatan` VALUES ('3209011', '3209', 'PASALEMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3209020', '3209', 'CILEDUG');
+INSERT INTO `tbl_kecamatan` VALUES ('3209021', '3209', 'PABUARAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3209030', '3209', 'LOSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3209031', '3209', 'PABEDILAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3209040', '3209', 'BABAKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3209041', '3209', 'GEBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3209050', '3209', 'KARANGSEMBUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3209051', '3209', 'KARANGWARENG');
+INSERT INTO `tbl_kecamatan` VALUES ('3209060', '3209', 'LEMAHABANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3209061', '3209', 'SUSUKANLEBAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3209070', '3209', 'SEDONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3209080', '3209', 'ASTANAJAPURA');
+INSERT INTO `tbl_kecamatan` VALUES ('3209081', '3209', 'PANGENAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3209090', '3209', 'MUNDU');
+INSERT INTO `tbl_kecamatan` VALUES ('3209100', '3209', 'BEBER');
+INSERT INTO `tbl_kecamatan` VALUES ('3209101', '3209', 'GREGED');
+INSERT INTO `tbl_kecamatan` VALUES ('3209111', '3209', 'TALUN');
+INSERT INTO `tbl_kecamatan` VALUES ('3209120', '3209', 'SUMBER');
+INSERT INTO `tbl_kecamatan` VALUES ('3209121', '3209', 'DUKUPUNTANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3209130', '3209', 'PALIMANAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3209140', '3209', 'PLUMBON');
+INSERT INTO `tbl_kecamatan` VALUES ('3209141', '3209', 'DEPOK');
+INSERT INTO `tbl_kecamatan` VALUES ('3209150', '3209', 'WERU');
+INSERT INTO `tbl_kecamatan` VALUES ('3209151', '3209', 'PLERED');
+INSERT INTO `tbl_kecamatan` VALUES ('3209161', '3209', 'TENGAH TANI');
+INSERT INTO `tbl_kecamatan` VALUES ('3209162', '3209', 'KEDAWUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3209171', '3209', 'GUNUNGJATI');
+INSERT INTO `tbl_kecamatan` VALUES ('3209180', '3209', 'KAPETAKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3209181', '3209', 'SURANENGGALA');
+INSERT INTO `tbl_kecamatan` VALUES ('3209190', '3209', 'KLANGENAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3209191', '3209', 'JAMBLANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3209200', '3209', 'ARJAWINANGUN');
+INSERT INTO `tbl_kecamatan` VALUES ('3209201', '3209', 'PANGURAGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3209210', '3209', 'CIWARINGIN');
+INSERT INTO `tbl_kecamatan` VALUES ('3209211', '3209', 'GEMPOL');
+INSERT INTO `tbl_kecamatan` VALUES ('3209220', '3209', 'SUSUKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3209230', '3209', 'GEGESIK');
+INSERT INTO `tbl_kecamatan` VALUES ('3209231', '3209', 'KALIWEDI');
+INSERT INTO `tbl_kecamatan` VALUES ('3210010', '3210', 'LEMAHSUGIH');
+INSERT INTO `tbl_kecamatan` VALUES ('3210020', '3210', 'BANTARUJEG');
+INSERT INTO `tbl_kecamatan` VALUES ('3210021', '3210', 'MALAUSMA');
+INSERT INTO `tbl_kecamatan` VALUES ('3210030', '3210', 'CIKIJING');
+INSERT INTO `tbl_kecamatan` VALUES ('3210031', '3210', 'CINGAMBUL');
+INSERT INTO `tbl_kecamatan` VALUES ('3210040', '3210', 'TALAGA');
+INSERT INTO `tbl_kecamatan` VALUES ('3210041', '3210', 'BANJARAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3210050', '3210', 'ARGAPURA');
+INSERT INTO `tbl_kecamatan` VALUES ('3210060', '3210', 'MAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('3210070', '3210', 'MAJALENGKA');
+INSERT INTO `tbl_kecamatan` VALUES ('3210080', '3210', 'CIGASONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3210090', '3210', 'SUKAHAJI');
+INSERT INTO `tbl_kecamatan` VALUES ('3210091', '3210', 'SINDANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3210100', '3210', 'RAJAGALUH');
+INSERT INTO `tbl_kecamatan` VALUES ('3210110', '3210', 'SINDANGWANGI');
+INSERT INTO `tbl_kecamatan` VALUES ('3210120', '3210', 'LEUWIMUNDING');
+INSERT INTO `tbl_kecamatan` VALUES ('3210130', '3210', 'PALASAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3210140', '3210', 'JATIWANGI');
+INSERT INTO `tbl_kecamatan` VALUES ('3210150', '3210', 'DAWUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3210151', '3210', 'KASOKANDEL');
+INSERT INTO `tbl_kecamatan` VALUES ('3210160', '3210', 'PANYINGKIRAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3210170', '3210', 'KADIPATEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3210180', '3210', 'KERTAJATI');
+INSERT INTO `tbl_kecamatan` VALUES ('3210190', '3210', 'JATITUJUH');
+INSERT INTO `tbl_kecamatan` VALUES ('3210200', '3210', 'LIGUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3210210', '3210', 'SUMBERJAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3211010', '3211', 'JATINANGOR');
+INSERT INTO `tbl_kecamatan` VALUES ('3211020', '3211', 'CIMANGGUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3211030', '3211', 'TANJUNGSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3211031', '3211', 'SUKASARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3211032', '3211', 'PAMULIHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3211040', '3211', 'RANCAKALONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3211050', '3211', 'SUMEDANG SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3211060', '3211', 'SUMEDANG UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('3211061', '3211', 'GANEAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3211070', '3211', 'SITURAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('3211071', '3211', 'CISITU');
+INSERT INTO `tbl_kecamatan` VALUES ('3211080', '3211', 'DARMARAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('3211090', '3211', 'CIBUGEL');
+INSERT INTO `tbl_kecamatan` VALUES ('3211100', '3211', 'WADO');
+INSERT INTO `tbl_kecamatan` VALUES ('3211101', '3211', 'JATINUNGGAL');
+INSERT INTO `tbl_kecamatan` VALUES ('3211111', '3211', 'JATIGEDE');
+INSERT INTO `tbl_kecamatan` VALUES ('3211120', '3211', 'TOMO');
+INSERT INTO `tbl_kecamatan` VALUES ('3211130', '3211', 'UJUNG JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3211140', '3211', 'CONGGEANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3211150', '3211', 'PASEH');
+INSERT INTO `tbl_kecamatan` VALUES ('3211160', '3211', 'CIMALAKA');
+INSERT INTO `tbl_kecamatan` VALUES ('3211161', '3211', 'CISARUA');
+INSERT INTO `tbl_kecamatan` VALUES ('3211170', '3211', 'TANJUNGKERTA');
+INSERT INTO `tbl_kecamatan` VALUES ('3211171', '3211', 'TANJUNGMEDAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3211180', '3211', 'BUAHDUA');
+INSERT INTO `tbl_kecamatan` VALUES ('3211181', '3211', 'SURIAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3212010', '3212', 'HAURGEULIS');
+INSERT INTO `tbl_kecamatan` VALUES ('3212011', '3212', 'GANTAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3212020', '3212', 'KROYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3212030', '3212', 'GABUSWETAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3212040', '3212', 'CIKEDUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3212041', '3212', 'TERISI');
+INSERT INTO `tbl_kecamatan` VALUES ('3212050', '3212', 'LELEA');
+INSERT INTO `tbl_kecamatan` VALUES ('3212060', '3212', 'BANGODUA');
+INSERT INTO `tbl_kecamatan` VALUES ('3212061', '3212', 'TUKDANA');
+INSERT INTO `tbl_kecamatan` VALUES ('3212070', '3212', 'WIDASARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3212080', '3212', 'KERTASEMAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3212081', '3212', 'SUKAGUMIWANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3212090', '3212', 'KRANGKENG');
+INSERT INTO `tbl_kecamatan` VALUES ('3212100', '3212', 'KARANGAMPEL');
+INSERT INTO `tbl_kecamatan` VALUES ('3212101', '3212', 'KEDOKAN BUNDER');
+INSERT INTO `tbl_kecamatan` VALUES ('3212110', '3212', 'JUNTINYUAT');
+INSERT INTO `tbl_kecamatan` VALUES ('3212120', '3212', 'SLIYEG');
+INSERT INTO `tbl_kecamatan` VALUES ('3212130', '3212', 'JATIBARANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3212140', '3212', 'BALONGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3212150', '3212', 'INDRAMAYU');
+INSERT INTO `tbl_kecamatan` VALUES ('3212160', '3212', 'SINDANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3212161', '3212', 'CANTIGI');
+INSERT INTO `tbl_kecamatan` VALUES ('3212162', '3212', 'PASEKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3212170', '3212', 'LOHBENER');
+INSERT INTO `tbl_kecamatan` VALUES ('3212171', '3212', 'ARAHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3212180', '3212', 'LOSARANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3212190', '3212', 'KANDANGHAUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3212200', '3212', 'BONGAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3212210', '3212', 'ANJATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3212220', '3212', 'SUKRA');
+INSERT INTO `tbl_kecamatan` VALUES ('3212221', '3212', 'PATROL');
+INSERT INTO `tbl_kecamatan` VALUES ('3213010', '3213', 'SAGALAHERANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3213011', '3213', 'SERANGPANJANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3213020', '3213', 'JALANCAGAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3213021', '3213', 'CIATER');
+INSERT INTO `tbl_kecamatan` VALUES ('3213030', '3213', 'CISALAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3213031', '3213', 'KASOMALANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3213040', '3213', 'TANJUNGSIANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3213050', '3213', 'CIJAMBE');
+INSERT INTO `tbl_kecamatan` VALUES ('3213060', '3213', 'CIBOGO');
+INSERT INTO `tbl_kecamatan` VALUES ('3213070', '3213', 'SUBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3213080', '3213', 'KALIJATI');
+INSERT INTO `tbl_kecamatan` VALUES ('3213081', '3213', 'DAWUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3213090', '3213', 'CIPEUNDEUY');
+INSERT INTO `tbl_kecamatan` VALUES ('3213100', '3213', 'PABUARAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3213110', '3213', 'PATOKBEUSI');
+INSERT INTO `tbl_kecamatan` VALUES ('3213120', '3213', 'PURWADADI');
+INSERT INTO `tbl_kecamatan` VALUES ('3213130', '3213', 'CIKAUM');
+INSERT INTO `tbl_kecamatan` VALUES ('3213140', '3213', 'PAGADEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3213141', '3213', 'PAGADEN BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('3213150', '3213', 'CIPUNAGARA');
+INSERT INTO `tbl_kecamatan` VALUES ('3213160', '3213', 'COMPRENG');
+INSERT INTO `tbl_kecamatan` VALUES ('3213170', '3213', 'BINONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3213171', '3213', 'TAMBAKDAHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3213180', '3213', 'CIASEM');
+INSERT INTO `tbl_kecamatan` VALUES ('3213190', '3213', 'PAMANUKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3213191', '3213', 'SUKASARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3213200', '3213', 'PUSAKANAGARA');
+INSERT INTO `tbl_kecamatan` VALUES ('3213201', '3213', 'PUSAKAJAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3213210', '3213', 'LEGONKULON');
+INSERT INTO `tbl_kecamatan` VALUES ('3213220', '3213', 'BLANAKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3214010', '3214', 'JATILUHUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3214011', '3214', 'SUKASARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3214020', '3214', 'MANIIS');
+INSERT INTO `tbl_kecamatan` VALUES ('3214030', '3214', 'TEGAL WARU');
+INSERT INTO `tbl_kecamatan` VALUES ('3214040', '3214', 'PLERED');
+INSERT INTO `tbl_kecamatan` VALUES ('3214050', '3214', 'SUKATANI');
+INSERT INTO `tbl_kecamatan` VALUES ('3214060', '3214', 'DARANGDAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3214070', '3214', 'BOJONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3214080', '3214', 'WANAYASA');
+INSERT INTO `tbl_kecamatan` VALUES ('3214081', '3214', 'KIARAPEDES');
+INSERT INTO `tbl_kecamatan` VALUES ('3214090', '3214', 'PASAWAHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3214091', '3214', 'PONDOK SALAM');
+INSERT INTO `tbl_kecamatan` VALUES ('3214100', '3214', 'PURWAKARTA');
+INSERT INTO `tbl_kecamatan` VALUES ('3214101', '3214', 'BABAKANCIKAO');
+INSERT INTO `tbl_kecamatan` VALUES ('3214110', '3214', 'CAMPAKA');
+INSERT INTO `tbl_kecamatan` VALUES ('3214111', '3214', 'CIBATU');
+INSERT INTO `tbl_kecamatan` VALUES ('3214112', '3214', 'BUNGURSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3215010', '3215', 'PANGKALAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3215011', '3215', 'TEGALWARU');
+INSERT INTO `tbl_kecamatan` VALUES ('3215020', '3215', 'CIAMPEL');
+INSERT INTO `tbl_kecamatan` VALUES ('3215031', '3215', 'TELUKJAMBE TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3215032', '3215', 'TELUKJAMBE BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('3215040', '3215', 'KLARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3215050', '3215', 'CIKAMPEK');
+INSERT INTO `tbl_kecamatan` VALUES ('3215051', '3215', 'PURWASARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3215060', '3215', 'TIRTAMULYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3215070', '3215', 'JATISARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3215071', '3215', 'BANYUSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3215072', '3215', 'KOTABARU');
+INSERT INTO `tbl_kecamatan` VALUES ('3215081', '3215', 'CILAMAYA WETAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3215082', '3215', 'CILAMAYA KULON');
+INSERT INTO `tbl_kecamatan` VALUES ('3215090', '3215', 'LEMAHABANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3215100', '3215', 'TALAGASARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3215111', '3215', 'MAJALAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3215112', '3215', 'KARAWANG TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3215113', '3215', 'KARAWANG BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('3215120', '3215', 'RAWAMERTA');
+INSERT INTO `tbl_kecamatan` VALUES ('3215130', '3215', 'TEMPURAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3215140', '3215', 'KUTAWALUYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3215150', '3215', 'RENGASDENGKLOK');
+INSERT INTO `tbl_kecamatan` VALUES ('3215151', '3215', 'JAYAKERTA');
+INSERT INTO `tbl_kecamatan` VALUES ('3215160', '3215', 'PEDES');
+INSERT INTO `tbl_kecamatan` VALUES ('3215161', '3215', 'CILEBAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3215170', '3215', 'CIBUAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3215180', '3215', 'TIRTAJAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3215190', '3215', 'BATUJAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3215200', '3215', 'PAKISJAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3216010', '3216', 'SETU');
+INSERT INTO `tbl_kecamatan` VALUES ('3216021', '3216', 'SERANG BARU');
+INSERT INTO `tbl_kecamatan` VALUES ('3216022', '3216', 'CIKARANG PUSAT');
+INSERT INTO `tbl_kecamatan` VALUES ('3216023', '3216', 'CIKARANG SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3216030', '3216', 'CIBARUSAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3216031', '3216', 'BOJONGMANGU');
+INSERT INTO `tbl_kecamatan` VALUES ('3216041', '3216', 'CIKARANG TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3216050', '3216', 'KEDUNGWARINGIN');
+INSERT INTO `tbl_kecamatan` VALUES ('3216061', '3216', 'CIKARANG UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('3216062', '3216', 'KARANGBAHAGIA');
+INSERT INTO `tbl_kecamatan` VALUES ('3216070', '3216', 'CIBITUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3216071', '3216', 'CIKARANG BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('3216081', '3216', 'TAMBUN SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3216082', '3216', 'TAMBUN UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('3216090', '3216', 'BABELAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3216100', '3216', 'TARUMAJAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3216110', '3216', 'TAMBELANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3216111', '3216', 'SUKAWANGI');
+INSERT INTO `tbl_kecamatan` VALUES ('3216120', '3216', 'SUKATANI');
+INSERT INTO `tbl_kecamatan` VALUES ('3216121', '3216', 'SUKAKARYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3216130', '3216', 'PEBAYURAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3216140', '3216', 'CABANGBUNGIN');
+INSERT INTO `tbl_kecamatan` VALUES ('3216150', '3216', 'MUARA GEMBONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3217010', '3217', 'RONGGA');
+INSERT INTO `tbl_kecamatan` VALUES ('3217020', '3217', 'GUNUNGHALU');
+INSERT INTO `tbl_kecamatan` VALUES ('3217030', '3217', 'SINDANGKERTA');
+INSERT INTO `tbl_kecamatan` VALUES ('3217040', '3217', 'CILILIN');
+INSERT INTO `tbl_kecamatan` VALUES ('3217050', '3217', 'CIHAMPELAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3217060', '3217', 'CIPONGKOR');
+INSERT INTO `tbl_kecamatan` VALUES ('3217070', '3217', 'BATUJAJAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3217071', '3217', 'SAGULING');
+INSERT INTO `tbl_kecamatan` VALUES ('3217080', '3217', 'CIPATAT');
+INSERT INTO `tbl_kecamatan` VALUES ('3217090', '3217', 'PADALARANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3217100', '3217', 'NGAMPRAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3217110', '3217', 'PARONGPONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3217120', '3217', 'LEMBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3217130', '3217', 'CISARUA');
+INSERT INTO `tbl_kecamatan` VALUES ('3217140', '3217', 'CIKALONG WETAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3217150', '3217', 'CIPEUNDEUY');
+INSERT INTO `tbl_kecamatan` VALUES ('3218010', '3218', 'CIMERAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3218020', '3218', 'CIJULANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3218030', '3218', 'CIGUGUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3218040', '3218', 'LANGKAPLANCAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3218050', '3218', 'PARIGI');
+INSERT INTO `tbl_kecamatan` VALUES ('3218060', '3218', 'SIDAMULIH');
+INSERT INTO `tbl_kecamatan` VALUES ('3218070', '3218', 'PANGANDARAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3218080', '3218', 'KALIPUCANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3218090', '3218', 'PADAHERANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3218100', '3218', 'MANGUNJAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3271010', '3271', 'BOGOR SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3271020', '3271', 'BOGOR TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3271030', '3271', 'BOGOR UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('3271040', '3271', 'BOGOR TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3271050', '3271', 'BOGOR BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('3271060', '3271', 'TANAH SEREAL');
+INSERT INTO `tbl_kecamatan` VALUES ('3272010', '3272', 'BAROS');
+INSERT INTO `tbl_kecamatan` VALUES ('3272011', '3272', 'LEMBURSITU');
+INSERT INTO `tbl_kecamatan` VALUES ('3272012', '3272', 'CIBEUREUM');
+INSERT INTO `tbl_kecamatan` VALUES ('3272020', '3272', 'CITAMIANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3272030', '3272', 'WARUDOYONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3272040', '3272', 'GUNUNG PUYUH');
+INSERT INTO `tbl_kecamatan` VALUES ('3272050', '3272', 'CIKOLE');
+INSERT INTO `tbl_kecamatan` VALUES ('3273010', '3273', 'BANDUNG KULON');
+INSERT INTO `tbl_kecamatan` VALUES ('3273020', '3273', 'BABAKAN CIPARAY');
+INSERT INTO `tbl_kecamatan` VALUES ('3273030', '3273', 'BOJONGLOA KALER');
+INSERT INTO `tbl_kecamatan` VALUES ('3273040', '3273', 'BOJONGLOA KIDUL');
+INSERT INTO `tbl_kecamatan` VALUES ('3273050', '3273', 'ASTANAANYAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3273060', '3273', 'REGOL');
+INSERT INTO `tbl_kecamatan` VALUES ('3273070', '3273', 'LENGKONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3273080', '3273', 'BANDUNG KIDUL');
+INSERT INTO `tbl_kecamatan` VALUES ('3273090', '3273', 'BUAHBATU');
+INSERT INTO `tbl_kecamatan` VALUES ('3273100', '3273', 'RANCASARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3273101', '3273', 'GEDEBAGE');
+INSERT INTO `tbl_kecamatan` VALUES ('3273110', '3273', 'CIBIRU');
+INSERT INTO `tbl_kecamatan` VALUES ('3273111', '3273', 'PANYILEUKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3273120', '3273', 'UJUNG BERUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3273121', '3273', 'CINAMBO');
+INSERT INTO `tbl_kecamatan` VALUES ('3273130', '3273', 'ARCAMANIK');
+INSERT INTO `tbl_kecamatan` VALUES ('3273141', '3273', 'ANTAPANI');
+INSERT INTO `tbl_kecamatan` VALUES ('3273142', '3273', 'MANDALAJATI');
+INSERT INTO `tbl_kecamatan` VALUES ('3273150', '3273', 'KIARACONDONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3273160', '3273', 'BATUNUNGGAL');
+INSERT INTO `tbl_kecamatan` VALUES ('3273170', '3273', 'SUMUR BANDUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3273180', '3273', 'ANDIR');
+INSERT INTO `tbl_kecamatan` VALUES ('3273190', '3273', 'CICENDO');
+INSERT INTO `tbl_kecamatan` VALUES ('3273200', '3273', 'BANDUNG WETAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3273210', '3273', 'CIBEUNYING KIDUL');
+INSERT INTO `tbl_kecamatan` VALUES ('3273220', '3273', 'CIBEUNYING KALER');
+INSERT INTO `tbl_kecamatan` VALUES ('3273230', '3273', 'COBLONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3273240', '3273', 'SUKAJADI');
+INSERT INTO `tbl_kecamatan` VALUES ('3273250', '3273', 'SUKASARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3273260', '3273', 'CIDADAP');
+INSERT INTO `tbl_kecamatan` VALUES ('3274010', '3274', 'HARJAMUKTI');
+INSERT INTO `tbl_kecamatan` VALUES ('3274020', '3274', 'LEMAHWUNGKUK');
+INSERT INTO `tbl_kecamatan` VALUES ('3274030', '3274', 'PEKALIPAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3274040', '3274', 'KESAMBI');
+INSERT INTO `tbl_kecamatan` VALUES ('3274050', '3274', 'KEJAKSAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3275010', '3275', 'PONDOKGEDE');
+INSERT INTO `tbl_kecamatan` VALUES ('3275011', '3275', 'JATISAMPURNA');
+INSERT INTO `tbl_kecamatan` VALUES ('3275012', '3275', 'PONDOKMELATI');
+INSERT INTO `tbl_kecamatan` VALUES ('3275020', '3275', 'JATIASIH');
+INSERT INTO `tbl_kecamatan` VALUES ('3275030', '3275', 'BANTARGEBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3275031', '3275', 'MUSTIKAJAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3275040', '3275', 'BEKASI TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3275041', '3275', 'RAWALUMBU');
+INSERT INTO `tbl_kecamatan` VALUES ('3275050', '3275', 'BEKASI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3275060', '3275', 'BEKASI BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('3275061', '3275', 'MEDAN SATRIA');
+INSERT INTO `tbl_kecamatan` VALUES ('3275070', '3275', 'BEKASI UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('3276010', '3276', 'SAWANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3276011', '3276', 'BOJONGSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3276020', '3276', 'PANCORAN MAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3276021', '3276', 'CIPAYUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3276030', '3276', 'SUKMA JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3276031', '3276', 'CILODONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3276040', '3276', 'CIMANGGIS');
+INSERT INTO `tbl_kecamatan` VALUES ('3276041', '3276', 'TAPOS');
+INSERT INTO `tbl_kecamatan` VALUES ('3276050', '3276', 'BEJI');
+INSERT INTO `tbl_kecamatan` VALUES ('3276060', '3276', 'LIMO');
+INSERT INTO `tbl_kecamatan` VALUES ('3276061', '3276', 'CINERE');
+INSERT INTO `tbl_kecamatan` VALUES ('3277010', '3277', 'CIMAHI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3277020', '3277', 'CIMAHI TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3277030', '3277', 'CIMAHI UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('3278010', '3278', 'KAWALU');
+INSERT INTO `tbl_kecamatan` VALUES ('3278020', '3278', 'TAMANSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3278030', '3278', 'CIBEUREUM');
+INSERT INTO `tbl_kecamatan` VALUES ('3278031', '3278', 'PURBARATU');
+INSERT INTO `tbl_kecamatan` VALUES ('3278040', '3278', 'TAWANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3278050', '3278', 'CIHIDEUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3278060', '3278', 'MANGKUBUMI');
+INSERT INTO `tbl_kecamatan` VALUES ('3278070', '3278', 'INDIHIANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3278071', '3278', 'BUNGURSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3278080', '3278', 'CIPEDES');
+INSERT INTO `tbl_kecamatan` VALUES ('3279010', '3279', 'BANJAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3279020', '3279', 'PURWAHARJA');
+INSERT INTO `tbl_kecamatan` VALUES ('3279030', '3279', 'PATARUMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3279040', '3279', 'LANGENSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3301010', '3301', 'DAYEUHLUHUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3301020', '3301', 'WANAREJA');
+INSERT INTO `tbl_kecamatan` VALUES ('3301030', '3301', 'MAJENANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3301040', '3301', 'CIMANGGU');
+INSERT INTO `tbl_kecamatan` VALUES ('3301050', '3301', 'KARANGPUCUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3301060', '3301', 'CIPARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3301070', '3301', 'SIDAREJA');
+INSERT INTO `tbl_kecamatan` VALUES ('3301080', '3301', 'KEDUNGREJA');
+INSERT INTO `tbl_kecamatan` VALUES ('3301090', '3301', 'PATIMUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3301100', '3301', 'GANDRUNGMANGU');
+INSERT INTO `tbl_kecamatan` VALUES ('3301110', '3301', 'BANTARSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3301120', '3301', 'KAWUNGANTEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3301121', '3301', 'KAMPUNG LAUT');
+INSERT INTO `tbl_kecamatan` VALUES ('3301130', '3301', 'JERUKLEGI');
+INSERT INTO `tbl_kecamatan` VALUES ('3301140', '3301', 'KESUGIHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3301150', '3301', 'ADIPALA');
+INSERT INTO `tbl_kecamatan` VALUES ('3301160', '3301', 'MAOS');
+INSERT INTO `tbl_kecamatan` VALUES ('3301170', '3301', 'SAMPANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3301180', '3301', 'KROYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3301190', '3301', 'BINANGUN');
+INSERT INTO `tbl_kecamatan` VALUES ('3301200', '3301', 'NUSAWUNGU');
+INSERT INTO `tbl_kecamatan` VALUES ('3301710', '3301', 'CILACAP SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3301720', '3301', 'CILACAP TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3301730', '3301', 'CILACAP UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('3302010', '3302', 'LUMBIR');
+INSERT INTO `tbl_kecamatan` VALUES ('3302020', '3302', 'WANGON');
+INSERT INTO `tbl_kecamatan` VALUES ('3302030', '3302', 'JATILAWANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3302040', '3302', 'RAWALO');
+INSERT INTO `tbl_kecamatan` VALUES ('3302050', '3302', 'KEBASEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3302060', '3302', 'KEMRANJEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3302070', '3302', 'SUMPIUH');
+INSERT INTO `tbl_kecamatan` VALUES ('3302080', '3302', 'TAMBAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3302090', '3302', 'SOMAGEDE');
+INSERT INTO `tbl_kecamatan` VALUES ('3302100', '3302', 'KALIBAGOR');
+INSERT INTO `tbl_kecamatan` VALUES ('3302110', '3302', 'BANYUMAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3302120', '3302', 'PATIKRAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('3302130', '3302', 'PURWOJATI');
+INSERT INTO `tbl_kecamatan` VALUES ('3302140', '3302', 'AJIBARANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3302150', '3302', 'GUMELAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3302160', '3302', 'PEKUNCEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3302170', '3302', 'CILONGOK');
+INSERT INTO `tbl_kecamatan` VALUES ('3302180', '3302', 'KARANGLEWAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3302190', '3302', 'KEDUNG BANTENG');
+INSERT INTO `tbl_kecamatan` VALUES ('3302200', '3302', 'BATURRADEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3302210', '3302', 'SUMBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3302220', '3302', 'KEMBARAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3302230', '3302', 'SOKARAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('3302710', '3302', 'PURWOKERTO SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3302720', '3302', 'PURWOKERTO BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('3302730', '3302', 'PURWOKERTO TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3302740', '3302', 'PURWOKERTO UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('3303010', '3303', 'KEMANGKON');
+INSERT INTO `tbl_kecamatan` VALUES ('3303020', '3303', 'BUKATEJA');
+INSERT INTO `tbl_kecamatan` VALUES ('3303030', '3303', 'KEJOBONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3303040', '3303', 'PENGADEGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3303050', '3303', 'KALIGONDANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3303060', '3303', 'PURBALINGGA');
+INSERT INTO `tbl_kecamatan` VALUES ('3303070', '3303', 'KALIMANAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3303080', '3303', 'PADAMARA');
+INSERT INTO `tbl_kecamatan` VALUES ('3303090', '3303', 'KUTASARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3303100', '3303', 'BOJONGSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3303110', '3303', 'MREBET');
+INSERT INTO `tbl_kecamatan` VALUES ('3303120', '3303', 'BOBOTSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3303130', '3303', 'KARANGREJA');
+INSERT INTO `tbl_kecamatan` VALUES ('3303131', '3303', 'KARANGJAMBU');
+INSERT INTO `tbl_kecamatan` VALUES ('3303140', '3303', 'KARANGANYAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3303141', '3303', 'KERTANEGARA');
+INSERT INTO `tbl_kecamatan` VALUES ('3303150', '3303', 'KARANGMONCOL');
+INSERT INTO `tbl_kecamatan` VALUES ('3303160', '3303', 'REMBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3304010', '3304', 'SUSUKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3304020', '3304', 'PURWAREJA KLAMPOK');
+INSERT INTO `tbl_kecamatan` VALUES ('3304030', '3304', 'MANDIRAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('3304040', '3304', 'PURWANEGARA');
+INSERT INTO `tbl_kecamatan` VALUES ('3304050', '3304', 'BAWANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3304060', '3304', 'BANJARNEGARA');
+INSERT INTO `tbl_kecamatan` VALUES ('3304061', '3304', 'PAGEDONGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3304070', '3304', 'SIGALUH');
+INSERT INTO `tbl_kecamatan` VALUES ('3304080', '3304', 'MADUKARA');
+INSERT INTO `tbl_kecamatan` VALUES ('3304090', '3304', 'BANJARMANGU');
+INSERT INTO `tbl_kecamatan` VALUES ('3304100', '3304', 'WANADADI');
+INSERT INTO `tbl_kecamatan` VALUES ('3304110', '3304', 'RAKIT');
+INSERT INTO `tbl_kecamatan` VALUES ('3304120', '3304', 'PUNGGELAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3304130', '3304', 'KARANGKOBAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3304140', '3304', 'PAGENTAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3304150', '3304', 'PEJAWARAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3304160', '3304', 'BATUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3304170', '3304', 'WANAYASA');
+INSERT INTO `tbl_kecamatan` VALUES ('3304180', '3304', 'KALIBENING');
+INSERT INTO `tbl_kecamatan` VALUES ('3304181', '3304', 'PANDANARUM');
+INSERT INTO `tbl_kecamatan` VALUES ('3305010', '3305', 'AYAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3305020', '3305', 'BUAYAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3305030', '3305', 'PURING');
+INSERT INTO `tbl_kecamatan` VALUES ('3305040', '3305', 'PETANAHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3305050', '3305', 'KLIRONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3305060', '3305', 'BULUSPESANTREN');
+INSERT INTO `tbl_kecamatan` VALUES ('3305070', '3305', 'AMBAL');
+INSERT INTO `tbl_kecamatan` VALUES ('3305080', '3305', 'MIRIT');
+INSERT INTO `tbl_kecamatan` VALUES ('3305081', '3305', 'BONOROWO');
+INSERT INTO `tbl_kecamatan` VALUES ('3305090', '3305', 'PREMBUN');
+INSERT INTO `tbl_kecamatan` VALUES ('3305091', '3305', 'PADURESO');
+INSERT INTO `tbl_kecamatan` VALUES ('3305100', '3305', 'KUTOWINANGUN');
+INSERT INTO `tbl_kecamatan` VALUES ('3305110', '3305', 'ALIAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3305111', '3305', 'PONCOWARNO');
+INSERT INTO `tbl_kecamatan` VALUES ('3305120', '3305', 'KEBUMEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3305130', '3305', 'PEJAGOAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3305140', '3305', 'SRUWENG');
+INSERT INTO `tbl_kecamatan` VALUES ('3305150', '3305', 'ADIMULYO');
+INSERT INTO `tbl_kecamatan` VALUES ('3305160', '3305', 'KUWARASAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3305170', '3305', 'ROWOKELE');
+INSERT INTO `tbl_kecamatan` VALUES ('3305180', '3305', 'SEMPOR');
+INSERT INTO `tbl_kecamatan` VALUES ('3305190', '3305', 'GOMBONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3305200', '3305', 'KARANGANYAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3305210', '3305', 'KARANGGAYAM');
+INSERT INTO `tbl_kecamatan` VALUES ('3305220', '3305', 'SADANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3305221', '3305', 'KARANGSAMBUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3306010', '3306', 'GRABAG');
+INSERT INTO `tbl_kecamatan` VALUES ('3306020', '3306', 'NGOMBOL');
+INSERT INTO `tbl_kecamatan` VALUES ('3306030', '3306', 'PURWODADI');
+INSERT INTO `tbl_kecamatan` VALUES ('3306040', '3306', 'BAGELEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3306050', '3306', 'KALIGESING');
+INSERT INTO `tbl_kecamatan` VALUES ('3306060', '3306', 'PURWOREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3306070', '3306', 'BANYU URIP');
+INSERT INTO `tbl_kecamatan` VALUES ('3306080', '3306', 'BAYAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3306090', '3306', 'KUTOARJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3306100', '3306', 'BUTUH');
+INSERT INTO `tbl_kecamatan` VALUES ('3306110', '3306', 'PITURUH');
+INSERT INTO `tbl_kecamatan` VALUES ('3306120', '3306', 'KEMIRI');
+INSERT INTO `tbl_kecamatan` VALUES ('3306130', '3306', 'BRUNO');
+INSERT INTO `tbl_kecamatan` VALUES ('3306140', '3306', 'GEBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3306150', '3306', 'LOANO');
+INSERT INTO `tbl_kecamatan` VALUES ('3306160', '3306', 'BENER');
+INSERT INTO `tbl_kecamatan` VALUES ('3307010', '3307', 'WADASLINTANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3307020', '3307', 'KEPIL');
+INSERT INTO `tbl_kecamatan` VALUES ('3307030', '3307', 'SAPURAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3307031', '3307', 'KALIBAWANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3307040', '3307', 'KALIWIRO');
+INSERT INTO `tbl_kecamatan` VALUES ('3307050', '3307', 'LEKSONO');
+INSERT INTO `tbl_kecamatan` VALUES ('3307051', '3307', 'SUKOHARJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3307060', '3307', 'SELOMERTO');
+INSERT INTO `tbl_kecamatan` VALUES ('3307070', '3307', 'KALIKAJAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3307080', '3307', 'KERTEK');
+INSERT INTO `tbl_kecamatan` VALUES ('3307090', '3307', 'WONOSOBO');
+INSERT INTO `tbl_kecamatan` VALUES ('3307100', '3307', 'WATUMALANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3307110', '3307', 'MOJOTENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3307120', '3307', 'GARUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3307130', '3307', 'KEJAJAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3308010', '3308', 'SALAMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3308020', '3308', 'BOROBUDUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3308030', '3308', 'NGLUWAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3308040', '3308', 'SALAM');
+INSERT INTO `tbl_kecamatan` VALUES ('3308050', '3308', 'SRUMBUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3308060', '3308', 'DUKUN');
+INSERT INTO `tbl_kecamatan` VALUES ('3308070', '3308', 'MUNTILAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3308080', '3308', 'MUNGKID');
+INSERT INTO `tbl_kecamatan` VALUES ('3308090', '3308', 'SAWANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3308100', '3308', 'CANDIMULYO');
+INSERT INTO `tbl_kecamatan` VALUES ('3308110', '3308', 'MERTOYUDAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3308120', '3308', 'TEMPURAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3308130', '3308', 'KAJORAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3308140', '3308', 'KALIANGKRIK');
+INSERT INTO `tbl_kecamatan` VALUES ('3308150', '3308', 'BANDONGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3308160', '3308', 'WINDUSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3308170', '3308', 'SECANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3308180', '3308', 'TEGALREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3308190', '3308', 'PAKIS');
+INSERT INTO `tbl_kecamatan` VALUES ('3308200', '3308', 'GRABAG');
+INSERT INTO `tbl_kecamatan` VALUES ('3308210', '3308', 'NGABLAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3309010', '3309', 'SELO');
+INSERT INTO `tbl_kecamatan` VALUES ('3309020', '3309', 'AMPEL');
+INSERT INTO `tbl_kecamatan` VALUES ('3309030', '3309', 'CEPOGO');
+INSERT INTO `tbl_kecamatan` VALUES ('3309040', '3309', 'MUSUK');
+INSERT INTO `tbl_kecamatan` VALUES ('3309050', '3309', 'BOYOLALI');
+INSERT INTO `tbl_kecamatan` VALUES ('3309060', '3309', 'MOJOSONGO');
+INSERT INTO `tbl_kecamatan` VALUES ('3309070', '3309', 'TERAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3309080', '3309', 'SAWIT');
+INSERT INTO `tbl_kecamatan` VALUES ('3309090', '3309', 'BANYUDONO');
+INSERT INTO `tbl_kecamatan` VALUES ('3309100', '3309', 'SAMBI');
+INSERT INTO `tbl_kecamatan` VALUES ('3309110', '3309', 'NGEMPLAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3309120', '3309', 'NOGOSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3309130', '3309', 'SIMO');
+INSERT INTO `tbl_kecamatan` VALUES ('3309140', '3309', 'KARANGGEDE');
+INSERT INTO `tbl_kecamatan` VALUES ('3309150', '3309', 'KLEGO');
+INSERT INTO `tbl_kecamatan` VALUES ('3309160', '3309', 'ANDONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3309170', '3309', 'KEMUSU');
+INSERT INTO `tbl_kecamatan` VALUES ('3309180', '3309', 'WONOSEGORO');
+INSERT INTO `tbl_kecamatan` VALUES ('3309190', '3309', 'JUWANGI');
+INSERT INTO `tbl_kecamatan` VALUES ('3310010', '3310', 'PRAMBANAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3310020', '3310', 'GANTIWARNO');
+INSERT INTO `tbl_kecamatan` VALUES ('3310030', '3310', 'WEDI');
+INSERT INTO `tbl_kecamatan` VALUES ('3310040', '3310', 'BAYAT');
+INSERT INTO `tbl_kecamatan` VALUES ('3310050', '3310', 'CAWAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3310060', '3310', 'TRUCUK');
+INSERT INTO `tbl_kecamatan` VALUES ('3310070', '3310', 'KALIKOTES');
+INSERT INTO `tbl_kecamatan` VALUES ('3310080', '3310', 'KEBONARUM');
+INSERT INTO `tbl_kecamatan` VALUES ('3310090', '3310', 'JOGONALAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3310100', '3310', 'MANISRENGGO');
+INSERT INTO `tbl_kecamatan` VALUES ('3310110', '3310', 'KARANGNONGKO');
+INSERT INTO `tbl_kecamatan` VALUES ('3310120', '3310', 'NGAWEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3310130', '3310', 'CEPER');
+INSERT INTO `tbl_kecamatan` VALUES ('3310140', '3310', 'PEDAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3310150', '3310', 'KARANGDOWO');
+INSERT INTO `tbl_kecamatan` VALUES ('3310160', '3310', 'JUWIRING');
+INSERT INTO `tbl_kecamatan` VALUES ('3310170', '3310', 'WONOSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3310180', '3310', 'DELANGGU');
+INSERT INTO `tbl_kecamatan` VALUES ('3310190', '3310', 'POLANHARJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3310200', '3310', 'KARANGANOM');
+INSERT INTO `tbl_kecamatan` VALUES ('3310210', '3310', 'TULUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3310220', '3310', 'JATINOM');
+INSERT INTO `tbl_kecamatan` VALUES ('3310230', '3310', 'KEMALANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3310710', '3310', 'KLATEN SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3310720', '3310', 'KLATEN TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3310730', '3310', 'KLATEN UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('3311010', '3311', 'WERU');
+INSERT INTO `tbl_kecamatan` VALUES ('3311020', '3311', 'BULU');
+INSERT INTO `tbl_kecamatan` VALUES ('3311030', '3311', 'TAWANGSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3311040', '3311', 'SUKOHARJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3311050', '3311', 'NGUTER');
+INSERT INTO `tbl_kecamatan` VALUES ('3311060', '3311', 'BENDOSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3311070', '3311', 'POLOKARTO');
+INSERT INTO `tbl_kecamatan` VALUES ('3311080', '3311', 'MOJOLABAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3311090', '3311', 'GROGOL');
+INSERT INTO `tbl_kecamatan` VALUES ('3311100', '3311', 'BAKI');
+INSERT INTO `tbl_kecamatan` VALUES ('3311110', '3311', 'GATAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3311120', '3311', 'KARTASURA');
+INSERT INTO `tbl_kecamatan` VALUES ('3312010', '3312', 'PRACIMANTORO');
+INSERT INTO `tbl_kecamatan` VALUES ('3312020', '3312', 'PARANGGUPITO');
+INSERT INTO `tbl_kecamatan` VALUES ('3312030', '3312', 'GIRITONTRO');
+INSERT INTO `tbl_kecamatan` VALUES ('3312040', '3312', 'GIRIWOYO');
+INSERT INTO `tbl_kecamatan` VALUES ('3312050', '3312', 'BATUWARNO');
+INSERT INTO `tbl_kecamatan` VALUES ('3312060', '3312', 'KARANGTENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3312070', '3312', 'TIRTOMOYO');
+INSERT INTO `tbl_kecamatan` VALUES ('3312080', '3312', 'NGUNTORONADI');
+INSERT INTO `tbl_kecamatan` VALUES ('3312090', '3312', 'BATURETNO');
+INSERT INTO `tbl_kecamatan` VALUES ('3312100', '3312', 'EROMOKO');
+INSERT INTO `tbl_kecamatan` VALUES ('3312110', '3312', 'WURYANTORO');
+INSERT INTO `tbl_kecamatan` VALUES ('3312120', '3312', 'MANYARAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3312130', '3312', 'SELOGIRI');
+INSERT INTO `tbl_kecamatan` VALUES ('3312140', '3312', 'WONOGIRI');
+INSERT INTO `tbl_kecamatan` VALUES ('3312150', '3312', 'NGADIROJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3312160', '3312', 'SIDOHARJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3312170', '3312', 'JATIROTO');
+INSERT INTO `tbl_kecamatan` VALUES ('3312180', '3312', 'KISMANTORO');
+INSERT INTO `tbl_kecamatan` VALUES ('3312190', '3312', 'PURWANTORO');
+INSERT INTO `tbl_kecamatan` VALUES ('3312200', '3312', 'BULUKERTO');
+INSERT INTO `tbl_kecamatan` VALUES ('3312201', '3312', 'PUHPELEM');
+INSERT INTO `tbl_kecamatan` VALUES ('3312210', '3312', 'SLOGOHIMO');
+INSERT INTO `tbl_kecamatan` VALUES ('3312220', '3312', 'JATISRONO');
+INSERT INTO `tbl_kecamatan` VALUES ('3312230', '3312', 'JATIPURNO');
+INSERT INTO `tbl_kecamatan` VALUES ('3312240', '3312', 'GIRIMARTO');
+INSERT INTO `tbl_kecamatan` VALUES ('3313010', '3313', 'JATIPURO');
+INSERT INTO `tbl_kecamatan` VALUES ('3313020', '3313', 'JATIYOSO');
+INSERT INTO `tbl_kecamatan` VALUES ('3313030', '3313', 'JUMAPOLO');
+INSERT INTO `tbl_kecamatan` VALUES ('3313040', '3313', 'JUMANTONO');
+INSERT INTO `tbl_kecamatan` VALUES ('3313050', '3313', 'MATESIH');
+INSERT INTO `tbl_kecamatan` VALUES ('3313060', '3313', 'TAWANGMANGU');
+INSERT INTO `tbl_kecamatan` VALUES ('3313070', '3313', 'NGARGOYOSO');
+INSERT INTO `tbl_kecamatan` VALUES ('3313080', '3313', 'KARANGPANDAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3313090', '3313', 'KARANGANYAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3313100', '3313', 'TASIKMADU');
+INSERT INTO `tbl_kecamatan` VALUES ('3313110', '3313', 'JATEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3313120', '3313', 'COLOMADU');
+INSERT INTO `tbl_kecamatan` VALUES ('3313130', '3313', 'GONDANGREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3313140', '3313', 'KEBAKKRAMAT');
+INSERT INTO `tbl_kecamatan` VALUES ('3313150', '3313', 'MOJOGEDANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3313160', '3313', 'KERJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3313170', '3313', 'JENAWI');
+INSERT INTO `tbl_kecamatan` VALUES ('3314010', '3314', 'KALIJAMBE');
+INSERT INTO `tbl_kecamatan` VALUES ('3314020', '3314', 'PLUPUH');
+INSERT INTO `tbl_kecamatan` VALUES ('3314030', '3314', 'MASARAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3314040', '3314', 'KEDAWUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3314050', '3314', 'SAMBIREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3314060', '3314', 'GONDANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3314070', '3314', 'SAMBUNG MACAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3314080', '3314', 'NGRAMPAL');
+INSERT INTO `tbl_kecamatan` VALUES ('3314090', '3314', 'KARANGMALANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3314100', '3314', 'SRAGEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3314110', '3314', 'SIDOHARJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3314120', '3314', 'TANON');
+INSERT INTO `tbl_kecamatan` VALUES ('3314130', '3314', 'GEMOLONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3314140', '3314', 'MIRI');
+INSERT INTO `tbl_kecamatan` VALUES ('3314150', '3314', 'SUMBERLAWANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3314160', '3314', 'MONDOKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3314170', '3314', 'SUKODONO');
+INSERT INTO `tbl_kecamatan` VALUES ('3314180', '3314', 'GESI');
+INSERT INTO `tbl_kecamatan` VALUES ('3314190', '3314', 'TANGEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3314200', '3314', 'JENAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3315010', '3315', 'KEDUNGJATI');
+INSERT INTO `tbl_kecamatan` VALUES ('3315020', '3315', 'KARANGRAYUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3315030', '3315', 'PENAWANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3315040', '3315', 'TOROH');
+INSERT INTO `tbl_kecamatan` VALUES ('3315050', '3315', 'GEYER');
+INSERT INTO `tbl_kecamatan` VALUES ('3315060', '3315', 'PULOKULON');
+INSERT INTO `tbl_kecamatan` VALUES ('3315070', '3315', 'KRADENAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3315080', '3315', 'GABUS');
+INSERT INTO `tbl_kecamatan` VALUES ('3315090', '3315', 'NGARINGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3315100', '3315', 'WIROSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3315110', '3315', 'TAWANGHARJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3315120', '3315', 'GROBOGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3315130', '3315', 'PURWODADI');
+INSERT INTO `tbl_kecamatan` VALUES ('3315140', '3315', 'BRATI');
+INSERT INTO `tbl_kecamatan` VALUES ('3315150', '3315', 'KLAMBU');
+INSERT INTO `tbl_kecamatan` VALUES ('3315160', '3315', 'GODONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3315170', '3315', 'GUBUG');
+INSERT INTO `tbl_kecamatan` VALUES ('3315180', '3315', 'TEGOWANU');
+INSERT INTO `tbl_kecamatan` VALUES ('3315190', '3315', 'TANGGUNGHARJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3316010', '3316', 'JATI');
+INSERT INTO `tbl_kecamatan` VALUES ('3316020', '3316', 'RANDUBLATUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3316030', '3316', 'KRADENAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3316040', '3316', 'KEDUNGTUBAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3316050', '3316', 'CEPU');
+INSERT INTO `tbl_kecamatan` VALUES ('3316060', '3316', 'SAMBONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3316070', '3316', 'JIKEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3316080', '3316', 'BOGOREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3316090', '3316', 'JEPON');
+INSERT INTO `tbl_kecamatan` VALUES ('3316100', '3316', 'KOTA BLORA');
+INSERT INTO `tbl_kecamatan` VALUES ('3316110', '3316', 'BANJAREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3316120', '3316', 'TUNJUNGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3316130', '3316', 'JAPAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3316140', '3316', 'NGAWEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3316150', '3316', 'KUNDURAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3316160', '3316', 'TODANAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3317010', '3317', 'SUMBER');
+INSERT INTO `tbl_kecamatan` VALUES ('3317020', '3317', 'BULU');
+INSERT INTO `tbl_kecamatan` VALUES ('3317030', '3317', 'GUNEM');
+INSERT INTO `tbl_kecamatan` VALUES ('3317040', '3317', 'SALE');
+INSERT INTO `tbl_kecamatan` VALUES ('3317050', '3317', 'SARANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3317060', '3317', 'SEDAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3317070', '3317', 'PAMOTAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3317080', '3317', 'SULANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3317090', '3317', 'KALIORI');
+INSERT INTO `tbl_kecamatan` VALUES ('3317100', '3317', 'REMBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3317110', '3317', 'PANCUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3317120', '3317', 'KRAGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3317130', '3317', 'SLUKE');
+INSERT INTO `tbl_kecamatan` VALUES ('3317140', '3317', 'LASEM');
+INSERT INTO `tbl_kecamatan` VALUES ('3318010', '3318', 'SUKOLILO');
+INSERT INTO `tbl_kecamatan` VALUES ('3318020', '3318', 'KAYEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3318030', '3318', 'TAMBAKROMO');
+INSERT INTO `tbl_kecamatan` VALUES ('3318040', '3318', 'WINONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3318050', '3318', 'PUCAKWANGI');
+INSERT INTO `tbl_kecamatan` VALUES ('3318060', '3318', 'JAKEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3318070', '3318', 'BATANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3318080', '3318', 'JUWANA');
+INSERT INTO `tbl_kecamatan` VALUES ('3318090', '3318', 'JAKENAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3318100', '3318', 'PATI');
+INSERT INTO `tbl_kecamatan` VALUES ('3318110', '3318', 'GABUS');
+INSERT INTO `tbl_kecamatan` VALUES ('3318120', '3318', 'MARGOREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3318130', '3318', 'GEMBONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3318140', '3318', 'TLOGOWUNGU');
+INSERT INTO `tbl_kecamatan` VALUES ('3318150', '3318', 'WEDARIJAKSA');
+INSERT INTO `tbl_kecamatan` VALUES ('3318160', '3318', 'TRANGKIL');
+INSERT INTO `tbl_kecamatan` VALUES ('3318170', '3318', 'MARGOYOSO');
+INSERT INTO `tbl_kecamatan` VALUES ('3318180', '3318', 'GUNUNG WUNGKAL');
+INSERT INTO `tbl_kecamatan` VALUES ('3318190', '3318', 'CLUWAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3318200', '3318', 'TAYU');
+INSERT INTO `tbl_kecamatan` VALUES ('3318210', '3318', 'DUKUHSETI');
+INSERT INTO `tbl_kecamatan` VALUES ('3319010', '3319', 'KALIWUNGU');
+INSERT INTO `tbl_kecamatan` VALUES ('3319020', '3319', 'KOTA KUDUS');
+INSERT INTO `tbl_kecamatan` VALUES ('3319030', '3319', 'JATI');
+INSERT INTO `tbl_kecamatan` VALUES ('3319040', '3319', 'UNDAAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3319050', '3319', 'MEJOBO');
+INSERT INTO `tbl_kecamatan` VALUES ('3319060', '3319', 'JEKULO');
+INSERT INTO `tbl_kecamatan` VALUES ('3319070', '3319', 'BAE');
+INSERT INTO `tbl_kecamatan` VALUES ('3319080', '3319', 'GEBOG');
+INSERT INTO `tbl_kecamatan` VALUES ('3319090', '3319', 'DAWE');
+INSERT INTO `tbl_kecamatan` VALUES ('3320010', '3320', 'KEDUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3320020', '3320', 'PECANGAAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3320021', '3320', 'KALINYAMATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3320030', '3320', 'WELAHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3320040', '3320', 'MAYONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3320050', '3320', 'NALUMSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3320060', '3320', 'BATEALIT');
+INSERT INTO `tbl_kecamatan` VALUES ('3320070', '3320', 'TAHUNAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3320080', '3320', 'JEPARA');
+INSERT INTO `tbl_kecamatan` VALUES ('3320090', '3320', 'MLONGGO');
+INSERT INTO `tbl_kecamatan` VALUES ('3320091', '3320', 'PAKIS AJI');
+INSERT INTO `tbl_kecamatan` VALUES ('3320100', '3320', 'BANGSRI');
+INSERT INTO `tbl_kecamatan` VALUES ('3320101', '3320', 'KEMBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3320110', '3320', 'KELING');
+INSERT INTO `tbl_kecamatan` VALUES ('3320111', '3320', 'DONOROJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3320120', '3320', 'KARIMUNJAWA');
+INSERT INTO `tbl_kecamatan` VALUES ('3321010', '3321', 'MRANGGEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3321020', '3321', 'KARANGAWEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3321030', '3321', 'GUNTUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3321040', '3321', 'SAYUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3321050', '3321', 'KARANG TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3321060', '3321', 'BONANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3321070', '3321', 'DEMAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3321080', '3321', 'WONOSALAM');
+INSERT INTO `tbl_kecamatan` VALUES ('3321090', '3321', 'DEMPET');
+INSERT INTO `tbl_kecamatan` VALUES ('3321091', '3321', 'KEBONAGUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3321100', '3321', 'GAJAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3321110', '3321', 'KARANGANYAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3321120', '3321', 'MIJEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3321130', '3321', 'WEDUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3322010', '3322', 'GETASAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3322020', '3322', 'TENGARAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3322030', '3322', 'SUSUKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3322031', '3322', 'KALIWUNGU');
+INSERT INTO `tbl_kecamatan` VALUES ('3322040', '3322', 'SURUH');
+INSERT INTO `tbl_kecamatan` VALUES ('3322050', '3322', 'PABELAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3322060', '3322', 'TUNTANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3322070', '3322', 'BANYUBIRU');
+INSERT INTO `tbl_kecamatan` VALUES ('3322080', '3322', 'JAMBU');
+INSERT INTO `tbl_kecamatan` VALUES ('3322090', '3322', 'SUMOWONO');
+INSERT INTO `tbl_kecamatan` VALUES ('3322100', '3322', 'AMBARAWA');
+INSERT INTO `tbl_kecamatan` VALUES ('3322101', '3322', 'BANDUNGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3322110', '3322', 'BAWEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3322120', '3322', 'BRINGIN');
+INSERT INTO `tbl_kecamatan` VALUES ('3322121', '3322', 'BANCAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3322130', '3322', 'PRINGAPUS');
+INSERT INTO `tbl_kecamatan` VALUES ('3322140', '3322', 'BERGAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3322151', '3322', 'UNGARAN BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('3322152', '3322', 'UNGARAN TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3323010', '3323', 'PARAKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3323011', '3323', 'KLEDUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3323012', '3323', 'BANSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3323020', '3323', 'BULU');
+INSERT INTO `tbl_kecamatan` VALUES ('3323030', '3323', 'TEMANGGUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3323031', '3323', 'TLOGOMULYO');
+INSERT INTO `tbl_kecamatan` VALUES ('3323040', '3323', 'TEMBARAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3323041', '3323', 'SELOPAMPANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3323050', '3323', 'KRANGGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3323060', '3323', 'PRINGSURAT');
+INSERT INTO `tbl_kecamatan` VALUES ('3323070', '3323', 'KALORAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3323080', '3323', 'KANDANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3323090', '3323', 'KEDU');
+INSERT INTO `tbl_kecamatan` VALUES ('3323100', '3323', 'NGADIREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3323110', '3323', 'JUMO');
+INSERT INTO `tbl_kecamatan` VALUES ('3323111', '3323', 'GEMAWANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3323120', '3323', 'CANDIROTO');
+INSERT INTO `tbl_kecamatan` VALUES ('3323121', '3323', 'BEJEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3323130', '3323', 'TRETEP');
+INSERT INTO `tbl_kecamatan` VALUES ('3323131', '3323', 'WONOBOYO');
+INSERT INTO `tbl_kecamatan` VALUES ('3324010', '3324', 'PLANTUNGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3324020', '3324', 'SUKOREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3324030', '3324', 'PAGERRUYUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3324040', '3324', 'PATEAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3324050', '3324', 'SINGOROJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3324060', '3324', 'LIMBANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3324070', '3324', 'BOJA');
+INSERT INTO `tbl_kecamatan` VALUES ('3324080', '3324', 'KALIWUNGU');
+INSERT INTO `tbl_kecamatan` VALUES ('3324081', '3324', 'KALIWUNGU SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3324090', '3324', 'BRANGSONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3324100', '3324', 'PEGANDON');
+INSERT INTO `tbl_kecamatan` VALUES ('3324101', '3324', 'NGAMPEL');
+INSERT INTO `tbl_kecamatan` VALUES ('3324110', '3324', 'GEMUH');
+INSERT INTO `tbl_kecamatan` VALUES ('3324111', '3324', 'RINGINARUM');
+INSERT INTO `tbl_kecamatan` VALUES ('3324120', '3324', 'WELERI');
+INSERT INTO `tbl_kecamatan` VALUES ('3324130', '3324', 'ROWOSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3324140', '3324', 'KANGKUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3324150', '3324', 'CEPIRING');
+INSERT INTO `tbl_kecamatan` VALUES ('3324160', '3324', 'PATEBON');
+INSERT INTO `tbl_kecamatan` VALUES ('3324170', '3324', 'KOTA KENDAL');
+INSERT INTO `tbl_kecamatan` VALUES ('3325010', '3325', 'WONOTUNGGAL');
+INSERT INTO `tbl_kecamatan` VALUES ('3325020', '3325', 'BANDAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3325030', '3325', 'BLADO');
+INSERT INTO `tbl_kecamatan` VALUES ('3325040', '3325', 'REBAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3325050', '3325', 'BAWANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3325060', '3325', 'TERSONO');
+INSERT INTO `tbl_kecamatan` VALUES ('3325070', '3325', 'GRINGSING');
+INSERT INTO `tbl_kecamatan` VALUES ('3325080', '3325', 'LIMPUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3325081', '3325', 'BANYUPUTIH');
+INSERT INTO `tbl_kecamatan` VALUES ('3325090', '3325', 'SUBAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3325091', '3325', 'PECALUNGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3325100', '3325', 'TULIS');
+INSERT INTO `tbl_kecamatan` VALUES ('3325101', '3325', 'KANDEMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3325110', '3325', 'BATANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3325120', '3325', 'WARUNG ASEM');
+INSERT INTO `tbl_kecamatan` VALUES ('3326010', '3326', 'KANDANGSERANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3326020', '3326', 'PANINGGARAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3326030', '3326', 'LEBAKBARANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3326040', '3326', 'PETUNGKRIONO');
+INSERT INTO `tbl_kecamatan` VALUES ('3326050', '3326', 'TALUN');
+INSERT INTO `tbl_kecamatan` VALUES ('3326060', '3326', 'DORO');
+INSERT INTO `tbl_kecamatan` VALUES ('3326070', '3326', 'KARANGANYAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3326080', '3326', 'KAJEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3326090', '3326', 'KESESI');
+INSERT INTO `tbl_kecamatan` VALUES ('3326100', '3326', 'SRAGI');
+INSERT INTO `tbl_kecamatan` VALUES ('3326101', '3326', 'SIWALAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3326110', '3326', 'BOJONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3326120', '3326', 'WONOPRINGGO');
+INSERT INTO `tbl_kecamatan` VALUES ('3326130', '3326', 'KEDUNGWUNI');
+INSERT INTO `tbl_kecamatan` VALUES ('3326131', '3326', 'KARANGDADAP');
+INSERT INTO `tbl_kecamatan` VALUES ('3326140', '3326', 'BUARAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3326150', '3326', 'TIRTO');
+INSERT INTO `tbl_kecamatan` VALUES ('3326160', '3326', 'WIRADESA');
+INSERT INTO `tbl_kecamatan` VALUES ('3326161', '3326', 'WONOKERTO');
+INSERT INTO `tbl_kecamatan` VALUES ('3327010', '3327', 'MOGA');
+INSERT INTO `tbl_kecamatan` VALUES ('3327011', '3327', 'WARUNGPRING');
+INSERT INTO `tbl_kecamatan` VALUES ('3327020', '3327', 'PULOSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3327030', '3327', 'BELIK');
+INSERT INTO `tbl_kecamatan` VALUES ('3327040', '3327', 'WATUKUMPUL');
+INSERT INTO `tbl_kecamatan` VALUES ('3327050', '3327', 'BODEH');
+INSERT INTO `tbl_kecamatan` VALUES ('3327060', '3327', 'BANTARBOLANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3327070', '3327', 'RANDUDONGKAL');
+INSERT INTO `tbl_kecamatan` VALUES ('3327080', '3327', 'PEMALANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3327090', '3327', 'TAMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3327100', '3327', 'PETARUKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3327110', '3327', 'AMPELGADING');
+INSERT INTO `tbl_kecamatan` VALUES ('3327120', '3327', 'COMAL');
+INSERT INTO `tbl_kecamatan` VALUES ('3327130', '3327', 'ULUJAMI');
+INSERT INTO `tbl_kecamatan` VALUES ('3328010', '3328', 'MARGASARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3328020', '3328', 'BUMIJAWA');
+INSERT INTO `tbl_kecamatan` VALUES ('3328030', '3328', 'BOJONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3328040', '3328', 'BALAPULANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3328050', '3328', 'PAGERBARANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3328060', '3328', 'LEBAKSIU');
+INSERT INTO `tbl_kecamatan` VALUES ('3328070', '3328', 'JATINEGARA');
+INSERT INTO `tbl_kecamatan` VALUES ('3328080', '3328', 'KEDUNG BANTENG');
+INSERT INTO `tbl_kecamatan` VALUES ('3328090', '3328', 'PANGKAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3328100', '3328', 'SLAWI');
+INSERT INTO `tbl_kecamatan` VALUES ('3328110', '3328', 'DUKUHWARU');
+INSERT INTO `tbl_kecamatan` VALUES ('3328120', '3328', 'ADIWERNA');
+INSERT INTO `tbl_kecamatan` VALUES ('3328130', '3328', 'DUKUHTURI');
+INSERT INTO `tbl_kecamatan` VALUES ('3328140', '3328', 'TALANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3328150', '3328', 'TARUB');
+INSERT INTO `tbl_kecamatan` VALUES ('3328160', '3328', 'KRAMAT');
+INSERT INTO `tbl_kecamatan` VALUES ('3328170', '3328', 'SURADADI');
+INSERT INTO `tbl_kecamatan` VALUES ('3328180', '3328', 'WARUREJA');
+INSERT INTO `tbl_kecamatan` VALUES ('3329010', '3329', 'SALEM');
+INSERT INTO `tbl_kecamatan` VALUES ('3329020', '3329', 'BANTARKAWUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3329030', '3329', 'BUMIAYU');
+INSERT INTO `tbl_kecamatan` VALUES ('3329040', '3329', 'PAGUYANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3329050', '3329', 'SIRAMPOG');
+INSERT INTO `tbl_kecamatan` VALUES ('3329060', '3329', 'TONJONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3329070', '3329', 'LARANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3329080', '3329', 'KETANGGUNGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3329090', '3329', 'BANJARHARJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3329100', '3329', 'LOSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3329110', '3329', 'TANJUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3329120', '3329', 'KERSANA');
+INSERT INTO `tbl_kecamatan` VALUES ('3329130', '3329', 'BULAKAMBA');
+INSERT INTO `tbl_kecamatan` VALUES ('3329140', '3329', 'WANASARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3329150', '3329', 'SONGGOM');
+INSERT INTO `tbl_kecamatan` VALUES ('3329160', '3329', 'JATIBARANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3329170', '3329', 'BREBES');
+INSERT INTO `tbl_kecamatan` VALUES ('3371010', '3371', 'MAGELANG SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3371011', '3371', 'MAGELANG TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3371020', '3371', 'MAGELANG UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('3372010', '3372', 'LAWEYAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3372020', '3372', 'SERENGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3372030', '3372', 'PASAR KLIWON');
+INSERT INTO `tbl_kecamatan` VALUES ('3372040', '3372', 'JEBRES');
+INSERT INTO `tbl_kecamatan` VALUES ('3372050', '3372', 'BANJARSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3373010', '3373', 'ARGOMULYO');
+INSERT INTO `tbl_kecamatan` VALUES ('3373020', '3373', 'TINGKIR');
+INSERT INTO `tbl_kecamatan` VALUES ('3373030', '3373', 'SIDOMUKTI');
+INSERT INTO `tbl_kecamatan` VALUES ('3373040', '3373', 'SIDOREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3374010', '3374', 'MIJEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3374020', '3374', 'GUNUNG PATI');
+INSERT INTO `tbl_kecamatan` VALUES ('3374030', '3374', 'BANYUMANIK');
+INSERT INTO `tbl_kecamatan` VALUES ('3374040', '3374', 'GAJAH MUNGKUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3374050', '3374', 'SEMARANG SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3374060', '3374', 'CANDISARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3374070', '3374', 'TEMBALANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3374080', '3374', 'PEDURUNGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3374090', '3374', 'GENUK');
+INSERT INTO `tbl_kecamatan` VALUES ('3374100', '3374', 'GAYAMSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3374110', '3374', 'SEMARANG TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3374120', '3374', 'SEMARANG UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('3374130', '3374', 'SEMARANG TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3374140', '3374', 'SEMARANG BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('3374150', '3374', 'TUGU');
+INSERT INTO `tbl_kecamatan` VALUES ('3374160', '3374', 'NGALIYAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3375010', '3375', 'PEKALONGAN BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('3375020', '3375', 'PEKALONGAN TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3375030', '3375', 'PEKALONGAN SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3375040', '3375', 'PEKALONGAN UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('3376010', '3376', 'TEGAL SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3376020', '3376', 'TEGAL TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3376030', '3376', 'TEGAL BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('3376040', '3376', 'MARGADANA');
+INSERT INTO `tbl_kecamatan` VALUES ('3401010', '3401', 'TEMON');
+INSERT INTO `tbl_kecamatan` VALUES ('3401020', '3401', 'WATES');
+INSERT INTO `tbl_kecamatan` VALUES ('3401030', '3401', 'PANJATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3401040', '3401', 'GALUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3401050', '3401', 'LENDAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3401060', '3401', 'SENTOLO');
+INSERT INTO `tbl_kecamatan` VALUES ('3401070', '3401', 'PENGASIH');
+INSERT INTO `tbl_kecamatan` VALUES ('3401080', '3401', 'KOKAP');
+INSERT INTO `tbl_kecamatan` VALUES ('3401090', '3401', 'GIRIMULYO');
+INSERT INTO `tbl_kecamatan` VALUES ('3401100', '3401', 'NANGGULAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3401110', '3401', 'KALIBAWANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3401120', '3401', 'SAMIGALUH');
+INSERT INTO `tbl_kecamatan` VALUES ('3402010', '3402', 'SRANDAKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3402020', '3402', 'SANDEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3402030', '3402', 'KRETEK');
+INSERT INTO `tbl_kecamatan` VALUES ('3402040', '3402', 'PUNDONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3402050', '3402', 'BAMBANG LIPURO');
+INSERT INTO `tbl_kecamatan` VALUES ('3402060', '3402', 'PANDAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3402070', '3402', 'BANTUL');
+INSERT INTO `tbl_kecamatan` VALUES ('3402080', '3402', 'JETIS');
+INSERT INTO `tbl_kecamatan` VALUES ('3402090', '3402', 'IMOGIRI');
+INSERT INTO `tbl_kecamatan` VALUES ('3402100', '3402', 'DLINGO');
+INSERT INTO `tbl_kecamatan` VALUES ('3402110', '3402', 'PLERET');
+INSERT INTO `tbl_kecamatan` VALUES ('3402120', '3402', 'PIYUNGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3402130', '3402', 'BANGUNTAPAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3402140', '3402', 'SEWON');
+INSERT INTO `tbl_kecamatan` VALUES ('3402150', '3402', 'KASIHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3402160', '3402', 'PAJANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3402170', '3402', 'SEDAYU');
+INSERT INTO `tbl_kecamatan` VALUES ('3403010', '3403', 'PANGGANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3403011', '3403', 'PURWOSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3403020', '3403', 'PALIYAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3403030', '3403', 'SAPTO SARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3403040', '3403', 'TEPUS');
+INSERT INTO `tbl_kecamatan` VALUES ('3403041', '3403', 'TANJUNGSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3403050', '3403', 'RONGKOP');
+INSERT INTO `tbl_kecamatan` VALUES ('3403051', '3403', 'GIRISUBO');
+INSERT INTO `tbl_kecamatan` VALUES ('3403060', '3403', 'SEMANU');
+INSERT INTO `tbl_kecamatan` VALUES ('3403070', '3403', 'PONJONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3403080', '3403', 'KARANGMOJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3403090', '3403', 'WONOSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3403100', '3403', 'PLAYEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3403110', '3403', 'PATUK');
+INSERT INTO `tbl_kecamatan` VALUES ('3403120', '3403', 'GEDANG SARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3403130', '3403', 'NGLIPAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3403140', '3403', 'NGAWEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3403150', '3403', 'SEMIN');
+INSERT INTO `tbl_kecamatan` VALUES ('3404010', '3404', 'MOYUDAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3404020', '3404', 'MINGGIR');
+INSERT INTO `tbl_kecamatan` VALUES ('3404030', '3404', 'SEYEGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3404040', '3404', 'GODEAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3404050', '3404', 'GAMPING');
+INSERT INTO `tbl_kecamatan` VALUES ('3404060', '3404', 'MLATI');
+INSERT INTO `tbl_kecamatan` VALUES ('3404070', '3404', 'DEPOK');
+INSERT INTO `tbl_kecamatan` VALUES ('3404080', '3404', 'BERBAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3404090', '3404', 'PRAMBANAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3404100', '3404', 'KALASAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3404110', '3404', 'NGEMPLAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3404120', '3404', 'NGAGLIK');
+INSERT INTO `tbl_kecamatan` VALUES ('3404130', '3404', 'SLEMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3404140', '3404', 'TEMPEL');
+INSERT INTO `tbl_kecamatan` VALUES ('3404150', '3404', 'TURI');
+INSERT INTO `tbl_kecamatan` VALUES ('3404160', '3404', 'PAKEM');
+INSERT INTO `tbl_kecamatan` VALUES ('3404170', '3404', 'CANGKRINGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3471010', '3471', 'MANTRIJERON');
+INSERT INTO `tbl_kecamatan` VALUES ('3471020', '3471', 'KRATON');
+INSERT INTO `tbl_kecamatan` VALUES ('3471030', '3471', 'MERGANGSAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3471040', '3471', 'UMBULHARJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3471050', '3471', 'KOTAGEDE');
+INSERT INTO `tbl_kecamatan` VALUES ('3471060', '3471', 'GONDOKUSUMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3471070', '3471', 'DANUREJAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3471080', '3471', 'PAKUALAMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3471090', '3471', 'GONDOMANAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3471100', '3471', 'NGAMPILAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3471110', '3471', 'WIROBRAJAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3471120', '3471', 'GEDONG TENGEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3471130', '3471', 'JETIS');
+INSERT INTO `tbl_kecamatan` VALUES ('3471140', '3471', 'TEGALREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3501010', '3501', 'DONOROJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3501020', '3501', 'PUNUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3501030', '3501', 'PRINGKUKU');
+INSERT INTO `tbl_kecamatan` VALUES ('3501040', '3501', 'PACITAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3501050', '3501', 'KEBONAGUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3501060', '3501', 'ARJOSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3501070', '3501', 'NAWANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3501080', '3501', 'BANDAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3501090', '3501', 'TEGALOMBO');
+INSERT INTO `tbl_kecamatan` VALUES ('3501100', '3501', 'TULAKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3501110', '3501', 'NGADIROJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3501120', '3501', 'SUDIMORO');
+INSERT INTO `tbl_kecamatan` VALUES ('3502010', '3502', 'NGRAYUN');
+INSERT INTO `tbl_kecamatan` VALUES ('3502020', '3502', 'SLAHUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3502030', '3502', 'BUNGKAL');
+INSERT INTO `tbl_kecamatan` VALUES ('3502040', '3502', 'SAMBIT');
+INSERT INTO `tbl_kecamatan` VALUES ('3502050', '3502', 'SAWOO');
+INSERT INTO `tbl_kecamatan` VALUES ('3502060', '3502', 'SOOKO');
+INSERT INTO `tbl_kecamatan` VALUES ('3502061', '3502', 'PUDAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3502070', '3502', 'PULUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3502080', '3502', 'MLARAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3502090', '3502', 'SIMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3502100', '3502', 'JETIS');
+INSERT INTO `tbl_kecamatan` VALUES ('3502110', '3502', 'BALONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3502120', '3502', 'KAUMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3502130', '3502', 'JAMBON');
+INSERT INTO `tbl_kecamatan` VALUES ('3502140', '3502', 'BADEGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3502150', '3502', 'SAMPUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3502160', '3502', 'SUKOREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3502170', '3502', 'PONOROGO');
+INSERT INTO `tbl_kecamatan` VALUES ('3502180', '3502', 'BABADAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3502190', '3502', 'JENANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3502200', '3502', 'NGEBEL');
+INSERT INTO `tbl_kecamatan` VALUES ('3503010', '3503', 'PANGGUL');
+INSERT INTO `tbl_kecamatan` VALUES ('3503020', '3503', 'MUNJUNGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3503030', '3503', 'WATULIMO');
+INSERT INTO `tbl_kecamatan` VALUES ('3503040', '3503', 'KAMPAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3503050', '3503', 'DONGKO');
+INSERT INTO `tbl_kecamatan` VALUES ('3503060', '3503', 'PULE');
+INSERT INTO `tbl_kecamatan` VALUES ('3503070', '3503', 'KARANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3503071', '3503', 'SURUH');
+INSERT INTO `tbl_kecamatan` VALUES ('3503080', '3503', 'GANDUSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3503090', '3503', 'DURENAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3503100', '3503', 'POGALAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3503110', '3503', 'TRENGGALEK');
+INSERT INTO `tbl_kecamatan` VALUES ('3503120', '3503', 'TUGU');
+INSERT INTO `tbl_kecamatan` VALUES ('3503130', '3503', 'BENDUNGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3504010', '3504', 'BESUKI');
+INSERT INTO `tbl_kecamatan` VALUES ('3504020', '3504', 'BANDUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3504030', '3504', 'PAKEL');
+INSERT INTO `tbl_kecamatan` VALUES ('3504040', '3504', 'CAMPUR DARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('3504050', '3504', 'TANGGUNG GUNUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3504060', '3504', 'KALIDAWIR');
+INSERT INTO `tbl_kecamatan` VALUES ('3504070', '3504', 'PUCANG LABAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3504080', '3504', 'REJOTANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3504090', '3504', 'NGUNUT');
+INSERT INTO `tbl_kecamatan` VALUES ('3504100', '3504', 'SUMBERGEMPOL');
+INSERT INTO `tbl_kecamatan` VALUES ('3504110', '3504', 'BOYOLANGU');
+INSERT INTO `tbl_kecamatan` VALUES ('3504120', '3504', 'TULUNGAGUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3504130', '3504', 'KEDUNGWARU');
+INSERT INTO `tbl_kecamatan` VALUES ('3504140', '3504', 'NGANTRU');
+INSERT INTO `tbl_kecamatan` VALUES ('3504150', '3504', 'KARANGREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3504160', '3504', 'KAUMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3504170', '3504', 'GONDANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3504180', '3504', 'PAGER WOJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3504190', '3504', 'SENDANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3505010', '3505', 'BAKUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3505020', '3505', 'WONOTIRTO');
+INSERT INTO `tbl_kecamatan` VALUES ('3505030', '3505', 'PANGGUNGREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3505040', '3505', 'WATES');
+INSERT INTO `tbl_kecamatan` VALUES ('3505050', '3505', 'BINANGUN');
+INSERT INTO `tbl_kecamatan` VALUES ('3505060', '3505', 'SUTOJAYAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3505070', '3505', 'KADEMANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3505080', '3505', 'KANIGORO');
+INSERT INTO `tbl_kecamatan` VALUES ('3505090', '3505', 'TALUN');
+INSERT INTO `tbl_kecamatan` VALUES ('3505100', '3505', 'SELOPURO');
+INSERT INTO `tbl_kecamatan` VALUES ('3505110', '3505', 'KESAMBEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3505120', '3505', 'SELOREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3505130', '3505', 'DOKO');
+INSERT INTO `tbl_kecamatan` VALUES ('3505140', '3505', 'WLINGI');
+INSERT INTO `tbl_kecamatan` VALUES ('3505150', '3505', 'GANDUSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3505160', '3505', 'GARUM');
+INSERT INTO `tbl_kecamatan` VALUES ('3505170', '3505', 'NGLEGOK');
+INSERT INTO `tbl_kecamatan` VALUES ('3505180', '3505', 'SANANKULON');
+INSERT INTO `tbl_kecamatan` VALUES ('3505190', '3505', 'PONGGOK');
+INSERT INTO `tbl_kecamatan` VALUES ('3505200', '3505', 'SRENGAT');
+INSERT INTO `tbl_kecamatan` VALUES ('3505210', '3505', 'WONODADI');
+INSERT INTO `tbl_kecamatan` VALUES ('3505220', '3505', 'UDANAWU');
+INSERT INTO `tbl_kecamatan` VALUES ('3506010', '3506', 'MOJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3506020', '3506', 'SEMEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3506030', '3506', 'NGADILUWIH');
+INSERT INTO `tbl_kecamatan` VALUES ('3506040', '3506', 'KRAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3506050', '3506', 'RINGINREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3506060', '3506', 'KANDAT');
+INSERT INTO `tbl_kecamatan` VALUES ('3506070', '3506', 'WATES');
+INSERT INTO `tbl_kecamatan` VALUES ('3506080', '3506', 'NGANCAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3506090', '3506', 'PLOSOKLATEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3506100', '3506', 'GURAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3506110', '3506', 'PUNCU');
+INSERT INTO `tbl_kecamatan` VALUES ('3506120', '3506', 'KEPUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3506130', '3506', 'KANDANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3506140', '3506', 'PARE');
+INSERT INTO `tbl_kecamatan` VALUES ('3506141', '3506', 'BADAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3506150', '3506', 'KUNJANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3506160', '3506', 'PLEMAHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3506170', '3506', 'PURWOASRI');
+INSERT INTO `tbl_kecamatan` VALUES ('3506180', '3506', 'PAPAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3506190', '3506', 'PAGU');
+INSERT INTO `tbl_kecamatan` VALUES ('3506191', '3506', 'KAYEN KIDUL');
+INSERT INTO `tbl_kecamatan` VALUES ('3506200', '3506', 'GAMPENGREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3506201', '3506', 'NGASEM');
+INSERT INTO `tbl_kecamatan` VALUES ('3506210', '3506', 'BANYAKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3506220', '3506', 'GROGOL');
+INSERT INTO `tbl_kecamatan` VALUES ('3506230', '3506', 'TAROKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3507010', '3507', 'DONOMULYO');
+INSERT INTO `tbl_kecamatan` VALUES ('3507020', '3507', 'KALIPARE');
+INSERT INTO `tbl_kecamatan` VALUES ('3507030', '3507', 'PAGAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3507040', '3507', 'BANTUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3507050', '3507', 'GEDANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3507060', '3507', 'SUMBERMANJING');
+INSERT INTO `tbl_kecamatan` VALUES ('3507070', '3507', 'DAMPIT');
+INSERT INTO `tbl_kecamatan` VALUES ('3507080', '3507', 'TIRTO YUDO');
+INSERT INTO `tbl_kecamatan` VALUES ('3507090', '3507', 'AMPELGADING');
+INSERT INTO `tbl_kecamatan` VALUES ('3507100', '3507', 'PONCOKUSUMO');
+INSERT INTO `tbl_kecamatan` VALUES ('3507110', '3507', 'WAJAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3507120', '3507', 'TUREN');
+INSERT INTO `tbl_kecamatan` VALUES ('3507130', '3507', 'BULULAWANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3507140', '3507', 'GONDANGLEGI');
+INSERT INTO `tbl_kecamatan` VALUES ('3507150', '3507', 'PAGELARAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3507160', '3507', 'KEPANJEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3507170', '3507', 'SUMBER PUCUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3507180', '3507', 'KROMENGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3507190', '3507', 'NGAJUM');
+INSERT INTO `tbl_kecamatan` VALUES ('3507200', '3507', 'WONOSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3507210', '3507', 'WAGIR');
+INSERT INTO `tbl_kecamatan` VALUES ('3507220', '3507', 'PAKISAJI');
+INSERT INTO `tbl_kecamatan` VALUES ('3507230', '3507', 'TAJINAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3507240', '3507', 'TUMPANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3507250', '3507', 'PAKIS');
+INSERT INTO `tbl_kecamatan` VALUES ('3507260', '3507', 'JABUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3507270', '3507', 'LAWANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3507280', '3507', 'SINGOSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3507290', '3507', 'KARANGPLOSO');
+INSERT INTO `tbl_kecamatan` VALUES ('3507300', '3507', 'DAU');
+INSERT INTO `tbl_kecamatan` VALUES ('3507310', '3507', 'PUJON');
+INSERT INTO `tbl_kecamatan` VALUES ('3507320', '3507', 'NGANTANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3507330', '3507', 'KASEMBON');
+INSERT INTO `tbl_kecamatan` VALUES ('3508010', '3508', 'TEMPURSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3508020', '3508', 'PRONOJIWO');
+INSERT INTO `tbl_kecamatan` VALUES ('3508030', '3508', 'CANDIPURO');
+INSERT INTO `tbl_kecamatan` VALUES ('3508040', '3508', 'PASIRIAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3508050', '3508', 'TEMPEH');
+INSERT INTO `tbl_kecamatan` VALUES ('3508060', '3508', 'LUMAJANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3508061', '3508', 'SUMBERSUKO');
+INSERT INTO `tbl_kecamatan` VALUES ('3508070', '3508', 'TEKUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3508080', '3508', 'KUNIR');
+INSERT INTO `tbl_kecamatan` VALUES ('3508090', '3508', 'YOSOWILANGUN');
+INSERT INTO `tbl_kecamatan` VALUES ('3508100', '3508', 'ROWOKANGKUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3508110', '3508', 'JATIROTO');
+INSERT INTO `tbl_kecamatan` VALUES ('3508120', '3508', 'RANDUAGUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3508130', '3508', 'SUKODONO');
+INSERT INTO `tbl_kecamatan` VALUES ('3508140', '3508', 'PADANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3508150', '3508', 'PASRUJAMBE');
+INSERT INTO `tbl_kecamatan` VALUES ('3508160', '3508', 'SENDURO');
+INSERT INTO `tbl_kecamatan` VALUES ('3508170', '3508', 'GUCIALIT');
+INSERT INTO `tbl_kecamatan` VALUES ('3508180', '3508', 'KEDUNGJAJANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3508190', '3508', 'KLAKAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3508200', '3508', 'RANUYOSO');
+INSERT INTO `tbl_kecamatan` VALUES ('3509010', '3509', 'KENCONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3509020', '3509', 'GUMUK MAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3509030', '3509', 'PUGER');
+INSERT INTO `tbl_kecamatan` VALUES ('3509040', '3509', 'WULUHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3509050', '3509', 'AMBULU');
+INSERT INTO `tbl_kecamatan` VALUES ('3509060', '3509', 'TEMPUREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3509070', '3509', 'SILO');
+INSERT INTO `tbl_kecamatan` VALUES ('3509080', '3509', 'MAYANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3509090', '3509', 'MUMBULSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3509100', '3509', 'JENGGAWAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3509110', '3509', 'AJUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3509120', '3509', 'RAMBIPUJI');
+INSERT INTO `tbl_kecamatan` VALUES ('3509130', '3509', 'BALUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3509140', '3509', 'UMBULSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3509150', '3509', 'SEMBORO');
+INSERT INTO `tbl_kecamatan` VALUES ('3509160', '3509', 'JOMBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3509170', '3509', 'SUMBER BARU');
+INSERT INTO `tbl_kecamatan` VALUES ('3509180', '3509', 'TANGGUL');
+INSERT INTO `tbl_kecamatan` VALUES ('3509190', '3509', 'BANGSALSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3509200', '3509', 'PANTI');
+INSERT INTO `tbl_kecamatan` VALUES ('3509210', '3509', 'SUKORAMBI');
+INSERT INTO `tbl_kecamatan` VALUES ('3509220', '3509', 'ARJASA');
+INSERT INTO `tbl_kecamatan` VALUES ('3509230', '3509', 'PAKUSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3509240', '3509', 'KALISAT');
+INSERT INTO `tbl_kecamatan` VALUES ('3509250', '3509', 'LEDOKOMBO');
+INSERT INTO `tbl_kecamatan` VALUES ('3509260', '3509', 'SUMBERJAMBE');
+INSERT INTO `tbl_kecamatan` VALUES ('3509270', '3509', 'SUKOWONO');
+INSERT INTO `tbl_kecamatan` VALUES ('3509280', '3509', 'JELBUK');
+INSERT INTO `tbl_kecamatan` VALUES ('3509710', '3509', 'KALIWATES');
+INSERT INTO `tbl_kecamatan` VALUES ('3509720', '3509', 'SUMBERSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3509730', '3509', 'PATRANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3510010', '3510', 'PESANGGARAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3510011', '3510', 'SILIRAGUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3510020', '3510', 'BANGOREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3510030', '3510', 'PURWOHARJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3510040', '3510', 'TEGALDLIMO');
+INSERT INTO `tbl_kecamatan` VALUES ('3510050', '3510', 'MUNCAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3510060', '3510', 'CLURING');
+INSERT INTO `tbl_kecamatan` VALUES ('3510070', '3510', 'GAMBIRAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3510071', '3510', 'TEGALSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3510080', '3510', 'GLENMORE');
+INSERT INTO `tbl_kecamatan` VALUES ('3510090', '3510', 'KALIBARU');
+INSERT INTO `tbl_kecamatan` VALUES ('3510100', '3510', 'GENTENG');
+INSERT INTO `tbl_kecamatan` VALUES ('3510110', '3510', 'SRONO');
+INSERT INTO `tbl_kecamatan` VALUES ('3510120', '3510', 'ROGOJAMPI');
+INSERT INTO `tbl_kecamatan` VALUES ('3510130', '3510', 'KABAT');
+INSERT INTO `tbl_kecamatan` VALUES ('3510140', '3510', 'SINGOJURUH');
+INSERT INTO `tbl_kecamatan` VALUES ('3510150', '3510', 'SEMPU');
+INSERT INTO `tbl_kecamatan` VALUES ('3510160', '3510', 'SONGGON');
+INSERT INTO `tbl_kecamatan` VALUES ('3510170', '3510', 'GLAGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3510171', '3510', 'LICIN');
+INSERT INTO `tbl_kecamatan` VALUES ('3510180', '3510', 'BANYUWANGI');
+INSERT INTO `tbl_kecamatan` VALUES ('3510190', '3510', 'GIRI');
+INSERT INTO `tbl_kecamatan` VALUES ('3510200', '3510', 'KALIPURO');
+INSERT INTO `tbl_kecamatan` VALUES ('3510210', '3510', 'WONGSOREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3511010', '3511', 'MAESAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3511020', '3511', 'GRUJUGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3511030', '3511', 'TAMANAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3511031', '3511', 'JAMBESARI DARUS SHOLAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3511040', '3511', 'PUJER');
+INSERT INTO `tbl_kecamatan` VALUES ('3511050', '3511', 'TLOGOSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3511060', '3511', 'SUKOSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3511061', '3511', 'SUMBER WRINGIN');
+INSERT INTO `tbl_kecamatan` VALUES ('3511070', '3511', 'TAPEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3511080', '3511', 'WONOSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3511090', '3511', 'TENGGARANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3511100', '3511', 'BONDOWOSO');
+INSERT INTO `tbl_kecamatan` VALUES ('3511110', '3511', 'CURAH DAMI');
+INSERT INTO `tbl_kecamatan` VALUES ('3511111', '3511', 'BINAKAL');
+INSERT INTO `tbl_kecamatan` VALUES ('3511120', '3511', 'PAKEM');
+INSERT INTO `tbl_kecamatan` VALUES ('3511130', '3511', 'WRINGIN');
+INSERT INTO `tbl_kecamatan` VALUES ('3511140', '3511', 'TEGALAMPEL');
+INSERT INTO `tbl_kecamatan` VALUES ('3511141', '3511', 'TAMAN KROCOK');
+INSERT INTO `tbl_kecamatan` VALUES ('3511150', '3511', 'KLABANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3511151', '3511', 'SEMPOL');
+INSERT INTO `tbl_kecamatan` VALUES ('3511152', '3511', 'BOTOLINGGO');
+INSERT INTO `tbl_kecamatan` VALUES ('3511160', '3511', 'PRAJEKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3511170', '3511', 'CERMEE');
+INSERT INTO `tbl_kecamatan` VALUES ('3512010', '3512', 'SUMBERMALANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3512020', '3512', 'JATIBANTENG');
+INSERT INTO `tbl_kecamatan` VALUES ('3512030', '3512', 'BANYUGLUGUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3512040', '3512', 'BESUKI');
+INSERT INTO `tbl_kecamatan` VALUES ('3512050', '3512', 'SUBOH');
+INSERT INTO `tbl_kecamatan` VALUES ('3512060', '3512', 'MLANDINGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3512070', '3512', 'BUNGATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3512080', '3512', 'KENDIT');
+INSERT INTO `tbl_kecamatan` VALUES ('3512090', '3512', 'PANARUKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3512100', '3512', 'SITUBONDO');
+INSERT INTO `tbl_kecamatan` VALUES ('3512110', '3512', 'MANGARAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3512120', '3512', 'PANJI');
+INSERT INTO `tbl_kecamatan` VALUES ('3512130', '3512', 'KAPONGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3512140', '3512', 'ARJASA');
+INSERT INTO `tbl_kecamatan` VALUES ('3512150', '3512', 'JANGKAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3512160', '3512', 'ASEMBAGUS');
+INSERT INTO `tbl_kecamatan` VALUES ('3512170', '3512', 'BANYUPUTIH');
+INSERT INTO `tbl_kecamatan` VALUES ('3513010', '3513', 'SUKAPURA');
+INSERT INTO `tbl_kecamatan` VALUES ('3513020', '3513', 'SUMBER');
+INSERT INTO `tbl_kecamatan` VALUES ('3513030', '3513', 'KURIPAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3513040', '3513', 'BANTARAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3513050', '3513', 'LECES');
+INSERT INTO `tbl_kecamatan` VALUES ('3513060', '3513', 'TEGALSIWALAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3513070', '3513', 'BANYUANYAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3513080', '3513', 'TIRIS');
+INSERT INTO `tbl_kecamatan` VALUES ('3513090', '3513', 'KRUCIL');
+INSERT INTO `tbl_kecamatan` VALUES ('3513100', '3513', 'GADING');
+INSERT INTO `tbl_kecamatan` VALUES ('3513110', '3513', 'PAKUNIRAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3513120', '3513', 'KOTAANYAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3513130', '3513', 'PAITON');
+INSERT INTO `tbl_kecamatan` VALUES ('3513140', '3513', 'BESUK');
+INSERT INTO `tbl_kecamatan` VALUES ('3513150', '3513', 'KRAKSAAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3513160', '3513', 'KREJENGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3513170', '3513', 'PAJARAKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3513180', '3513', 'MARON');
+INSERT INTO `tbl_kecamatan` VALUES ('3513190', '3513', 'GENDING');
+INSERT INTO `tbl_kecamatan` VALUES ('3513200', '3513', 'DRINGU');
+INSERT INTO `tbl_kecamatan` VALUES ('3513210', '3513', 'WONOMERTO');
+INSERT INTO `tbl_kecamatan` VALUES ('3513220', '3513', 'LUMBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3513230', '3513', 'TONGAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3513240', '3513', 'SUMBERASIH');
+INSERT INTO `tbl_kecamatan` VALUES ('3514010', '3514', 'PURWODADI');
+INSERT INTO `tbl_kecamatan` VALUES ('3514020', '3514', 'TUTUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3514030', '3514', 'PUSPO');
+INSERT INTO `tbl_kecamatan` VALUES ('3514040', '3514', 'TOSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3514050', '3514', 'LUMBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3514060', '3514', 'PASREPAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3514070', '3514', 'KEJAYAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3514080', '3514', 'WONOREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3514090', '3514', 'PURWOSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3514100', '3514', 'PRIGEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3514110', '3514', 'SUKOREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3514120', '3514', 'PANDAAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3514130', '3514', 'GEMPOL');
+INSERT INTO `tbl_kecamatan` VALUES ('3514140', '3514', 'BEJI');
+INSERT INTO `tbl_kecamatan` VALUES ('3514150', '3514', 'BANGIL');
+INSERT INTO `tbl_kecamatan` VALUES ('3514160', '3514', 'REMBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3514170', '3514', 'KRATON');
+INSERT INTO `tbl_kecamatan` VALUES ('3514180', '3514', 'POHJENTREK');
+INSERT INTO `tbl_kecamatan` VALUES ('3514190', '3514', 'GONDANG WETAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3514200', '3514', 'REJOSO');
+INSERT INTO `tbl_kecamatan` VALUES ('3514210', '3514', 'WINONGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3514220', '3514', 'GRATI');
+INSERT INTO `tbl_kecamatan` VALUES ('3514230', '3514', 'LEKOK');
+INSERT INTO `tbl_kecamatan` VALUES ('3514240', '3514', 'NGULING');
+INSERT INTO `tbl_kecamatan` VALUES ('3515010', '3515', 'TARIK');
+INSERT INTO `tbl_kecamatan` VALUES ('3515020', '3515', 'PRAMBON');
+INSERT INTO `tbl_kecamatan` VALUES ('3515030', '3515', 'KREMBUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3515040', '3515', 'PORONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3515050', '3515', 'JABON');
+INSERT INTO `tbl_kecamatan` VALUES ('3515060', '3515', 'TANGGULANGIN');
+INSERT INTO `tbl_kecamatan` VALUES ('3515070', '3515', 'CANDI');
+INSERT INTO `tbl_kecamatan` VALUES ('3515080', '3515', 'TULANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3515090', '3515', 'WONOAYU');
+INSERT INTO `tbl_kecamatan` VALUES ('3515100', '3515', 'SUKODONO');
+INSERT INTO `tbl_kecamatan` VALUES ('3515110', '3515', 'SIDOARJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3515120', '3515', 'BUDURAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3515130', '3515', 'SEDATI');
+INSERT INTO `tbl_kecamatan` VALUES ('3515140', '3515', 'WARU');
+INSERT INTO `tbl_kecamatan` VALUES ('3515150', '3515', 'GEDANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3515160', '3515', 'TAMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3515170', '3515', 'KRIAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3515180', '3515', 'BALONG BENDO');
+INSERT INTO `tbl_kecamatan` VALUES ('3516010', '3516', 'JATIREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3516020', '3516', 'GONDANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3516030', '3516', 'PACET');
+INSERT INTO `tbl_kecamatan` VALUES ('3516040', '3516', 'TRAWAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3516050', '3516', 'NGORO');
+INSERT INTO `tbl_kecamatan` VALUES ('3516060', '3516', 'PUNGGING');
+INSERT INTO `tbl_kecamatan` VALUES ('3516070', '3516', 'KUTOREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3516080', '3516', 'MOJOSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3516090', '3516', 'BANGSAL');
+INSERT INTO `tbl_kecamatan` VALUES ('3516091', '3516', 'MOJOANYAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3516100', '3516', 'DLANGGU');
+INSERT INTO `tbl_kecamatan` VALUES ('3516110', '3516', 'PURI');
+INSERT INTO `tbl_kecamatan` VALUES ('3516120', '3516', 'TROWULAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3516130', '3516', 'SOOKO');
+INSERT INTO `tbl_kecamatan` VALUES ('3516140', '3516', 'GEDEK');
+INSERT INTO `tbl_kecamatan` VALUES ('3516150', '3516', 'KEMLAGI');
+INSERT INTO `tbl_kecamatan` VALUES ('3516160', '3516', 'JETIS');
+INSERT INTO `tbl_kecamatan` VALUES ('3516170', '3516', 'DAWAR BLANDONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3517010', '3517', 'BANDAR KEDUNG MULYO');
+INSERT INTO `tbl_kecamatan` VALUES ('3517020', '3517', 'PERAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3517030', '3517', 'GUDO');
+INSERT INTO `tbl_kecamatan` VALUES ('3517040', '3517', 'DIWEK');
+INSERT INTO `tbl_kecamatan` VALUES ('3517050', '3517', 'NGORO');
+INSERT INTO `tbl_kecamatan` VALUES ('3517060', '3517', 'MOJOWARNO');
+INSERT INTO `tbl_kecamatan` VALUES ('3517070', '3517', 'BARENG');
+INSERT INTO `tbl_kecamatan` VALUES ('3517080', '3517', 'WONOSALAM');
+INSERT INTO `tbl_kecamatan` VALUES ('3517090', '3517', 'MOJOAGUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3517100', '3517', 'SUMOBITO');
+INSERT INTO `tbl_kecamatan` VALUES ('3517110', '3517', 'JOGO ROTO');
+INSERT INTO `tbl_kecamatan` VALUES ('3517120', '3517', 'PETERONGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3517130', '3517', 'JOMBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3517140', '3517', 'MEGALUH');
+INSERT INTO `tbl_kecamatan` VALUES ('3517150', '3517', 'TEMBELANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3517160', '3517', 'KESAMBEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3517170', '3517', 'KUDU');
+INSERT INTO `tbl_kecamatan` VALUES ('3517171', '3517', 'NGUSIKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3517180', '3517', 'PLOSO');
+INSERT INTO `tbl_kecamatan` VALUES ('3517190', '3517', 'KABUH');
+INSERT INTO `tbl_kecamatan` VALUES ('3517200', '3517', 'PLANDAAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3518010', '3518', 'SAWAHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3518020', '3518', 'NGETOS');
+INSERT INTO `tbl_kecamatan` VALUES ('3518030', '3518', 'BERBEK');
+INSERT INTO `tbl_kecamatan` VALUES ('3518040', '3518', 'LOCERET');
+INSERT INTO `tbl_kecamatan` VALUES ('3518050', '3518', 'PACE');
+INSERT INTO `tbl_kecamatan` VALUES ('3518060', '3518', 'TANJUNGANOM');
+INSERT INTO `tbl_kecamatan` VALUES ('3518070', '3518', 'PRAMBON');
+INSERT INTO `tbl_kecamatan` VALUES ('3518080', '3518', 'NGRONGGOT');
+INSERT INTO `tbl_kecamatan` VALUES ('3518090', '3518', 'KERTOSONO');
+INSERT INTO `tbl_kecamatan` VALUES ('3518100', '3518', 'PATIANROWO');
+INSERT INTO `tbl_kecamatan` VALUES ('3518110', '3518', 'BARON');
+INSERT INTO `tbl_kecamatan` VALUES ('3518120', '3518', 'GONDANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3518130', '3518', 'SUKOMORO');
+INSERT INTO `tbl_kecamatan` VALUES ('3518140', '3518', 'NGANJUK');
+INSERT INTO `tbl_kecamatan` VALUES ('3518150', '3518', 'BAGOR');
+INSERT INTO `tbl_kecamatan` VALUES ('3518160', '3518', 'WILANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3518170', '3518', 'REJOSO');
+INSERT INTO `tbl_kecamatan` VALUES ('3518180', '3518', 'NGLUYU');
+INSERT INTO `tbl_kecamatan` VALUES ('3518190', '3518', 'LENGKONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3518200', '3518', 'JATIKALEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3519010', '3519', 'KEBONSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3519020', '3519', 'GEGER');
+INSERT INTO `tbl_kecamatan` VALUES ('3519030', '3519', 'DOLOPO');
+INSERT INTO `tbl_kecamatan` VALUES ('3519040', '3519', 'DAGANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3519050', '3519', 'WUNGU');
+INSERT INTO `tbl_kecamatan` VALUES ('3519060', '3519', 'KARE');
+INSERT INTO `tbl_kecamatan` VALUES ('3519070', '3519', 'GEMARANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3519080', '3519', 'SARADAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3519090', '3519', 'PILANGKENCENG');
+INSERT INTO `tbl_kecamatan` VALUES ('3519100', '3519', 'MEJAYAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3519110', '3519', 'WONOASRI');
+INSERT INTO `tbl_kecamatan` VALUES ('3519120', '3519', 'BALEREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3519130', '3519', 'MADIUN');
+INSERT INTO `tbl_kecamatan` VALUES ('3519140', '3519', 'SAWAHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3519150', '3519', 'JIWAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3520010', '3520', 'PONCOL');
+INSERT INTO `tbl_kecamatan` VALUES ('3520020', '3520', 'PARANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3520030', '3520', 'LEMBEYAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3520040', '3520', 'TAKERAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3520041', '3520', 'NGUNTORONADI');
+INSERT INTO `tbl_kecamatan` VALUES ('3520050', '3520', 'KAWEDANAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3520060', '3520', 'MAGETAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3520061', '3520', 'NGARIBOYO');
+INSERT INTO `tbl_kecamatan` VALUES ('3520070', '3520', 'PLAOSAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3520071', '3520', 'SIDOREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3520080', '3520', 'PANEKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3520090', '3520', 'SUKOMORO');
+INSERT INTO `tbl_kecamatan` VALUES ('3520100', '3520', 'BENDO');
+INSERT INTO `tbl_kecamatan` VALUES ('3520110', '3520', 'MAOSPATI');
+INSERT INTO `tbl_kecamatan` VALUES ('3520120', '3520', 'KARANGREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3520121', '3520', 'KARAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3520130', '3520', 'BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('3520131', '3520', 'KARTOHARJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3521010', '3521', 'SINE');
+INSERT INTO `tbl_kecamatan` VALUES ('3521020', '3521', 'NGRAMBE');
+INSERT INTO `tbl_kecamatan` VALUES ('3521030', '3521', 'JOGOROGO');
+INSERT INTO `tbl_kecamatan` VALUES ('3521040', '3521', 'KENDAL');
+INSERT INTO `tbl_kecamatan` VALUES ('3521050', '3521', 'GENENG');
+INSERT INTO `tbl_kecamatan` VALUES ('3521051', '3521', 'GERIH');
+INSERT INTO `tbl_kecamatan` VALUES ('3521060', '3521', 'KWADUNGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3521070', '3521', 'PANGKUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3521080', '3521', 'KARANGJATI');
+INSERT INTO `tbl_kecamatan` VALUES ('3521090', '3521', 'BRINGIN');
+INSERT INTO `tbl_kecamatan` VALUES ('3521100', '3521', 'PADAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3521101', '3521', 'KASREMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3521110', '3521', 'NGAWI');
+INSERT INTO `tbl_kecamatan` VALUES ('3521120', '3521', 'PARON');
+INSERT INTO `tbl_kecamatan` VALUES ('3521130', '3521', 'KEDUNGGALAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3521140', '3521', 'PITU');
+INSERT INTO `tbl_kecamatan` VALUES ('3521150', '3521', 'WIDODAREN');
+INSERT INTO `tbl_kecamatan` VALUES ('3521160', '3521', 'MANTINGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3521170', '3521', 'KARANGANYAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3522010', '3522', 'MARGOMULYO');
+INSERT INTO `tbl_kecamatan` VALUES ('3522020', '3522', 'NGRAHO');
+INSERT INTO `tbl_kecamatan` VALUES ('3522030', '3522', 'TAMBAKREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3522040', '3522', 'NGAMBON');
+INSERT INTO `tbl_kecamatan` VALUES ('3522041', '3522', 'SEKAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3522050', '3522', 'BUBULAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3522051', '3522', 'GONDANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3522060', '3522', 'TEMAYANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3522070', '3522', 'SUGIHWARAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3522080', '3522', 'KEDUNGADEM');
+INSERT INTO `tbl_kecamatan` VALUES ('3522090', '3522', 'KEPOH BARU');
+INSERT INTO `tbl_kecamatan` VALUES ('3522100', '3522', 'BAURENO');
+INSERT INTO `tbl_kecamatan` VALUES ('3522110', '3522', 'KANOR');
+INSERT INTO `tbl_kecamatan` VALUES ('3522120', '3522', 'SUMBEREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3522130', '3522', 'BALEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3522140', '3522', 'SUKOSEWU');
+INSERT INTO `tbl_kecamatan` VALUES ('3522150', '3522', 'KAPAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3522160', '3522', 'BOJONEGORO');
+INSERT INTO `tbl_kecamatan` VALUES ('3522170', '3522', 'TRUCUK');
+INSERT INTO `tbl_kecamatan` VALUES ('3522180', '3522', 'DANDER');
+INSERT INTO `tbl_kecamatan` VALUES ('3522190', '3522', 'NGASEM');
+INSERT INTO `tbl_kecamatan` VALUES ('3522191', '3522', 'GAYAM');
+INSERT INTO `tbl_kecamatan` VALUES ('3522200', '3522', 'KALITIDU');
+INSERT INTO `tbl_kecamatan` VALUES ('3522210', '3522', 'MALO');
+INSERT INTO `tbl_kecamatan` VALUES ('3522220', '3522', 'PURWOSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3522230', '3522', 'PADANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3522240', '3522', 'KASIMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3522241', '3522', 'KEDEWAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3523010', '3523', 'KENDURUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3523020', '3523', 'BANGILAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3523030', '3523', 'SENORI');
+INSERT INTO `tbl_kecamatan` VALUES ('3523040', '3523', 'SINGGAHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3523050', '3523', 'MONTONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3523060', '3523', 'PARENGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3523070', '3523', 'SOKO');
+INSERT INTO `tbl_kecamatan` VALUES ('3523080', '3523', 'RENGEL');
+INSERT INTO `tbl_kecamatan` VALUES ('3523081', '3523', 'GRABAGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3523090', '3523', 'PLUMPANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3523100', '3523', 'WIDANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3523110', '3523', 'PALANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3523120', '3523', 'SEMANDING');
+INSERT INTO `tbl_kecamatan` VALUES ('3523130', '3523', 'TUBAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3523140', '3523', 'JENU');
+INSERT INTO `tbl_kecamatan` VALUES ('3523150', '3523', 'MERAKURAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3523160', '3523', 'KEREK');
+INSERT INTO `tbl_kecamatan` VALUES ('3523170', '3523', 'TAMBAKBOYO');
+INSERT INTO `tbl_kecamatan` VALUES ('3523180', '3523', 'JATIROGO');
+INSERT INTO `tbl_kecamatan` VALUES ('3523190', '3523', 'BANCAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3524010', '3524', 'SUKORAME');
+INSERT INTO `tbl_kecamatan` VALUES ('3524020', '3524', 'BLULUK');
+INSERT INTO `tbl_kecamatan` VALUES ('3524030', '3524', 'NGIMBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3524040', '3524', 'SAMBENG');
+INSERT INTO `tbl_kecamatan` VALUES ('3524050', '3524', 'MANTUP');
+INSERT INTO `tbl_kecamatan` VALUES ('3524060', '3524', 'KEMBANGBAHU');
+INSERT INTO `tbl_kecamatan` VALUES ('3524070', '3524', 'SUGIO');
+INSERT INTO `tbl_kecamatan` VALUES ('3524080', '3524', 'KEDUNGPRING');
+INSERT INTO `tbl_kecamatan` VALUES ('3524090', '3524', 'MODO');
+INSERT INTO `tbl_kecamatan` VALUES ('3524100', '3524', 'BABAT');
+INSERT INTO `tbl_kecamatan` VALUES ('3524110', '3524', 'PUCUK');
+INSERT INTO `tbl_kecamatan` VALUES ('3524120', '3524', 'SUKODADI');
+INSERT INTO `tbl_kecamatan` VALUES ('3524130', '3524', 'LAMONGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3524140', '3524', 'TIKUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3524141', '3524', 'SARIREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3524150', '3524', 'DEKET');
+INSERT INTO `tbl_kecamatan` VALUES ('3524160', '3524', 'GLAGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3524170', '3524', 'KARANGBINANGUN');
+INSERT INTO `tbl_kecamatan` VALUES ('3524180', '3524', 'TURI');
+INSERT INTO `tbl_kecamatan` VALUES ('3524190', '3524', 'KALITENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3524200', '3524', 'KARANG GENENG');
+INSERT INTO `tbl_kecamatan` VALUES ('3524210', '3524', 'SEKARAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3524220', '3524', 'MADURAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3524230', '3524', 'LAREN');
+INSERT INTO `tbl_kecamatan` VALUES ('3524240', '3524', 'SOLOKURO');
+INSERT INTO `tbl_kecamatan` VALUES ('3524250', '3524', 'PACIRAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3524260', '3524', 'BRONDONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3525010', '3525', 'WRINGINANOM');
+INSERT INTO `tbl_kecamatan` VALUES ('3525020', '3525', 'DRIYOREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3525030', '3525', 'KEDAMEAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3525040', '3525', 'MENGANTI');
+INSERT INTO `tbl_kecamatan` VALUES ('3525050', '3525', 'CERME');
+INSERT INTO `tbl_kecamatan` VALUES ('3525060', '3525', 'BENJENG');
+INSERT INTO `tbl_kecamatan` VALUES ('3525070', '3525', 'BALONGPANGGANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3525080', '3525', 'DUDUKSAMPEYAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3525090', '3525', 'KEBOMAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3525100', '3525', 'GRESIK');
+INSERT INTO `tbl_kecamatan` VALUES ('3525110', '3525', 'MANYAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3525120', '3525', 'BUNGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3525130', '3525', 'SIDAYU');
+INSERT INTO `tbl_kecamatan` VALUES ('3525140', '3525', 'DUKUN');
+INSERT INTO `tbl_kecamatan` VALUES ('3525150', '3525', 'PANCENG');
+INSERT INTO `tbl_kecamatan` VALUES ('3525160', '3525', 'UJUNGPANGKAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3525170', '3525', 'SANGKAPURA');
+INSERT INTO `tbl_kecamatan` VALUES ('3525180', '3525', 'TAMBAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3526010', '3526', 'KAMAL');
+INSERT INTO `tbl_kecamatan` VALUES ('3526020', '3526', 'LABANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3526030', '3526', 'KWANYAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3526040', '3526', 'MODUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3526050', '3526', 'BLEGA');
+INSERT INTO `tbl_kecamatan` VALUES ('3526060', '3526', 'KONANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3526070', '3526', 'GALIS');
+INSERT INTO `tbl_kecamatan` VALUES ('3526080', '3526', 'TANAH MERAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3526090', '3526', 'TRAGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3526100', '3526', 'SOCAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3526110', '3526', 'BANGKALAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3526120', '3526', 'BURNEH');
+INSERT INTO `tbl_kecamatan` VALUES ('3526130', '3526', 'AROSBAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3526140', '3526', 'GEGER');
+INSERT INTO `tbl_kecamatan` VALUES ('3526150', '3526', 'KOKOP');
+INSERT INTO `tbl_kecamatan` VALUES ('3526160', '3526', 'TANJUNGBUMI');
+INSERT INTO `tbl_kecamatan` VALUES ('3526170', '3526', 'SEPULU');
+INSERT INTO `tbl_kecamatan` VALUES ('3526180', '3526', 'KLAMPIS');
+INSERT INTO `tbl_kecamatan` VALUES ('3527010', '3527', 'SRESEH');
+INSERT INTO `tbl_kecamatan` VALUES ('3527020', '3527', 'TORJUN');
+INSERT INTO `tbl_kecamatan` VALUES ('3527021', '3527', 'PANGARENGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3527030', '3527', 'SAMPANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3527040', '3527', 'CAMPLONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3527050', '3527', 'OMBEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3527060', '3527', 'KEDUNGDUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3527070', '3527', 'JRENGIK');
+INSERT INTO `tbl_kecamatan` VALUES ('3527080', '3527', 'TAMBELANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3527090', '3527', 'BANYUATES');
+INSERT INTO `tbl_kecamatan` VALUES ('3527100', '3527', 'ROBATAL');
+INSERT INTO `tbl_kecamatan` VALUES ('3527101', '3527', 'KARANG PENANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3527110', '3527', 'KETAPANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3527120', '3527', 'SOKOBANAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3528010', '3528', 'TLANAKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3528020', '3528', 'PADEMAWU');
+INSERT INTO `tbl_kecamatan` VALUES ('3528030', '3528', 'GALIS');
+INSERT INTO `tbl_kecamatan` VALUES ('3528040', '3528', 'LARANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3528050', '3528', 'PAMEKASAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3528060', '3528', 'PROPPO');
+INSERT INTO `tbl_kecamatan` VALUES ('3528070', '3528', 'PALENGAAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3528080', '3528', 'PEGANTENAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3528090', '3528', 'KADUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3528100', '3528', 'PAKONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3528110', '3528', 'WARU');
+INSERT INTO `tbl_kecamatan` VALUES ('3528120', '3528', 'BATU MARMAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3528130', '3528', 'PASEAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3529010', '3529', 'PRAGAAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3529020', '3529', 'BLUTO');
+INSERT INTO `tbl_kecamatan` VALUES ('3529030', '3529', 'SARONGGI');
+INSERT INTO `tbl_kecamatan` VALUES ('3529040', '3529', 'GILIGENTENG');
+INSERT INTO `tbl_kecamatan` VALUES ('3529050', '3529', 'TALANGO');
+INSERT INTO `tbl_kecamatan` VALUES ('3529060', '3529', 'KALIANGET');
+INSERT INTO `tbl_kecamatan` VALUES ('3529070', '3529', 'KOTA SUMENEP');
+INSERT INTO `tbl_kecamatan` VALUES ('3529071', '3529', 'BATUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3529080', '3529', 'LENTENG');
+INSERT INTO `tbl_kecamatan` VALUES ('3529090', '3529', 'GANDING');
+INSERT INTO `tbl_kecamatan` VALUES ('3529100', '3529', 'GULUK GULUK');
+INSERT INTO `tbl_kecamatan` VALUES ('3529110', '3529', 'PASONGSONGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3529120', '3529', 'AMBUNTEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3529130', '3529', 'RUBARU');
+INSERT INTO `tbl_kecamatan` VALUES ('3529140', '3529', 'DASUK');
+INSERT INTO `tbl_kecamatan` VALUES ('3529150', '3529', 'MANDING');
+INSERT INTO `tbl_kecamatan` VALUES ('3529160', '3529', 'BATUPUTIH');
+INSERT INTO `tbl_kecamatan` VALUES ('3529170', '3529', 'GAPURA');
+INSERT INTO `tbl_kecamatan` VALUES ('3529180', '3529', 'BATANG BATANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3529190', '3529', 'DUNGKEK');
+INSERT INTO `tbl_kecamatan` VALUES ('3529200', '3529', 'NONGGUNONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3529210', '3529', 'GAYAM');
+INSERT INTO `tbl_kecamatan` VALUES ('3529220', '3529', 'RAAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3529230', '3529', 'SAPEKEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3529240', '3529', 'ARJASA');
+INSERT INTO `tbl_kecamatan` VALUES ('3529241', '3529', 'KANGAYAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3529250', '3529', 'MASALEMBU');
+INSERT INTO `tbl_kecamatan` VALUES ('3571010', '3571', 'MOJOROTO');
+INSERT INTO `tbl_kecamatan` VALUES ('3571020', '3571', 'KOTA KEDIRI');
+INSERT INTO `tbl_kecamatan` VALUES ('3571030', '3571', 'PESANTREN');
+INSERT INTO `tbl_kecamatan` VALUES ('3572010', '3572', 'SUKOREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3572020', '3572', 'KEPANJENKIDUL');
+INSERT INTO `tbl_kecamatan` VALUES ('3572030', '3572', 'SANANWETAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3573010', '3573', 'KEDUNGKANDANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3573020', '3573', 'SUKUN');
+INSERT INTO `tbl_kecamatan` VALUES ('3573030', '3573', 'KLOJEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3573040', '3573', 'BLIMBING');
+INSERT INTO `tbl_kecamatan` VALUES ('3573050', '3573', 'LOWOKWARU');
+INSERT INTO `tbl_kecamatan` VALUES ('3574010', '3574', 'KADEMANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3574011', '3574', 'KEDOPOK');
+INSERT INTO `tbl_kecamatan` VALUES ('3574020', '3574', 'WONOASIH');
+INSERT INTO `tbl_kecamatan` VALUES ('3574030', '3574', 'MAYANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3574031', '3574', 'KANIGARAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3575010', '3575', 'GADINGREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3575020', '3575', 'PURWOREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3575030', '3575', 'BUGULKIDUL');
+INSERT INTO `tbl_kecamatan` VALUES ('3575031', '3575', 'PANGGUNGREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3576010', '3576', 'PRAJURIT KULON');
+INSERT INTO `tbl_kecamatan` VALUES ('3576020', '3576', 'MAGERSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3577010', '3577', 'MANGU HARJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3577020', '3577', 'TAMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3577030', '3577', 'KARTOHARJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3578010', '3578', 'KARANG PILANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3578020', '3578', 'JAMBANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3578030', '3578', 'GAYUNGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3578040', '3578', 'WONOCOLO');
+INSERT INTO `tbl_kecamatan` VALUES ('3578050', '3578', 'TENGGILIS MEJOYO');
+INSERT INTO `tbl_kecamatan` VALUES ('3578060', '3578', 'GUNUNG ANYAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3578070', '3578', 'RUNGKUT');
+INSERT INTO `tbl_kecamatan` VALUES ('3578080', '3578', 'SUKOLILO');
+INSERT INTO `tbl_kecamatan` VALUES ('3578090', '3578', 'MULYOREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3578100', '3578', 'GUBENG');
+INSERT INTO `tbl_kecamatan` VALUES ('3578110', '3578', 'WONOKROMO');
+INSERT INTO `tbl_kecamatan` VALUES ('3578120', '3578', 'DUKUH PAKIS');
+INSERT INTO `tbl_kecamatan` VALUES ('3578130', '3578', 'WIYUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3578140', '3578', 'LAKARSANTRI');
+INSERT INTO `tbl_kecamatan` VALUES ('3578141', '3578', 'SAMBIKEREP');
+INSERT INTO `tbl_kecamatan` VALUES ('3578150', '3578', 'TANDES');
+INSERT INTO `tbl_kecamatan` VALUES ('3578160', '3578', 'SUKO MANUNGGAL');
+INSERT INTO `tbl_kecamatan` VALUES ('3578170', '3578', 'SAWAHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3578180', '3578', 'TEGALSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3578190', '3578', 'GENTENG');
+INSERT INTO `tbl_kecamatan` VALUES ('3578200', '3578', 'TAMBAKSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3578210', '3578', 'KENJERAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3578211', '3578', 'BULAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3578220', '3578', 'SIMOKERTO');
+INSERT INTO `tbl_kecamatan` VALUES ('3578230', '3578', 'SEMAMPIR');
+INSERT INTO `tbl_kecamatan` VALUES ('3578240', '3578', 'PABEAN CANTIAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3578250', '3578', 'BUBUTAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3578260', '3578', 'KREMBANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3578270', '3578', 'ASEMROWO');
+INSERT INTO `tbl_kecamatan` VALUES ('3578280', '3578', 'BENOWO');
+INSERT INTO `tbl_kecamatan` VALUES ('3578281', '3578', 'PAKAL');
+INSERT INTO `tbl_kecamatan` VALUES ('3579010', '3579', 'BATU');
+INSERT INTO `tbl_kecamatan` VALUES ('3579020', '3579', 'JUNREJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3579030', '3579', 'BUMIAJI');
+INSERT INTO `tbl_kecamatan` VALUES ('3601010', '3601', 'SUMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3601020', '3601', 'CIMANGGU');
+INSERT INTO `tbl_kecamatan` VALUES ('3601030', '3601', 'CIBALIUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3601031', '3601', 'CIBITUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3601040', '3601', 'CIKEUSIK');
+INSERT INTO `tbl_kecamatan` VALUES ('3601050', '3601', 'CIGEULIS');
+INSERT INTO `tbl_kecamatan` VALUES ('3601060', '3601', 'PANIMBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3601061', '3601', 'SOBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3601070', '3601', 'MUNJUL');
+INSERT INTO `tbl_kecamatan` VALUES ('3601071', '3601', 'ANGSANA');
+INSERT INTO `tbl_kecamatan` VALUES ('3601072', '3601', 'SINDANGRESMI');
+INSERT INTO `tbl_kecamatan` VALUES ('3601080', '3601', 'PICUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3601090', '3601', 'BOJONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3601100', '3601', 'SAKETI');
+INSERT INTO `tbl_kecamatan` VALUES ('3601101', '3601', 'CISATA');
+INSERT INTO `tbl_kecamatan` VALUES ('3601110', '3601', 'PAGELARAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3601111', '3601', 'PATIA');
+INSERT INTO `tbl_kecamatan` VALUES ('3601112', '3601', 'SUKARESMI');
+INSERT INTO `tbl_kecamatan` VALUES ('3601120', '3601', 'LABUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3601121', '3601', 'CARITA');
+INSERT INTO `tbl_kecamatan` VALUES ('3601130', '3601', 'JIPUT');
+INSERT INTO `tbl_kecamatan` VALUES ('3601131', '3601', 'CIKEDAL');
+INSERT INTO `tbl_kecamatan` VALUES ('3601140', '3601', 'MENES');
+INSERT INTO `tbl_kecamatan` VALUES ('3601141', '3601', 'PULOSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3601150', '3601', 'MANDALAWANGI');
+INSERT INTO `tbl_kecamatan` VALUES ('3601160', '3601', 'CIMANUK');
+INSERT INTO `tbl_kecamatan` VALUES ('3601161', '3601', 'CIPEUCANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3601170', '3601', 'BANJAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3601171', '3601', 'KADUHEJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3601172', '3601', 'MEKARJAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3601180', '3601', 'PANDEGLANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3601181', '3601', 'MAJASARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3601190', '3601', 'CADASARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3601191', '3601', 'KARANGTANJUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3601192', '3601', 'KORONCONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3602010', '3602', 'MALINGPING');
+INSERT INTO `tbl_kecamatan` VALUES ('3602011', '3602', 'WANASALAM');
+INSERT INTO `tbl_kecamatan` VALUES ('3602020', '3602', 'PANGGARANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3602021', '3602', 'CIHARA');
+INSERT INTO `tbl_kecamatan` VALUES ('3602030', '3602', 'BAYAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3602031', '3602', 'CILOGRANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3602040', '3602', 'CIBEBER');
+INSERT INTO `tbl_kecamatan` VALUES ('3602050', '3602', 'CIJAKU');
+INSERT INTO `tbl_kecamatan` VALUES ('3602051', '3602', 'CIGEMBLONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3602060', '3602', 'BANJARSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3602070', '3602', 'CILELES');
+INSERT INTO `tbl_kecamatan` VALUES ('3602080', '3602', 'GUNUNG KENCANA');
+INSERT INTO `tbl_kecamatan` VALUES ('3602090', '3602', 'BOJONGMANIK');
+INSERT INTO `tbl_kecamatan` VALUES ('3602091', '3602', 'CIRINTEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3602100', '3602', 'LEUWIDAMAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3602110', '3602', 'MUNCANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3602111', '3602', 'SOBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3602120', '3602', 'CIPANAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3602121', '3602', 'LEBAKGEDONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3602130', '3602', 'SAJIRA');
+INSERT INTO `tbl_kecamatan` VALUES ('3602140', '3602', 'CIMARGA');
+INSERT INTO `tbl_kecamatan` VALUES ('3602150', '3602', 'CIKULUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3602160', '3602', 'WARUNGGUNUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3602170', '3602', 'CIBADAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3602180', '3602', 'RANGKASBITUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3602181', '3602', 'KALANGANYAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3602190', '3602', 'MAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('3602191', '3602', 'CURUGBITUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3603010', '3603', 'CISOKA');
+INSERT INTO `tbl_kecamatan` VALUES ('3603011', '3603', 'SOLEAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3603020', '3603', 'TIGARAKSA');
+INSERT INTO `tbl_kecamatan` VALUES ('3603021', '3603', 'JAMBE');
+INSERT INTO `tbl_kecamatan` VALUES ('3603030', '3603', 'CIKUPA');
+INSERT INTO `tbl_kecamatan` VALUES ('3603040', '3603', 'PANONGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3603050', '3603', 'CURUG');
+INSERT INTO `tbl_kecamatan` VALUES ('3603051', '3603', 'KELAPA DUA');
+INSERT INTO `tbl_kecamatan` VALUES ('3603060', '3603', 'LEGOK');
+INSERT INTO `tbl_kecamatan` VALUES ('3603070', '3603', 'PAGEDANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3603081', '3603', 'CISAUK');
+INSERT INTO `tbl_kecamatan` VALUES ('3603120', '3603', 'PASARKEMIS');
+INSERT INTO `tbl_kecamatan` VALUES ('3603121', '3603', 'SINDANG JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3603130', '3603', 'BALARAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('3603131', '3603', 'JAYANTI');
+INSERT INTO `tbl_kecamatan` VALUES ('3603132', '3603', 'SUKAMULYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3603140', '3603', 'KRESEK');
+INSERT INTO `tbl_kecamatan` VALUES ('3603141', '3603', 'GUNUNG KALER');
+INSERT INTO `tbl_kecamatan` VALUES ('3603150', '3603', 'KRONJO');
+INSERT INTO `tbl_kecamatan` VALUES ('3603151', '3603', 'MEKAR BARU');
+INSERT INTO `tbl_kecamatan` VALUES ('3603160', '3603', 'MAUK');
+INSERT INTO `tbl_kecamatan` VALUES ('3603161', '3603', 'KEMIRI');
+INSERT INTO `tbl_kecamatan` VALUES ('3603162', '3603', 'SUKADIRI');
+INSERT INTO `tbl_kecamatan` VALUES ('3603170', '3603', 'RAJEG');
+INSERT INTO `tbl_kecamatan` VALUES ('3603180', '3603', 'SEPATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3603181', '3603', 'SEPATAN TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3603190', '3603', 'PAKUHAJI');
+INSERT INTO `tbl_kecamatan` VALUES ('3603200', '3603', 'TELUKNAGA');
+INSERT INTO `tbl_kecamatan` VALUES ('3603210', '3603', 'KOSAMBI');
+INSERT INTO `tbl_kecamatan` VALUES ('3604010', '3604', 'CINANGKA');
+INSERT INTO `tbl_kecamatan` VALUES ('3604020', '3604', 'PADARINCANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3604030', '3604', 'CIOMAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3604040', '3604', 'PABUARAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3604041', '3604', 'GUNUNG SARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3604050', '3604', 'BAROS');
+INSERT INTO `tbl_kecamatan` VALUES ('3604060', '3604', 'PETIR');
+INSERT INTO `tbl_kecamatan` VALUES ('3604061', '3604', 'TUNJUNG TEJA');
+INSERT INTO `tbl_kecamatan` VALUES ('3604080', '3604', 'CIKEUSAL');
+INSERT INTO `tbl_kecamatan` VALUES ('3604090', '3604', 'PAMARAYAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3604091', '3604', 'BANDUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3604100', '3604', 'JAWILAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3604110', '3604', 'KOPO');
+INSERT INTO `tbl_kecamatan` VALUES ('3604120', '3604', 'CIKANDE');
+INSERT INTO `tbl_kecamatan` VALUES ('3604121', '3604', 'KIBIN');
+INSERT INTO `tbl_kecamatan` VALUES ('3604130', '3604', 'KRAGILAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3604180', '3604', 'WARINGINKURUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3604190', '3604', 'MANCAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3604200', '3604', 'ANYAR');
+INSERT INTO `tbl_kecamatan` VALUES ('3604210', '3604', 'BOJONEGARA');
+INSERT INTO `tbl_kecamatan` VALUES ('3604211', '3604', 'PULO AMPEL');
+INSERT INTO `tbl_kecamatan` VALUES ('3604220', '3604', 'KRAMATWATU');
+INSERT INTO `tbl_kecamatan` VALUES ('3604240', '3604', 'CIRUAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3604250', '3604', 'PONTANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3604251', '3604', 'LEBAK WANGI');
+INSERT INTO `tbl_kecamatan` VALUES ('3604260', '3604', 'CARENANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3604261', '3604', 'BINUANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3604270', '3604', 'TIRTAYASA');
+INSERT INTO `tbl_kecamatan` VALUES ('3604271', '3604', 'TANARA');
+INSERT INTO `tbl_kecamatan` VALUES ('3671010', '3671', 'CILEDUG');
+INSERT INTO `tbl_kecamatan` VALUES ('3671011', '3671', 'LARANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3671012', '3671', 'KARANG TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('3671020', '3671', 'CIPONDOH');
+INSERT INTO `tbl_kecamatan` VALUES ('3671021', '3671', 'PINANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3671030', '3671', 'TANGERANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3671031', '3671', 'KARAWACI');
+INSERT INTO `tbl_kecamatan` VALUES ('3671040', '3671', 'JATI UWUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('3671041', '3671', 'CIBODAS');
+INSERT INTO `tbl_kecamatan` VALUES ('3671042', '3671', 'PERIUK');
+INSERT INTO `tbl_kecamatan` VALUES ('3671050', '3671', 'BATUCEPER');
+INSERT INTO `tbl_kecamatan` VALUES ('3671051', '3671', 'NEGLASARI');
+INSERT INTO `tbl_kecamatan` VALUES ('3671060', '3671', 'BENDA');
+INSERT INTO `tbl_kecamatan` VALUES ('3672010', '3672', 'CIWANDAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3672011', '3672', 'CITANGKIL');
+INSERT INTO `tbl_kecamatan` VALUES ('3672020', '3672', 'PULOMERAK');
+INSERT INTO `tbl_kecamatan` VALUES ('3672021', '3672', 'PURWAKARTA');
+INSERT INTO `tbl_kecamatan` VALUES ('3672022', '3672', 'GROGOL');
+INSERT INTO `tbl_kecamatan` VALUES ('3672030', '3672', 'CILEGON');
+INSERT INTO `tbl_kecamatan` VALUES ('3672031', '3672', 'JOMBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3672040', '3672', 'CIBEBER');
+INSERT INTO `tbl_kecamatan` VALUES ('3673010', '3673', 'CURUG');
+INSERT INTO `tbl_kecamatan` VALUES ('3673020', '3673', 'WALANTAKA');
+INSERT INTO `tbl_kecamatan` VALUES ('3673030', '3673', 'CIPOCOK JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('3673040', '3673', 'SERANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3673050', '3673', 'TAKTAKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('3673060', '3673', 'KASEMEN');
+INSERT INTO `tbl_kecamatan` VALUES ('3674010', '3674', 'SETU');
+INSERT INTO `tbl_kecamatan` VALUES ('3674020', '3674', 'SERPONG');
+INSERT INTO `tbl_kecamatan` VALUES ('3674030', '3674', 'PAMULANG');
+INSERT INTO `tbl_kecamatan` VALUES ('3674040', '3674', 'CIPUTAT');
+INSERT INTO `tbl_kecamatan` VALUES ('3674050', '3674', 'CIPUTAT TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('3674060', '3674', 'PONDOK AREN');
+INSERT INTO `tbl_kecamatan` VALUES ('3674070', '3674', 'SERPONG UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('5101010', '5101', 'MELAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('5101020', '5101', 'NEGARA');
+INSERT INTO `tbl_kecamatan` VALUES ('5101021', '5101', 'JEMBRANA');
+INSERT INTO `tbl_kecamatan` VALUES ('5101030', '5101', 'MENDOYO');
+INSERT INTO `tbl_kecamatan` VALUES ('5101040', '5101', 'PEKUTATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5102010', '5102', 'SELEMADEG');
+INSERT INTO `tbl_kecamatan` VALUES ('5102011', '5102', 'SELEMADEG TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('5102012', '5102', 'SELEMADEG BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5102020', '5102', 'KERAMBITAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5102030', '5102', 'TABANAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5102040', '5102', 'KEDIRI');
+INSERT INTO `tbl_kecamatan` VALUES ('5102050', '5102', 'MARGA');
+INSERT INTO `tbl_kecamatan` VALUES ('5102060', '5102', 'BATURITI');
+INSERT INTO `tbl_kecamatan` VALUES ('5102070', '5102', 'PENEBEL');
+INSERT INTO `tbl_kecamatan` VALUES ('5102080', '5102', 'PUPUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5103010', '5103', 'KUTA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5103020', '5103', 'KUTA');
+INSERT INTO `tbl_kecamatan` VALUES ('5103030', '5103', 'KUTA UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('5103040', '5103', 'MENGWI');
+INSERT INTO `tbl_kecamatan` VALUES ('5103050', '5103', 'ABIANSEMAL');
+INSERT INTO `tbl_kecamatan` VALUES ('5103060', '5103', 'PETANG');
+INSERT INTO `tbl_kecamatan` VALUES ('5104010', '5104', 'SUKAWATI');
+INSERT INTO `tbl_kecamatan` VALUES ('5104020', '5104', 'BLAHBATUH');
+INSERT INTO `tbl_kecamatan` VALUES ('5104030', '5104', 'GIANYAR');
+INSERT INTO `tbl_kecamatan` VALUES ('5104040', '5104', 'TAMPAKSIRING');
+INSERT INTO `tbl_kecamatan` VALUES ('5104050', '5104', 'UBUD');
+INSERT INTO `tbl_kecamatan` VALUES ('5104060', '5104', 'TEGALLALANG');
+INSERT INTO `tbl_kecamatan` VALUES ('5104070', '5104', 'PAYANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5105010', '5105', 'NUSAPENIDA');
+INSERT INTO `tbl_kecamatan` VALUES ('5105020', '5105', 'BANJARANGKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5105030', '5105', 'KLUNGKUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('5105040', '5105', 'DAWAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5106010', '5106', 'SUSUT');
+INSERT INTO `tbl_kecamatan` VALUES ('5106020', '5106', 'BANGLI');
+INSERT INTO `tbl_kecamatan` VALUES ('5106030', '5106', 'TEMBUKU');
+INSERT INTO `tbl_kecamatan` VALUES ('5106040', '5106', 'KINTAMANI');
+INSERT INTO `tbl_kecamatan` VALUES ('5107010', '5107', 'RENDANG');
+INSERT INTO `tbl_kecamatan` VALUES ('5107020', '5107', 'SIDEMEN');
+INSERT INTO `tbl_kecamatan` VALUES ('5107030', '5107', 'MANGGIS');
+INSERT INTO `tbl_kecamatan` VALUES ('5107040', '5107', 'KARANGASEM');
+INSERT INTO `tbl_kecamatan` VALUES ('5107050', '5107', 'ABANG');
+INSERT INTO `tbl_kecamatan` VALUES ('5107060', '5107', 'BEBANDEM');
+INSERT INTO `tbl_kecamatan` VALUES ('5107070', '5107', 'SELAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5107080', '5107', 'KUBU');
+INSERT INTO `tbl_kecamatan` VALUES ('5108010', '5108', 'GEROKGAK');
+INSERT INTO `tbl_kecamatan` VALUES ('5108020', '5108', 'SERIRIT');
+INSERT INTO `tbl_kecamatan` VALUES ('5108030', '5108', 'BUSUNGBIU');
+INSERT INTO `tbl_kecamatan` VALUES ('5108040', '5108', 'BANJAR');
+INSERT INTO `tbl_kecamatan` VALUES ('5108050', '5108', 'SUKASADA');
+INSERT INTO `tbl_kecamatan` VALUES ('5108060', '5108', 'BULELENG');
+INSERT INTO `tbl_kecamatan` VALUES ('5108070', '5108', 'SAWAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5108080', '5108', 'KUBUTAMBAHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5108090', '5108', 'TEJAKULA');
+INSERT INTO `tbl_kecamatan` VALUES ('5171010', '5171', 'DENPASAR SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5171020', '5171', 'DENPASAR TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('5171030', '5171', 'DENPASAR BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5171031', '5171', 'DENPASAR UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('5201010', '5201', 'SEKOTONG');
+INSERT INTO `tbl_kecamatan` VALUES ('5201011', '5201', 'LEMBAR');
+INSERT INTO `tbl_kecamatan` VALUES ('5201020', '5201', 'GERUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('5201030', '5201', 'LABU API');
+INSERT INTO `tbl_kecamatan` VALUES ('5201040', '5201', 'KEDIRI');
+INSERT INTO `tbl_kecamatan` VALUES ('5201041', '5201', 'KURIPAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5201050', '5201', 'NARMADA');
+INSERT INTO `tbl_kecamatan` VALUES ('5201051', '5201', 'LINGSAR');
+INSERT INTO `tbl_kecamatan` VALUES ('5201060', '5201', 'GUNUNG SARI');
+INSERT INTO `tbl_kecamatan` VALUES ('5201061', '5201', 'BATU LAYAR');
+INSERT INTO `tbl_kecamatan` VALUES ('5202010', '5202', 'PRAYA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5202011', '5202', 'PRAYA BARAT DAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('5202020', '5202', 'PUJUT');
+INSERT INTO `tbl_kecamatan` VALUES ('5202030', '5202', 'PRAYA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('5202040', '5202', 'JANAPRIA');
+INSERT INTO `tbl_kecamatan` VALUES ('5202050', '5202', 'KOPANG');
+INSERT INTO `tbl_kecamatan` VALUES ('5202060', '5202', 'PRAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('5202061', '5202', 'PRAYA TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('5202070', '5202', 'JONGGAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5202080', '5202', 'PRINGGARATA');
+INSERT INTO `tbl_kecamatan` VALUES ('5202090', '5202', 'BATUKLIANG');
+INSERT INTO `tbl_kecamatan` VALUES ('5202091', '5202', 'BATUKLIANG UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('5203010', '5203', 'KERUAK');
+INSERT INTO `tbl_kecamatan` VALUES ('5203011', '5203', 'JEROWARU');
+INSERT INTO `tbl_kecamatan` VALUES ('5203020', '5203', 'SAKRA');
+INSERT INTO `tbl_kecamatan` VALUES ('5203021', '5203', 'SAKRA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5203022', '5203', 'SAKRA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('5203030', '5203', 'TERARA');
+INSERT INTO `tbl_kecamatan` VALUES ('5203031', '5203', 'MONTONG GADING');
+INSERT INTO `tbl_kecamatan` VALUES ('5203040', '5203', 'SIKUR');
+INSERT INTO `tbl_kecamatan` VALUES ('5203050', '5203', 'MASBAGIK');
+INSERT INTO `tbl_kecamatan` VALUES ('5203051', '5203', 'PRINGGASELA');
+INSERT INTO `tbl_kecamatan` VALUES ('5203060', '5203', 'SUKAMULIA');
+INSERT INTO `tbl_kecamatan` VALUES ('5203061', '5203', 'SURALAGA');
+INSERT INTO `tbl_kecamatan` VALUES ('5203070', '5203', 'SELONG');
+INSERT INTO `tbl_kecamatan` VALUES ('5203071', '5203', 'LABUHAN HAJI');
+INSERT INTO `tbl_kecamatan` VALUES ('5203080', '5203', 'PRINGGABAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('5203081', '5203', 'SUELA');
+INSERT INTO `tbl_kecamatan` VALUES ('5203090', '5203', 'AIKMEL');
+INSERT INTO `tbl_kecamatan` VALUES ('5203091', '5203', 'WANASABA');
+INSERT INTO `tbl_kecamatan` VALUES ('5203092', '5203', 'SEMBALUN');
+INSERT INTO `tbl_kecamatan` VALUES ('5203100', '5203', 'SAMBELIA');
+INSERT INTO `tbl_kecamatan` VALUES ('5204020', '5204', 'LUNYUK');
+INSERT INTO `tbl_kecamatan` VALUES ('5204021', '5204', 'ORONG TELU');
+INSERT INTO `tbl_kecamatan` VALUES ('5204050', '5204', 'ALAS');
+INSERT INTO `tbl_kecamatan` VALUES ('5204051', '5204', 'ALAS BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5204052', '5204', 'BUER');
+INSERT INTO `tbl_kecamatan` VALUES ('5204061', '5204', 'UTAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5204062', '5204', 'RHEE');
+INSERT INTO `tbl_kecamatan` VALUES ('5204070', '5204', 'BATULANTEH');
+INSERT INTO `tbl_kecamatan` VALUES ('5204080', '5204', 'SUMBAWA');
+INSERT INTO `tbl_kecamatan` VALUES ('5204081', '5204', 'LABUHAN BADAS');
+INSERT INTO `tbl_kecamatan` VALUES ('5204082', '5204', 'UNTER IWES');
+INSERT INTO `tbl_kecamatan` VALUES ('5204090', '5204', 'MOYOHILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('5204091', '5204', 'MOYO UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('5204100', '5204', 'MOYOHULU');
+INSERT INTO `tbl_kecamatan` VALUES ('5204110', '5204', 'ROPANG');
+INSERT INTO `tbl_kecamatan` VALUES ('5204111', '5204', 'LENANGGUAR');
+INSERT INTO `tbl_kecamatan` VALUES ('5204112', '5204', 'LANTUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('5204121', '5204', 'LAPE');
+INSERT INTO `tbl_kecamatan` VALUES ('5204122', '5204', 'LOPOK');
+INSERT INTO `tbl_kecamatan` VALUES ('5204130', '5204', 'PLAMPANG');
+INSERT INTO `tbl_kecamatan` VALUES ('5204131', '5204', 'LABANGKA');
+INSERT INTO `tbl_kecamatan` VALUES ('5204132', '5204', 'MARONGE');
+INSERT INTO `tbl_kecamatan` VALUES ('5204140', '5204', 'EMPANG');
+INSERT INTO `tbl_kecamatan` VALUES ('5204141', '5204', 'TARANO');
+INSERT INTO `tbl_kecamatan` VALUES ('5205010', '5205', 'HU\'U');
+INSERT INTO `tbl_kecamatan` VALUES ('5205011', '5205', 'PAJO');
+INSERT INTO `tbl_kecamatan` VALUES ('5205020', '5205', 'DOMPU');
+INSERT INTO `tbl_kecamatan` VALUES ('5205030', '5205', 'WOJA');
+INSERT INTO `tbl_kecamatan` VALUES ('5205040', '5205', 'KILO');
+INSERT INTO `tbl_kecamatan` VALUES ('5205050', '5205', 'KEMPO');
+INSERT INTO `tbl_kecamatan` VALUES ('5205051', '5205', 'MANGGALEWA');
+INSERT INTO `tbl_kecamatan` VALUES ('5205060', '5205', 'PEKAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5206010', '5206', 'MONTA');
+INSERT INTO `tbl_kecamatan` VALUES ('5206011', '5206', 'PARADO');
+INSERT INTO `tbl_kecamatan` VALUES ('5206020', '5206', 'BOLO');
+INSERT INTO `tbl_kecamatan` VALUES ('5206021', '5206', 'MADA PANGGA');
+INSERT INTO `tbl_kecamatan` VALUES ('5206030', '5206', 'WOHA');
+INSERT INTO `tbl_kecamatan` VALUES ('5206040', '5206', 'BELO');
+INSERT INTO `tbl_kecamatan` VALUES ('5206041', '5206', 'PALIBELO');
+INSERT INTO `tbl_kecamatan` VALUES ('5206050', '5206', 'WAWO');
+INSERT INTO `tbl_kecamatan` VALUES ('5206051', '5206', 'LANGGUDU');
+INSERT INTO `tbl_kecamatan` VALUES ('5206052', '5206', 'LAMBITU');
+INSERT INTO `tbl_kecamatan` VALUES ('5206060', '5206', 'SAPE');
+INSERT INTO `tbl_kecamatan` VALUES ('5206061', '5206', 'LAMBU');
+INSERT INTO `tbl_kecamatan` VALUES ('5206070', '5206', 'WERA');
+INSERT INTO `tbl_kecamatan` VALUES ('5206071', '5206', 'AMBALAWI');
+INSERT INTO `tbl_kecamatan` VALUES ('5206080', '5206', 'DONGGO');
+INSERT INTO `tbl_kecamatan` VALUES ('5206081', '5206', 'SOROMANDI');
+INSERT INTO `tbl_kecamatan` VALUES ('5206090', '5206', 'SANGGAR');
+INSERT INTO `tbl_kecamatan` VALUES ('5206091', '5206', 'TAMBORA');
+INSERT INTO `tbl_kecamatan` VALUES ('5207010', '5207', 'SEKONGKANG');
+INSERT INTO `tbl_kecamatan` VALUES ('5207020', '5207', 'JEREWEH');
+INSERT INTO `tbl_kecamatan` VALUES ('5207021', '5207', 'MALUK');
+INSERT INTO `tbl_kecamatan` VALUES ('5207030', '5207', 'TALIWANG');
+INSERT INTO `tbl_kecamatan` VALUES ('5207031', '5207', 'BRANG ENE');
+INSERT INTO `tbl_kecamatan` VALUES ('5207040', '5207', 'BRANG REA');
+INSERT INTO `tbl_kecamatan` VALUES ('5207050', '5207', 'SETELUK');
+INSERT INTO `tbl_kecamatan` VALUES ('5207051', '5207', 'POTO TANO');
+INSERT INTO `tbl_kecamatan` VALUES ('5208010', '5208', 'PEMENANG');
+INSERT INTO `tbl_kecamatan` VALUES ('5208020', '5208', 'TANJUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('5208030', '5208', 'GANGGA');
+INSERT INTO `tbl_kecamatan` VALUES ('5208040', '5208', 'KAYANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5208050', '5208', 'BAYAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5271010', '5271', 'AMPENAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5271011', '5271', 'SEKARBELA');
+INSERT INTO `tbl_kecamatan` VALUES ('5271020', '5271', 'MATARAM');
+INSERT INTO `tbl_kecamatan` VALUES ('5271021', '5271', 'SELAPARANG');
+INSERT INTO `tbl_kecamatan` VALUES ('5271030', '5271', 'CAKRANEGARA');
+INSERT INTO `tbl_kecamatan` VALUES ('5271031', '5271', 'SANDUBAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('5272010', '5272', 'RASANAE BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5272011', '5272', 'MPUNDA');
+INSERT INTO `tbl_kecamatan` VALUES ('5272020', '5272', 'RASANAE TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('5272021', '5272', 'RABA');
+INSERT INTO `tbl_kecamatan` VALUES ('5272030', '5272', 'ASAKOTA');
+INSERT INTO `tbl_kecamatan` VALUES ('5301021', '5301', 'LAMBOYA');
+INSERT INTO `tbl_kecamatan` VALUES ('5301022', '5301', 'WANOKAKA');
+INSERT INTO `tbl_kecamatan` VALUES ('5301023', '5301', 'LABOYA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5301050', '5301', 'LOLI');
+INSERT INTO `tbl_kecamatan` VALUES ('5301060', '5301', 'KOTA WAIKABUBAK');
+INSERT INTO `tbl_kecamatan` VALUES ('5301072', '5301', 'TANA RIGHU');
+INSERT INTO `tbl_kecamatan` VALUES ('5302010', '5302', 'LEWA');
+INSERT INTO `tbl_kecamatan` VALUES ('5302011', '5302', 'NGGAHA ORIANGU');
+INSERT INTO `tbl_kecamatan` VALUES ('5302012', '5302', 'LEWA TIDAHU');
+INSERT INTO `tbl_kecamatan` VALUES ('5302013', '5302', 'KATALA HAMU LINGU');
+INSERT INTO `tbl_kecamatan` VALUES ('5302020', '5302', 'TABUNDUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('5302021', '5302', 'PINUPAHAR');
+INSERT INTO `tbl_kecamatan` VALUES ('5302030', '5302', 'PABERIWAI');
+INSERT INTO `tbl_kecamatan` VALUES ('5302031', '5302', 'KARERA');
+INSERT INTO `tbl_kecamatan` VALUES ('5302032', '5302', 'MATAWAI LA PAWU');
+INSERT INTO `tbl_kecamatan` VALUES ('5302033', '5302', 'KAHAUNGU ETI');
+INSERT INTO `tbl_kecamatan` VALUES ('5302034', '5302', 'MAHU');
+INSERT INTO `tbl_kecamatan` VALUES ('5302035', '5302', 'NGADU NGALA');
+INSERT INTO `tbl_kecamatan` VALUES ('5302040', '5302', 'PAHUNGA LODU');
+INSERT INTO `tbl_kecamatan` VALUES ('5302041', '5302', 'WULA WAIJELU');
+INSERT INTO `tbl_kecamatan` VALUES ('5302051', '5302', 'RINDI');
+INSERT INTO `tbl_kecamatan` VALUES ('5302052', '5302', 'UMALULU');
+INSERT INTO `tbl_kecamatan` VALUES ('5302060', '5302', 'PANDAWAI');
+INSERT INTO `tbl_kecamatan` VALUES ('5302061', '5302', 'KAMBATA MAPAMBUHANG');
+INSERT INTO `tbl_kecamatan` VALUES ('5302070', '5302', 'KOTA WAINGAPU');
+INSERT INTO `tbl_kecamatan` VALUES ('5302071', '5302', 'KAMBERA');
+INSERT INTO `tbl_kecamatan` VALUES ('5302080', '5302', 'HAHARU');
+INSERT INTO `tbl_kecamatan` VALUES ('5302081', '5302', 'KANATANG');
+INSERT INTO `tbl_kecamatan` VALUES ('5303100', '5303', 'SEMAU');
+INSERT INTO `tbl_kecamatan` VALUES ('5303101', '5303', 'SEMAU SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5303110', '5303', 'KUPANG BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5303111', '5303', 'NEKAMESE');
+INSERT INTO `tbl_kecamatan` VALUES ('5303120', '5303', 'KUPANG TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('5303121', '5303', 'TAEBENU');
+INSERT INTO `tbl_kecamatan` VALUES ('5303130', '5303', 'AMARASI');
+INSERT INTO `tbl_kecamatan` VALUES ('5303131', '5303', 'AMARASI BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5303132', '5303', 'AMARASI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5303133', '5303', 'AMARASI TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('5303140', '5303', 'KUPANG TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('5303141', '5303', 'AMABI OEFETO TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('5303142', '5303', 'AMABI OEFETO');
+INSERT INTO `tbl_kecamatan` VALUES ('5303150', '5303', 'SULAMU');
+INSERT INTO `tbl_kecamatan` VALUES ('5303160', '5303', 'FATULEU');
+INSERT INTO `tbl_kecamatan` VALUES ('5303161', '5303', 'FATULEU TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('5303162', '5303', 'FATULEU BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5303170', '5303', 'TAKARI');
+INSERT INTO `tbl_kecamatan` VALUES ('5303180', '5303', 'AMFOANG SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5303181', '5303', 'AMFOANG BARAT DAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('5303182', '5303', 'AMFOANG TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('5303190', '5303', 'AMFOANG UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('5303191', '5303', 'AMFOANG BARAT LAUT');
+INSERT INTO `tbl_kecamatan` VALUES ('5303192', '5303', 'AMFOANG TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('5304010', '5304', 'MOLLO UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('5304011', '5304', 'FATUMNASI');
+INSERT INTO `tbl_kecamatan` VALUES ('5304012', '5304', 'TOBU');
+INSERT INTO `tbl_kecamatan` VALUES ('5304013', '5304', 'NUNBENA');
+INSERT INTO `tbl_kecamatan` VALUES ('5304020', '5304', 'MOLLO SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5304021', '5304', 'POLEN');
+INSERT INTO `tbl_kecamatan` VALUES ('5304022', '5304', 'MOLLO BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5304023', '5304', 'MOLLO TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('5304030', '5304', 'KOTA SOE');
+INSERT INTO `tbl_kecamatan` VALUES ('5304040', '5304', 'AMANUBAN BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5304041', '5304', 'BATU PUTIH');
+INSERT INTO `tbl_kecamatan` VALUES ('5304042', '5304', 'KUATNANA');
+INSERT INTO `tbl_kecamatan` VALUES ('5304050', '5304', 'AMANUBAN SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5304051', '5304', 'NOEBEBA');
+INSERT INTO `tbl_kecamatan` VALUES ('5304060', '5304', 'KUAN FATU');
+INSERT INTO `tbl_kecamatan` VALUES ('5304061', '5304', 'KUALIN');
+INSERT INTO `tbl_kecamatan` VALUES ('5304070', '5304', 'AMANUBAN TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('5304071', '5304', 'KOLBANO');
+INSERT INTO `tbl_kecamatan` VALUES ('5304072', '5304', 'OENINO');
+INSERT INTO `tbl_kecamatan` VALUES ('5304080', '5304', 'AMANUBAN TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('5304081', '5304', 'FAUTMOLO');
+INSERT INTO `tbl_kecamatan` VALUES ('5304082', '5304', 'FATUKOPA');
+INSERT INTO `tbl_kecamatan` VALUES ('5304090', '5304', 'KIE');
+INSERT INTO `tbl_kecamatan` VALUES ('5304091', '5304', 'KOT\'OLIN');
+INSERT INTO `tbl_kecamatan` VALUES ('5304100', '5304', 'AMANATUN SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5304101', '5304', 'BOKING');
+INSERT INTO `tbl_kecamatan` VALUES ('5304102', '5304', 'NUNKOLO');
+INSERT INTO `tbl_kecamatan` VALUES ('5304103', '5304', 'NOEBANA');
+INSERT INTO `tbl_kecamatan` VALUES ('5304104', '5304', 'SANTIAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5304110', '5304', 'AMANATUN UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('5304111', '5304', 'TOIANAS');
+INSERT INTO `tbl_kecamatan` VALUES ('5304112', '5304', 'KOKBAUN');
+INSERT INTO `tbl_kecamatan` VALUES ('5305010', '5305', 'MIOMAFFO BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5305011', '5305', 'MIOMAFFO TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('5305012', '5305', 'MUSI');
+INSERT INTO `tbl_kecamatan` VALUES ('5305013', '5305', 'MUTIS');
+INSERT INTO `tbl_kecamatan` VALUES ('5305020', '5305', 'MIOMAFFO TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('5305021', '5305', 'NOEMUTI');
+INSERT INTO `tbl_kecamatan` VALUES ('5305022', '5305', 'BIKOMI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5305023', '5305', 'BIKOMI TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('5305024', '5305', 'BIKOMI NILULAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5305025', '5305', 'BIKOMI UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('5305026', '5305', 'NAIBENU');
+INSERT INTO `tbl_kecamatan` VALUES ('5305027', '5305', 'NOEMUTI TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('5305030', '5305', 'KOTA KEFAMENANU');
+INSERT INTO `tbl_kecamatan` VALUES ('5305040', '5305', 'INSANA');
+INSERT INTO `tbl_kecamatan` VALUES ('5305041', '5305', 'INSANA UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('5305042', '5305', 'INSANA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5305043', '5305', 'INSANA TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('5305044', '5305', 'INSANA FAFINESU');
+INSERT INTO `tbl_kecamatan` VALUES ('5305050', '5305', 'BIBOKI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5305051', '5305', 'BIBOKI TANPAH');
+INSERT INTO `tbl_kecamatan` VALUES ('5305052', '5305', 'BIBOKI MOENLEU');
+INSERT INTO `tbl_kecamatan` VALUES ('5305060', '5305', 'BIBOKI UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('5305061', '5305', 'BIBOKI ANLEU');
+INSERT INTO `tbl_kecamatan` VALUES ('5305062', '5305', 'BIBOKI FEOTLEU');
+INSERT INTO `tbl_kecamatan` VALUES ('5306032', '5306', 'RAI MANUK');
+INSERT INTO `tbl_kecamatan` VALUES ('5306050', '5306', 'TASIFETO BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5306051', '5306', 'KAKULUK MESAK');
+INSERT INTO `tbl_kecamatan` VALUES ('5306052', '5306', 'NANAET DUBESI');
+INSERT INTO `tbl_kecamatan` VALUES ('5306060', '5306', 'ATAMBUA');
+INSERT INTO `tbl_kecamatan` VALUES ('5306061', '5306', 'ATAMBUA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5306062', '5306', 'ATAMBUA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5306070', '5306', 'TASIFETO TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('5306071', '5306', 'RAIHAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5306072', '5306', 'LASIOLAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5306080', '5306', 'LAMAKNEN');
+INSERT INTO `tbl_kecamatan` VALUES ('5306081', '5306', 'LAMAKNEN SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5307010', '5307', 'PANTAR');
+INSERT INTO `tbl_kecamatan` VALUES ('5307011', '5307', 'PANTAR BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5307012', '5307', 'PANTAR TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('5307013', '5307', 'PANTAR BARAT LAUT');
+INSERT INTO `tbl_kecamatan` VALUES ('5307014', '5307', 'PANTAR TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('5307020', '5307', 'ALOR BARAT DAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('5307021', '5307', 'MATARU');
+INSERT INTO `tbl_kecamatan` VALUES ('5307030', '5307', 'ALOR SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5307040', '5307', 'ALOR TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('5307041', '5307', 'ALOR TIMUR LAUT');
+INSERT INTO `tbl_kecamatan` VALUES ('5307042', '5307', 'PUREMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5307050', '5307', 'TELUK MUTIARA');
+INSERT INTO `tbl_kecamatan` VALUES ('5307051', '5307', 'KABOLA');
+INSERT INTO `tbl_kecamatan` VALUES ('5307060', '5307', 'ALOR BARAT LAUT');
+INSERT INTO `tbl_kecamatan` VALUES ('5307061', '5307', 'ALOR TENGAH UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('5307062', '5307', 'PULAU PURA');
+INSERT INTO `tbl_kecamatan` VALUES ('5307063', '5307', 'LEMBUR');
+INSERT INTO `tbl_kecamatan` VALUES ('5308010', '5308', 'NAGAWUTUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('5308011', '5308', 'WULANDONI');
+INSERT INTO `tbl_kecamatan` VALUES ('5308020', '5308', 'ATADEI');
+INSERT INTO `tbl_kecamatan` VALUES ('5308030', '5308', 'ILE APE');
+INSERT INTO `tbl_kecamatan` VALUES ('5308031', '5308', 'ILE APE TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('5308040', '5308', 'LEBATUKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5308050', '5308', 'NUBATUKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5308060', '5308', 'OMESURI');
+INSERT INTO `tbl_kecamatan` VALUES ('5308070', '5308', 'BUYASARI');
+INSERT INTO `tbl_kecamatan` VALUES ('5309010', '5309', 'WULANGGITANG');
+INSERT INTO `tbl_kecamatan` VALUES ('5309011', '5309', 'TITEHENA');
+INSERT INTO `tbl_kecamatan` VALUES ('5309012', '5309', 'ILEBURA');
+INSERT INTO `tbl_kecamatan` VALUES ('5309020', '5309', 'TANJUNG BUNGA');
+INSERT INTO `tbl_kecamatan` VALUES ('5309021', '5309', 'LEWO LEMA');
+INSERT INTO `tbl_kecamatan` VALUES ('5309030', '5309', 'LARANTUKA');
+INSERT INTO `tbl_kecamatan` VALUES ('5309031', '5309', 'ILE MANDIRI');
+INSERT INTO `tbl_kecamatan` VALUES ('5309032', '5309', 'DEMON PAGONG');
+INSERT INTO `tbl_kecamatan` VALUES ('5309040', '5309', 'SOLOR BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5309041', '5309', 'SOLOR SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5309050', '5309', 'SOLOR TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('5309060', '5309', 'ADONARA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5309061', '5309', 'WOTAN ULU MADO');
+INSERT INTO `tbl_kecamatan` VALUES ('5309062', '5309', 'ADONARA TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('5309070', '5309', 'ADONARA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('5309071', '5309', 'ILE BOLENG');
+INSERT INTO `tbl_kecamatan` VALUES ('5309072', '5309', 'WITIHAMA');
+INSERT INTO `tbl_kecamatan` VALUES ('5309073', '5309', 'KELUBAGOLIT');
+INSERT INTO `tbl_kecamatan` VALUES ('5309074', '5309', 'ADONARA');
+INSERT INTO `tbl_kecamatan` VALUES ('5310010', '5310', 'PAGA');
+INSERT INTO `tbl_kecamatan` VALUES ('5310011', '5310', 'MEGO');
+INSERT INTO `tbl_kecamatan` VALUES ('5310012', '5310', 'TANA WAWO');
+INSERT INTO `tbl_kecamatan` VALUES ('5310020', '5310', 'LELA');
+INSERT INTO `tbl_kecamatan` VALUES ('5310030', '5310', 'BOLA');
+INSERT INTO `tbl_kecamatan` VALUES ('5310031', '5310', 'DORENG');
+INSERT INTO `tbl_kecamatan` VALUES ('5310032', '5310', 'MAPITARA');
+INSERT INTO `tbl_kecamatan` VALUES ('5310040', '5310', 'TALIBURA');
+INSERT INTO `tbl_kecamatan` VALUES ('5310041', '5310', 'WAIGETE');
+INSERT INTO `tbl_kecamatan` VALUES ('5310042', '5310', 'WAIBLAMA');
+INSERT INTO `tbl_kecamatan` VALUES ('5310050', '5310', 'KEWAPANTE');
+INSERT INTO `tbl_kecamatan` VALUES ('5310051', '5310', 'HEWOKLOANG');
+INSERT INTO `tbl_kecamatan` VALUES ('5310052', '5310', 'KANGAE');
+INSERT INTO `tbl_kecamatan` VALUES ('5310061', '5310', 'PALUE');
+INSERT INTO `tbl_kecamatan` VALUES ('5310062', '5310', 'KOTING');
+INSERT INTO `tbl_kecamatan` VALUES ('5310063', '5310', 'NELLE');
+INSERT INTO `tbl_kecamatan` VALUES ('5310070', '5310', 'NITA');
+INSERT INTO `tbl_kecamatan` VALUES ('5310071', '5310', 'MAGEPANDA');
+INSERT INTO `tbl_kecamatan` VALUES ('5310080', '5310', 'ALOK');
+INSERT INTO `tbl_kecamatan` VALUES ('5310081', '5310', 'ALOK BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5310082', '5310', 'ALOK TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('5311010', '5311', 'NANGAPANDA');
+INSERT INTO `tbl_kecamatan` VALUES ('5311011', '5311', 'PULAU ENDE');
+INSERT INTO `tbl_kecamatan` VALUES ('5311012', '5311', 'MAUKARO');
+INSERT INTO `tbl_kecamatan` VALUES ('5311020', '5311', 'ENDE');
+INSERT INTO `tbl_kecamatan` VALUES ('5311030', '5311', 'ENDE SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5311031', '5311', 'ENDE TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('5311032', '5311', 'ENDE TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('5311033', '5311', 'ENDE UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('5311040', '5311', 'NDONA');
+INSERT INTO `tbl_kecamatan` VALUES ('5311041', '5311', 'NDONA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('5311050', '5311', 'WOLOWARU');
+INSERT INTO `tbl_kecamatan` VALUES ('5311051', '5311', 'WOLOJITA');
+INSERT INTO `tbl_kecamatan` VALUES ('5311052', '5311', 'LIO TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('5311053', '5311', 'KELIMUTU');
+INSERT INTO `tbl_kecamatan` VALUES ('5311054', '5311', 'NDORI');
+INSERT INTO `tbl_kecamatan` VALUES ('5311060', '5311', 'MAUROLE');
+INSERT INTO `tbl_kecamatan` VALUES ('5311061', '5311', 'KOTABARU');
+INSERT INTO `tbl_kecamatan` VALUES ('5311062', '5311', 'DETUKELI');
+INSERT INTO `tbl_kecamatan` VALUES ('5311063', '5311', 'LEPEMBUSU KELISOKE');
+INSERT INTO `tbl_kecamatan` VALUES ('5311070', '5311', 'DETUSOKO');
+INSERT INTO `tbl_kecamatan` VALUES ('5311071', '5311', 'WEWARIA');
+INSERT INTO `tbl_kecamatan` VALUES ('5312010', '5312', 'AIMERE');
+INSERT INTO `tbl_kecamatan` VALUES ('5312011', '5312', 'JEREBUU');
+INSERT INTO `tbl_kecamatan` VALUES ('5312012', '5312', 'INERIE');
+INSERT INTO `tbl_kecamatan` VALUES ('5312020', '5312', 'BAJAWA');
+INSERT INTO `tbl_kecamatan` VALUES ('5312030', '5312', 'GOLEWA');
+INSERT INTO `tbl_kecamatan` VALUES ('5312031', '5312', 'GOLEWA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5312032', '5312', 'GOLEWA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5312070', '5312', 'BAJAWA UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('5312071', '5312', 'SOA');
+INSERT INTO `tbl_kecamatan` VALUES ('5312080', '5312', 'RIUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('5312081', '5312', 'RIUNG BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5312082', '5312', 'WOLOMEZE');
+INSERT INTO `tbl_kecamatan` VALUES ('5313040', '5313', 'SATAR MESE');
+INSERT INTO `tbl_kecamatan` VALUES ('5313041', '5313', 'SATAR MESE BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5313110', '5313', 'LANGKE REMBONG');
+INSERT INTO `tbl_kecamatan` VALUES ('5313120', '5313', 'RUTENG');
+INSERT INTO `tbl_kecamatan` VALUES ('5313121', '5313', 'WAE RII');
+INSERT INTO `tbl_kecamatan` VALUES ('5313122', '5313', 'LELAK');
+INSERT INTO `tbl_kecamatan` VALUES ('5313123', '5313', 'RAHONG UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('5313130', '5313', 'CIBAL');
+INSERT INTO `tbl_kecamatan` VALUES ('5313131', '5313', 'CIBAL BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5313140', '5313', 'REOK');
+INSERT INTO `tbl_kecamatan` VALUES ('5313141', '5313', 'REOK BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5314010', '5314', 'ROTE BARAT DAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('5314020', '5314', 'ROTE BARAT LAUT');
+INSERT INTO `tbl_kecamatan` VALUES ('5314030', '5314', 'LOBALAIN');
+INSERT INTO `tbl_kecamatan` VALUES ('5314040', '5314', 'ROTE TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('5314041', '5314', 'ROTE SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5314050', '5314', 'PANTAI BARU');
+INSERT INTO `tbl_kecamatan` VALUES ('5314060', '5314', 'ROTE TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('5314061', '5314', 'LANDU LEKO');
+INSERT INTO `tbl_kecamatan` VALUES ('5314070', '5314', 'ROTE BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5314071', '5314', 'NDAO NUSE');
+INSERT INTO `tbl_kecamatan` VALUES ('5315010', '5315', 'KOMODO');
+INSERT INTO `tbl_kecamatan` VALUES ('5315011', '5315', 'BOLENG');
+INSERT INTO `tbl_kecamatan` VALUES ('5315020', '5315', 'SANO NGGOANG');
+INSERT INTO `tbl_kecamatan` VALUES ('5315021', '5315', 'MBELILING');
+INSERT INTO `tbl_kecamatan` VALUES ('5315030', '5315', 'LEMBOR');
+INSERT INTO `tbl_kecamatan` VALUES ('5315031', '5315', 'WELAK');
+INSERT INTO `tbl_kecamatan` VALUES ('5315032', '5315', 'LEMBOR SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5315040', '5315', 'KUWUS');
+INSERT INTO `tbl_kecamatan` VALUES ('5315041', '5315', 'NDOSO');
+INSERT INTO `tbl_kecamatan` VALUES ('5315050', '5315', 'MACANG PACAR');
+INSERT INTO `tbl_kecamatan` VALUES ('5316010', '5316', 'KATIKUTANA');
+INSERT INTO `tbl_kecamatan` VALUES ('5316011', '5316', 'KATIKUTANA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5316020', '5316', 'UMBU RATU NGGAY BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5316030', '5316', 'UMBU RATU NGGAY');
+INSERT INTO `tbl_kecamatan` VALUES ('5316040', '5316', 'MAMBORO');
+INSERT INTO `tbl_kecamatan` VALUES ('5317010', '5317', 'KODI BANGEDO');
+INSERT INTO `tbl_kecamatan` VALUES ('5317011', '5317', 'KODI BALAGHAR');
+INSERT INTO `tbl_kecamatan` VALUES ('5317020', '5317', 'KODI');
+INSERT INTO `tbl_kecamatan` VALUES ('5317030', '5317', 'KODI UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('5317040', '5317', 'WEWEWA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5317050', '5317', 'WEWEWA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5317060', '5317', 'WEWEWA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('5317061', '5317', 'WEWEWA TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('5317070', '5317', 'WEWEWA UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('5317080', '5317', 'LOURA');
+INSERT INTO `tbl_kecamatan` VALUES ('5317081', '5317', 'KOTA TAMBOLAKA');
+INSERT INTO `tbl_kecamatan` VALUES ('5318010', '5318', 'MAUPONGGO');
+INSERT INTO `tbl_kecamatan` VALUES ('5318020', '5318', 'KEO TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('5318030', '5318', 'NANGARORO');
+INSERT INTO `tbl_kecamatan` VALUES ('5318040', '5318', 'BOAWAE');
+INSERT INTO `tbl_kecamatan` VALUES ('5318050', '5318', 'AESESA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5318060', '5318', 'AESESA');
+INSERT INTO `tbl_kecamatan` VALUES ('5318070', '5318', 'WOLOWAE');
+INSERT INTO `tbl_kecamatan` VALUES ('5319010', '5319', 'BORONG');
+INSERT INTO `tbl_kecamatan` VALUES ('5319011', '5319', 'RANA MESE');
+INSERT INTO `tbl_kecamatan` VALUES ('5319020', '5319', 'KOTA KOMBA');
+INSERT INTO `tbl_kecamatan` VALUES ('5319030', '5319', 'ELAR');
+INSERT INTO `tbl_kecamatan` VALUES ('5319031', '5319', 'ELAR SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5319040', '5319', 'SAMBI RAMPAS');
+INSERT INTO `tbl_kecamatan` VALUES ('5319050', '5319', 'POCO RANAKA');
+INSERT INTO `tbl_kecamatan` VALUES ('5319051', '5319', 'POCO RANAKA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('5319060', '5319', 'LAMBA LEDA');
+INSERT INTO `tbl_kecamatan` VALUES ('5320010', '5320', 'RAIJUA');
+INSERT INTO `tbl_kecamatan` VALUES ('5320020', '5320', 'HAWU MEHARA');
+INSERT INTO `tbl_kecamatan` VALUES ('5320030', '5320', 'SABU LIAE');
+INSERT INTO `tbl_kecamatan` VALUES ('5320040', '5320', 'SABU BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5320050', '5320', 'SABU TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('5320060', '5320', 'SABU TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('5321010', '5321', 'WEWIKU');
+INSERT INTO `tbl_kecamatan` VALUES ('5321020', '5321', 'MALAKA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5321030', '5321', 'WELIMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5321040', '5321', 'RINHAT');
+INSERT INTO `tbl_kecamatan` VALUES ('5321050', '5321', 'IO KUFEU');
+INSERT INTO `tbl_kecamatan` VALUES ('5321060', '5321', 'SASITA MEAN');
+INSERT INTO `tbl_kecamatan` VALUES ('5321070', '5321', 'MALAKA TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('5321080', '5321', 'BOTIN LEOBELE');
+INSERT INTO `tbl_kecamatan` VALUES ('5321090', '5321', 'LAEN MANEN');
+INSERT INTO `tbl_kecamatan` VALUES ('5321100', '5321', 'MALAKA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('5321110', '5321', 'KOBALIMA');
+INSERT INTO `tbl_kecamatan` VALUES ('5321120', '5321', 'KOBALIMA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('5371010', '5371', 'ALAK');
+INSERT INTO `tbl_kecamatan` VALUES ('5371020', '5371', 'MAULAFA');
+INSERT INTO `tbl_kecamatan` VALUES ('5371030', '5371', 'OEBOBO');
+INSERT INTO `tbl_kecamatan` VALUES ('5371031', '5371', 'KOTA RAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('5371040', '5371', 'KELAPA LIMA');
+INSERT INTO `tbl_kecamatan` VALUES ('5371041', '5371', 'KOTA LAMA');
+INSERT INTO `tbl_kecamatan` VALUES ('6101010', '6101', 'SELAKAU');
+INSERT INTO `tbl_kecamatan` VALUES ('6101011', '6101', 'SELAKAU TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('6101020', '6101', 'PEMANGKAT');
+INSERT INTO `tbl_kecamatan` VALUES ('6101021', '6101', 'SEMPARUK');
+INSERT INTO `tbl_kecamatan` VALUES ('6101022', '6101', 'SALATIGA');
+INSERT INTO `tbl_kecamatan` VALUES ('6101030', '6101', 'TEBAS');
+INSERT INTO `tbl_kecamatan` VALUES ('6101031', '6101', 'TEKARANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6101040', '6101', 'SAMBAS');
+INSERT INTO `tbl_kecamatan` VALUES ('6101041', '6101', 'SUBAH');
+INSERT INTO `tbl_kecamatan` VALUES ('6101042', '6101', 'SEBAWI');
+INSERT INTO `tbl_kecamatan` VALUES ('6101043', '6101', 'SAJAD');
+INSERT INTO `tbl_kecamatan` VALUES ('6101050', '6101', 'JAWAI');
+INSERT INTO `tbl_kecamatan` VALUES ('6101051', '6101', 'JAWAI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6101060', '6101', 'TELUK KERAMAT');
+INSERT INTO `tbl_kecamatan` VALUES ('6101061', '6101', 'GALING');
+INSERT INTO `tbl_kecamatan` VALUES ('6101062', '6101', 'TANGARAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6101070', '6101', 'SEJANGKUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('6101080', '6101', 'SAJINGAN BESAR');
+INSERT INTO `tbl_kecamatan` VALUES ('6101090', '6101', 'PALOH');
+INSERT INTO `tbl_kecamatan` VALUES ('6102010', '6102', 'SUNGAI RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('6102011', '6102', 'CAPKALA');
+INSERT INTO `tbl_kecamatan` VALUES ('6102012', '6102', 'SUNGAI RAYA KEPULAUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6102030', '6102', 'SAMALANTAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6102031', '6102', 'MONTERADO');
+INSERT INTO `tbl_kecamatan` VALUES ('6102032', '6102', 'LEMBAH BAWANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6102040', '6102', 'BENGKAYANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6102041', '6102', 'TERIAK');
+INSERT INTO `tbl_kecamatan` VALUES ('6102042', '6102', 'SUNGAI BETUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('6102050', '6102', 'LEDO');
+INSERT INTO `tbl_kecamatan` VALUES ('6102051', '6102', 'SUTI SEMARANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6102052', '6102', 'LUMAR');
+INSERT INTO `tbl_kecamatan` VALUES ('6102060', '6102', 'SANGGAU LEDO');
+INSERT INTO `tbl_kecamatan` VALUES ('6102061', '6102', 'TUJUHBELAS');
+INSERT INTO `tbl_kecamatan` VALUES ('6102070', '6102', 'SELUAS');
+INSERT INTO `tbl_kecamatan` VALUES ('6102080', '6102', 'JAGOI BABANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6102081', '6102', 'SIDING');
+INSERT INTO `tbl_kecamatan` VALUES ('6103020', '6103', 'SEBANGKI');
+INSERT INTO `tbl_kecamatan` VALUES ('6103030', '6103', 'NGABANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6103031', '6103', 'JELIMPO');
+INSERT INTO `tbl_kecamatan` VALUES ('6103040', '6103', 'SENGAH TEMILA');
+INSERT INTO `tbl_kecamatan` VALUES ('6103050', '6103', 'MANDOR');
+INSERT INTO `tbl_kecamatan` VALUES ('6103060', '6103', 'MENJALIN');
+INSERT INTO `tbl_kecamatan` VALUES ('6103070', '6103', 'MEMPAWAH HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('6103071', '6103', 'SOMPAK');
+INSERT INTO `tbl_kecamatan` VALUES ('6103080', '6103', 'MENYUKE');
+INSERT INTO `tbl_kecamatan` VALUES ('6103081', '6103', 'BANYUKE HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('6103090', '6103', 'MERANTI');
+INSERT INTO `tbl_kecamatan` VALUES ('6103100', '6103', 'KUALA BEHE');
+INSERT INTO `tbl_kecamatan` VALUES ('6103110', '6103', 'AIR BESAR');
+INSERT INTO `tbl_kecamatan` VALUES ('6104080', '6104', 'SIANTAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6104081', '6104', 'SEGEDONG');
+INSERT INTO `tbl_kecamatan` VALUES ('6104090', '6104', 'SUNGAI PINYUH');
+INSERT INTO `tbl_kecamatan` VALUES ('6104091', '6104', 'ANJONGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6104100', '6104', 'MEMPAWAH HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('6104101', '6104', 'MEMPAWAH TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('6104110', '6104', 'SUNGAI KUNYIT');
+INSERT INTO `tbl_kecamatan` VALUES ('6104120', '6104', 'TOHO');
+INSERT INTO `tbl_kecamatan` VALUES ('6104121', '6104', 'SADANIANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6105010', '6105', 'TOBA');
+INSERT INTO `tbl_kecamatan` VALUES ('6105020', '6105', 'MELIAU');
+INSERT INTO `tbl_kecamatan` VALUES ('6105060', '6105', 'KAPUAS');
+INSERT INTO `tbl_kecamatan` VALUES ('6105070', '6105', 'MUKOK');
+INSERT INTO `tbl_kecamatan` VALUES ('6105120', '6105', 'JANGKANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6105130', '6105', 'BONTI');
+INSERT INTO `tbl_kecamatan` VALUES ('6105140', '6105', 'PARINDU');
+INSERT INTO `tbl_kecamatan` VALUES ('6105150', '6105', 'TAYAN HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('6105160', '6105', 'BALAI');
+INSERT INTO `tbl_kecamatan` VALUES ('6105170', '6105', 'TAYAN HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('6105180', '6105', 'KEMBAYAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6105190', '6105', 'BEDUWAI');
+INSERT INTO `tbl_kecamatan` VALUES ('6105200', '6105', 'NOYAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6105210', '6105', 'SEKAYAM');
+INSERT INTO `tbl_kecamatan` VALUES ('6105220', '6105', 'ENTIKONG');
+INSERT INTO `tbl_kecamatan` VALUES ('6106010', '6106', 'KENDAWANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6106020', '6106', 'MANIS MATA');
+INSERT INTO `tbl_kecamatan` VALUES ('6106030', '6106', 'MARAU');
+INSERT INTO `tbl_kecamatan` VALUES ('6106031', '6106', 'SINGKUP');
+INSERT INTO `tbl_kecamatan` VALUES ('6106032', '6106', 'AIR UPAS');
+INSERT INTO `tbl_kecamatan` VALUES ('6106040', '6106', 'JELAI HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('6106050', '6106', 'TUMBANG TITI');
+INSERT INTO `tbl_kecamatan` VALUES ('6106051', '6106', 'PEMAHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6106052', '6106', 'SUNGAI MELAYU RAYAK');
+INSERT INTO `tbl_kecamatan` VALUES ('6106060', '6106', 'MATAN HILIR SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6106061', '6106', 'BENUA KAYONG');
+INSERT INTO `tbl_kecamatan` VALUES ('6106070', '6106', 'MATAN HILIR UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('6106071', '6106', 'DELTA PAWAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6106072', '6106', 'MUARA PAWAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6106090', '6106', 'NANGA TAYAP');
+INSERT INTO `tbl_kecamatan` VALUES ('6106100', '6106', 'SANDAI');
+INSERT INTO `tbl_kecamatan` VALUES ('6106101', '6106', 'HULU SUNGAI');
+INSERT INTO `tbl_kecamatan` VALUES ('6106110', '6106', 'SUNGAI LAUR');
+INSERT INTO `tbl_kecamatan` VALUES ('6106120', '6106', 'SIMPANG HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('6106121', '6106', 'SIMPANG DUA');
+INSERT INTO `tbl_kecamatan` VALUES ('6107060', '6107', 'SERAWAI');
+INSERT INTO `tbl_kecamatan` VALUES ('6107070', '6107', 'AMBALAU');
+INSERT INTO `tbl_kecamatan` VALUES ('6107080', '6107', 'KAYAN HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('6107110', '6107', 'SEPAUK');
+INSERT INTO `tbl_kecamatan` VALUES ('6107120', '6107', 'TEMPUNAK');
+INSERT INTO `tbl_kecamatan` VALUES ('6107130', '6107', 'SUNGAI TEBELIAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6107140', '6107', 'SINTANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6107150', '6107', 'DEDAI');
+INSERT INTO `tbl_kecamatan` VALUES ('6107160', '6107', 'KAYAN HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('6107170', '6107', 'KELAM PERMAI');
+INSERT INTO `tbl_kecamatan` VALUES ('6107180', '6107', 'BINJAI HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('6107190', '6107', 'KETUNGAU HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('6107200', '6107', 'KETUNGAU TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('6107210', '6107', 'KETUNGAU HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('6108010', '6108', 'SILAT HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('6108020', '6108', 'SILAT HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('6108030', '6108', 'HULU GURUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('6108040', '6108', 'BUNUT HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('6108050', '6108', 'MENTEBAH');
+INSERT INTO `tbl_kecamatan` VALUES ('6108060', '6108', 'BIKA');
+INSERT INTO `tbl_kecamatan` VALUES ('6108070', '6108', 'KALIS');
+INSERT INTO `tbl_kecamatan` VALUES ('6108080', '6108', 'PUTUSSIBAU SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6108090', '6108', 'EMBALOH HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('6108100', '6108', 'BUNUT HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('6108110', '6108', 'BOYAN TANJUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('6108120', '6108', 'PENGKADAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6108130', '6108', 'JONGKONG');
+INSERT INTO `tbl_kecamatan` VALUES ('6108140', '6108', 'SELIMBAU');
+INSERT INTO `tbl_kecamatan` VALUES ('6108150', '6108', 'SUHAID');
+INSERT INTO `tbl_kecamatan` VALUES ('6108160', '6108', 'SEBERUANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6108170', '6108', 'SEMITAU');
+INSERT INTO `tbl_kecamatan` VALUES ('6108180', '6108', 'EMPANANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6108190', '6108', 'PURING KENCANA');
+INSERT INTO `tbl_kecamatan` VALUES ('6108200', '6108', 'BADAU');
+INSERT INTO `tbl_kecamatan` VALUES ('6108210', '6108', 'BATANG LUPAR');
+INSERT INTO `tbl_kecamatan` VALUES ('6108220', '6108', 'EMBALOH HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('6108230', '6108', 'PUTUSSIBAU UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('6109010', '6109', 'NANGA MAHAP');
+INSERT INTO `tbl_kecamatan` VALUES ('6109020', '6109', 'NANGA TAMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6109030', '6109', 'SEKADAU HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('6109040', '6109', 'SEKADAU HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('6109050', '6109', 'BELITANG HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('6109060', '6109', 'BELITANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6109070', '6109', 'BELITANG HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('6110010', '6110', 'SOKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6110020', '6110', 'TANAH PINOH');
+INSERT INTO `tbl_kecamatan` VALUES ('6110021', '6110', 'TANAH PINOH BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('6110030', '6110', 'SAYAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6110040', '6110', 'BELIMBING');
+INSERT INTO `tbl_kecamatan` VALUES ('6110041', '6110', 'BELIMBING HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('6110050', '6110', 'NANGA PINOH');
+INSERT INTO `tbl_kecamatan` VALUES ('6110051', '6110', 'PINOH SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6110052', '6110', 'PINOH UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('6110060', '6110', 'ELLA HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('6110070', '6110', 'MENUKUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('6111010', '6111', 'PULAU MAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('6111011', '6111', 'KEPULAUAN KARIMATA');
+INSERT INTO `tbl_kecamatan` VALUES ('6111020', '6111', 'SUKADANA');
+INSERT INTO `tbl_kecamatan` VALUES ('6111030', '6111', 'SIMPANG HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('6111040', '6111', 'TELUK BATANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6111050', '6111', 'SEPONTI');
+INSERT INTO `tbl_kecamatan` VALUES ('6112010', '6112', 'BATU AMPAR');
+INSERT INTO `tbl_kecamatan` VALUES ('6112020', '6112', 'TERENTANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6112030', '6112', 'KUBU');
+INSERT INTO `tbl_kecamatan` VALUES ('6112040', '6112', 'TELOK PA\'KEDAI');
+INSERT INTO `tbl_kecamatan` VALUES ('6112050', '6112', 'SUNGAI KAKAP');
+INSERT INTO `tbl_kecamatan` VALUES ('6112060', '6112', 'RASAU JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('6112070', '6112', 'SUNGAI RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('6112080', '6112', 'SUNGAI AMBAWANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6112090', '6112', 'KUALA MANDOR-B');
+INSERT INTO `tbl_kecamatan` VALUES ('6171010', '6171', 'PONTIANAK SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6171011', '6171', 'PONTIANAK TENGGARA');
+INSERT INTO `tbl_kecamatan` VALUES ('6171020', '6171', 'PONTIANAK TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('6171030', '6171', 'PONTIANAK BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('6171031', '6171', 'PONTIANAK KOTA');
+INSERT INTO `tbl_kecamatan` VALUES ('6171040', '6171', 'PONTIANAK UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('6172010', '6172', 'SINGKAWANG SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6172020', '6172', 'SINGKAWANG TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('6172030', '6172', 'SINGKAWANG UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('6172040', '6172', 'SINGKAWANG BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('6172050', '6172', 'SINGKAWANG TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('6201040', '6201', 'KOTAWARINGIN LAMA');
+INSERT INTO `tbl_kecamatan` VALUES ('6201050', '6201', 'ARUT SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6201060', '6201', 'KUMAI');
+INSERT INTO `tbl_kecamatan` VALUES ('6201061', '6201', 'PANGKALAN BANTENG');
+INSERT INTO `tbl_kecamatan` VALUES ('6201062', '6201', 'PANGKALAN LADA');
+INSERT INTO `tbl_kecamatan` VALUES ('6201070', '6201', 'ARUT UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('6202020', '6202', 'MENTAYA HILIR SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6202021', '6202', 'TELUK SAMPIT');
+INSERT INTO `tbl_kecamatan` VALUES ('6202050', '6202', 'PULAU HANAUT');
+INSERT INTO `tbl_kecamatan` VALUES ('6202060', '6202', 'MENTAWA BARU/KETAPANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6202061', '6202', 'SERANAU');
+INSERT INTO `tbl_kecamatan` VALUES ('6202070', '6202', 'MENTAYA HILIR UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('6202110', '6202', 'KOTA BESI');
+INSERT INTO `tbl_kecamatan` VALUES ('6202111', '6202', 'TELAWANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6202120', '6202', 'BAAMANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6202190', '6202', 'CEMPAGA');
+INSERT INTO `tbl_kecamatan` VALUES ('6202191', '6202', 'CEMPAGA HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('6202200', '6202', 'PARENGGEAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6202201', '6202', 'TUALAN HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('6202210', '6202', 'MENTAYA HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('6202211', '6202', 'BUKIT SANTUAI');
+INSERT INTO `tbl_kecamatan` VALUES ('6202230', '6202', 'ANTANG KALANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6202231', '6202', 'TELAGA ANTANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6203020', '6203', 'KAPUAS KUALA');
+INSERT INTO `tbl_kecamatan` VALUES ('6203021', '6203', 'TAMBAN CATUR');
+INSERT INTO `tbl_kecamatan` VALUES ('6203030', '6203', 'KAPUAS TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('6203040', '6203', 'SELAT');
+INSERT INTO `tbl_kecamatan` VALUES ('6203041', '6203', 'BATAGUH');
+INSERT INTO `tbl_kecamatan` VALUES ('6203070', '6203', 'BASARANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6203080', '6203', 'KAPUAS HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('6203090', '6203', 'PULAU PETAK');
+INSERT INTO `tbl_kecamatan` VALUES ('6203100', '6203', 'KAPUAS MURUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('6203101', '6203', 'DADAHUP');
+INSERT INTO `tbl_kecamatan` VALUES ('6203110', '6203', 'KAPUAS BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('6203150', '6203', 'MANTANGAI');
+INSERT INTO `tbl_kecamatan` VALUES ('6203160', '6203', 'TIMPAH');
+INSERT INTO `tbl_kecamatan` VALUES ('6203170', '6203', 'KAPUAS TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('6203171', '6203', 'PASAK TALAWANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6203180', '6203', 'KAPUAS HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('6203181', '6203', 'MANDAU TALAWANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6204010', '6204', 'JENAMAS');
+INSERT INTO `tbl_kecamatan` VALUES ('6204020', '6204', 'DUSUN HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('6204030', '6204', 'KARAU KUALA');
+INSERT INTO `tbl_kecamatan` VALUES ('6204040', '6204', 'DUSUN SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6204050', '6204', 'DUSUN UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('6204060', '6204', 'GUNUNG BINTANG AWAI');
+INSERT INTO `tbl_kecamatan` VALUES ('6205010', '6205', 'MONTALLAT');
+INSERT INTO `tbl_kecamatan` VALUES ('6205020', '6205', 'GUNUNG TIMANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6205030', '6205', 'GUNUNG PUREI');
+INSERT INTO `tbl_kecamatan` VALUES ('6205040', '6205', 'TEWEH TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('6205050', '6205', 'TEWEH TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('6205051', '6205', 'TEWEH  BARU');
+INSERT INTO `tbl_kecamatan` VALUES ('6205052', '6205', 'TEWEH SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6205060', '6205', 'LAHEI');
+INSERT INTO `tbl_kecamatan` VALUES ('6205061', '6205', 'LAHEI BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('6206010', '6206', 'JELAI');
+INSERT INTO `tbl_kecamatan` VALUES ('6206011', '6206', 'PANTAI LUNCI');
+INSERT INTO `tbl_kecamatan` VALUES ('6206020', '6206', 'SUKAMARA');
+INSERT INTO `tbl_kecamatan` VALUES ('6206030', '6206', 'BALAI RIAM');
+INSERT INTO `tbl_kecamatan` VALUES ('6206031', '6206', 'PERMATA KECUBUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('6207010', '6207', 'BULIK');
+INSERT INTO `tbl_kecamatan` VALUES ('6207011', '6207', 'SEMATU JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('6207012', '6207', 'MENTHOBI RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('6207013', '6207', 'BULIK TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('6207020', '6207', 'LAMANDAU');
+INSERT INTO `tbl_kecamatan` VALUES ('6207021', '6207', 'BELANTIKAN RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('6207030', '6207', 'DELANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6207031', '6207', 'BATANGKAWA');
+INSERT INTO `tbl_kecamatan` VALUES ('6208010', '6208', 'SERUYAN HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('6208011', '6208', 'SERUYAN HILIR TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('6208020', '6208', 'DANAU SEMBULUH');
+INSERT INTO `tbl_kecamatan` VALUES ('6208021', '6208', 'SERUYAN RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('6208030', '6208', 'HANAU');
+INSERT INTO `tbl_kecamatan` VALUES ('6208031', '6208', 'DANAU SELULUK');
+INSERT INTO `tbl_kecamatan` VALUES ('6208040', '6208', 'SERUYAN TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('6208041', '6208', 'BATU AMPAR');
+INSERT INTO `tbl_kecamatan` VALUES ('6208050', '6208', 'SERUYAN HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('6208051', '6208', 'SULING TAMBUN');
+INSERT INTO `tbl_kecamatan` VALUES ('6209010', '6209', 'KATINGAN KUALA');
+INSERT INTO `tbl_kecamatan` VALUES ('6209020', '6209', 'MENDAWAI');
+INSERT INTO `tbl_kecamatan` VALUES ('6209030', '6209', 'KAMIPANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6209040', '6209', 'TASIK PAYAWAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6209050', '6209', 'KATINGAN HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('6209060', '6209', 'TEWANG SANGALANG GARING');
+INSERT INTO `tbl_kecamatan` VALUES ('6209070', '6209', 'PULAU MALAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6209080', '6209', 'KATINGAN TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('6209090', '6209', 'SANAMAN MANTIKEI');
+INSERT INTO `tbl_kecamatan` VALUES ('6209091', '6209', 'PETAK MALAI');
+INSERT INTO `tbl_kecamatan` VALUES ('6209100', '6209', 'MARIKIT');
+INSERT INTO `tbl_kecamatan` VALUES ('6209110', '6209', 'KATINGAN HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('6209111', '6209', 'BUKIT RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('6210010', '6210', 'KAHAYAN KUALA');
+INSERT INTO `tbl_kecamatan` VALUES ('6210011', '6210', 'SEBANGAU KUALA');
+INSERT INTO `tbl_kecamatan` VALUES ('6210020', '6210', 'PANDIH BATU');
+INSERT INTO `tbl_kecamatan` VALUES ('6210030', '6210', 'MALIKU');
+INSERT INTO `tbl_kecamatan` VALUES ('6210040', '6210', 'KAHAYAN HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('6210041', '6210', 'JABIREN RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('6210050', '6210', 'KAHAYAN TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('6210060', '6210', 'BANAMA TINGANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6211010', '6211', 'MANUHING');
+INSERT INTO `tbl_kecamatan` VALUES ('6211011', '6211', 'MANUHING RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('6211020', '6211', 'RUNGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6211021', '6211', 'RUNGAN HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('6211022', '6211', 'RUNGAN BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('6211030', '6211', 'SEPANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6211031', '6211', 'MIHING RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('6211040', '6211', 'KURUN');
+INSERT INTO `tbl_kecamatan` VALUES ('6211050', '6211', 'TEWAH');
+INSERT INTO `tbl_kecamatan` VALUES ('6211060', '6211', 'KAHAYAN HULU UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('6211061', '6211', 'DAMANG BATU');
+INSERT INTO `tbl_kecamatan` VALUES ('6211062', '6211', 'MIRI MANASA');
+INSERT INTO `tbl_kecamatan` VALUES ('6212010', '6212', 'BENUA LIMA');
+INSERT INTO `tbl_kecamatan` VALUES ('6212020', '6212', 'DUSUN TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('6212021', '6212', 'PAJU EPAT');
+INSERT INTO `tbl_kecamatan` VALUES ('6212030', '6212', 'AWANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6212040', '6212', 'PATANGKEP TUTUI');
+INSERT INTO `tbl_kecamatan` VALUES ('6212050', '6212', 'DUSUN TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('6212051', '6212', 'RAREN BATUAH');
+INSERT INTO `tbl_kecamatan` VALUES ('6212052', '6212', 'PAKU');
+INSERT INTO `tbl_kecamatan` VALUES ('6212053', '6212', 'KARUSEN JANANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6212060', '6212', 'PEMATANG KARAU');
+INSERT INTO `tbl_kecamatan` VALUES ('6213010', '6213', 'PERMATA INTAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6213011', '6213', 'SUNGAI BABUAT');
+INSERT INTO `tbl_kecamatan` VALUES ('6213020', '6213', 'MURUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('6213030', '6213', 'LAUNG TUHUP');
+INSERT INTO `tbl_kecamatan` VALUES ('6213031', '6213', 'BARITO TUHUP RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('6213040', '6213', 'TANAH SIANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6213041', '6213', 'TANAH SIANG SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6213050', '6213', 'SUMBER BARITO');
+INSERT INTO `tbl_kecamatan` VALUES ('6213051', '6213', 'SERIBU RIAM');
+INSERT INTO `tbl_kecamatan` VALUES ('6213052', '6213', 'UUT MURUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('6271010', '6271', 'PAHANDUT');
+INSERT INTO `tbl_kecamatan` VALUES ('6271011', '6271', 'SABANGAU');
+INSERT INTO `tbl_kecamatan` VALUES ('6271012', '6271', 'JEKAN RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('6271020', '6271', 'BUKIT BATU');
+INSERT INTO `tbl_kecamatan` VALUES ('6271021', '6271', 'RAKUMPIT');
+INSERT INTO `tbl_kecamatan` VALUES ('6301010', '6301', 'PANYIPATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6301020', '6301', 'TAKISUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('6301030', '6301', 'KURAU');
+INSERT INTO `tbl_kecamatan` VALUES ('6301031', '6301', 'BUMI MAKMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('6301040', '6301', 'BATI - BATI');
+INSERT INTO `tbl_kecamatan` VALUES ('6301050', '6301', 'TAMBANG ULANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6301060', '6301', 'PELAIHARI');
+INSERT INTO `tbl_kecamatan` VALUES ('6301061', '6301', 'BAJUIN');
+INSERT INTO `tbl_kecamatan` VALUES ('6301070', '6301', 'BATU AMPAR');
+INSERT INTO `tbl_kecamatan` VALUES ('6301080', '6301', 'JORONG');
+INSERT INTO `tbl_kecamatan` VALUES ('6301090', '6301', 'KINTAP');
+INSERT INTO `tbl_kecamatan` VALUES ('6302010', '6302', 'PULAU SEMBILAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6302020', '6302', 'PULAU LAUT BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('6302021', '6302', 'PULAU LAUT TANJUNG SELAYAR');
+INSERT INTO `tbl_kecamatan` VALUES ('6302030', '6302', 'PULAU LAUT SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6302031', '6302', 'PULAU LAUT KEPULAUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6302040', '6302', 'PULAU LAUT TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('6302050', '6302', 'PULAU SEBUKU');
+INSERT INTO `tbl_kecamatan` VALUES ('6302060', '6302', 'PULAU LAUT UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('6302061', '6302', 'PULAU LAUT TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('6302120', '6302', 'KELUMPANG SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6302121', '6302', 'KELUMPANG HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('6302130', '6302', 'KELUMPANG HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('6302140', '6302', 'HAMPANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6302150', '6302', 'SUNGAI DURIAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6302160', '6302', 'KELUMPANG TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('6302161', '6302', 'KELUMPANG BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('6302170', '6302', 'KELUMPANG UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('6302180', '6302', 'PAMUKAN SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6302190', '6302', 'SAMPANAHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6302200', '6302', 'PAMUKAN UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('6302201', '6302', 'PAMUKAN BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('6303010', '6303', 'ALUH - ALUH');
+INSERT INTO `tbl_kecamatan` VALUES ('6303011', '6303', 'BERUNTUNG BARU');
+INSERT INTO `tbl_kecamatan` VALUES ('6303020', '6303', 'GAMBUT');
+INSERT INTO `tbl_kecamatan` VALUES ('6303030', '6303', 'KERTAK HANYAR');
+INSERT INTO `tbl_kecamatan` VALUES ('6303031', '6303', 'TATAH MAKMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('6303040', '6303', 'SUNGAI TABUK');
+INSERT INTO `tbl_kecamatan` VALUES ('6303050', '6303', 'MARTAPURA');
+INSERT INTO `tbl_kecamatan` VALUES ('6303051', '6303', 'MARTAPURA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('6303052', '6303', 'MARTAPURA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('6303060', '6303', 'ASTAMBUL');
+INSERT INTO `tbl_kecamatan` VALUES ('6303070', '6303', 'KARANG INTAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6303080', '6303', 'ARANIO');
+INSERT INTO `tbl_kecamatan` VALUES ('6303090', '6303', 'SUNGAI PINANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6303091', '6303', 'PARAMASAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6303100', '6303', 'PENGARON');
+INSERT INTO `tbl_kecamatan` VALUES ('6303101', '6303', 'SAMBUNG MAKMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('6303110', '6303', 'MATARAMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6303120', '6303', 'SIMPANG EMPAT');
+INSERT INTO `tbl_kecamatan` VALUES ('6303121', '6303', 'TELAGA BAUNTUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('6304010', '6304', 'TABUNGANEN');
+INSERT INTO `tbl_kecamatan` VALUES ('6304020', '6304', 'TAMBAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6304030', '6304', 'MEKAR SARI');
+INSERT INTO `tbl_kecamatan` VALUES ('6304040', '6304', 'ANJIR PASAR');
+INSERT INTO `tbl_kecamatan` VALUES ('6304050', '6304', 'ANJIR MUARA');
+INSERT INTO `tbl_kecamatan` VALUES ('6304060', '6304', 'ALALAK');
+INSERT INTO `tbl_kecamatan` VALUES ('6304070', '6304', 'MANDASTANA');
+INSERT INTO `tbl_kecamatan` VALUES ('6304071', '6304', 'JEJANGKIT');
+INSERT INTO `tbl_kecamatan` VALUES ('6304080', '6304', 'BELAWANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6304090', '6304', 'WANARAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('6304100', '6304', 'BARAMBAI');
+INSERT INTO `tbl_kecamatan` VALUES ('6304110', '6304', 'RANTAU BADAUH');
+INSERT INTO `tbl_kecamatan` VALUES ('6304120', '6304', 'CERBON');
+INSERT INTO `tbl_kecamatan` VALUES ('6304130', '6304', 'BAKUMPAI');
+INSERT INTO `tbl_kecamatan` VALUES ('6304140', '6304', 'MARABAHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6304150', '6304', 'TABUKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6304160', '6304', 'KURIPAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6305010', '6305', 'BINUANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6305011', '6305', 'HATUNGUN');
+INSERT INTO `tbl_kecamatan` VALUES ('6305020', '6305', 'TAPIN SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6305021', '6305', 'SALAM BABARIS');
+INSERT INTO `tbl_kecamatan` VALUES ('6305030', '6305', 'TAPIN TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('6305040', '6305', 'BUNGUR');
+INSERT INTO `tbl_kecamatan` VALUES ('6305050', '6305', 'PIANI');
+INSERT INTO `tbl_kecamatan` VALUES ('6305060', '6305', 'LOKPAIKAT');
+INSERT INTO `tbl_kecamatan` VALUES ('6305070', '6305', 'TAPIN UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('6305080', '6305', 'BAKARANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6305090', '6305', 'CANDI LARAS SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6305100', '6305', 'CANDI LARAS UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('6306010', '6306', 'PADANG BATUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('6306020', '6306', 'LOKSADO');
+INSERT INTO `tbl_kecamatan` VALUES ('6306030', '6306', 'TELAGA LANGSAT');
+INSERT INTO `tbl_kecamatan` VALUES ('6306040', '6306', 'ANGKINANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6306050', '6306', 'KANDANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6306060', '6306', 'SUNGAI RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('6306070', '6306', 'SIMPUR');
+INSERT INTO `tbl_kecamatan` VALUES ('6306080', '6306', 'KALUMPANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6306090', '6306', 'DAHA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6306091', '6306', 'DAHA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('6306100', '6306', 'DAHA UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('6307010', '6307', 'HARUYAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6307020', '6307', 'BATU BENAWA');
+INSERT INTO `tbl_kecamatan` VALUES ('6307030', '6307', 'HANTAKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6307040', '6307', 'BATANG ALAI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6307041', '6307', 'BATANG ALAI TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('6307050', '6307', 'BARABAI');
+INSERT INTO `tbl_kecamatan` VALUES ('6307060', '6307', 'LABUAN AMAS SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6307070', '6307', 'LABUAN AMAS UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('6307080', '6307', 'PANDAWAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6307090', '6307', 'BATANG ALAI UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('6307091', '6307', 'LIMPASU');
+INSERT INTO `tbl_kecamatan` VALUES ('6308010', '6308', 'DANAU PANGGANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6308011', '6308', 'PAMINGGIR');
+INSERT INTO `tbl_kecamatan` VALUES ('6308020', '6308', 'BABIRIK');
+INSERT INTO `tbl_kecamatan` VALUES ('6308030', '6308', 'SUNGAI PANDAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6308031', '6308', 'SUNGAI TABUKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6308040', '6308', 'AMUNTAI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6308050', '6308', 'AMUNTAI TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('6308060', '6308', 'BANJANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6308070', '6308', 'AMUNTAI UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('6308071', '6308', 'HAUR GADING');
+INSERT INTO `tbl_kecamatan` VALUES ('6309010', '6309', 'BANUA LAWAS');
+INSERT INTO `tbl_kecamatan` VALUES ('6309020', '6309', 'PUGAAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6309030', '6309', 'KELUA');
+INSERT INTO `tbl_kecamatan` VALUES ('6309040', '6309', 'MUARA HARUS');
+INSERT INTO `tbl_kecamatan` VALUES ('6309050', '6309', 'TANTA');
+INSERT INTO `tbl_kecamatan` VALUES ('6309060', '6309', 'TANJUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('6309070', '6309', 'MURUNG PUDAK');
+INSERT INTO `tbl_kecamatan` VALUES ('6309080', '6309', 'HARUAI');
+INSERT INTO `tbl_kecamatan` VALUES ('6309081', '6309', 'BINTANG ARA');
+INSERT INTO `tbl_kecamatan` VALUES ('6309090', '6309', 'UPAU');
+INSERT INTO `tbl_kecamatan` VALUES ('6309100', '6309', 'MUARA UYA');
+INSERT INTO `tbl_kecamatan` VALUES ('6309110', '6309', 'JARO');
+INSERT INTO `tbl_kecamatan` VALUES ('6310010', '6310', 'KUSAN HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('6310020', '6310', 'SUNGAI LOBAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6310030', '6310', 'SATUI');
+INSERT INTO `tbl_kecamatan` VALUES ('6310031', '6310', 'ANGSANA');
+INSERT INTO `tbl_kecamatan` VALUES ('6310040', '6310', 'KUSAN HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('6310041', '6310', 'KURANJI');
+INSERT INTO `tbl_kecamatan` VALUES ('6310050', '6310', 'BATU LICIN');
+INSERT INTO `tbl_kecamatan` VALUES ('6310051', '6310', 'KARANG BINTANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6310052', '6310', 'SIMPANG EMPAT');
+INSERT INTO `tbl_kecamatan` VALUES ('6310053', '6310', 'MANTEWE');
+INSERT INTO `tbl_kecamatan` VALUES ('6311010', '6311', 'LAMPIHONG');
+INSERT INTO `tbl_kecamatan` VALUES ('6311020', '6311', 'BATU MANDI');
+INSERT INTO `tbl_kecamatan` VALUES ('6311030', '6311', 'AWAYAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6311031', '6311', 'TEBING TINGGI');
+INSERT INTO `tbl_kecamatan` VALUES ('6311040', '6311', 'PARINGIN');
+INSERT INTO `tbl_kecamatan` VALUES ('6311041', '6311', 'PARINGIN SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6311050', '6311', 'JUAI');
+INSERT INTO `tbl_kecamatan` VALUES ('6311060', '6311', 'HALONG');
+INSERT INTO `tbl_kecamatan` VALUES ('6371010', '6371', 'BANJARMASIN SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6371020', '6371', 'BANJARMASIN TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('6371030', '6371', 'BANJARMASIN BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('6371031', '6371', 'BANJARMASIN TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('6371040', '6371', 'BANJARMASIN UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('6372010', '6372', 'LANDASAN ULIN');
+INSERT INTO `tbl_kecamatan` VALUES ('6372011', '6372', 'LIANG ANGGANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6372020', '6372', 'CEMPAKA');
+INSERT INTO `tbl_kecamatan` VALUES ('6372031', '6372', 'BANJAR BARU UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('6372032', '6372', 'BANJAR BARU SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6401010', '6401', 'BATU SOPANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6401011', '6401', 'MUARA SAMU');
+INSERT INTO `tbl_kecamatan` VALUES ('6401021', '6401', 'BATU ENGAU');
+INSERT INTO `tbl_kecamatan` VALUES ('6401022', '6401', 'TANJUNG HARAPAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6401030', '6401', 'PASIR BELENGKONG');
+INSERT INTO `tbl_kecamatan` VALUES ('6401040', '6401', 'TANAH GROGOT');
+INSERT INTO `tbl_kecamatan` VALUES ('6401050', '6401', 'KUARO');
+INSERT INTO `tbl_kecamatan` VALUES ('6401060', '6401', 'LONG IKIS');
+INSERT INTO `tbl_kecamatan` VALUES ('6401070', '6401', 'MUARA KOMAM');
+INSERT INTO `tbl_kecamatan` VALUES ('6401080', '6401', 'LONG KALI');
+INSERT INTO `tbl_kecamatan` VALUES ('6402010', '6402', 'BONGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6402020', '6402', 'JEMPANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6402030', '6402', 'PENYINGGAHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6402040', '6402', 'MUARA PAHU');
+INSERT INTO `tbl_kecamatan` VALUES ('6402041', '6402', 'SILUQ NGURAI');
+INSERT INTO `tbl_kecamatan` VALUES ('6402050', '6402', 'MUARA LAWA');
+INSERT INTO `tbl_kecamatan` VALUES ('6402051', '6402', 'BENTIAN BESAR');
+INSERT INTO `tbl_kecamatan` VALUES ('6402060', '6402', 'DAMAI');
+INSERT INTO `tbl_kecamatan` VALUES ('6402061', '6402', 'NYUATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6402070', '6402', 'BARONG TONGKOK');
+INSERT INTO `tbl_kecamatan` VALUES ('6402071', '6402', 'LINGGANG BIGUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('6402080', '6402', 'MELAK');
+INSERT INTO `tbl_kecamatan` VALUES ('6402081', '6402', 'SEKOLAQ DARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('6402082', '6402', 'MANOR BULATN');
+INSERT INTO `tbl_kecamatan` VALUES ('6402090', '6402', 'LONG IRAM');
+INSERT INTO `tbl_kecamatan` VALUES ('6402091', '6402', 'TERING');
+INSERT INTO `tbl_kecamatan` VALUES ('6403010', '6403', 'SEMBOJA');
+INSERT INTO `tbl_kecamatan` VALUES ('6403020', '6403', 'MUARA JAWA');
+INSERT INTO `tbl_kecamatan` VALUES ('6403030', '6403', 'SANGA-SANGA');
+INSERT INTO `tbl_kecamatan` VALUES ('6403040', '6403', 'LOA JANAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6403050', '6403', 'LOA KULU');
+INSERT INTO `tbl_kecamatan` VALUES ('6403060', '6403', 'MUARA MUNTAI');
+INSERT INTO `tbl_kecamatan` VALUES ('6403070', '6403', 'MUARA WIS');
+INSERT INTO `tbl_kecamatan` VALUES ('6403080', '6403', 'KOTABANGUN');
+INSERT INTO `tbl_kecamatan` VALUES ('6403090', '6403', 'TENGGARONG');
+INSERT INTO `tbl_kecamatan` VALUES ('6403100', '6403', 'SEBULU');
+INSERT INTO `tbl_kecamatan` VALUES ('6403110', '6403', 'TENGGARONG SEBERANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6403120', '6403', 'ANGGANA');
+INSERT INTO `tbl_kecamatan` VALUES ('6403130', '6403', 'MUARA BADAK');
+INSERT INTO `tbl_kecamatan` VALUES ('6403140', '6403', 'MARANG KAYU');
+INSERT INTO `tbl_kecamatan` VALUES ('6403150', '6403', 'MUARA KAMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6403160', '6403', 'KENOHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6403170', '6403', 'KEMBANG JANGGUT');
+INSERT INTO `tbl_kecamatan` VALUES ('6403180', '6403', 'TABANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6404010', '6404', 'MUARA ANCALONG');
+INSERT INTO `tbl_kecamatan` VALUES ('6404011', '6404', 'BUSANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6404012', '6404', 'LONG MESANGAT');
+INSERT INTO `tbl_kecamatan` VALUES ('6404020', '6404', 'MUARA WAHAU');
+INSERT INTO `tbl_kecamatan` VALUES ('6404021', '6404', 'TELEN');
+INSERT INTO `tbl_kecamatan` VALUES ('6404022', '6404', 'KONGBENG');
+INSERT INTO `tbl_kecamatan` VALUES ('6404030', '6404', 'MUARA BENGKAL');
+INSERT INTO `tbl_kecamatan` VALUES ('6404031', '6404', 'BATU AMPAR');
+INSERT INTO `tbl_kecamatan` VALUES ('6404040', '6404', 'SANGATTA UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('6404041', '6404', 'BENGALON');
+INSERT INTO `tbl_kecamatan` VALUES ('6404042', '6404', 'TELUK PANDAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6404043', '6404', 'SANGATTA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6404044', '6404', 'RANTAU PULUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('6404050', '6404', 'SANGKULIRANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6404051', '6404', 'KALIORANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6404052', '6404', 'SANDARAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6404053', '6404', 'KAUBUN');
+INSERT INTO `tbl_kecamatan` VALUES ('6404054', '6404', 'KARANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6405010', '6405', 'KELAY');
+INSERT INTO `tbl_kecamatan` VALUES ('6405020', '6405', 'TALISAYAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6405021', '6405', 'TABALAR');
+INSERT INTO `tbl_kecamatan` VALUES ('6405030', '6405', 'BIDUK BIDUK');
+INSERT INTO `tbl_kecamatan` VALUES ('6405040', '6405', 'PULAU DERAWAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6405041', '6405', 'MARATUA');
+INSERT INTO `tbl_kecamatan` VALUES ('6405050', '6405', 'SAMBALIUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('6405060', '6405', 'TANJUNG REDEB');
+INSERT INTO `tbl_kecamatan` VALUES ('6405070', '6405', 'GUNUNG TABUR');
+INSERT INTO `tbl_kecamatan` VALUES ('6405080', '6405', 'SEGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('6405090', '6405', 'TELUK BAYUR');
+INSERT INTO `tbl_kecamatan` VALUES ('6405100', '6405', 'BATU PUTIH');
+INSERT INTO `tbl_kecamatan` VALUES ('6405110', '6405', 'BIATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6409010', '6409', 'BABULU');
+INSERT INTO `tbl_kecamatan` VALUES ('6409020', '6409', 'WARU');
+INSERT INTO `tbl_kecamatan` VALUES ('6409030', '6409', 'PENAJAM');
+INSERT INTO `tbl_kecamatan` VALUES ('6409040', '6409', 'SEPAKU');
+INSERT INTO `tbl_kecamatan` VALUES ('6411010', '6411', 'LAHAM');
+INSERT INTO `tbl_kecamatan` VALUES ('6411020', '6411', 'LONG HUBUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('6411030', '6411', 'LONG BAGUN');
+INSERT INTO `tbl_kecamatan` VALUES ('6411040', '6411', 'LONG PAHANGAI');
+INSERT INTO `tbl_kecamatan` VALUES ('6411050', '6411', 'LONG APARI');
+INSERT INTO `tbl_kecamatan` VALUES ('6471010', '6471', 'BALIKPAPAN SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6471011', '6471', 'BALIKPAPAN KOTA');
+INSERT INTO `tbl_kecamatan` VALUES ('6471020', '6471', 'BALIKPAPAN TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('6471030', '6471', 'BALIKPAPAN UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('6471040', '6471', 'BALIKPAPAN TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('6471050', '6471', 'BALIKPAPAN BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('6472010', '6472', 'PALARAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6472020', '6472', 'SAMARINDA ILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('6472021', '6472', 'SAMARINDA KOTA');
+INSERT INTO `tbl_kecamatan` VALUES ('6472022', '6472', 'SAMBUTAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6472030', '6472', 'SAMARINDA SEBERANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6472031', '6472', 'LOA JANAN ILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('6472040', '6472', 'SUNGAI KUNJANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6472050', '6472', 'SAMARINDA ULU');
+INSERT INTO `tbl_kecamatan` VALUES ('6472060', '6472', 'SAMARINDA UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('6472061', '6472', 'SUNGAI PINANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6474010', '6474', 'BONTANG SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6474020', '6474', 'BONTANG UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('6474030', '6474', 'BONTANG BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('6501010', '6501', 'SUNGAI BOH');
+INSERT INTO `tbl_kecamatan` VALUES ('6501020', '6501', 'KAYAN SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6501030', '6501', 'KAYAN HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('6501040', '6501', 'KAYAN HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('6501050', '6501', 'PUJUNGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6501060', '6501', 'BAHAU HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('6501070', '6501', 'SUNGAI TUBU');
+INSERT INTO `tbl_kecamatan` VALUES ('6501080', '6501', 'MALINAU SELATAN HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('6501090', '6501', 'MALINAU SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6501100', '6501', 'MALINAU SELATAN HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('6501110', '6501', 'MENTARANG');
+INSERT INTO `tbl_kecamatan` VALUES ('6501120', '6501', 'MENTARANG HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('6501130', '6501', 'MALINAU UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('6501140', '6501', 'MALINAU BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('6501150', '6501', 'MALINAU KOTA');
+INSERT INTO `tbl_kecamatan` VALUES ('6502010', '6502', 'PESO');
+INSERT INTO `tbl_kecamatan` VALUES ('6502020', '6502', 'PESO HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('6502030', '6502', 'TANJUNG PALAS BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('6502040', '6502', 'TANJUNG PALAS');
+INSERT INTO `tbl_kecamatan` VALUES ('6502050', '6502', 'TANJUNG SELOR');
+INSERT INTO `tbl_kecamatan` VALUES ('6502060', '6502', 'TANJUNG PALAS TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('6502070', '6502', 'TANJUNG PALAS TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('6502080', '6502', 'TANJUNG PALAS UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('6502090', '6502', 'SEKATAK');
+INSERT INTO `tbl_kecamatan` VALUES ('6502100', '6502', 'BUNYU');
+INSERT INTO `tbl_kecamatan` VALUES ('6503010', '6503', 'MURUK RIAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6503020', '6503', 'SESAYAP');
+INSERT INTO `tbl_kecamatan` VALUES ('6503030', '6503', 'BETAYAU');
+INSERT INTO `tbl_kecamatan` VALUES ('6503040', '6503', 'SESAYAP HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('6503050', '6503', 'TANA LIA');
+INSERT INTO `tbl_kecamatan` VALUES ('6504010', '6504', 'KRAYAN SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6504020', '6504', 'KRAYAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6504030', '6504', 'LUMBIS OGONG');
+INSERT INTO `tbl_kecamatan` VALUES ('6504040', '6504', 'LUMBIS');
+INSERT INTO `tbl_kecamatan` VALUES ('6504050', '6504', 'SEMBAKUNG ATULAI');
+INSERT INTO `tbl_kecamatan` VALUES ('6504060', '6504', 'SEMBAKUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('6504070', '6504', 'SEBUKU');
+INSERT INTO `tbl_kecamatan` VALUES ('6504080', '6504', 'TULIN ONSOI');
+INSERT INTO `tbl_kecamatan` VALUES ('6504090', '6504', 'SEI MENGGARIS');
+INSERT INTO `tbl_kecamatan` VALUES ('6504100', '6504', 'NUNUKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6504110', '6504', 'NUNUKAN SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('6504120', '6504', 'SEBATIK BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('6504130', '6504', 'SEBATIK');
+INSERT INTO `tbl_kecamatan` VALUES ('6504140', '6504', 'SEBATIK TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('6504150', '6504', 'SEBATIK TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('6504160', '6504', 'SEBATIK UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('6571010', '6571', 'TARAKAN TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('6571020', '6571', 'TARAKAN TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('6571030', '6571', 'TARAKAN BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('6571040', '6571', 'TARAKAN UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7101021', '7101', 'DUMOGA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7101022', '7101', 'DUMOGA UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7101023', '7101', 'DUMOGA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7101024', '7101', 'DUMOGA TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('7101025', '7101', 'DUMOGA TENGGARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7101026', '7101', 'DUMOGA');
+INSERT INTO `tbl_kecamatan` VALUES ('7101060', '7101', 'LOLAYAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7101081', '7101', 'PASSI BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7101082', '7101', 'PASSI TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7101083', '7101', 'BILALANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7101090', '7101', 'POIGAR');
+INSERT INTO `tbl_kecamatan` VALUES ('7101100', '7101', 'BOLAANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7101101', '7101', 'BOLAANG TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7101110', '7101', 'LOLAK');
+INSERT INTO `tbl_kecamatan` VALUES ('7101120', '7101', 'SANGTOMBOLANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7102091', '7102', 'LANGOWAN TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7102092', '7102', 'LANGOWAN BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7102093', '7102', 'LANGOWAN SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7102094', '7102', 'LANGOWAN UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7102110', '7102', 'TOMPASO');
+INSERT INTO `tbl_kecamatan` VALUES ('7102111', '7102', 'TOMPASO BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7102120', '7102', 'KAWANGKOAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7102121', '7102', 'KAWANGKOAN BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7102122', '7102', 'KAWANGKOAN UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7102130', '7102', 'SONDER');
+INSERT INTO `tbl_kecamatan` VALUES ('7102160', '7102', 'TOMBARIRI');
+INSERT INTO `tbl_kecamatan` VALUES ('7102161', '7102', 'TOMBARIRI TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7102170', '7102', 'PINELENG');
+INSERT INTO `tbl_kecamatan` VALUES ('7102171', '7102', 'TOMBULU');
+INSERT INTO `tbl_kecamatan` VALUES ('7102172', '7102', 'MANDOLANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7102190', '7102', 'TONDANO BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7102191', '7102', 'TONDANO SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7102200', '7102', 'REMBOKEN');
+INSERT INTO `tbl_kecamatan` VALUES ('7102210', '7102', 'KAKAS');
+INSERT INTO `tbl_kecamatan` VALUES ('7102211', '7102', 'KAKAS BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7102220', '7102', 'LEMBEAN TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7102230', '7102', 'ERIS');
+INSERT INTO `tbl_kecamatan` VALUES ('7102240', '7102', 'KOMBI');
+INSERT INTO `tbl_kecamatan` VALUES ('7102250', '7102', 'TONDANO TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7102251', '7102', 'TONDANO UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7103040', '7103', 'MANGANITU SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7103041', '7103', 'TATOARENG');
+INSERT INTO `tbl_kecamatan` VALUES ('7103050', '7103', 'TAMAKO');
+INSERT INTO `tbl_kecamatan` VALUES ('7103060', '7103', 'TABUKAN SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7103061', '7103', 'TABUKAN SELATAN TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('7103062', '7103', 'TABUKAN SELATAN TENGGARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7103070', '7103', 'TABUKAN TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('7103080', '7103', 'MANGANITU');
+INSERT INTO `tbl_kecamatan` VALUES ('7103090', '7103', 'TAHUNA');
+INSERT INTO `tbl_kecamatan` VALUES ('7103091', '7103', 'TAHUNA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7103092', '7103', 'TAHUNA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7103100', '7103', 'TABUKAN UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7103101', '7103', 'NUSA TABUKAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7103102', '7103', 'KEPULAUAN MARORE');
+INSERT INTO `tbl_kecamatan` VALUES ('7103110', '7103', 'KENDAHE');
+INSERT INTO `tbl_kecamatan` VALUES ('7104010', '7104', 'KABARUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7104011', '7104', 'DAMAU');
+INSERT INTO `tbl_kecamatan` VALUES ('7104020', '7104', 'LIRUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('7104021', '7104', 'SALIBABU');
+INSERT INTO `tbl_kecamatan` VALUES ('7104022', '7104', 'KALONGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7104023', '7104', 'MORONGE');
+INSERT INTO `tbl_kecamatan` VALUES ('7104030', '7104', 'MELONGUANE');
+INSERT INTO `tbl_kecamatan` VALUES ('7104031', '7104', 'MELONGUANE TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7104040', '7104', 'BEO');
+INSERT INTO `tbl_kecamatan` VALUES ('7104041', '7104', 'BEO UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7104042', '7104', 'BEO SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7104050', '7104', 'RAINIS');
+INSERT INTO `tbl_kecamatan` VALUES ('7104051', '7104', 'TAMPA NA\'MMA');
+INSERT INTO `tbl_kecamatan` VALUES ('7104052', '7104', 'PULUTAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7104060', '7104', 'ESSANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7104061', '7104', 'ESSANG SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7104070', '7104', 'GEMEH');
+INSERT INTO `tbl_kecamatan` VALUES ('7104080', '7104', 'NANUSA');
+INSERT INTO `tbl_kecamatan` VALUES ('7104081', '7104', 'MIANGAS');
+INSERT INTO `tbl_kecamatan` VALUES ('7105010', '7105', 'MODOINDING');
+INSERT INTO `tbl_kecamatan` VALUES ('7105020', '7105', 'TOMPASO BARU');
+INSERT INTO `tbl_kecamatan` VALUES ('7105021', '7105', 'MAESAAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7105070', '7105', 'RANOYAPO');
+INSERT INTO `tbl_kecamatan` VALUES ('7105080', '7105', 'MOTOLING');
+INSERT INTO `tbl_kecamatan` VALUES ('7105081', '7105', 'KUMELEMBUAI');
+INSERT INTO `tbl_kecamatan` VALUES ('7105082', '7105', 'MOTOLING BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7105083', '7105', 'MOTOLING TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7105090', '7105', 'SINONSAYANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7105100', '7105', 'TENGA');
+INSERT INTO `tbl_kecamatan` VALUES ('7105111', '7105', 'AMURANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7105112', '7105', 'AMURANG BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7105113', '7105', 'AMURANG TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7105120', '7105', 'TARERAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7105121', '7105', 'SULTA');
+INSERT INTO `tbl_kecamatan` VALUES ('7105130', '7105', 'TUMPAAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7105131', '7105', 'TATAPAAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7106010', '7106', 'KEMA');
+INSERT INTO `tbl_kecamatan` VALUES ('7106020', '7106', 'KAUDITAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7106030', '7106', 'AIRMADIDI');
+INSERT INTO `tbl_kecamatan` VALUES ('7106040', '7106', 'KALAWAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7106050', '7106', 'DIMEMBE');
+INSERT INTO `tbl_kecamatan` VALUES ('7106051', '7106', 'TALAWAAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7106060', '7106', 'WORI');
+INSERT INTO `tbl_kecamatan` VALUES ('7106070', '7106', 'LIKUPANG BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7106080', '7106', 'LIKUPANG TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7106081', '7106', 'LIKUPANG SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7107010', '7107', 'SANGKUB');
+INSERT INTO `tbl_kecamatan` VALUES ('7107020', '7107', 'BINTAUNA');
+INSERT INTO `tbl_kecamatan` VALUES ('7107030', '7107', 'BOLANG ITANG TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7107040', '7107', 'BOLANG ITANG BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7107050', '7107', 'KAIDIPANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7107060', '7107', 'PINOGALUMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7108010', '7108', 'BIARO');
+INSERT INTO `tbl_kecamatan` VALUES ('7108020', '7108', 'TAGULANDANG SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7108030', '7108', 'TAGULANDANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7108040', '7108', 'TAGULANDANG UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7108050', '7108', 'SIAU BARAT SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7108060', '7108', 'SIAU TIMUR SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7108070', '7108', 'SIAU BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7108080', '7108', 'SIAU TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('7108090', '7108', 'SIAU TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7108100', '7108', 'SIAU BARAT UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7109010', '7109', 'RATATOTOK');
+INSERT INTO `tbl_kecamatan` VALUES ('7109020', '7109', 'PUSOMAEN');
+INSERT INTO `tbl_kecamatan` VALUES ('7109030', '7109', 'BELANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7109040', '7109', 'RATAHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7109041', '7109', 'PASAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7109042', '7109', 'RATAHAN TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7109050', '7109', 'TOMBATU');
+INSERT INTO `tbl_kecamatan` VALUES ('7109051', '7109', 'TOMBATU TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7109052', '7109', 'TOMBATU UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7109060', '7109', 'TOULUAAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7109061', '7109', 'TOULUAAN SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7109062', '7109', 'SILIAN RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('7110010', '7110', 'POSIGADAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7110020', '7110', 'BOLANG UKI');
+INSERT INTO `tbl_kecamatan` VALUES ('7110030', '7110', 'PINOLOSIAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7110040', '7110', 'PINOLOSIAN TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('7110050', '7110', 'PINOLOSIAN TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7111010', '7111', 'NUANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7111020', '7111', 'TUTUYAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7111030', '7111', 'KOTABUNAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7111040', '7111', 'MODAYAG');
+INSERT INTO `tbl_kecamatan` VALUES ('7111050', '7111', 'MODAYAG BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7171010', '7171', 'MALALAYANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7171020', '7171', 'SARIO');
+INSERT INTO `tbl_kecamatan` VALUES ('7171021', '7171', 'WANEA');
+INSERT INTO `tbl_kecamatan` VALUES ('7171030', '7171', 'WENANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7171031', '7171', 'TIKALA');
+INSERT INTO `tbl_kecamatan` VALUES ('7171032', '7171', 'PAAL DUA');
+INSERT INTO `tbl_kecamatan` VALUES ('7171040', '7171', 'MAPANGET');
+INSERT INTO `tbl_kecamatan` VALUES ('7171051', '7171', 'SINGKIL');
+INSERT INTO `tbl_kecamatan` VALUES ('7171052', '7171', 'TUMINTING');
+INSERT INTO `tbl_kecamatan` VALUES ('7171053', '7171', 'BUNAKEN');
+INSERT INTO `tbl_kecamatan` VALUES ('7171054', '7171', 'BUNAKEN KEPULAUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7172010', '7172', 'MADIDIR');
+INSERT INTO `tbl_kecamatan` VALUES ('7172011', '7172', 'MATUARI');
+INSERT INTO `tbl_kecamatan` VALUES ('7172012', '7172', 'GIRIAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7172021', '7172', 'LEMBEH SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7172022', '7172', 'LEMBEH UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7172030', '7172', 'AERTEMBAGA');
+INSERT INTO `tbl_kecamatan` VALUES ('7172031', '7172', 'MAESA');
+INSERT INTO `tbl_kecamatan` VALUES ('7172040', '7172', 'RANOWULU');
+INSERT INTO `tbl_kecamatan` VALUES ('7173010', '7173', 'TOMOHON SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7173020', '7173', 'TOMOHON TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('7173021', '7173', 'TOMOHON TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7173022', '7173', 'TOMOHON BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7173030', '7173', 'TOMOHON UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7174010', '7174', 'KOTAMOBAGU SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7174020', '7174', 'KOTAMOBAGU TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7174030', '7174', 'KOTAMOBAGU BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7174040', '7174', 'KOTAMOBAGU UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7201030', '7201', 'TOTIKUM');
+INSERT INTO `tbl_kecamatan` VALUES ('7201031', '7201', 'TOTIKUM SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7201040', '7201', 'TINANGKUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('7201041', '7201', 'TINANGKUNG SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7201042', '7201', 'TINANGKUNG UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7201050', '7201', 'LIANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7201051', '7201', 'PELING TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('7201060', '7201', 'BULAGI');
+INSERT INTO `tbl_kecamatan` VALUES ('7201061', '7201', 'BULAGI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7201062', '7201', 'BULAGI UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7201070', '7201', 'BUKO');
+INSERT INTO `tbl_kecamatan` VALUES ('7201071', '7201', 'BUKO SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7202010', '7202', 'TOILI');
+INSERT INTO `tbl_kecamatan` VALUES ('7202011', '7202', 'TOILI BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7202012', '7202', 'MOILONG');
+INSERT INTO `tbl_kecamatan` VALUES ('7202020', '7202', 'BATUI');
+INSERT INTO `tbl_kecamatan` VALUES ('7202021', '7202', 'BATUI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7202030', '7202', 'BUNTA');
+INSERT INTO `tbl_kecamatan` VALUES ('7202031', '7202', 'NUHON');
+INSERT INTO `tbl_kecamatan` VALUES ('7202032', '7202', 'SIMPANG RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('7202040', '7202', 'KINTOM');
+INSERT INTO `tbl_kecamatan` VALUES ('7202050', '7202', 'LUWUK');
+INSERT INTO `tbl_kecamatan` VALUES ('7202051', '7202', 'LUWUK TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7202052', '7202', 'LUWUK UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7202053', '7202', 'LUWUK SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7202054', '7202', 'NAMBO');
+INSERT INTO `tbl_kecamatan` VALUES ('7202060', '7202', 'PAGIMANA');
+INSERT INTO `tbl_kecamatan` VALUES ('7202061', '7202', 'BUALEMO');
+INSERT INTO `tbl_kecamatan` VALUES ('7202062', '7202', 'LOBU');
+INSERT INTO `tbl_kecamatan` VALUES ('7202070', '7202', 'LAMALA');
+INSERT INTO `tbl_kecamatan` VALUES ('7202071', '7202', 'MASAMA');
+INSERT INTO `tbl_kecamatan` VALUES ('7202072', '7202', 'MANTOH');
+INSERT INTO `tbl_kecamatan` VALUES ('7202080', '7202', 'BALANTAK');
+INSERT INTO `tbl_kecamatan` VALUES ('7202081', '7202', 'BALANTAK SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7202082', '7202', 'BALANTAK UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7203010', '7203', 'MENUI KEPULAUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7203020', '7203', 'BUNGKU SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7203021', '7203', 'BAHODOPI');
+INSERT INTO `tbl_kecamatan` VALUES ('7203022', '7203', 'BUNGKU PESISIR');
+INSERT INTO `tbl_kecamatan` VALUES ('7203030', '7203', 'BUNGKU TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('7203031', '7203', 'BUNGKU TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7203040', '7203', 'BUNGKU BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7203041', '7203', 'BUMI RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('7203042', '7203', 'WITA PONDA');
+INSERT INTO `tbl_kecamatan` VALUES ('7204010', '7204', 'PAMONA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7204011', '7204', 'PAMONA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7204012', '7204', 'PAMONA TENGGARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7204020', '7204', 'LORE SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7204021', '7204', 'LORE BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7204030', '7204', 'PAMONA PUSALEMBA');
+INSERT INTO `tbl_kecamatan` VALUES ('7204031', '7204', 'PAMONA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7204032', '7204', 'PAMONA UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7204040', '7204', 'LORE UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7204041', '7204', 'LORE TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('7204042', '7204', 'LORE TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7204043', '7204', 'LORE PEORE');
+INSERT INTO `tbl_kecamatan` VALUES ('7204050', '7204', 'POSO PESISIR');
+INSERT INTO `tbl_kecamatan` VALUES ('7204051', '7204', 'POSO PESISIR SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7204052', '7204', 'POSO PESISIR UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7204060', '7204', 'LAGE');
+INSERT INTO `tbl_kecamatan` VALUES ('7204070', '7204', 'POSO KOTA');
+INSERT INTO `tbl_kecamatan` VALUES ('7204071', '7204', 'POSO KOTA UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7204072', '7204', 'POSO KOTA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7205041', '7205', 'RIO PAKAVA');
+INSERT INTO `tbl_kecamatan` VALUES ('7205051', '7205', 'PINEMBANI');
+INSERT INTO `tbl_kecamatan` VALUES ('7205080', '7205', 'BANAWA');
+INSERT INTO `tbl_kecamatan` VALUES ('7205081', '7205', 'BANAWA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7205082', '7205', 'BANAWA TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('7205090', '7205', 'LABUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7205091', '7205', 'TANANTOVEA');
+INSERT INTO `tbl_kecamatan` VALUES ('7205100', '7205', 'SINDUE');
+INSERT INTO `tbl_kecamatan` VALUES ('7205101', '7205', 'SINDUE TOMBUSABORA');
+INSERT INTO `tbl_kecamatan` VALUES ('7205102', '7205', 'SINDUE TOBATA');
+INSERT INTO `tbl_kecamatan` VALUES ('7205120', '7205', 'SIRENJA');
+INSERT INTO `tbl_kecamatan` VALUES ('7205130', '7205', 'BALAESANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7205131', '7205', 'BALAESANG TANJUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('7205140', '7205', 'DAMPELAS');
+INSERT INTO `tbl_kecamatan` VALUES ('7205160', '7205', 'SOJOL');
+INSERT INTO `tbl_kecamatan` VALUES ('7205161', '7205', 'SOJOL UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7206010', '7206', 'DAMPAL SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7206020', '7206', 'DAMPAL UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7206030', '7206', 'DONDO');
+INSERT INTO `tbl_kecamatan` VALUES ('7206031', '7206', 'OGODEIDE');
+INSERT INTO `tbl_kecamatan` VALUES ('7206032', '7206', 'BASIDONDO');
+INSERT INTO `tbl_kecamatan` VALUES ('7206040', '7206', 'BAOLAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7206041', '7206', 'LAMPASIO');
+INSERT INTO `tbl_kecamatan` VALUES ('7206050', '7206', 'GALANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7206060', '7206', 'TOLITOLI UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7206061', '7206', 'DAKO PAMEAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7207010', '7207', 'LAKEA');
+INSERT INTO `tbl_kecamatan` VALUES ('7207011', '7207', 'BIAU');
+INSERT INTO `tbl_kecamatan` VALUES ('7207012', '7207', 'KARAMAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7207020', '7207', 'MOMUNU');
+INSERT INTO `tbl_kecamatan` VALUES ('7207021', '7207', 'TILOAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7207030', '7207', 'BOKAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7207031', '7207', 'BUKAL');
+INSERT INTO `tbl_kecamatan` VALUES ('7207040', '7207', 'BUNOBOGU');
+INSERT INTO `tbl_kecamatan` VALUES ('7207041', '7207', 'GADUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('7207050', '7207', 'PALELEH');
+INSERT INTO `tbl_kecamatan` VALUES ('7207051', '7207', 'PALELEH BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7208010', '7208', 'SAUSU');
+INSERT INTO `tbl_kecamatan` VALUES ('7208011', '7208', 'TORUE');
+INSERT INTO `tbl_kecamatan` VALUES ('7208012', '7208', 'BALINGGI');
+INSERT INTO `tbl_kecamatan` VALUES ('7208020', '7208', 'PARIGI');
+INSERT INTO `tbl_kecamatan` VALUES ('7208021', '7208', 'PARIGI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7208022', '7208', 'PARIGI BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7208023', '7208', 'PARIGI UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7208024', '7208', 'PARIGI TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('7208030', '7208', 'AMPIBABO');
+INSERT INTO `tbl_kecamatan` VALUES ('7208031', '7208', 'KASIMBAR');
+INSERT INTO `tbl_kecamatan` VALUES ('7208032', '7208', 'TORIBULU');
+INSERT INTO `tbl_kecamatan` VALUES ('7208033', '7208', 'SINIU');
+INSERT INTO `tbl_kecamatan` VALUES ('7208040', '7208', 'TINOMBO');
+INSERT INTO `tbl_kecamatan` VALUES ('7208041', '7208', 'TINOMBO SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7208042', '7208', 'SIDOAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7208050', '7208', 'TOMINI');
+INSERT INTO `tbl_kecamatan` VALUES ('7208051', '7208', 'MEPANGA');
+INSERT INTO `tbl_kecamatan` VALUES ('7208052', '7208', 'PALASA');
+INSERT INTO `tbl_kecamatan` VALUES ('7208060', '7208', 'MOUTONG');
+INSERT INTO `tbl_kecamatan` VALUES ('7208061', '7208', 'BOLANO LAMBUNU');
+INSERT INTO `tbl_kecamatan` VALUES ('7208062', '7208', 'TAOPA');
+INSERT INTO `tbl_kecamatan` VALUES ('7208063', '7208', 'BOLANO');
+INSERT INTO `tbl_kecamatan` VALUES ('7208064', '7208', 'ONGKA MALINO');
+INSERT INTO `tbl_kecamatan` VALUES ('7209010', '7209', 'TOJO BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7209020', '7209', 'TOJO');
+INSERT INTO `tbl_kecamatan` VALUES ('7209030', '7209', 'ULUBONGKA');
+INSERT INTO `tbl_kecamatan` VALUES ('7209040', '7209', 'AMPANA TETE');
+INSERT INTO `tbl_kecamatan` VALUES ('7209050', '7209', 'AMPANA KOTA');
+INSERT INTO `tbl_kecamatan` VALUES ('7209051', '7209', 'RATOLINDO');
+INSERT INTO `tbl_kecamatan` VALUES ('7209060', '7209', 'UNA - UNA');
+INSERT INTO `tbl_kecamatan` VALUES ('7209061', '7209', 'BATUDAKA');
+INSERT INTO `tbl_kecamatan` VALUES ('7209070', '7209', 'TOGEAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7209080', '7209', 'WALEA KEPULAUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7209081', '7209', 'WALEA BESAR');
+INSERT INTO `tbl_kecamatan` VALUES ('7209082', '7209', 'TALATAKO');
+INSERT INTO `tbl_kecamatan` VALUES ('7210010', '7210', 'PIPIKORO');
+INSERT INTO `tbl_kecamatan` VALUES ('7210020', '7210', 'KULAWI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7210030', '7210', 'KULAWI');
+INSERT INTO `tbl_kecamatan` VALUES ('7210040', '7210', 'LINDU');
+INSERT INTO `tbl_kecamatan` VALUES ('7210050', '7210', 'NOKILALAKI');
+INSERT INTO `tbl_kecamatan` VALUES ('7210060', '7210', 'PALOLO');
+INSERT INTO `tbl_kecamatan` VALUES ('7210070', '7210', 'GUMBASA');
+INSERT INTO `tbl_kecamatan` VALUES ('7210080', '7210', 'DOLO SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7210090', '7210', 'DOLO BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7210100', '7210', 'TANAMBULAVA');
+INSERT INTO `tbl_kecamatan` VALUES ('7210110', '7210', 'DOLO');
+INSERT INTO `tbl_kecamatan` VALUES ('7210120', '7210', 'SIGI BIROMARU');
+INSERT INTO `tbl_kecamatan` VALUES ('7210130', '7210', 'MARAWOLA');
+INSERT INTO `tbl_kecamatan` VALUES ('7210140', '7210', 'MARAWOLA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7210150', '7210', 'KINOVARO');
+INSERT INTO `tbl_kecamatan` VALUES ('7211010', '7211', 'BANGKURUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('7211020', '7211', 'LABOBO');
+INSERT INTO `tbl_kecamatan` VALUES ('7211030', '7211', 'BANGGAI UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7211040', '7211', 'BANGGAI');
+INSERT INTO `tbl_kecamatan` VALUES ('7211050', '7211', 'BANGGAI TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('7211060', '7211', 'BANGGAI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7211070', '7211', 'BOKAN KEPULAUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7212010', '7212', 'MORI ATAS');
+INSERT INTO `tbl_kecamatan` VALUES ('7212020', '7212', 'LEMBO');
+INSERT INTO `tbl_kecamatan` VALUES ('7212030', '7212', 'LEMBO RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('7212040', '7212', 'PETASIA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7212050', '7212', 'PETASIA');
+INSERT INTO `tbl_kecamatan` VALUES ('7212060', '7212', 'PETASIA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7212070', '7212', 'MORI UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7212080', '7212', 'SOYO JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('7212090', '7212', 'BUNGKU UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7212100', '7212', 'MAMOSALATO');
+INSERT INTO `tbl_kecamatan` VALUES ('7271010', '7271', 'PALU BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7271011', '7271', 'TATANGA');
+INSERT INTO `tbl_kecamatan` VALUES ('7271012', '7271', 'ULUJADI');
+INSERT INTO `tbl_kecamatan` VALUES ('7271020', '7271', 'PALU SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7271030', '7271', 'PALU TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7271031', '7271', 'MANTIKULORE');
+INSERT INTO `tbl_kecamatan` VALUES ('7271040', '7271', 'PALU UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7271041', '7271', 'TAWAELI');
+INSERT INTO `tbl_kecamatan` VALUES ('7301010', '7301', 'PASIMARANNU');
+INSERT INTO `tbl_kecamatan` VALUES ('7301011', '7301', 'PASILAMBENA');
+INSERT INTO `tbl_kecamatan` VALUES ('7301020', '7301', 'PASIMASSUNGGU');
+INSERT INTO `tbl_kecamatan` VALUES ('7301021', '7301', 'TAKABONERATE');
+INSERT INTO `tbl_kecamatan` VALUES ('7301022', '7301', 'PASIMASSUNGGU TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7301030', '7301', 'BONTOSIKUYU');
+INSERT INTO `tbl_kecamatan` VALUES ('7301040', '7301', 'BONTOHARU');
+INSERT INTO `tbl_kecamatan` VALUES ('7301041', '7301', 'BENTENG');
+INSERT INTO `tbl_kecamatan` VALUES ('7301042', '7301', 'BONTOMANAI');
+INSERT INTO `tbl_kecamatan` VALUES ('7301050', '7301', 'BONTOMATENE');
+INSERT INTO `tbl_kecamatan` VALUES ('7301051', '7301', 'BUKI');
+INSERT INTO `tbl_kecamatan` VALUES ('7302010', '7302', 'GANTARANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7302020', '7302', 'UJUNG BULU');
+INSERT INTO `tbl_kecamatan` VALUES ('7302021', '7302', 'UJUNG LOE');
+INSERT INTO `tbl_kecamatan` VALUES ('7302030', '7302', 'BONTO BAHARI');
+INSERT INTO `tbl_kecamatan` VALUES ('7302040', '7302', 'BONTOTIRO');
+INSERT INTO `tbl_kecamatan` VALUES ('7302050', '7302', 'HERO LANGE-LANGE');
+INSERT INTO `tbl_kecamatan` VALUES ('7302060', '7302', 'KAJANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7302070', '7302', 'BULUKUMPA');
+INSERT INTO `tbl_kecamatan` VALUES ('7302080', '7302', 'RILAU ALE');
+INSERT INTO `tbl_kecamatan` VALUES ('7302090', '7302', 'KINDANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7303010', '7303', 'BISSAPPU');
+INSERT INTO `tbl_kecamatan` VALUES ('7303011', '7303', 'ULUERE');
+INSERT INTO `tbl_kecamatan` VALUES ('7303012', '7303', 'SINOA');
+INSERT INTO `tbl_kecamatan` VALUES ('7303020', '7303', 'BANTAENG');
+INSERT INTO `tbl_kecamatan` VALUES ('7303021', '7303', 'EREMERASA');
+INSERT INTO `tbl_kecamatan` VALUES ('7303030', '7303', 'TOMPOBULU');
+INSERT INTO `tbl_kecamatan` VALUES ('7303031', '7303', 'PA\'JUKUKANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7303032', '7303', 'GANTARANGKEKE');
+INSERT INTO `tbl_kecamatan` VALUES ('7304010', '7304', 'BANGKALA');
+INSERT INTO `tbl_kecamatan` VALUES ('7304011', '7304', 'BANGKALA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7304020', '7304', 'TAMALATEA');
+INSERT INTO `tbl_kecamatan` VALUES ('7304021', '7304', 'BONTORAMBA');
+INSERT INTO `tbl_kecamatan` VALUES ('7304030', '7304', 'BINAMU');
+INSERT INTO `tbl_kecamatan` VALUES ('7304031', '7304', 'TURATEA');
+INSERT INTO `tbl_kecamatan` VALUES ('7304040', '7304', 'BATANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7304041', '7304', 'ARUNGKEKE');
+INSERT INTO `tbl_kecamatan` VALUES ('7304042', '7304', 'TAROWANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7304050', '7304', 'KELARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7304051', '7304', 'RUMBIA');
+INSERT INTO `tbl_kecamatan` VALUES ('7305010', '7305', 'MANGARA BOMBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7305020', '7305', 'MAPPAKASUNGGU');
+INSERT INTO `tbl_kecamatan` VALUES ('7305021', '7305', 'SANROBONE');
+INSERT INTO `tbl_kecamatan` VALUES ('7305030', '7305', 'POLOMBANGKENG SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7305031', '7305', 'PATTALLASSANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7305040', '7305', 'POLOMBANGKENG UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7305050', '7305', 'GALESONG SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7305051', '7305', 'GALESONG');
+INSERT INTO `tbl_kecamatan` VALUES ('7305060', '7305', 'GALESONG UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7306010', '7306', 'BONTONOMPO');
+INSERT INTO `tbl_kecamatan` VALUES ('7306011', '7306', 'BONTONOMPO SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7306020', '7306', 'BAJENG');
+INSERT INTO `tbl_kecamatan` VALUES ('7306021', '7306', 'BAJENG BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7306030', '7306', 'PALLANGGA');
+INSERT INTO `tbl_kecamatan` VALUES ('7306031', '7306', 'BAROMBONG');
+INSERT INTO `tbl_kecamatan` VALUES ('7306040', '7306', 'SOMBA OPU');
+INSERT INTO `tbl_kecamatan` VALUES ('7306050', '7306', 'BONTOMARANNU');
+INSERT INTO `tbl_kecamatan` VALUES ('7306051', '7306', 'PATTALLASSANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7306060', '7306', 'PARANGLOE');
+INSERT INTO `tbl_kecamatan` VALUES ('7306061', '7306', 'MANUJU');
+INSERT INTO `tbl_kecamatan` VALUES ('7306070', '7306', 'TINGGIMONCONG');
+INSERT INTO `tbl_kecamatan` VALUES ('7306071', '7306', 'TOMBOLO PAO');
+INSERT INTO `tbl_kecamatan` VALUES ('7306072', '7306', 'PARIGI');
+INSERT INTO `tbl_kecamatan` VALUES ('7306080', '7306', 'BUNGAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('7306081', '7306', 'BONTOLEMPANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7306090', '7306', 'TOMPOBULU');
+INSERT INTO `tbl_kecamatan` VALUES ('7306091', '7306', 'BIRINGBULU');
+INSERT INTO `tbl_kecamatan` VALUES ('7307010', '7307', 'SINJAI BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7307020', '7307', 'SINJAI BORONG');
+INSERT INTO `tbl_kecamatan` VALUES ('7307030', '7307', 'SINJAI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7307040', '7307', 'TELLU LIMPOE');
+INSERT INTO `tbl_kecamatan` VALUES ('7307050', '7307', 'SINJAI TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7307060', '7307', 'SINJAI TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('7307070', '7307', 'SINJAI UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7307080', '7307', 'BULUPODDO');
+INSERT INTO `tbl_kecamatan` VALUES ('7307090', '7307', 'PULAU SEMBILAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7308010', '7308', 'MANDAI');
+INSERT INTO `tbl_kecamatan` VALUES ('7308011', '7308', 'MONCONGLOE');
+INSERT INTO `tbl_kecamatan` VALUES ('7308020', '7308', 'MAROS BARU');
+INSERT INTO `tbl_kecamatan` VALUES ('7308021', '7308', 'MARUSU');
+INSERT INTO `tbl_kecamatan` VALUES ('7308022', '7308', 'TURIKALE');
+INSERT INTO `tbl_kecamatan` VALUES ('7308023', '7308', 'LAU');
+INSERT INTO `tbl_kecamatan` VALUES ('7308030', '7308', 'BONTOA');
+INSERT INTO `tbl_kecamatan` VALUES ('7308040', '7308', 'BANTIMURUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('7308041', '7308', 'SIMBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7308050', '7308', 'TANRALILI');
+INSERT INTO `tbl_kecamatan` VALUES ('7308051', '7308', 'TOMPU BULU');
+INSERT INTO `tbl_kecamatan` VALUES ('7308060', '7308', 'CAMBA');
+INSERT INTO `tbl_kecamatan` VALUES ('7308061', '7308', 'CENRANA');
+INSERT INTO `tbl_kecamatan` VALUES ('7308070', '7308', 'MALLAWA');
+INSERT INTO `tbl_kecamatan` VALUES ('7309010', '7309', 'LIUKANG TANGAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('7309020', '7309', 'LIUKANG KALMAS');
+INSERT INTO `tbl_kecamatan` VALUES ('7309030', '7309', 'LIUKANG TUPABBIRING');
+INSERT INTO `tbl_kecamatan` VALUES ('7309031', '7309', 'LIUKANG TUPABBIRING UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7309040', '7309', 'PANGKAJENE');
+INSERT INTO `tbl_kecamatan` VALUES ('7309041', '7309', 'MINASATENE');
+INSERT INTO `tbl_kecamatan` VALUES ('7309050', '7309', 'BALOCCI');
+INSERT INTO `tbl_kecamatan` VALUES ('7309051', '7309', 'TONDONG TALLASA');
+INSERT INTO `tbl_kecamatan` VALUES ('7309060', '7309', 'BUNGORO');
+INSERT INTO `tbl_kecamatan` VALUES ('7309070', '7309', 'LABAKKANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7309080', '7309', 'MA\'RANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7309091', '7309', 'SEGERI');
+INSERT INTO `tbl_kecamatan` VALUES ('7309092', '7309', 'MANDALLE');
+INSERT INTO `tbl_kecamatan` VALUES ('7310010', '7310', 'TANETE RIAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('7310011', '7310', 'PUJANANTING');
+INSERT INTO `tbl_kecamatan` VALUES ('7310020', '7310', 'TANETE RILAU');
+INSERT INTO `tbl_kecamatan` VALUES ('7310030', '7310', 'BARRU');
+INSERT INTO `tbl_kecamatan` VALUES ('7310040', '7310', 'SOPPENG RIAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('7310041', '7310', 'BALUSU');
+INSERT INTO `tbl_kecamatan` VALUES ('7310050', '7310', 'MALLUSETASI');
+INSERT INTO `tbl_kecamatan` VALUES ('7311010', '7311', 'BONTOCANI');
+INSERT INTO `tbl_kecamatan` VALUES ('7311020', '7311', 'KAHU');
+INSERT INTO `tbl_kecamatan` VALUES ('7311030', '7311', 'KAJUARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7311040', '7311', 'SALOMEKKO');
+INSERT INTO `tbl_kecamatan` VALUES ('7311050', '7311', 'TONRA');
+INSERT INTO `tbl_kecamatan` VALUES ('7311060', '7311', 'PATIMPENG');
+INSERT INTO `tbl_kecamatan` VALUES ('7311070', '7311', 'LIBURENG');
+INSERT INTO `tbl_kecamatan` VALUES ('7311080', '7311', 'MARE');
+INSERT INTO `tbl_kecamatan` VALUES ('7311090', '7311', 'SIBULUE');
+INSERT INTO `tbl_kecamatan` VALUES ('7311100', '7311', 'CINA');
+INSERT INTO `tbl_kecamatan` VALUES ('7311110', '7311', 'BAREBBO');
+INSERT INTO `tbl_kecamatan` VALUES ('7311120', '7311', 'PONRE');
+INSERT INTO `tbl_kecamatan` VALUES ('7311130', '7311', 'LAPPARIAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('7311140', '7311', 'LAMURU');
+INSERT INTO `tbl_kecamatan` VALUES ('7311141', '7311', 'TELLU LIMPOE');
+INSERT INTO `tbl_kecamatan` VALUES ('7311150', '7311', 'BENGO');
+INSERT INTO `tbl_kecamatan` VALUES ('7311160', '7311', 'ULAWENG');
+INSERT INTO `tbl_kecamatan` VALUES ('7311170', '7311', 'PALAKKA');
+INSERT INTO `tbl_kecamatan` VALUES ('7311180', '7311', 'AWANGPONE');
+INSERT INTO `tbl_kecamatan` VALUES ('7311190', '7311', 'TELLU SIATTINGE');
+INSERT INTO `tbl_kecamatan` VALUES ('7311200', '7311', 'AMALI');
+INSERT INTO `tbl_kecamatan` VALUES ('7311210', '7311', 'AJANGALE');
+INSERT INTO `tbl_kecamatan` VALUES ('7311220', '7311', 'DUA BOCCOE');
+INSERT INTO `tbl_kecamatan` VALUES ('7311230', '7311', 'CENRANA');
+INSERT INTO `tbl_kecamatan` VALUES ('7311710', '7311', 'TANETE RIATTANG BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7311720', '7311', 'TANETE RIATTANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7311730', '7311', 'TANETE RIATTANG TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7312010', '7312', 'MARIO RIWAWO');
+INSERT INTO `tbl_kecamatan` VALUES ('7312020', '7312', 'LALABATA');
+INSERT INTO `tbl_kecamatan` VALUES ('7312030', '7312', 'LILI RIAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('7312031', '7312', 'GANRA');
+INSERT INTO `tbl_kecamatan` VALUES ('7312032', '7312', 'CITTA');
+INSERT INTO `tbl_kecamatan` VALUES ('7312040', '7312', 'LILI RILAU');
+INSERT INTO `tbl_kecamatan` VALUES ('7312050', '7312', 'DONRI DONRI');
+INSERT INTO `tbl_kecamatan` VALUES ('7312060', '7312', 'MARIO RIAWA');
+INSERT INTO `tbl_kecamatan` VALUES ('7313010', '7313', 'SABBANG PARU');
+INSERT INTO `tbl_kecamatan` VALUES ('7313020', '7313', 'TEMPE');
+INSERT INTO `tbl_kecamatan` VALUES ('7313030', '7313', 'PAMMANA');
+INSERT INTO `tbl_kecamatan` VALUES ('7313040', '7313', 'BOLA');
+INSERT INTO `tbl_kecamatan` VALUES ('7313050', '7313', 'TAKKALALLA');
+INSERT INTO `tbl_kecamatan` VALUES ('7313060', '7313', 'SAJOANGING');
+INSERT INTO `tbl_kecamatan` VALUES ('7313061', '7313', 'PENRANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7313070', '7313', 'MAJAULENG');
+INSERT INTO `tbl_kecamatan` VALUES ('7313080', '7313', 'TANA SITOLO');
+INSERT INTO `tbl_kecamatan` VALUES ('7313090', '7313', 'BELAWA');
+INSERT INTO `tbl_kecamatan` VALUES ('7313100', '7313', 'MANIANG PAJO');
+INSERT INTO `tbl_kecamatan` VALUES ('7313101', '7313', 'GILIRENG');
+INSERT INTO `tbl_kecamatan` VALUES ('7313110', '7313', 'KEERA');
+INSERT INTO `tbl_kecamatan` VALUES ('7313120', '7313', 'PITUMPANUA');
+INSERT INTO `tbl_kecamatan` VALUES ('7314010', '7314', 'PANCA LAUTANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7314020', '7314', 'TELLULIMPO E');
+INSERT INTO `tbl_kecamatan` VALUES ('7314030', '7314', 'WATANG PULU');
+INSERT INTO `tbl_kecamatan` VALUES ('7314040', '7314', 'BARANTI');
+INSERT INTO `tbl_kecamatan` VALUES ('7314050', '7314', 'PANCA RIJANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7314051', '7314', 'KULO');
+INSERT INTO `tbl_kecamatan` VALUES ('7314060', '7314', 'MARITENGNGAE');
+INSERT INTO `tbl_kecamatan` VALUES ('7314061', '7314', 'WATANG SIDENRENG');
+INSERT INTO `tbl_kecamatan` VALUES ('7314070', '7314', 'PITU RIAWA');
+INSERT INTO `tbl_kecamatan` VALUES ('7314080', '7314', 'DUAPITUE');
+INSERT INTO `tbl_kecamatan` VALUES ('7314081', '7314', 'PITU RIASE');
+INSERT INTO `tbl_kecamatan` VALUES ('7315010', '7315', 'SUPPA');
+INSERT INTO `tbl_kecamatan` VALUES ('7315020', '7315', 'MATTIROSOMPE');
+INSERT INTO `tbl_kecamatan` VALUES ('7315021', '7315', 'LANRISANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7315030', '7315', 'MATTIRO BULU');
+INSERT INTO `tbl_kecamatan` VALUES ('7315040', '7315', 'WATANG SAWITTO');
+INSERT INTO `tbl_kecamatan` VALUES ('7315041', '7315', 'PALETEANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7315042', '7315', 'TIROANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7315050', '7315', 'PATAMPANUA');
+INSERT INTO `tbl_kecamatan` VALUES ('7315060', '7315', 'CEMPA');
+INSERT INTO `tbl_kecamatan` VALUES ('7315070', '7315', 'DUAMPANUA');
+INSERT INTO `tbl_kecamatan` VALUES ('7315071', '7315', 'BATULAPPA');
+INSERT INTO `tbl_kecamatan` VALUES ('7315080', '7315', 'LEMBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7316010', '7316', 'MAIWA');
+INSERT INTO `tbl_kecamatan` VALUES ('7316011', '7316', 'BUNGIN');
+INSERT INTO `tbl_kecamatan` VALUES ('7316020', '7316', 'ENREKANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7316021', '7316', 'CENDANA');
+INSERT INTO `tbl_kecamatan` VALUES ('7316030', '7316', 'BARAKA');
+INSERT INTO `tbl_kecamatan` VALUES ('7316031', '7316', 'BUNTU BATU');
+INSERT INTO `tbl_kecamatan` VALUES ('7316040', '7316', 'ANGGERAJA');
+INSERT INTO `tbl_kecamatan` VALUES ('7316041', '7316', 'MALUA');
+INSERT INTO `tbl_kecamatan` VALUES ('7316050', '7316', 'ALLA');
+INSERT INTO `tbl_kecamatan` VALUES ('7316051', '7316', 'CURIO');
+INSERT INTO `tbl_kecamatan` VALUES ('7316052', '7316', 'MASALLE');
+INSERT INTO `tbl_kecamatan` VALUES ('7316053', '7316', 'BAROKO');
+INSERT INTO `tbl_kecamatan` VALUES ('7317010', '7317', 'LAROMPONG');
+INSERT INTO `tbl_kecamatan` VALUES ('7317011', '7317', 'LAROMPONG SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7317020', '7317', 'SULI');
+INSERT INTO `tbl_kecamatan` VALUES ('7317021', '7317', 'SULI BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7317030', '7317', 'BELOPA');
+INSERT INTO `tbl_kecamatan` VALUES ('7317031', '7317', 'KAMANRE');
+INSERT INTO `tbl_kecamatan` VALUES ('7317032', '7317', 'BELOPA UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7317040', '7317', 'BAJO');
+INSERT INTO `tbl_kecamatan` VALUES ('7317041', '7317', 'BAJO BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7317050', '7317', 'BASSESANGTEMPE');
+INSERT INTO `tbl_kecamatan` VALUES ('7317051', '7317', 'LATIMOJONG');
+INSERT INTO `tbl_kecamatan` VALUES ('7317052', '7317', 'BASSESANGTEMPE UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7317060', '7317', 'BUPON');
+INSERT INTO `tbl_kecamatan` VALUES ('7317061', '7317', 'PONRANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7317062', '7317', 'PONRANG SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7317070', '7317', 'BUA');
+INSERT INTO `tbl_kecamatan` VALUES ('7317080', '7317', 'WALENRANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7317081', '7317', 'WALENRANG TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7317090', '7317', 'LAMASI');
+INSERT INTO `tbl_kecamatan` VALUES ('7317091', '7317', 'WALENRANG UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7317092', '7317', 'WALENRANG BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7317093', '7317', 'LAMASI TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7318010', '7318', 'BONGGAKARADENG');
+INSERT INTO `tbl_kecamatan` VALUES ('7318011', '7318', 'SIMBUANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7318012', '7318', 'RANO');
+INSERT INTO `tbl_kecamatan` VALUES ('7318013', '7318', 'MAPPAK');
+INSERT INTO `tbl_kecamatan` VALUES ('7318020', '7318', 'MENGKENDEK');
+INSERT INTO `tbl_kecamatan` VALUES ('7318021', '7318', 'GANDANG BATU SILANAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7318030', '7318', 'SANGALLA');
+INSERT INTO `tbl_kecamatan` VALUES ('7318031', '7318', 'SANGALA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7318032', '7318', 'SANGALLA UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7318040', '7318', 'MAKALE');
+INSERT INTO `tbl_kecamatan` VALUES ('7318041', '7318', 'MAKALE SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7318042', '7318', 'MAKALE UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7318050', '7318', 'SALUPUTTI');
+INSERT INTO `tbl_kecamatan` VALUES ('7318051', '7318', 'BITTUANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7318052', '7318', 'REMBON');
+INSERT INTO `tbl_kecamatan` VALUES ('7318053', '7318', 'MASANDA');
+INSERT INTO `tbl_kecamatan` VALUES ('7318054', '7318', 'MALIMBONG BALEPE');
+INSERT INTO `tbl_kecamatan` VALUES ('7318061', '7318', 'RANTETAYO');
+INSERT INTO `tbl_kecamatan` VALUES ('7318067', '7318', 'KURRA');
+INSERT INTO `tbl_kecamatan` VALUES ('7322010', '7322', 'SABBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7322020', '7322', 'BAEBUNTA');
+INSERT INTO `tbl_kecamatan` VALUES ('7322030', '7322', 'MALANGKE');
+INSERT INTO `tbl_kecamatan` VALUES ('7322031', '7322', 'MALANGKE BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7322040', '7322', 'SUKAMAJU');
+INSERT INTO `tbl_kecamatan` VALUES ('7322050', '7322', 'BONE-BONE');
+INSERT INTO `tbl_kecamatan` VALUES ('7322051', '7322', 'TANA LILI');
+INSERT INTO `tbl_kecamatan` VALUES ('7322120', '7322', 'MASAMBA');
+INSERT INTO `tbl_kecamatan` VALUES ('7322121', '7322', 'MAPPEDECENG');
+INSERT INTO `tbl_kecamatan` VALUES ('7322122', '7322', 'RAMPI');
+INSERT INTO `tbl_kecamatan` VALUES ('7322130', '7322', 'LIMBONG');
+INSERT INTO `tbl_kecamatan` VALUES ('7322131', '7322', 'SEKO');
+INSERT INTO `tbl_kecamatan` VALUES ('7325010', '7325', 'BURAU');
+INSERT INTO `tbl_kecamatan` VALUES ('7325020', '7325', 'WOTU');
+INSERT INTO `tbl_kecamatan` VALUES ('7325030', '7325', 'TOMONI');
+INSERT INTO `tbl_kecamatan` VALUES ('7325031', '7325', 'TOMONI TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7325040', '7325', 'ANGKONA');
+INSERT INTO `tbl_kecamatan` VALUES ('7325050', '7325', 'MALILI');
+INSERT INTO `tbl_kecamatan` VALUES ('7325060', '7325', 'TOWUTI');
+INSERT INTO `tbl_kecamatan` VALUES ('7325070', '7325', 'NUHA');
+INSERT INTO `tbl_kecamatan` VALUES ('7325071', '7325', 'WASUPONDA');
+INSERT INTO `tbl_kecamatan` VALUES ('7325080', '7325', 'MANGKUTANA');
+INSERT INTO `tbl_kecamatan` VALUES ('7325081', '7325', 'KALAENA');
+INSERT INTO `tbl_kecamatan` VALUES ('7326010', '7326', 'SOPAI');
+INSERT INTO `tbl_kecamatan` VALUES ('7326020', '7326', 'KESU');
+INSERT INTO `tbl_kecamatan` VALUES ('7326030', '7326', 'SANGGALANGI');
+INSERT INTO `tbl_kecamatan` VALUES ('7326040', '7326', 'BUNTAO');
+INSERT INTO `tbl_kecamatan` VALUES ('7326050', '7326', 'RANTEBUA');
+INSERT INTO `tbl_kecamatan` VALUES ('7326060', '7326', 'NANGGALA');
+INSERT INTO `tbl_kecamatan` VALUES ('7326070', '7326', 'TONDON');
+INSERT INTO `tbl_kecamatan` VALUES ('7326080', '7326', 'TALLUNGLIPU');
+INSERT INTO `tbl_kecamatan` VALUES ('7326090', '7326', 'RANTEPAO');
+INSERT INTO `tbl_kecamatan` VALUES ('7326100', '7326', 'TIKALA');
+INSERT INTO `tbl_kecamatan` VALUES ('7326110', '7326', 'SESEAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7326120', '7326', 'BALUSU');
+INSERT INTO `tbl_kecamatan` VALUES ('7326130', '7326', 'SA\'DAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7326140', '7326', 'BENGKELEKILA');
+INSERT INTO `tbl_kecamatan` VALUES ('7326150', '7326', 'SESEAN SULOARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7326160', '7326', 'KAPALA PITU');
+INSERT INTO `tbl_kecamatan` VALUES ('7326170', '7326', 'DENDE PIONGAN NAPO');
+INSERT INTO `tbl_kecamatan` VALUES ('7326180', '7326', 'AWAN RANTE KARUA');
+INSERT INTO `tbl_kecamatan` VALUES ('7326190', '7326', 'RINDINGALO');
+INSERT INTO `tbl_kecamatan` VALUES ('7326200', '7326', 'BUNTU PEPASAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7326210', '7326', 'BARUPPU');
+INSERT INTO `tbl_kecamatan` VALUES ('7371010', '7371', 'MARISO');
+INSERT INTO `tbl_kecamatan` VALUES ('7371020', '7371', 'MAMAJANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7371030', '7371', 'TAMALATE');
+INSERT INTO `tbl_kecamatan` VALUES ('7371031', '7371', 'RAPPOCINI');
+INSERT INTO `tbl_kecamatan` VALUES ('7371040', '7371', 'MAKASSAR');
+INSERT INTO `tbl_kecamatan` VALUES ('7371050', '7371', 'UJUNG PANDANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7371060', '7371', 'WAJO');
+INSERT INTO `tbl_kecamatan` VALUES ('7371070', '7371', 'BONTOALA');
+INSERT INTO `tbl_kecamatan` VALUES ('7371080', '7371', 'UJUNG TANAH');
+INSERT INTO `tbl_kecamatan` VALUES ('7371090', '7371', 'TALLO');
+INSERT INTO `tbl_kecamatan` VALUES ('7371100', '7371', 'PANAKKUKANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7371101', '7371', 'MANGGALA');
+INSERT INTO `tbl_kecamatan` VALUES ('7371110', '7371', 'BIRING KANAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('7371111', '7371', 'TAMALANREA');
+INSERT INTO `tbl_kecamatan` VALUES ('7372010', '7372', 'BACUKIKI');
+INSERT INTO `tbl_kecamatan` VALUES ('7372011', '7372', 'BACUKIKI BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7372020', '7372', 'UJUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('7372030', '7372', 'SOREANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7373010', '7373', 'WARA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7373011', '7373', 'SENDANA');
+INSERT INTO `tbl_kecamatan` VALUES ('7373020', '7373', 'WARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7373021', '7373', 'WARA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7373022', '7373', 'MUNGKAJANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7373030', '7373', 'WARA UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7373031', '7373', 'BARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7373040', '7373', 'TELLUWANUA');
+INSERT INTO `tbl_kecamatan` VALUES ('7373041', '7373', 'WARA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7401050', '7401', 'LASALIMU');
+INSERT INTO `tbl_kecamatan` VALUES ('7401051', '7401', 'LASALIMU SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7401052', '7401', 'SIONTAPINA');
+INSERT INTO `tbl_kecamatan` VALUES ('7401060', '7401', 'PASAR WAJO');
+INSERT INTO `tbl_kecamatan` VALUES ('7401061', '7401', 'WOLOWA');
+INSERT INTO `tbl_kecamatan` VALUES ('7401062', '7401', 'WABULA');
+INSERT INTO `tbl_kecamatan` VALUES ('7401110', '7401', 'KAPONTORI');
+INSERT INTO `tbl_kecamatan` VALUES ('7402010', '7402', 'TONGKUNO');
+INSERT INTO `tbl_kecamatan` VALUES ('7402011', '7402', 'TONGKUNO SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7402020', '7402', 'PARIGI');
+INSERT INTO `tbl_kecamatan` VALUES ('7402021', '7402', 'BONE');
+INSERT INTO `tbl_kecamatan` VALUES ('7402022', '7402', 'MAROBO');
+INSERT INTO `tbl_kecamatan` VALUES ('7402030', '7402', 'KABAWO');
+INSERT INTO `tbl_kecamatan` VALUES ('7402031', '7402', 'KABANGKA');
+INSERT INTO `tbl_kecamatan` VALUES ('7402032', '7402', 'KONTUKOWUNA');
+INSERT INTO `tbl_kecamatan` VALUES ('7402061', '7402', 'KONTUNAGA');
+INSERT INTO `tbl_kecamatan` VALUES ('7402062', '7402', 'WATOPUTE');
+INSERT INTO `tbl_kecamatan` VALUES ('7402070', '7402', 'KATOBU');
+INSERT INTO `tbl_kecamatan` VALUES ('7402071', '7402', 'LOHIA');
+INSERT INTO `tbl_kecamatan` VALUES ('7402072', '7402', 'DURUKA');
+INSERT INTO `tbl_kecamatan` VALUES ('7402073', '7402', 'BATALAIWORU');
+INSERT INTO `tbl_kecamatan` VALUES ('7402080', '7402', 'NAPABALANO');
+INSERT INTO `tbl_kecamatan` VALUES ('7402081', '7402', 'LASALEPA');
+INSERT INTO `tbl_kecamatan` VALUES ('7402083', '7402', 'TOWEA');
+INSERT INTO `tbl_kecamatan` VALUES ('7402090', '7402', 'WAKORUMBA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7402091', '7402', 'PASIR PUTIH');
+INSERT INTO `tbl_kecamatan` VALUES ('7402092', '7402', 'PASI KOLAGA');
+INSERT INTO `tbl_kecamatan` VALUES ('7402111', '7402', 'MALIGANO');
+INSERT INTO `tbl_kecamatan` VALUES ('7402112', '7402', 'BATUKARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7403090', '7403', 'SOROPIA');
+INSERT INTO `tbl_kecamatan` VALUES ('7403091', '7403', 'LALONGGASUMEETO');
+INSERT INTO `tbl_kecamatan` VALUES ('7403100', '7403', 'SAMPARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7403101', '7403', 'BONDOALA');
+INSERT INTO `tbl_kecamatan` VALUES ('7403102', '7403', 'BESULUTU');
+INSERT INTO `tbl_kecamatan` VALUES ('7403103', '7403', 'KAPOIALA');
+INSERT INTO `tbl_kecamatan` VALUES ('7403104', '7403', 'ANGGALOMOARE');
+INSERT INTO `tbl_kecamatan` VALUES ('7403105', '7403', 'MOROSI');
+INSERT INTO `tbl_kecamatan` VALUES ('7403130', '7403', 'LAMBUYA');
+INSERT INTO `tbl_kecamatan` VALUES ('7403131', '7403', 'UEPAI');
+INSERT INTO `tbl_kecamatan` VALUES ('7403132', '7403', 'PURIALA');
+INSERT INTO `tbl_kecamatan` VALUES ('7403133', '7403', 'ONEMBUTE');
+INSERT INTO `tbl_kecamatan` VALUES ('7403140', '7403', 'PONDIDAHA');
+INSERT INTO `tbl_kecamatan` VALUES ('7403141', '7403', 'WONGGEDUKU');
+INSERT INTO `tbl_kecamatan` VALUES ('7403142', '7403', 'AMONGGEDO');
+INSERT INTO `tbl_kecamatan` VALUES ('7403143', '7403', 'WONGGEDUKU BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7403150', '7403', 'WAWOTOBI');
+INSERT INTO `tbl_kecamatan` VALUES ('7403151', '7403', 'MELUHU');
+INSERT INTO `tbl_kecamatan` VALUES ('7403152', '7403', 'KONAWE');
+INSERT INTO `tbl_kecamatan` VALUES ('7403170', '7403', 'UNAAHA');
+INSERT INTO `tbl_kecamatan` VALUES ('7403171', '7403', 'ANGGABERI');
+INSERT INTO `tbl_kecamatan` VALUES ('7403180', '7403', 'ABUKI');
+INSERT INTO `tbl_kecamatan` VALUES ('7403181', '7403', 'LATOMA');
+INSERT INTO `tbl_kecamatan` VALUES ('7403182', '7403', 'TONGAUNA');
+INSERT INTO `tbl_kecamatan` VALUES ('7403183', '7403', 'ASINUA');
+INSERT INTO `tbl_kecamatan` VALUES ('7403184', '7403', 'PADANGGUNI');
+INSERT INTO `tbl_kecamatan` VALUES ('7403193', '7403', 'ROUTA');
+INSERT INTO `tbl_kecamatan` VALUES ('7404010', '7404', 'WATUBANGGA');
+INSERT INTO `tbl_kecamatan` VALUES ('7404011', '7404', 'TANGGETADA');
+INSERT INTO `tbl_kecamatan` VALUES ('7404012', '7404', 'TOARI');
+INSERT INTO `tbl_kecamatan` VALUES ('7404013', '7404', 'POLINGGONA');
+INSERT INTO `tbl_kecamatan` VALUES ('7404020', '7404', 'POMALAA');
+INSERT INTO `tbl_kecamatan` VALUES ('7404030', '7404', 'WUNDULAKO');
+INSERT INTO `tbl_kecamatan` VALUES ('7404031', '7404', 'BAULA');
+INSERT INTO `tbl_kecamatan` VALUES ('7404060', '7404', 'KOLAKA');
+INSERT INTO `tbl_kecamatan` VALUES ('7404061', '7404', 'LATAMBAGA');
+INSERT INTO `tbl_kecamatan` VALUES ('7404070', '7404', 'WOLO');
+INSERT INTO `tbl_kecamatan` VALUES ('7404071', '7404', 'SAMATURU');
+INSERT INTO `tbl_kecamatan` VALUES ('7404072', '7404', 'IWOIMENDAA');
+INSERT INTO `tbl_kecamatan` VALUES ('7405010', '7405', 'TINANGGEA');
+INSERT INTO `tbl_kecamatan` VALUES ('7405011', '7405', 'LALEMBUU');
+INSERT INTO `tbl_kecamatan` VALUES ('7405020', '7405', 'ANDOOLO');
+INSERT INTO `tbl_kecamatan` VALUES ('7405021', '7405', 'BUKE');
+INSERT INTO `tbl_kecamatan` VALUES ('7405022', '7405', 'ANDOOLO BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7405030', '7405', 'PALANGGA');
+INSERT INTO `tbl_kecamatan` VALUES ('7405031', '7405', 'PALANGGA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7405032', '7405', 'BAITO');
+INSERT INTO `tbl_kecamatan` VALUES ('7405040', '7405', 'LAINEA');
+INSERT INTO `tbl_kecamatan` VALUES ('7405041', '7405', 'LAEYA');
+INSERT INTO `tbl_kecamatan` VALUES ('7405050', '7405', 'KOLONO');
+INSERT INTO `tbl_kecamatan` VALUES ('7405051', '7405', 'KOLONO TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7405060', '7405', 'LAONTI');
+INSERT INTO `tbl_kecamatan` VALUES ('7405070', '7405', 'MORAMO');
+INSERT INTO `tbl_kecamatan` VALUES ('7405071', '7405', 'MORAMO UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7405080', '7405', 'KONDA');
+INSERT INTO `tbl_kecamatan` VALUES ('7405081', '7405', 'WOLASI');
+INSERT INTO `tbl_kecamatan` VALUES ('7405090', '7405', 'RANOMEETO');
+INSERT INTO `tbl_kecamatan` VALUES ('7405091', '7405', 'RANOMEETO BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7405100', '7405', 'LANDONO');
+INSERT INTO `tbl_kecamatan` VALUES ('7405101', '7405', 'MOWILA');
+INSERT INTO `tbl_kecamatan` VALUES ('7405102', '7405', 'SABULAKOA');
+INSERT INTO `tbl_kecamatan` VALUES ('7405110', '7405', 'ANGATA');
+INSERT INTO `tbl_kecamatan` VALUES ('7405111', '7405', 'BENUA');
+INSERT INTO `tbl_kecamatan` VALUES ('7405112', '7405', 'BASALA');
+INSERT INTO `tbl_kecamatan` VALUES ('7406010', '7406', 'KABAENA');
+INSERT INTO `tbl_kecamatan` VALUES ('7406011', '7406', 'KABAENA UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7406012', '7406', 'KABAENA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7406013', '7406', 'KABAENA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7406020', '7406', 'KABAENA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7406021', '7406', 'KABAENA TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('7406030', '7406', 'RUMBIA');
+INSERT INTO `tbl_kecamatan` VALUES ('7406031', '7406', 'MATA OLEO');
+INSERT INTO `tbl_kecamatan` VALUES ('7406032', '7406', 'KEP. MASALOKA RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('7406033', '7406', 'RUMBIA TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('7406040', '7406', 'RAROWATU');
+INSERT INTO `tbl_kecamatan` VALUES ('7406041', '7406', 'RAROWATU UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7406042', '7406', 'MATA USU');
+INSERT INTO `tbl_kecamatan` VALUES ('7406043', '7406', 'LANTARI JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('7406050', '7406', 'POLEANG TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7406051', '7406', 'POLEANG UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7406052', '7406', 'POLEANG SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7406053', '7406', 'POLEANG TENGGARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7406060', '7406', 'POLEANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7406061', '7406', 'POLEANG BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7406062', '7406', 'TONTONUNU');
+INSERT INTO `tbl_kecamatan` VALUES ('7406063', '7406', 'POLEANG TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('7407010', '7407', 'BINONGKO');
+INSERT INTO `tbl_kecamatan` VALUES ('7407011', '7407', 'TOGO BINONGKO');
+INSERT INTO `tbl_kecamatan` VALUES ('7407020', '7407', 'TOMIA');
+INSERT INTO `tbl_kecamatan` VALUES ('7407021', '7407', 'TOMIA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7407030', '7407', 'KALEDUPA');
+INSERT INTO `tbl_kecamatan` VALUES ('7407031', '7407', 'KALEDUPA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7407040', '7407', 'WANGI-WANGI');
+INSERT INTO `tbl_kecamatan` VALUES ('7407050', '7407', 'WANGI-WANGI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7408010', '7408', 'RANTEANGIN');
+INSERT INTO `tbl_kecamatan` VALUES ('7408011', '7408', 'LAMBAI');
+INSERT INTO `tbl_kecamatan` VALUES ('7408012', '7408', 'WAWO');
+INSERT INTO `tbl_kecamatan` VALUES ('7408020', '7408', 'LASUSUA');
+INSERT INTO `tbl_kecamatan` VALUES ('7408021', '7408', 'KATOI');
+INSERT INTO `tbl_kecamatan` VALUES ('7408030', '7408', 'KODEOHA');
+INSERT INTO `tbl_kecamatan` VALUES ('7408031', '7408', 'TIWU');
+INSERT INTO `tbl_kecamatan` VALUES ('7408040', '7408', 'NGAPA');
+INSERT INTO `tbl_kecamatan` VALUES ('7408041', '7408', 'WATUNOHU');
+INSERT INTO `tbl_kecamatan` VALUES ('7408050', '7408', 'PAKUE');
+INSERT INTO `tbl_kecamatan` VALUES ('7408051', '7408', 'PAKUE UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7408052', '7408', 'PAKUE TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('7408060', '7408', 'BATU PUTIH');
+INSERT INTO `tbl_kecamatan` VALUES ('7408061', '7408', 'POREHU');
+INSERT INTO `tbl_kecamatan` VALUES ('7408062', '7408', 'TOLALA');
+INSERT INTO `tbl_kecamatan` VALUES ('7409100', '7409', 'BONEGUNU');
+INSERT INTO `tbl_kecamatan` VALUES ('7409101', '7409', 'KAMBOWA');
+INSERT INTO `tbl_kecamatan` VALUES ('7409110', '7409', 'WAKORUMBA');
+INSERT INTO `tbl_kecamatan` VALUES ('7409120', '7409', 'KULISUSU');
+INSERT INTO `tbl_kecamatan` VALUES ('7409121', '7409', 'KULISUSU BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7409122', '7409', 'KULISUSU UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7410010', '7410', 'SAWA');
+INSERT INTO `tbl_kecamatan` VALUES ('7410011', '7410', 'MOTUI');
+INSERT INTO `tbl_kecamatan` VALUES ('7410020', '7410', 'LEMBO');
+INSERT INTO `tbl_kecamatan` VALUES ('7410030', '7410', 'LASOLO');
+INSERT INTO `tbl_kecamatan` VALUES ('7410040', '7410', 'MOLAWE');
+INSERT INTO `tbl_kecamatan` VALUES ('7410050', '7410', 'ASERA');
+INSERT INTO `tbl_kecamatan` VALUES ('7410051', '7410', 'ANDOWIA');
+INSERT INTO `tbl_kecamatan` VALUES ('7410052', '7410', 'OHEO');
+INSERT INTO `tbl_kecamatan` VALUES ('7410060', '7410', 'LANGGIKIMA');
+INSERT INTO `tbl_kecamatan` VALUES ('7410070', '7410', 'WIWIRANO');
+INSERT INTO `tbl_kecamatan` VALUES ('7411010', '7411', 'AERE');
+INSERT INTO `tbl_kecamatan` VALUES ('7411020', '7411', 'LAMBANDIA');
+INSERT INTO `tbl_kecamatan` VALUES ('7411030', '7411', 'POLI-POLIA');
+INSERT INTO `tbl_kecamatan` VALUES ('7411040', '7411', 'DANGIA');
+INSERT INTO `tbl_kecamatan` VALUES ('7411050', '7411', 'LADONGI');
+INSERT INTO `tbl_kecamatan` VALUES ('7411060', '7411', 'LOEA');
+INSERT INTO `tbl_kecamatan` VALUES ('7411070', '7411', 'TIRAWUTA');
+INSERT INTO `tbl_kecamatan` VALUES ('7411080', '7411', 'LALOLAE');
+INSERT INTO `tbl_kecamatan` VALUES ('7411090', '7411', 'MOWEWE');
+INSERT INTO `tbl_kecamatan` VALUES ('7411100', '7411', 'TINONDO');
+INSERT INTO `tbl_kecamatan` VALUES ('7411110', '7411', 'ULUIWOI');
+INSERT INTO `tbl_kecamatan` VALUES ('7411120', '7411', 'UEESI');
+INSERT INTO `tbl_kecamatan` VALUES ('7412010', '7412', 'WAWONII TENGGARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7412020', '7412', 'WAWONII TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7412030', '7412', 'WAWONII TIMUR LAUT');
+INSERT INTO `tbl_kecamatan` VALUES ('7412040', '7412', 'WAWONII UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7412050', '7412', 'WAWONII SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7412060', '7412', 'WAWONII TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('7412070', '7412', 'WAWONII BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7413001', '7413', 'TIWORO KEPULAUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7413002', '7413', 'MAGINTI');
+INSERT INTO `tbl_kecamatan` VALUES ('7413003', '7413', 'TIWORO TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('7413004', '7413', 'TIWORO SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7413005', '7413', 'TIWORO UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7413006', '7413', 'LAWA');
+INSERT INTO `tbl_kecamatan` VALUES ('7413007', '7413', 'SAWERIGADI');
+INSERT INTO `tbl_kecamatan` VALUES ('7413008', '7413', 'BARANGKA');
+INSERT INTO `tbl_kecamatan` VALUES ('7413009', '7413', 'WA DAGA');
+INSERT INTO `tbl_kecamatan` VALUES ('7413010', '7413', 'KUSAMBI');
+INSERT INTO `tbl_kecamatan` VALUES ('7413011', '7413', 'NAPANO KUSAMBI');
+INSERT INTO `tbl_kecamatan` VALUES ('7414010', '7414', 'TALAGA RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('7414020', '7414', 'MAWASANGKA');
+INSERT INTO `tbl_kecamatan` VALUES ('7414030', '7414', 'MAWASANGKA TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('7414040', '7414', 'MAWASANGKA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7414050', '7414', 'LAKUDO');
+INSERT INTO `tbl_kecamatan` VALUES ('7414060', '7414', 'GU');
+INSERT INTO `tbl_kecamatan` VALUES ('7414070', '7414', 'SANGIA WAMBULU');
+INSERT INTO `tbl_kecamatan` VALUES ('7415010', '7415', 'BATU ATAS');
+INSERT INTO `tbl_kecamatan` VALUES ('7415020', '7415', 'LAPANDEWA');
+INSERT INTO `tbl_kecamatan` VALUES ('7415030', '7415', 'SAMPOLAWA');
+INSERT INTO `tbl_kecamatan` VALUES ('7415040', '7415', 'BATAUGA');
+INSERT INTO `tbl_kecamatan` VALUES ('7415050', '7415', 'SIOMPU BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7415060', '7415', 'SIOMPU');
+INSERT INTO `tbl_kecamatan` VALUES ('7415070', '7415', 'KADATUA');
+INSERT INTO `tbl_kecamatan` VALUES ('7471010', '7471', 'MANDONGA');
+INSERT INTO `tbl_kecamatan` VALUES ('7471011', '7471', 'BARUGA');
+INSERT INTO `tbl_kecamatan` VALUES ('7471012', '7471', 'PUUWATU');
+INSERT INTO `tbl_kecamatan` VALUES ('7471013', '7471', 'KADIA');
+INSERT INTO `tbl_kecamatan` VALUES ('7471014', '7471', 'WUA-WUA');
+INSERT INTO `tbl_kecamatan` VALUES ('7471020', '7471', 'POASIA');
+INSERT INTO `tbl_kecamatan` VALUES ('7471021', '7471', 'ABELI');
+INSERT INTO `tbl_kecamatan` VALUES ('7471022', '7471', 'KAMBU');
+INSERT INTO `tbl_kecamatan` VALUES ('7471030', '7471', 'KENDARI');
+INSERT INTO `tbl_kecamatan` VALUES ('7471031', '7471', 'KENDARI BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7472010', '7472', 'BETOAMBARI');
+INSERT INTO `tbl_kecamatan` VALUES ('7472011', '7472', 'MURHUM');
+INSERT INTO `tbl_kecamatan` VALUES ('7472012', '7472', 'BATUPOARO');
+INSERT INTO `tbl_kecamatan` VALUES ('7472020', '7472', 'WOLIO');
+INSERT INTO `tbl_kecamatan` VALUES ('7472021', '7472', 'KOKALUKUNA');
+INSERT INTO `tbl_kecamatan` VALUES ('7472030', '7472', 'SORAWOLIO');
+INSERT INTO `tbl_kecamatan` VALUES ('7472040', '7472', 'BUNGI');
+INSERT INTO `tbl_kecamatan` VALUES ('7472041', '7472', 'LEA-LEA');
+INSERT INTO `tbl_kecamatan` VALUES ('7501031', '7501', 'MANANGGU');
+INSERT INTO `tbl_kecamatan` VALUES ('7501040', '7501', 'TILAMUTA');
+INSERT INTO `tbl_kecamatan` VALUES ('7501041', '7501', 'DULUPI');
+INSERT INTO `tbl_kecamatan` VALUES ('7501042', '7501', 'BOTUMOITO');
+INSERT INTO `tbl_kecamatan` VALUES ('7501050', '7501', 'PAGUYAMAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7501051', '7501', 'WONOSARI');
+INSERT INTO `tbl_kecamatan` VALUES ('7501052', '7501', 'PAGUYAMAN PANTAI');
+INSERT INTO `tbl_kecamatan` VALUES ('7502010', '7502', 'BATUDAA PANTAI');
+INSERT INTO `tbl_kecamatan` VALUES ('7502011', '7502', 'BILUHU');
+INSERT INTO `tbl_kecamatan` VALUES ('7502020', '7502', 'BATUDAA');
+INSERT INTO `tbl_kecamatan` VALUES ('7502021', '7502', 'BONGOMEME');
+INSERT INTO `tbl_kecamatan` VALUES ('7502022', '7502', 'TABONGO');
+INSERT INTO `tbl_kecamatan` VALUES ('7502023', '7502', 'DUNGALIYO');
+INSERT INTO `tbl_kecamatan` VALUES ('7502030', '7502', 'TIBAWA');
+INSERT INTO `tbl_kecamatan` VALUES ('7502031', '7502', 'PULUBALA');
+INSERT INTO `tbl_kecamatan` VALUES ('7502040', '7502', 'BOLIYOHUTO');
+INSERT INTO `tbl_kecamatan` VALUES ('7502041', '7502', 'MOOTILANGO');
+INSERT INTO `tbl_kecamatan` VALUES ('7502042', '7502', 'TOLANGOHULA');
+INSERT INTO `tbl_kecamatan` VALUES ('7502043', '7502', 'ASPARAGA');
+INSERT INTO `tbl_kecamatan` VALUES ('7502044', '7502', 'BILATO');
+INSERT INTO `tbl_kecamatan` VALUES ('7502070', '7502', 'LIMBOTO');
+INSERT INTO `tbl_kecamatan` VALUES ('7502071', '7502', 'LIMBOTO BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7502080', '7502', 'TELAGA');
+INSERT INTO `tbl_kecamatan` VALUES ('7502081', '7502', 'TELAGA BIRU');
+INSERT INTO `tbl_kecamatan` VALUES ('7502082', '7502', 'TILANGO');
+INSERT INTO `tbl_kecamatan` VALUES ('7502083', '7502', 'TELAGA JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('7503010', '7503', 'POPAYATO');
+INSERT INTO `tbl_kecamatan` VALUES ('7503011', '7503', 'POPAYATO BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7503012', '7503', 'POPAYATO TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7503020', '7503', 'LEMITO');
+INSERT INTO `tbl_kecamatan` VALUES ('7503021', '7503', 'WANGGARASI');
+INSERT INTO `tbl_kecamatan` VALUES ('7503030', '7503', 'MARISA');
+INSERT INTO `tbl_kecamatan` VALUES ('7503031', '7503', 'PATILANGGIO');
+INSERT INTO `tbl_kecamatan` VALUES ('7503032', '7503', 'BUNTULIA');
+INSERT INTO `tbl_kecamatan` VALUES ('7503033', '7503', 'DUHIADAA');
+INSERT INTO `tbl_kecamatan` VALUES ('7503040', '7503', 'RANDANGAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7503041', '7503', 'TALUDITI');
+INSERT INTO `tbl_kecamatan` VALUES ('7503050', '7503', 'PAGUAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7503051', '7503', 'DENGILO');
+INSERT INTO `tbl_kecamatan` VALUES ('7504010', '7504', 'TAPA');
+INSERT INTO `tbl_kecamatan` VALUES ('7504011', '7504', 'BULANGO UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7504012', '7504', 'BULANGO SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7504013', '7504', 'BULANGO TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7504014', '7504', 'BULANGO ULU');
+INSERT INTO `tbl_kecamatan` VALUES ('7504020', '7504', 'KABILA');
+INSERT INTO `tbl_kecamatan` VALUES ('7504021', '7504', 'BOTU PINGGE');
+INSERT INTO `tbl_kecamatan` VALUES ('7504022', '7504', 'TILONGKABILA');
+INSERT INTO `tbl_kecamatan` VALUES ('7504030', '7504', 'SUWAWA');
+INSERT INTO `tbl_kecamatan` VALUES ('7504031', '7504', 'SUWAWA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7504032', '7504', 'SUWAWA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7504033', '7504', 'SUWAWA TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('7504034', '7504', 'PINOGU');
+INSERT INTO `tbl_kecamatan` VALUES ('7504040', '7504', 'BONEPANTAI');
+INSERT INTO `tbl_kecamatan` VALUES ('7504041', '7504', 'KABILA BONE');
+INSERT INTO `tbl_kecamatan` VALUES ('7504042', '7504', 'BONE RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('7504043', '7504', 'BONE');
+INSERT INTO `tbl_kecamatan` VALUES ('7504044', '7504', 'BULAWA');
+INSERT INTO `tbl_kecamatan` VALUES ('7505010', '7505', 'ATINGGOLA');
+INSERT INTO `tbl_kecamatan` VALUES ('7505011', '7505', 'GENTUMA RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('7505020', '7505', 'KWANDANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7505021', '7505', 'TOMILITO');
+INSERT INTO `tbl_kecamatan` VALUES ('7505022', '7505', 'PONELO KEPULAUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7505030', '7505', 'ANGGREK');
+INSERT INTO `tbl_kecamatan` VALUES ('7505031', '7505', 'MONANO');
+INSERT INTO `tbl_kecamatan` VALUES ('7505040', '7505', 'SUMALATA');
+INSERT INTO `tbl_kecamatan` VALUES ('7505041', '7505', 'SUMALATA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7505050', '7505', 'TOLINGGULA');
+INSERT INTO `tbl_kecamatan` VALUES ('7505051', '7505', 'BIAU');
+INSERT INTO `tbl_kecamatan` VALUES ('7571010', '7571', 'KOTA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7571011', '7571', 'DUNGINGI');
+INSERT INTO `tbl_kecamatan` VALUES ('7571020', '7571', 'KOTA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7571021', '7571', 'KOTA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7571022', '7571', 'HULONTHALANGI');
+INSERT INTO `tbl_kecamatan` VALUES ('7571023', '7571', 'DUMBO RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('7571030', '7571', 'KOTA UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('7571031', '7571', 'KOTA TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('7571032', '7571', 'SIPATANA');
+INSERT INTO `tbl_kecamatan` VALUES ('7601010', '7601', 'BANGGAE');
+INSERT INTO `tbl_kecamatan` VALUES ('7601011', '7601', 'BANGGAE TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7601020', '7601', 'PAMBOANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7601030', '7601', 'SENDANA');
+INSERT INTO `tbl_kecamatan` VALUES ('7601031', '7601', 'TAMMERODO');
+INSERT INTO `tbl_kecamatan` VALUES ('7601033', '7601', 'TUBO SENDANA');
+INSERT INTO `tbl_kecamatan` VALUES ('7601040', '7601', 'MALUNDA');
+INSERT INTO `tbl_kecamatan` VALUES ('7601041', '7601', 'ULUMANDA');
+INSERT INTO `tbl_kecamatan` VALUES ('7602010', '7602', 'TINAMBUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('7602011', '7602', 'BALANIPA');
+INSERT INTO `tbl_kecamatan` VALUES ('7602012', '7602', 'LIMBORO');
+INSERT INTO `tbl_kecamatan` VALUES ('7602020', '7602', 'TUBBI TARAMANU');
+INSERT INTO `tbl_kecamatan` VALUES ('7602021', '7602', 'ALU');
+INSERT INTO `tbl_kecamatan` VALUES ('7602030', '7602', 'CAMPALAGIAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7602031', '7602', 'LUYO');
+INSERT INTO `tbl_kecamatan` VALUES ('7602040', '7602', 'WONOMULYO');
+INSERT INTO `tbl_kecamatan` VALUES ('7602041', '7602', 'MAPILLI');
+INSERT INTO `tbl_kecamatan` VALUES ('7602042', '7602', 'TAPANGO');
+INSERT INTO `tbl_kecamatan` VALUES ('7602043', '7602', 'MATAKALI');
+INSERT INTO `tbl_kecamatan` VALUES ('7602044', '7602', 'B U L O');
+INSERT INTO `tbl_kecamatan` VALUES ('7602050', '7602', 'POLEWALI');
+INSERT INTO `tbl_kecamatan` VALUES ('7602051', '7602', 'BINUANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7602052', '7602', 'ANREAPI');
+INSERT INTO `tbl_kecamatan` VALUES ('7602061', '7602', 'MATANGNGA');
+INSERT INTO `tbl_kecamatan` VALUES ('7603010', '7603', 'SUMARORONG');
+INSERT INTO `tbl_kecamatan` VALUES ('7603020', '7603', 'MESSAWA');
+INSERT INTO `tbl_kecamatan` VALUES ('7603030', '7603', 'PANA');
+INSERT INTO `tbl_kecamatan` VALUES ('7603031', '7603', 'NOSU');
+INSERT INTO `tbl_kecamatan` VALUES ('7603040', '7603', 'TABANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7603050', '7603', 'MAMASA');
+INSERT INTO `tbl_kecamatan` VALUES ('7603060', '7603', 'TANDUK KALUA');
+INSERT INTO `tbl_kecamatan` VALUES ('7603061', '7603', 'BALLA');
+INSERT INTO `tbl_kecamatan` VALUES ('7603070', '7603', 'SESENAPADANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7603071', '7603', 'TAWALIAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7603080', '7603', 'MAMBI');
+INSERT INTO `tbl_kecamatan` VALUES ('7603081', '7603', 'BAMBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7603082', '7603', 'RANTEBULAHAN TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('7603083', '7603', 'MEHALAAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7603090', '7603', 'ARALLE');
+INSERT INTO `tbl_kecamatan` VALUES ('7603091', '7603', 'BUNTU MALANGKA');
+INSERT INTO `tbl_kecamatan` VALUES ('7603100', '7603', 'TABULAHAN');
+INSERT INTO `tbl_kecamatan` VALUES ('7604010', '7604', 'TAPALANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7604011', '7604', 'TAPALANG BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('7604020', '7604', 'MAMUJU');
+INSERT INTO `tbl_kecamatan` VALUES ('7604022', '7604', 'SIMBORO');
+INSERT INTO `tbl_kecamatan` VALUES ('7604023', '7604', 'BALABALAKANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7604030', '7604', 'KALUKKU');
+INSERT INTO `tbl_kecamatan` VALUES ('7604031', '7604', 'PAPALANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7604032', '7604', 'SAMPAGA');
+INSERT INTO `tbl_kecamatan` VALUES ('7604033', '7604', 'TOMMO');
+INSERT INTO `tbl_kecamatan` VALUES ('7604040', '7604', 'KALUMPANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7604041', '7604', 'BONEHAU');
+INSERT INTO `tbl_kecamatan` VALUES ('7605010', '7605', 'SARUDU');
+INSERT INTO `tbl_kecamatan` VALUES ('7605011', '7605', 'DAPURANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7605012', '7605', 'DURIPOKU');
+INSERT INTO `tbl_kecamatan` VALUES ('7605020', '7605', 'BARAS');
+INSERT INTO `tbl_kecamatan` VALUES ('7605021', '7605', 'BULU TABA');
+INSERT INTO `tbl_kecamatan` VALUES ('7605022', '7605', 'LARIANG');
+INSERT INTO `tbl_kecamatan` VALUES ('7605030', '7605', 'PASANGKAYU');
+INSERT INTO `tbl_kecamatan` VALUES ('7605031', '7605', 'TIKKE RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('7605032', '7605', 'PEDONGGA');
+INSERT INTO `tbl_kecamatan` VALUES ('7605040', '7605', 'BAMBALAMOTU');
+INSERT INTO `tbl_kecamatan` VALUES ('7605041', '7605', 'BAMBAIRA');
+INSERT INTO `tbl_kecamatan` VALUES ('7605042', '7605', 'SARJO');
+INSERT INTO `tbl_kecamatan` VALUES ('7606010', '7606', 'PANGALE');
+INSERT INTO `tbl_kecamatan` VALUES ('7606020', '7606', 'BUDONG-BUDONG');
+INSERT INTO `tbl_kecamatan` VALUES ('7606030', '7606', 'TOBADAK');
+INSERT INTO `tbl_kecamatan` VALUES ('7606040', '7606', 'TOPOYO');
+INSERT INTO `tbl_kecamatan` VALUES ('7606050', '7606', 'KAROSSA');
+INSERT INTO `tbl_kecamatan` VALUES ('8101040', '8101', 'TANIMBAR SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8101041', '8101', 'WER TAMRIAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8101042', '8101', 'WER MAKTIAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8101043', '8101', 'SELARU');
+INSERT INTO `tbl_kecamatan` VALUES ('8101050', '8101', 'TANIMBAR UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('8101051', '8101', 'YARU');
+INSERT INTO `tbl_kecamatan` VALUES ('8101052', '8101', 'WUAR LABOBAR');
+INSERT INTO `tbl_kecamatan` VALUES ('8101053', '8101', 'NIRUNMAS');
+INSERT INTO `tbl_kecamatan` VALUES ('8101054', '8101', 'KORMOMOLIN');
+INSERT INTO `tbl_kecamatan` VALUES ('8101055', '8101', 'MOLU MARU');
+INSERT INTO `tbl_kecamatan` VALUES ('8102010', '8102', 'KEI KECIL');
+INSERT INTO `tbl_kecamatan` VALUES ('8102012', '8102', 'KEI KECIL BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('8102013', '8102', 'KEI KECIL TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('8102014', '8102', 'HOAT SORBAY');
+INSERT INTO `tbl_kecamatan` VALUES ('8102015', '8102', 'MANYEUW');
+INSERT INTO `tbl_kecamatan` VALUES ('8102016', '8102', 'KEI KECIL TIMUR SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8102020', '8102', 'KEI BESAR');
+INSERT INTO `tbl_kecamatan` VALUES ('8102021', '8102', 'KEI BESAR UTARA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('8102022', '8102', 'KEI BESAR SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8102023', '8102', 'KEI BESAR UTARA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('8102024', '8102', 'KEI BESAR SELATAN BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('8103010', '8103', 'BANDA');
+INSERT INTO `tbl_kecamatan` VALUES ('8103040', '8103', 'TEHORU');
+INSERT INTO `tbl_kecamatan` VALUES ('8103041', '8103', 'TELUTIH');
+INSERT INTO `tbl_kecamatan` VALUES ('8103050', '8103', 'AMAHAI');
+INSERT INTO `tbl_kecamatan` VALUES ('8103051', '8103', 'KOTA MASOHI');
+INSERT INTO `tbl_kecamatan` VALUES ('8103052', '8103', 'TELUK ELPAPUTIH');
+INSERT INTO `tbl_kecamatan` VALUES ('8103060', '8103', 'TEON NILA SERUA');
+INSERT INTO `tbl_kecamatan` VALUES ('8103080', '8103', 'SAPARUA');
+INSERT INTO `tbl_kecamatan` VALUES ('8103081', '8103', 'NUSALAUT');
+INSERT INTO `tbl_kecamatan` VALUES ('8103082', '8103', 'SAPARUA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('8103090', '8103', 'P. HARUKU');
+INSERT INTO `tbl_kecamatan` VALUES ('8103100', '8103', 'SALAHUTU');
+INSERT INTO `tbl_kecamatan` VALUES ('8103110', '8103', 'LEIHITU');
+INSERT INTO `tbl_kecamatan` VALUES ('8103111', '8103', 'LEIHITU BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('8103140', '8103', 'SERAM UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('8103141', '8103', 'SERAM UTARA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('8103142', '8103', 'SERAM UTARA TIMUR KOBI');
+INSERT INTO `tbl_kecamatan` VALUES ('8103143', '8103', 'SERAM UTARA TIMUR SETI');
+INSERT INTO `tbl_kecamatan` VALUES ('8104020', '8104', 'NAMLEA');
+INSERT INTO `tbl_kecamatan` VALUES ('8104021', '8104', 'WAEAPO');
+INSERT INTO `tbl_kecamatan` VALUES ('8104022', '8104', 'WAPLAU');
+INSERT INTO `tbl_kecamatan` VALUES ('8104023', '8104', 'BATA BUAL');
+INSERT INTO `tbl_kecamatan` VALUES ('8104024', '8104', 'TELUK KAIELY');
+INSERT INTO `tbl_kecamatan` VALUES ('8104025', '8104', 'WAELATA');
+INSERT INTO `tbl_kecamatan` VALUES ('8104026', '8104', 'LOLONG GUBA');
+INSERT INTO `tbl_kecamatan` VALUES ('8104027', '8104', 'LILIALY');
+INSERT INTO `tbl_kecamatan` VALUES ('8104030', '8104', 'AIR BUAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('8104031', '8104', 'FENA LEISELA');
+INSERT INTO `tbl_kecamatan` VALUES ('8105010', '8105', 'ARU SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8105011', '8105', 'ARU SELATAN TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('8105012', '8105', 'ARU SELATAN UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('8105020', '8105', 'ARU TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('8105021', '8105', 'ARU TENGAH TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('8105022', '8105', 'ARU TENGAH SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8105030', '8105', 'PULAU-PULAU ARU');
+INSERT INTO `tbl_kecamatan` VALUES ('8105031', '8105', 'ARU UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('8105032', '8105', 'ARU UTARA TIMUR BATULEY');
+INSERT INTO `tbl_kecamatan` VALUES ('8105033', '8105', 'SIR-SIR');
+INSERT INTO `tbl_kecamatan` VALUES ('8106010', '8106', 'HUAMUAL BELAKANG');
+INSERT INTO `tbl_kecamatan` VALUES ('8106011', '8106', 'KEPULAUAN MANIPA');
+INSERT INTO `tbl_kecamatan` VALUES ('8106020', '8106', 'SERAM BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('8106021', '8106', 'HUAMUAL');
+INSERT INTO `tbl_kecamatan` VALUES ('8106030', '8106', 'KAIRATU');
+INSERT INTO `tbl_kecamatan` VALUES ('8106031', '8106', 'KAIRATU BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('8106032', '8106', 'INAMOSOL');
+INSERT INTO `tbl_kecamatan` VALUES ('8106033', '8106', 'AMALATU');
+INSERT INTO `tbl_kecamatan` VALUES ('8106034', '8106', 'ELPAPUTIH');
+INSERT INTO `tbl_kecamatan` VALUES ('8106040', '8106', 'TANIWEL');
+INSERT INTO `tbl_kecamatan` VALUES ('8106041', '8106', 'TANIWEL TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('8107010', '8107', 'PULAU GOROM');
+INSERT INTO `tbl_kecamatan` VALUES ('8107011', '8107', 'WAKATE');
+INSERT INTO `tbl_kecamatan` VALUES ('8107012', '8107', 'TEOR');
+INSERT INTO `tbl_kecamatan` VALUES ('8107013', '8107', 'GOROM TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('8107014', '8107', 'PULAU PANJANG');
+INSERT INTO `tbl_kecamatan` VALUES ('8107020', '8107', 'SERAM TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('8107021', '8107', 'TUTUK TOLU');
+INSERT INTO `tbl_kecamatan` VALUES ('8107022', '8107', 'KILMURY');
+INSERT INTO `tbl_kecamatan` VALUES ('8107023', '8107', 'LIAN VITU');
+INSERT INTO `tbl_kecamatan` VALUES ('8107024', '8107', 'KIAN DARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('8107030', '8107', 'WERINAMA');
+INSERT INTO `tbl_kecamatan` VALUES ('8107031', '8107', 'SIWALALAT');
+INSERT INTO `tbl_kecamatan` VALUES ('8107040', '8107', 'BULA');
+INSERT INTO `tbl_kecamatan` VALUES ('8107041', '8107', 'BULA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('8107042', '8107', 'TELUK WARU');
+INSERT INTO `tbl_kecamatan` VALUES ('8108010', '8108', 'WETAR');
+INSERT INTO `tbl_kecamatan` VALUES ('8108011', '8108', 'WETAR BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('8108012', '8108', 'WETAR UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('8108013', '8108', 'WETAR TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('8108020', '8108', 'PP. TERSELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8108021', '8108', 'KISAR UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('8108022', '8108', 'KEPULAUAN ROMANG');
+INSERT INTO `tbl_kecamatan` VALUES ('8108030', '8108', 'LETTI');
+INSERT INTO `tbl_kecamatan` VALUES ('8108041', '8108', 'MOA');
+INSERT INTO `tbl_kecamatan` VALUES ('8108042', '8108', 'LAKOR');
+INSERT INTO `tbl_kecamatan` VALUES ('8108050', '8108', 'DAMER');
+INSERT INTO `tbl_kecamatan` VALUES ('8108060', '8108', 'MDONA HIERA');
+INSERT INTO `tbl_kecamatan` VALUES ('8108070', '8108', 'PP. BABAR');
+INSERT INTO `tbl_kecamatan` VALUES ('8108071', '8108', 'PULAU WETANG');
+INSERT INTO `tbl_kecamatan` VALUES ('8108080', '8108', 'BABAR TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('8108081', '8108', 'PULAU MASELA');
+INSERT INTO `tbl_kecamatan` VALUES ('8108082', '8108', 'DAWELOR DAWERA');
+INSERT INTO `tbl_kecamatan` VALUES ('8109010', '8109', 'KEPALA MADAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8109020', '8109', 'LEKSULA');
+INSERT INTO `tbl_kecamatan` VALUES ('8109021', '8109', 'FENA FAFAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8109030', '8109', 'NAMROLE');
+INSERT INTO `tbl_kecamatan` VALUES ('8109040', '8109', 'WAISAMA');
+INSERT INTO `tbl_kecamatan` VALUES ('8109050', '8109', 'AMBALAU');
+INSERT INTO `tbl_kecamatan` VALUES ('8171010', '8171', 'NUSANIWE');
+INSERT INTO `tbl_kecamatan` VALUES ('8171020', '8171', 'SIRIMAU');
+INSERT INTO `tbl_kecamatan` VALUES ('8171021', '8171', 'LEITIMUR SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8171030', '8171', 'TELUK AMBON BAGUALA');
+INSERT INTO `tbl_kecamatan` VALUES ('8171031', '8171', 'TELUK AMBON');
+INSERT INTO `tbl_kecamatan` VALUES ('8172010', '8172', 'PP. KUR');
+INSERT INTO `tbl_kecamatan` VALUES ('8172011', '8172', 'KUR SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8172020', '8172', 'TAYANDO TAM');
+INSERT INTO `tbl_kecamatan` VALUES ('8172030', '8172', 'PULAU DULLAH UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('8172040', '8172', 'PULAU DULLAH SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8201090', '8201', 'JAILOLO');
+INSERT INTO `tbl_kecamatan` VALUES ('8201091', '8201', 'JAILOLO SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8201100', '8201', 'SAHU');
+INSERT INTO `tbl_kecamatan` VALUES ('8201101', '8201', 'SAHU TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('8201130', '8201', 'IBU');
+INSERT INTO `tbl_kecamatan` VALUES ('8201131', '8201', 'IBU SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8201132', '8201', 'TABARU');
+INSERT INTO `tbl_kecamatan` VALUES ('8201140', '8201', 'LOLODA');
+INSERT INTO `tbl_kecamatan` VALUES ('8202030', '8202', 'WEDA');
+INSERT INTO `tbl_kecamatan` VALUES ('8202031', '8202', 'WEDA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8202032', '8202', 'WEDA UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('8202033', '8202', 'WEDA TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('8202034', '8202', 'WEDA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('8202041', '8202', 'PULAU GEBE');
+INSERT INTO `tbl_kecamatan` VALUES ('8202042', '8202', 'PATANI');
+INSERT INTO `tbl_kecamatan` VALUES ('8202043', '8202', 'PATANI UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('8202044', '8202', 'PATANI BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('8202045', '8202', 'PATANI TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('8203010', '8203', 'SULA BESI BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('8203011', '8203', 'SULABESI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8203020', '8203', 'SANANA');
+INSERT INTO `tbl_kecamatan` VALUES ('8203021', '8203', 'SULA BESI TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('8203022', '8203', 'SULABESI TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('8203023', '8203', 'SANANA UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('8203030', '8203', 'MANGOLI TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('8203031', '8203', 'MANGOLI TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('8203032', '8203', 'MANGOLI UTARA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('8203040', '8203', 'MANGOLI BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('8203041', '8203', 'MANGOLI UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('8203042', '8203', 'MANGOLI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8204010', '8204', 'OBI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8204020', '8204', 'OBI');
+INSERT INTO `tbl_kecamatan` VALUES ('8204021', '8204', 'OBI BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('8204022', '8204', 'OBI TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('8204023', '8204', 'OBI UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('8204030', '8204', 'BACAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8204031', '8204', 'MANDIOLI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8204032', '8204', 'MANDIOLI UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('8204033', '8204', 'BACAN SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8204034', '8204', 'BATANG LOMANG');
+INSERT INTO `tbl_kecamatan` VALUES ('8204040', '8204', 'BACAN TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('8204041', '8204', 'BACAN TIMUR SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8204042', '8204', 'BACAN TIMUR TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('8204050', '8204', 'BACAN BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('8204051', '8204', 'KASIRUTA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('8204052', '8204', 'KASIRUTA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('8204053', '8204', 'BACAN BARAT UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('8204060', '8204', 'KAYOA');
+INSERT INTO `tbl_kecamatan` VALUES ('8204061', '8204', 'KAYOA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('8204062', '8204', 'KAYOA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8204063', '8204', 'KAYOA UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('8204070', '8204', 'PULAU MAKIAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8204071', '8204', 'MAKIAN BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('8204080', '8204', 'GANE BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('8204081', '8204', 'GANE BARAT SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8204082', '8204', 'GANE BARAT UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('8204083', '8204', 'KEPULAUAN JORONGA');
+INSERT INTO `tbl_kecamatan` VALUES ('8204090', '8204', 'GANE TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('8204091', '8204', 'GANE TIMUR TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('8204092', '8204', 'GANE TIMUR SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8205010', '8205', 'MALIFUT');
+INSERT INTO `tbl_kecamatan` VALUES ('8205011', '8205', 'KAO TELUK');
+INSERT INTO `tbl_kecamatan` VALUES ('8205020', '8205', 'KAO');
+INSERT INTO `tbl_kecamatan` VALUES ('8205021', '8205', 'KAO BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('8205022', '8205', 'KAO UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('8205030', '8205', 'TOBELO SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8205031', '8205', 'TOBELO BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('8205032', '8205', 'TOBELO TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('8205040', '8205', 'TOBELO');
+INSERT INTO `tbl_kecamatan` VALUES ('8205041', '8205', 'TOBELO TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('8205042', '8205', 'TOBELO UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('8205050', '8205', 'GALELA');
+INSERT INTO `tbl_kecamatan` VALUES ('8205051', '8205', 'GALELA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8205052', '8205', 'GALELA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('8205053', '8205', 'GALELA UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('8205060', '8205', 'LOLODA UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('8205061', '8205', 'LOLODA KEPULAUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8206010', '8206', 'MABA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8206011', '8206', 'KOTA MABA');
+INSERT INTO `tbl_kecamatan` VALUES ('8206020', '8206', 'WASILE SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8206030', '8206', 'WASILE');
+INSERT INTO `tbl_kecamatan` VALUES ('8206031', '8206', 'WASILE TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('8206032', '8206', 'WASILE TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('8206033', '8206', 'WASILE UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('8206040', '8206', 'MABA');
+INSERT INTO `tbl_kecamatan` VALUES ('8206041', '8206', 'MABA TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('8206042', '8206', 'MABA UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('8207010', '8207', 'MOROTAI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8207020', '8207', 'MOROTAI TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('8207030', '8207', 'MOROTAI SELATAN BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('8207040', '8207', 'MOROTAI JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('8207050', '8207', 'MOROTAI UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('8208010', '8208', 'TALIABU BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('8208020', '8208', 'TALIABU SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8208030', '8208', 'TABONA');
+INSERT INTO `tbl_kecamatan` VALUES ('8208040', '8208', 'TALIABU TIMUR SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8208050', '8208', 'TALIABU TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('8208060', '8208', 'TALIABU UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('8208070', '8208', 'LEDE');
+INSERT INTO `tbl_kecamatan` VALUES ('8208080', '8208', 'TALIABU BARAT LAUT');
+INSERT INTO `tbl_kecamatan` VALUES ('8271010', '8271', 'PULAU TERNATE');
+INSERT INTO `tbl_kecamatan` VALUES ('8271011', '8271', 'MOTI');
+INSERT INTO `tbl_kecamatan` VALUES ('8271012', '8271', 'PULAU BATANG DUA');
+INSERT INTO `tbl_kecamatan` VALUES ('8271013', '8271', 'PULAU HIRI');
+INSERT INTO `tbl_kecamatan` VALUES ('8271020', '8271', 'TERNATE SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8271021', '8271', 'TERNATE TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('8271030', '8271', 'TERNATE UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('8272010', '8272', 'TIDORE SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8272020', '8272', 'TIDORE UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('8272030', '8272', 'TIDORE');
+INSERT INTO `tbl_kecamatan` VALUES ('8272031', '8272', 'TIDORE TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('8272040', '8272', 'OBA');
+INSERT INTO `tbl_kecamatan` VALUES ('8272041', '8272', 'OBA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('8272050', '8272', 'OBA UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('8272051', '8272', 'OBA TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('9101050', '9101', 'FAKFAK TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9101051', '9101', 'KARAS');
+INSERT INTO `tbl_kecamatan` VALUES ('9101060', '9101', 'FAKFAK');
+INSERT INTO `tbl_kecamatan` VALUES ('9101061', '9101', 'FAKFAK TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('9101070', '9101', 'FAKFAK BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('9101080', '9101', 'KOKAS');
+INSERT INTO `tbl_kecamatan` VALUES ('9101081', '9101', 'TELUK PATIPI');
+INSERT INTO `tbl_kecamatan` VALUES ('9101082', '9101', 'KRAMONGMONGGA');
+INSERT INTO `tbl_kecamatan` VALUES ('9101083', '9101', 'BOMBERAY');
+INSERT INTO `tbl_kecamatan` VALUES ('9102010', '9102', 'BURUWAY');
+INSERT INTO `tbl_kecamatan` VALUES ('9102020', '9102', 'TELUK ARGUNI');
+INSERT INTO `tbl_kecamatan` VALUES ('9102021', '9102', 'TELUK ARGUNI BAWAH');
+INSERT INTO `tbl_kecamatan` VALUES ('9102030', '9102', 'KAIMANA');
+INSERT INTO `tbl_kecamatan` VALUES ('9102031', '9102', 'KAMBRAU');
+INSERT INTO `tbl_kecamatan` VALUES ('9102040', '9102', 'TELUK ETNA');
+INSERT INTO `tbl_kecamatan` VALUES ('9102041', '9102', 'YAMOR');
+INSERT INTO `tbl_kecamatan` VALUES ('9103010', '9103', 'NAIKERE');
+INSERT INTO `tbl_kecamatan` VALUES ('9103020', '9103', 'WONDIBOY');
+INSERT INTO `tbl_kecamatan` VALUES ('9103021', '9103', 'RASIEY');
+INSERT INTO `tbl_kecamatan` VALUES ('9103022', '9103', 'KURI WAMESA');
+INSERT INTO `tbl_kecamatan` VALUES ('9103030', '9103', 'WASIOR');
+INSERT INTO `tbl_kecamatan` VALUES ('9103040', '9103', 'DUAIRI');
+INSERT INTO `tbl_kecamatan` VALUES ('9103041', '9103', 'ROON');
+INSERT INTO `tbl_kecamatan` VALUES ('9103050', '9103', 'WINDESI');
+INSERT INTO `tbl_kecamatan` VALUES ('9103051', '9103', 'NIKIWAR');
+INSERT INTO `tbl_kecamatan` VALUES ('9103060', '9103', 'WAMESA');
+INSERT INTO `tbl_kecamatan` VALUES ('9103061', '9103', 'ROSWAR');
+INSERT INTO `tbl_kecamatan` VALUES ('9103070', '9103', 'RUMBERPON');
+INSERT INTO `tbl_kecamatan` VALUES ('9103071', '9103', 'SOUG JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('9104010', '9104', 'FAFURWAR');
+INSERT INTO `tbl_kecamatan` VALUES ('9104020', '9104', 'BABO');
+INSERT INTO `tbl_kecamatan` VALUES ('9104021', '9104', 'SUMURI');
+INSERT INTO `tbl_kecamatan` VALUES ('9104022', '9104', 'AROBA');
+INSERT INTO `tbl_kecamatan` VALUES ('9104023', '9104', 'KAITARO');
+INSERT INTO `tbl_kecamatan` VALUES ('9104030', '9104', 'KURI');
+INSERT INTO `tbl_kecamatan` VALUES ('9104040', '9104', 'WAMESA');
+INSERT INTO `tbl_kecamatan` VALUES ('9104050', '9104', 'BINTUNI');
+INSERT INTO `tbl_kecamatan` VALUES ('9104051', '9104', 'MANIMERI');
+INSERT INTO `tbl_kecamatan` VALUES ('9104052', '9104', 'TUHIBA');
+INSERT INTO `tbl_kecamatan` VALUES ('9104053', '9104', 'DATARAN BEIMES');
+INSERT INTO `tbl_kecamatan` VALUES ('9104060', '9104', 'TEMBUNI');
+INSERT INTO `tbl_kecamatan` VALUES ('9104070', '9104', 'ARANDAY');
+INSERT INTO `tbl_kecamatan` VALUES ('9104071', '9104', 'KAMUNDAN');
+INSERT INTO `tbl_kecamatan` VALUES ('9104072', '9104', 'TOMU');
+INSERT INTO `tbl_kecamatan` VALUES ('9104073', '9104', 'WERIAGAR');
+INSERT INTO `tbl_kecamatan` VALUES ('9104080', '9104', 'MOSKONA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('9104081', '9104', 'MEYADO');
+INSERT INTO `tbl_kecamatan` VALUES ('9104082', '9104', 'MOSKONA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('9104090', '9104', 'MERDEY');
+INSERT INTO `tbl_kecamatan` VALUES ('9104091', '9104', 'BISCOOP');
+INSERT INTO `tbl_kecamatan` VALUES ('9104092', '9104', 'MASYETA');
+INSERT INTO `tbl_kecamatan` VALUES ('9104100', '9104', 'MOSKONA UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('9104101', '9104', 'MOSKONA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9105110', '9105', 'WARMARE');
+INSERT INTO `tbl_kecamatan` VALUES ('9105120', '9105', 'PRAFI');
+INSERT INTO `tbl_kecamatan` VALUES ('9105141', '9105', 'MANOKWARI BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('9105142', '9105', 'MANOKWARI TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9105143', '9105', 'MANOKWARI UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('9105144', '9105', 'MANOKWARI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('9105146', '9105', 'TANAH RUBU');
+INSERT INTO `tbl_kecamatan` VALUES ('9105170', '9105', 'MASNI');
+INSERT INTO `tbl_kecamatan` VALUES ('9105171', '9105', 'SIDEY');
+INSERT INTO `tbl_kecamatan` VALUES ('9106010', '9106', 'INANWATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('9106011', '9106', 'METEMANI');
+INSERT INTO `tbl_kecamatan` VALUES ('9106020', '9106', 'KOKODA');
+INSERT INTO `tbl_kecamatan` VALUES ('9106021', '9106', 'KAIS');
+INSERT INTO `tbl_kecamatan` VALUES ('9106022', '9106', 'KOKODA UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('9106023', '9106', 'KAIS DARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('9106060', '9106', 'MOSWAREN');
+INSERT INTO `tbl_kecamatan` VALUES ('9106070', '9106', 'TEMINABUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('9106071', '9106', 'SEREMUK');
+INSERT INTO `tbl_kecamatan` VALUES ('9106072', '9106', 'WAYER');
+INSERT INTO `tbl_kecamatan` VALUES ('9106073', '9106', 'KONDA');
+INSERT INTO `tbl_kecamatan` VALUES ('9106074', '9106', 'SAIFI');
+INSERT INTO `tbl_kecamatan` VALUES ('9106080', '9106', 'SAWIAT');
+INSERT INTO `tbl_kecamatan` VALUES ('9106081', '9106', 'FOKOUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9106082', '9106', 'SALKMA');
+INSERT INTO `tbl_kecamatan` VALUES ('9107060', '9107', 'MORAID');
+INSERT INTO `tbl_kecamatan` VALUES ('9107061', '9107', 'KLASO');
+INSERT INTO `tbl_kecamatan` VALUES ('9107100', '9107', 'MAKBON');
+INSERT INTO `tbl_kecamatan` VALUES ('9107101', '9107', 'KLAYILI');
+INSERT INTO `tbl_kecamatan` VALUES ('9107110', '9107', 'BERAUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9107111', '9107', 'KLAMONO');
+INSERT INTO `tbl_kecamatan` VALUES ('9107112', '9107', 'KLABOT');
+INSERT INTO `tbl_kecamatan` VALUES ('9107113', '9107', 'KLAWAK');
+INSERT INTO `tbl_kecamatan` VALUES ('9107120', '9107', 'SALAWATI');
+INSERT INTO `tbl_kecamatan` VALUES ('9107121', '9107', 'MAYAMUK');
+INSERT INTO `tbl_kecamatan` VALUES ('9107122', '9107', 'SALAWATI TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9107130', '9107', 'SEGET');
+INSERT INTO `tbl_kecamatan` VALUES ('9107131', '9107', 'SEGUN');
+INSERT INTO `tbl_kecamatan` VALUES ('9107132', '9107', 'SALAWATI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('9107170', '9107', 'AIMAS');
+INSERT INTO `tbl_kecamatan` VALUES ('9107171', '9107', 'MARIAT');
+INSERT INTO `tbl_kecamatan` VALUES ('9107172', '9107', 'SORONG');
+INSERT INTO `tbl_kecamatan` VALUES ('9107180', '9107', 'SAYOSA');
+INSERT INTO `tbl_kecamatan` VALUES ('9107181', '9107', 'MAUDUS');
+INSERT INTO `tbl_kecamatan` VALUES ('9108011', '9108', 'MISOOL SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('9108012', '9108', 'MISOOL BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('9108020', '9108', 'MISOOL');
+INSERT INTO `tbl_kecamatan` VALUES ('9108021', '9108', 'KOFIAU');
+INSERT INTO `tbl_kecamatan` VALUES ('9108022', '9108', 'MISOOL TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9108023', '9108', 'KEPULAUAN SEMBILAN');
+INSERT INTO `tbl_kecamatan` VALUES ('9108031', '9108', 'SALAWATI UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('9108033', '9108', 'SALAWATI TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('9108034', '9108', 'SALAWATI BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('9108035', '9108', 'BATANTA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('9108036', '9108', 'BATANTA UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('9108040', '9108', 'WAIGEO SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('9108041', '9108', 'TELUK MAYALIBIT');
+INSERT INTO `tbl_kecamatan` VALUES ('9108042', '9108', 'MEOS MANSAR');
+INSERT INTO `tbl_kecamatan` VALUES ('9108043', '9108', 'KOTA WAISAI');
+INSERT INTO `tbl_kecamatan` VALUES ('9108044', '9108', 'TIPLOL MAYALIBIT');
+INSERT INTO `tbl_kecamatan` VALUES ('9108050', '9108', 'WAIGEO BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('9108051', '9108', 'WAIGEO BARAT KEPULAUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('9108060', '9108', 'WAIGEO UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('9108061', '9108', 'WARWARBOMI');
+INSERT INTO `tbl_kecamatan` VALUES ('9108062', '9108', 'SUPNIN');
+INSERT INTO `tbl_kecamatan` VALUES ('9108070', '9108', 'KEPULAUAN AYAU');
+INSERT INTO `tbl_kecamatan` VALUES ('9108071', '9108', 'AYAU');
+INSERT INTO `tbl_kecamatan` VALUES ('9108080', '9108', 'WAIGEO TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9109010', '9109', 'FEF');
+INSERT INTO `tbl_kecamatan` VALUES ('9109011', '9109', 'SYUJAK');
+INSERT INTO `tbl_kecamatan` VALUES ('9109020', '9109', 'MIYAH');
+INSERT INTO `tbl_kecamatan` VALUES ('9109030', '9109', 'ABUN');
+INSERT INTO `tbl_kecamatan` VALUES ('9109040', '9109', 'KWOOR');
+INSERT INTO `tbl_kecamatan` VALUES ('9109050', '9109', 'SAUSAPOR');
+INSERT INTO `tbl_kecamatan` VALUES ('9109060', '9109', 'YEMBUN');
+INSERT INTO `tbl_kecamatan` VALUES ('9109070', '9109', 'KEBAR');
+INSERT INTO `tbl_kecamatan` VALUES ('9109080', '9109', 'SENOPI');
+INSERT INTO `tbl_kecamatan` VALUES ('9109090', '9109', 'AMBERBAKEN');
+INSERT INTO `tbl_kecamatan` VALUES ('9109100', '9109', 'MUBARNI / ARFU');
+INSERT INTO `tbl_kecamatan` VALUES ('9110010', '9110', 'AITINYO BARAT/ATHABU');
+INSERT INTO `tbl_kecamatan` VALUES ('9110011', '9110', 'AYAMARU SELATAN JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('9110020', '9110', 'AITINYO');
+INSERT INTO `tbl_kecamatan` VALUES ('9110021', '9110', 'AITINYO TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('9110030', '9110', 'AIFAT SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('9110031', '9110', 'AIFAT TIMUR SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('9110040', '9110', 'AIFAT');
+INSERT INTO `tbl_kecamatan` VALUES ('9110050', '9110', 'AITINYO UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('9110051', '9110', 'AITINYO RAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('9110060', '9110', 'AYAMARU TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9110061', '9110', 'AYAMARU TIMUR SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('9110070', '9110', 'AYAMARU');
+INSERT INTO `tbl_kecamatan` VALUES ('9110071', '9110', 'AYAMARU SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('9110072', '9110', 'AYAMARU JAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('9110073', '9110', 'AYAMARU TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('9110074', '9110', 'AYAMARU BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('9110080', '9110', 'AYAMARU UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('9110081', '9110', 'AYAMARU UTARA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9110090', '9110', 'MARE');
+INSERT INTO `tbl_kecamatan` VALUES ('9110091', '9110', 'MARE SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('9110100', '9110', 'AIFAT UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('9110110', '9110', 'AIFAT TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9110111', '9110', 'AIFAT TIMUR TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('9110112', '9110', 'AIFAT TIMUR JAUH');
+INSERT INTO `tbl_kecamatan` VALUES ('9111010', '9111', 'TAHOSTA');
+INSERT INTO `tbl_kecamatan` VALUES ('9111020', '9111', 'DATARAN ISIM');
+INSERT INTO `tbl_kecamatan` VALUES ('9111030', '9111', 'NENEI');
+INSERT INTO `tbl_kecamatan` VALUES ('9111040', '9111', 'MOMI WAREN');
+INSERT INTO `tbl_kecamatan` VALUES ('9111050', '9111', 'RANSIKI');
+INSERT INTO `tbl_kecamatan` VALUES ('9111060', '9111', 'ORANSBARI');
+INSERT INTO `tbl_kecamatan` VALUES ('9112010', '9112', 'DIDOHU');
+INSERT INTO `tbl_kecamatan` VALUES ('9112020', '9112', 'SURUREY');
+INSERT INTO `tbl_kecamatan` VALUES ('9112030', '9112', 'ANGGI GIDA');
+INSERT INTO `tbl_kecamatan` VALUES ('9112040', '9112', 'MEMBEY');
+INSERT INTO `tbl_kecamatan` VALUES ('9112050', '9112', 'ANGGI');
+INSERT INTO `tbl_kecamatan` VALUES ('9112060', '9112', 'TAIGE');
+INSERT INTO `tbl_kecamatan` VALUES ('9112070', '9112', 'HINGK');
+INSERT INTO `tbl_kecamatan` VALUES ('9112080', '9112', 'MENYAMBOUW');
+INSERT INTO `tbl_kecamatan` VALUES ('9112090', '9112', 'CATUBOUW');
+INSERT INTO `tbl_kecamatan` VALUES ('9112100', '9112', 'TESTEGA');
+INSERT INTO `tbl_kecamatan` VALUES ('9171010', '9171', 'SORONG BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('9171011', '9171', 'SORONG KEPULAUAN');
+INSERT INTO `tbl_kecamatan` VALUES ('9171012', '9171', 'MALADOMES');
+INSERT INTO `tbl_kecamatan` VALUES ('9171020', '9171', 'SORONG TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9171021', '9171', 'SORONG UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('9171022', '9171', 'SORONG');
+INSERT INTO `tbl_kecamatan` VALUES ('9171023', '9171', 'SORONG MANOI');
+INSERT INTO `tbl_kecamatan` VALUES ('9171024', '9171', 'KLAURUNG');
+INSERT INTO `tbl_kecamatan` VALUES ('9171025', '9171', 'MALAIMSIMSA');
+INSERT INTO `tbl_kecamatan` VALUES ('9171026', '9171', 'SORONG KOTA');
+INSERT INTO `tbl_kecamatan` VALUES ('9401010', '9401', 'KIMAAM');
+INSERT INTO `tbl_kecamatan` VALUES ('9401011', '9401', 'WAAN');
+INSERT INTO `tbl_kecamatan` VALUES ('9401012', '9401', 'TABONJI');
+INSERT INTO `tbl_kecamatan` VALUES ('9401013', '9401', 'ILWAYAB');
+INSERT INTO `tbl_kecamatan` VALUES ('9401020', '9401', 'OKABA');
+INSERT INTO `tbl_kecamatan` VALUES ('9401021', '9401', 'TUBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('9401022', '9401', 'NGGUTI');
+INSERT INTO `tbl_kecamatan` VALUES ('9401023', '9401', 'KAPTEL');
+INSERT INTO `tbl_kecamatan` VALUES ('9401030', '9401', 'KURIK');
+INSERT INTO `tbl_kecamatan` VALUES ('9401031', '9401', 'MALIND');
+INSERT INTO `tbl_kecamatan` VALUES ('9401032', '9401', 'ANIMHA');
+INSERT INTO `tbl_kecamatan` VALUES ('9401040', '9401', 'MERAUKE');
+INSERT INTO `tbl_kecamatan` VALUES ('9401041', '9401', 'SEMANGGA');
+INSERT INTO `tbl_kecamatan` VALUES ('9401042', '9401', 'TANAH MIRING');
+INSERT INTO `tbl_kecamatan` VALUES ('9401043', '9401', 'JAGEBOB');
+INSERT INTO `tbl_kecamatan` VALUES ('9401044', '9401', 'SOTA');
+INSERT INTO `tbl_kecamatan` VALUES ('9401045', '9401', 'NAUKENJERAI');
+INSERT INTO `tbl_kecamatan` VALUES ('9401050', '9401', 'MUTING');
+INSERT INTO `tbl_kecamatan` VALUES ('9401051', '9401', 'ELIGOBEL');
+INSERT INTO `tbl_kecamatan` VALUES ('9401052', '9401', 'ULILIN');
+INSERT INTO `tbl_kecamatan` VALUES ('9402110', '9402', 'WAMENA');
+INSERT INTO `tbl_kecamatan` VALUES ('9402111', '9402', 'ASOLOKOBAL');
+INSERT INTO `tbl_kecamatan` VALUES ('9402112', '9402', 'WALELAGAMA');
+INSERT INTO `tbl_kecamatan` VALUES ('9402113', '9402', 'TRIKORA');
+INSERT INTO `tbl_kecamatan` VALUES ('9402114', '9402', 'NAPUA');
+INSERT INTO `tbl_kecamatan` VALUES ('9402115', '9402', 'WALAIK');
+INSERT INTO `tbl_kecamatan` VALUES ('9402116', '9402', 'WOUMA');
+INSERT INTO `tbl_kecamatan` VALUES ('9402117', '9402', 'WALESI');
+INSERT INTO `tbl_kecamatan` VALUES ('9402118', '9402', 'ASOTIPO');
+INSERT INTO `tbl_kecamatan` VALUES ('9402119', '9402', 'MAIMA');
+INSERT INTO `tbl_kecamatan` VALUES ('9402120', '9402', 'HUBIKOSI');
+INSERT INTO `tbl_kecamatan` VALUES ('9402121', '9402', 'PELEBAGA');
+INSERT INTO `tbl_kecamatan` VALUES ('9402122', '9402', 'IBELE');
+INSERT INTO `tbl_kecamatan` VALUES ('9402123', '9402', 'TAILAREK');
+INSERT INTO `tbl_kecamatan` VALUES ('9402124', '9402', 'HUBIKIAK');
+INSERT INTO `tbl_kecamatan` VALUES ('9402180', '9402', 'ASOLOGAIMA');
+INSERT INTO `tbl_kecamatan` VALUES ('9402181', '9402', 'MUSATFAK');
+INSERT INTO `tbl_kecamatan` VALUES ('9402182', '9402', 'SILO KARNO DOGA');
+INSERT INTO `tbl_kecamatan` VALUES ('9402183', '9402', 'PYRAMID');
+INSERT INTO `tbl_kecamatan` VALUES ('9402184', '9402', 'MULIAMA');
+INSERT INTO `tbl_kecamatan` VALUES ('9402190', '9402', 'KURULU');
+INSERT INTO `tbl_kecamatan` VALUES ('9402191', '9402', 'USILIMO');
+INSERT INTO `tbl_kecamatan` VALUES ('9402192', '9402', 'WITA WAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('9402193', '9402', 'LIBAREK');
+INSERT INTO `tbl_kecamatan` VALUES ('9402194', '9402', 'WADANGKU');
+INSERT INTO `tbl_kecamatan` VALUES ('9402195', '9402', 'PISUGI');
+INSERT INTO `tbl_kecamatan` VALUES ('9402220', '9402', 'BOLAKME');
+INSERT INTO `tbl_kecamatan` VALUES ('9402221', '9402', 'WOLLO');
+INSERT INTO `tbl_kecamatan` VALUES ('9402222', '9402', 'YALENGGA');
+INSERT INTO `tbl_kecamatan` VALUES ('9402223', '9402', 'TAGIME');
+INSERT INTO `tbl_kecamatan` VALUES ('9402224', '9402', 'MOLAGALOME');
+INSERT INTO `tbl_kecamatan` VALUES ('9402225', '9402', 'TAGINERI');
+INSERT INTO `tbl_kecamatan` VALUES ('9402226', '9402', 'BUGI');
+INSERT INTO `tbl_kecamatan` VALUES ('9402227', '9402', 'BPIRI');
+INSERT INTO `tbl_kecamatan` VALUES ('9402228', '9402', 'KORAGI');
+INSERT INTO `tbl_kecamatan` VALUES ('9402611', '9402', 'ITLAY HASIGE');
+INSERT INTO `tbl_kecamatan` VALUES ('9402612', '9402', 'SIEPKOSI');
+INSERT INTO `tbl_kecamatan` VALUES ('9403080', '9403', 'KAUREH');
+INSERT INTO `tbl_kecamatan` VALUES ('9403081', '9403', 'AIRU');
+INSERT INTO `tbl_kecamatan` VALUES ('9403082', '9403', 'YAPSI');
+INSERT INTO `tbl_kecamatan` VALUES ('9403140', '9403', 'KEMTUK');
+INSERT INTO `tbl_kecamatan` VALUES ('9403150', '9403', 'KEMTUK GRESI');
+INSERT INTO `tbl_kecamatan` VALUES ('9403151', '9403', 'GRESI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('9403160', '9403', 'NIMBORAN');
+INSERT INTO `tbl_kecamatan` VALUES ('9403161', '9403', 'NIMBORAN TIMUR / NAMBLONG');
+INSERT INTO `tbl_kecamatan` VALUES ('9403170', '9403', 'NIMBOKRANG');
+INSERT INTO `tbl_kecamatan` VALUES ('9403180', '9403', 'UNURUM GUAY');
+INSERT INTO `tbl_kecamatan` VALUES ('9403200', '9403', 'DEMTA');
+INSERT INTO `tbl_kecamatan` VALUES ('9403201', '9403', 'YOKARI');
+INSERT INTO `tbl_kecamatan` VALUES ('9403210', '9403', 'DEPAPRE');
+INSERT INTO `tbl_kecamatan` VALUES ('9403211', '9403', 'RAVENIRARA');
+INSERT INTO `tbl_kecamatan` VALUES ('9403220', '9403', 'SENTANI BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('9403221', '9403', 'WAIBU');
+INSERT INTO `tbl_kecamatan` VALUES ('9403230', '9403', 'SENTANI');
+INSERT INTO `tbl_kecamatan` VALUES ('9403231', '9403', 'EBUNGFAU');
+INSERT INTO `tbl_kecamatan` VALUES ('9403240', '9403', 'SENTANI TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9404050', '9404', 'UWAPA');
+INSERT INTO `tbl_kecamatan` VALUES ('9404051', '9404', 'MENOU');
+INSERT INTO `tbl_kecamatan` VALUES ('9404052', '9404', 'DIPA');
+INSERT INTO `tbl_kecamatan` VALUES ('9404060', '9404', 'YAUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9404061', '9404', 'TELUK UMAR');
+INSERT INTO `tbl_kecamatan` VALUES ('9404070', '9404', 'WANGGAR');
+INSERT INTO `tbl_kecamatan` VALUES ('9404071', '9404', 'NABIRE BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('9404080', '9404', 'NABIRE');
+INSERT INTO `tbl_kecamatan` VALUES ('9404081', '9404', 'TELUK KIMI');
+INSERT INTO `tbl_kecamatan` VALUES ('9404090', '9404', 'NAPAN');
+INSERT INTO `tbl_kecamatan` VALUES ('9404091', '9404', 'MAKIMI');
+INSERT INTO `tbl_kecamatan` VALUES ('9404092', '9404', 'WAPOGA');
+INSERT INTO `tbl_kecamatan` VALUES ('9404093', '9404', 'KEPULAUAN MOORA');
+INSERT INTO `tbl_kecamatan` VALUES ('9404100', '9404', 'SIRIWO');
+INSERT INTO `tbl_kecamatan` VALUES ('9404110', '9404', 'YARO');
+INSERT INTO `tbl_kecamatan` VALUES ('9408040', '9408', 'YAPEN TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9408041', '9408', 'PANTURA YAPEN');
+INSERT INTO `tbl_kecamatan` VALUES ('9408042', '9408', 'TELUK AMPIMOI');
+INSERT INTO `tbl_kecamatan` VALUES ('9408043', '9408', 'RAIMBAWI');
+INSERT INTO `tbl_kecamatan` VALUES ('9408044', '9408', 'PULAU KURUDU');
+INSERT INTO `tbl_kecamatan` VALUES ('9408050', '9408', 'ANGKAISERA');
+INSERT INTO `tbl_kecamatan` VALUES ('9408051', '9408', 'KEP. AMBAI');
+INSERT INTO `tbl_kecamatan` VALUES ('9408060', '9408', 'YAPEN SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('9408061', '9408', 'KOSIWO');
+INSERT INTO `tbl_kecamatan` VALUES ('9408070', '9408', 'YAPEN BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('9408071', '9408', 'WONAWA');
+INSERT INTO `tbl_kecamatan` VALUES ('9408072', '9408', 'PULAU YERUI');
+INSERT INTO `tbl_kecamatan` VALUES ('9408080', '9408', 'POOM');
+INSERT INTO `tbl_kecamatan` VALUES ('9408081', '9408', 'WINDESI');
+INSERT INTO `tbl_kecamatan` VALUES ('9409010', '9409', 'NUMFOR BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('9409011', '9409', 'ORKERI');
+INSERT INTO `tbl_kecamatan` VALUES ('9409020', '9409', 'NUMFOR TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9409021', '9409', 'BRUYADORI');
+INSERT INTO `tbl_kecamatan` VALUES ('9409022', '9409', 'POIRU');
+INSERT INTO `tbl_kecamatan` VALUES ('9409030', '9409', 'PADAIDO');
+INSERT INTO `tbl_kecamatan` VALUES ('9409031', '9409', 'AIMANDO PADAIDO');
+INSERT INTO `tbl_kecamatan` VALUES ('9409040', '9409', 'BIAK TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9409041', '9409', 'ORIDEK');
+INSERT INTO `tbl_kecamatan` VALUES ('9409050', '9409', 'BIAK KOTA');
+INSERT INTO `tbl_kecamatan` VALUES ('9409060', '9409', 'SAMOFA');
+INSERT INTO `tbl_kecamatan` VALUES ('9409070', '9409', 'YENDIDORI');
+INSERT INTO `tbl_kecamatan` VALUES ('9409080', '9409', 'BIAK UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('9409081', '9409', 'ANDEY');
+INSERT INTO `tbl_kecamatan` VALUES ('9409090', '9409', 'WARSA');
+INSERT INTO `tbl_kecamatan` VALUES ('9409091', '9409', 'YAWOSI');
+INSERT INTO `tbl_kecamatan` VALUES ('9409092', '9409', 'BONDIFUAR');
+INSERT INTO `tbl_kecamatan` VALUES ('9409100', '9409', 'BIAK BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('9409101', '9409', 'SWANDIWE');
+INSERT INTO `tbl_kecamatan` VALUES ('9410030', '9410', 'PANIAI TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9410031', '9410', 'YATAMO');
+INSERT INTO `tbl_kecamatan` VALUES ('9410032', '9410', 'KEBO');
+INSERT INTO `tbl_kecamatan` VALUES ('9410040', '9410', 'BIBIDA');
+INSERT INTO `tbl_kecamatan` VALUES ('9410041', '9410', 'DUMADAMA');
+INSERT INTO `tbl_kecamatan` VALUES ('9410070', '9410', 'ARADIDE');
+INSERT INTO `tbl_kecamatan` VALUES ('9410071', '9410', 'EKADIDE');
+INSERT INTO `tbl_kecamatan` VALUES ('9410080', '9410', 'PANIAI BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('9410081', '9410', 'SIRIWO');
+INSERT INTO `tbl_kecamatan` VALUES ('9410090', '9410', 'BOGOBAIDA');
+INSERT INTO `tbl_kecamatan` VALUES ('9411040', '9411', 'FAWI');
+INSERT INTO `tbl_kecamatan` VALUES ('9411041', '9411', 'DAGAI');
+INSERT INTO `tbl_kecamatan` VALUES ('9411042', '9411', 'KIYAGE');
+INSERT INTO `tbl_kecamatan` VALUES ('9411050', '9411', 'MULIA');
+INSERT INTO `tbl_kecamatan` VALUES ('9411053', '9411', 'YAMBI');
+INSERT INTO `tbl_kecamatan` VALUES ('9411054', '9411', 'ILAMBURAWI');
+INSERT INTO `tbl_kecamatan` VALUES ('9411055', '9411', 'MUARA');
+INSERT INTO `tbl_kecamatan` VALUES ('9411056', '9411', 'PAGALEME');
+INSERT INTO `tbl_kecamatan` VALUES ('9411057', '9411', 'GURAGE');
+INSERT INTO `tbl_kecamatan` VALUES ('9411058', '9411', 'IRIMULI');
+INSERT INTO `tbl_kecamatan` VALUES ('9411060', '9411', 'ILU');
+INSERT INTO `tbl_kecamatan` VALUES ('9411061', '9411', 'TORERE');
+INSERT INTO `tbl_kecamatan` VALUES ('9411063', '9411', 'YAMONERI');
+INSERT INTO `tbl_kecamatan` VALUES ('9411064', '9411', 'WAEGI');
+INSERT INTO `tbl_kecamatan` VALUES ('9411065', '9411', 'NUME');
+INSERT INTO `tbl_kecamatan` VALUES ('9411066', '9411', 'NIOGA');
+INSERT INTO `tbl_kecamatan` VALUES ('9411067', '9411', 'GUBUME');
+INSERT INTO `tbl_kecamatan` VALUES ('9411068', '9411', 'TAGANOMBAK');
+INSERT INTO `tbl_kecamatan` VALUES ('9411070', '9411', 'TINGGINAMBUT');
+INSERT INTO `tbl_kecamatan` VALUES ('9411071', '9411', 'KALOME');
+INSERT INTO `tbl_kecamatan` VALUES ('9411072', '9411', 'WANWI');
+INSERT INTO `tbl_kecamatan` VALUES ('9411080', '9411', 'MEWOLUK');
+INSERT INTO `tbl_kecamatan` VALUES ('9411081', '9411', 'LUMO');
+INSERT INTO `tbl_kecamatan` VALUES ('9411082', '9411', 'MOLANIKIME');
+INSERT INTO `tbl_kecamatan` VALUES ('9411090', '9411', 'YAMO');
+INSERT INTO `tbl_kecamatan` VALUES ('9411091', '9411', 'DOKOME');
+INSERT INTO `tbl_kecamatan` VALUES ('9412010', '9412', 'MIMIKA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('9412011', '9412', 'MIMIKA BARAT JAUH');
+INSERT INTO `tbl_kecamatan` VALUES ('9412012', '9412', 'MIMIKA BARAT TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('9412013', '9412', 'AMAR');
+INSERT INTO `tbl_kecamatan` VALUES ('9412020', '9412', 'MIMIKA TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9412021', '9412', 'MIMIKA TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('9412022', '9412', 'MIMIKA TIMUR JAUH');
+INSERT INTO `tbl_kecamatan` VALUES ('9412030', '9412', 'MIMIKA BARU');
+INSERT INTO `tbl_kecamatan` VALUES ('9412031', '9412', 'KUALA KENCANA');
+INSERT INTO `tbl_kecamatan` VALUES ('9412032', '9412', 'TEMBAGAPURA');
+INSERT INTO `tbl_kecamatan` VALUES ('9412033', '9412', 'WANIA');
+INSERT INTO `tbl_kecamatan` VALUES ('9412034', '9412', 'IWAKA');
+INSERT INTO `tbl_kecamatan` VALUES ('9412035', '9412', 'KWAMKI NARAMA');
+INSERT INTO `tbl_kecamatan` VALUES ('9412040', '9412', 'AGIMUGA');
+INSERT INTO `tbl_kecamatan` VALUES ('9412041', '9412', 'JILA');
+INSERT INTO `tbl_kecamatan` VALUES ('9412042', '9412', 'JITA');
+INSERT INTO `tbl_kecamatan` VALUES ('9412043', '9412', 'ALAMA');
+INSERT INTO `tbl_kecamatan` VALUES ('9412044', '9412', 'HOYA');
+INSERT INTO `tbl_kecamatan` VALUES ('9413010', '9413', 'JAIR');
+INSERT INTO `tbl_kecamatan` VALUES ('9413011', '9413', 'SUBUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9413013', '9413', 'KIA');
+INSERT INTO `tbl_kecamatan` VALUES ('9413020', '9413', 'MINDIPTANA');
+INSERT INTO `tbl_kecamatan` VALUES ('9413021', '9413', 'INIYANDIT');
+INSERT INTO `tbl_kecamatan` VALUES ('9413022', '9413', 'KOMBUT');
+INSERT INTO `tbl_kecamatan` VALUES ('9413023', '9413', 'SESNUK');
+INSERT INTO `tbl_kecamatan` VALUES ('9413030', '9413', 'MANDOBO');
+INSERT INTO `tbl_kecamatan` VALUES ('9413031', '9413', 'FOFI');
+INSERT INTO `tbl_kecamatan` VALUES ('9413032', '9413', 'ARIMOP');
+INSERT INTO `tbl_kecamatan` VALUES ('9413040', '9413', 'KOUH');
+INSERT INTO `tbl_kecamatan` VALUES ('9413041', '9413', 'BOMAKIA');
+INSERT INTO `tbl_kecamatan` VALUES ('9413042', '9413', 'FIRIWAGE');
+INSERT INTO `tbl_kecamatan` VALUES ('9413043', '9413', 'MANGGELUM');
+INSERT INTO `tbl_kecamatan` VALUES ('9413044', '9413', 'YANIRUMA');
+INSERT INTO `tbl_kecamatan` VALUES ('9413045', '9413', 'KAWAGIT');
+INSERT INTO `tbl_kecamatan` VALUES ('9413046', '9413', 'KOMBAY');
+INSERT INTO `tbl_kecamatan` VALUES ('9413050', '9413', 'WAROPKO');
+INSERT INTO `tbl_kecamatan` VALUES ('9413051', '9413', 'AMBATKWI');
+INSERT INTO `tbl_kecamatan` VALUES ('9413052', '9413', 'NINATI');
+INSERT INTO `tbl_kecamatan` VALUES ('9414010', '9414', 'NAMBIOMAN BAPAI');
+INSERT INTO `tbl_kecamatan` VALUES ('9414011', '9414', 'MINYAMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9414020', '9414', 'EDERA');
+INSERT INTO `tbl_kecamatan` VALUES ('9414021', '9414', 'VENAHA');
+INSERT INTO `tbl_kecamatan` VALUES ('9414022', '9414', 'SYAHCAME');
+INSERT INTO `tbl_kecamatan` VALUES ('9414023', '9414', 'BAMGI');
+INSERT INTO `tbl_kecamatan` VALUES ('9414024', '9414', 'YAKOMI');
+INSERT INTO `tbl_kecamatan` VALUES ('9414030', '9414', 'OBAA');
+INSERT INTO `tbl_kecamatan` VALUES ('9414031', '9414', 'PASSUE');
+INSERT INTO `tbl_kecamatan` VALUES ('9414040', '9414', 'HAJU');
+INSERT INTO `tbl_kecamatan` VALUES ('9414050', '9414', 'ASSUE');
+INSERT INTO `tbl_kecamatan` VALUES ('9414060', '9414', 'CITAKMITAK');
+INSERT INTO `tbl_kecamatan` VALUES ('9414061', '9414', 'KAIBAR');
+INSERT INTO `tbl_kecamatan` VALUES ('9414062', '9414', 'PASSUE BAWAH');
+INSERT INTO `tbl_kecamatan` VALUES ('9414063', '9414', 'TI-ZAIN');
+INSERT INTO `tbl_kecamatan` VALUES ('9415010', '9415', 'PANTAI KASUARI');
+INSERT INTO `tbl_kecamatan` VALUES ('9415011', '9415', 'KOPAY');
+INSERT INTO `tbl_kecamatan` VALUES ('9415012', '9415', 'DER KOUMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9415013', '9415', 'SAFAN');
+INSERT INTO `tbl_kecamatan` VALUES ('9415020', '9415', 'FAYIT');
+INSERT INTO `tbl_kecamatan` VALUES ('9415030', '9415', 'ATSY');
+INSERT INTO `tbl_kecamatan` VALUES ('9415031', '9415', 'SIRETS');
+INSERT INTO `tbl_kecamatan` VALUES ('9415032', '9415', 'AYIP');
+INSERT INTO `tbl_kecamatan` VALUES ('9415033', '9415', 'BECTBAMU');
+INSERT INTO `tbl_kecamatan` VALUES ('9415040', '9415', 'SUATOR');
+INSERT INTO `tbl_kecamatan` VALUES ('9415041', '9415', 'KOLF BRAZA');
+INSERT INTO `tbl_kecamatan` VALUES ('9415050', '9415', 'AKAT');
+INSERT INTO `tbl_kecamatan` VALUES ('9415051', '9415', 'JETSY');
+INSERT INTO `tbl_kecamatan` VALUES ('9415060', '9415', 'AGATS');
+INSERT INTO `tbl_kecamatan` VALUES ('9415070', '9415', 'SAWA ERMA');
+INSERT INTO `tbl_kecamatan` VALUES ('9415071', '9415', 'SURU-SURU');
+INSERT INTO `tbl_kecamatan` VALUES ('9415072', '9415', 'UNIR SIRAU');
+INSERT INTO `tbl_kecamatan` VALUES ('9415073', '9415', 'JOERAT');
+INSERT INTO `tbl_kecamatan` VALUES ('9415074', '9415', 'PULAU TIGA');
+INSERT INTO `tbl_kecamatan` VALUES ('9416010', '9416', 'KURIMA');
+INSERT INTO `tbl_kecamatan` VALUES ('9416011', '9416', 'MUSAIK');
+INSERT INTO `tbl_kecamatan` VALUES ('9416013', '9416', 'DEKAI');
+INSERT INTO `tbl_kecamatan` VALUES ('9416014', '9416', 'OBIO');
+INSERT INTO `tbl_kecamatan` VALUES ('9416015', '9416', 'PASEMA');
+INSERT INTO `tbl_kecamatan` VALUES ('9416016', '9416', 'AMUMA');
+INSERT INTO `tbl_kecamatan` VALUES ('9416017', '9416', 'SURU-SURU');
+INSERT INTO `tbl_kecamatan` VALUES ('9416018', '9416', 'WUSAMA');
+INSERT INTO `tbl_kecamatan` VALUES ('9416019', '9416', 'SILIMO');
+INSERT INTO `tbl_kecamatan` VALUES ('9416020', '9416', 'NINIA');
+INSERT INTO `tbl_kecamatan` VALUES ('9416021', '9416', 'HOLUWON');
+INSERT INTO `tbl_kecamatan` VALUES ('9416022', '9416', 'LOLAT');
+INSERT INTO `tbl_kecamatan` VALUES ('9416023', '9416', 'LANGDA');
+INSERT INTO `tbl_kecamatan` VALUES ('9416024', '9416', 'BOMELA');
+INSERT INTO `tbl_kecamatan` VALUES ('9416025', '9416', 'SUNTAMON');
+INSERT INTO `tbl_kecamatan` VALUES ('9416026', '9416', 'SOBAHAM');
+INSERT INTO `tbl_kecamatan` VALUES ('9416027', '9416', 'KORUPUN');
+INSERT INTO `tbl_kecamatan` VALUES ('9416028', '9416', 'SELA');
+INSERT INTO `tbl_kecamatan` VALUES ('9416029', '9416', 'KWELAMDUA');
+INSERT INTO `tbl_kecamatan` VALUES ('9416030', '9416', 'ANGGRUK');
+INSERT INTO `tbl_kecamatan` VALUES ('9416031', '9416', 'PANGGEMA');
+INSERT INTO `tbl_kecamatan` VALUES ('9416032', '9416', 'WALMA');
+INSERT INTO `tbl_kecamatan` VALUES ('9416033', '9416', 'KOSAREK');
+INSERT INTO `tbl_kecamatan` VALUES ('9416034', '9416', 'UBAHAK');
+INSERT INTO `tbl_kecamatan` VALUES ('9416035', '9416', 'NALCA');
+INSERT INTO `tbl_kecamatan` VALUES ('9416036', '9416', 'PULDAMA');
+INSERT INTO `tbl_kecamatan` VALUES ('9416037', '9416', 'NIPSAN');
+INSERT INTO `tbl_kecamatan` VALUES ('9416041', '9416', 'SAMENAGE');
+INSERT INTO `tbl_kecamatan` VALUES ('9416042', '9416', 'TANGMA');
+INSERT INTO `tbl_kecamatan` VALUES ('9416043', '9416', 'SOBA');
+INSERT INTO `tbl_kecamatan` VALUES ('9416044', '9416', 'MUGI');
+INSERT INTO `tbl_kecamatan` VALUES ('9416045', '9416', 'YOGOSEM');
+INSERT INTO `tbl_kecamatan` VALUES ('9416046', '9416', 'KAYO');
+INSERT INTO `tbl_kecamatan` VALUES ('9416047', '9416', 'SUMO');
+INSERT INTO `tbl_kecamatan` VALUES ('9416048', '9416', 'HOGIO');
+INSERT INTO `tbl_kecamatan` VALUES ('9416049', '9416', 'UKHA');
+INSERT INTO `tbl_kecamatan` VALUES ('9416051', '9416', 'WERIMA');
+INSERT INTO `tbl_kecamatan` VALUES ('9416052', '9416', 'SOLOIKMA');
+INSERT INTO `tbl_kecamatan` VALUES ('9416053', '9416', 'SERADALA');
+INSERT INTO `tbl_kecamatan` VALUES ('9416054', '9416', 'KABIANGGAMA');
+INSERT INTO `tbl_kecamatan` VALUES ('9416055', '9416', 'KWIKMA');
+INSERT INTO `tbl_kecamatan` VALUES ('9416056', '9416', 'HILIPUK');
+INSERT INTO `tbl_kecamatan` VALUES ('9416057', '9416', 'YAHULIAMBUT');
+INSERT INTO `tbl_kecamatan` VALUES ('9416058', '9416', 'HEREAPINI');
+INSERT INTO `tbl_kecamatan` VALUES ('9416059', '9416', 'UBALIHI');
+INSERT INTO `tbl_kecamatan` VALUES ('9416061', '9416', 'TALAMBO');
+INSERT INTO `tbl_kecamatan` VALUES ('9416062', '9416', 'PRONGGOLI');
+INSERT INTO `tbl_kecamatan` VALUES ('9416063', '9416', 'ENDOMEN');
+INSERT INTO `tbl_kecamatan` VALUES ('9416065', '9416', 'KONA');
+INSERT INTO `tbl_kecamatan` VALUES ('9416066', '9416', 'DURAM');
+INSERT INTO `tbl_kecamatan` VALUES ('9416067', '9416', 'DIRWEMNA');
+INSERT INTO `tbl_kecamatan` VALUES ('9417010', '9417', 'IWUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9417011', '9417', 'KAWOR');
+INSERT INTO `tbl_kecamatan` VALUES ('9417012', '9417', 'TARUP');
+INSERT INTO `tbl_kecamatan` VALUES ('9417013', '9417', 'AWINBON');
+INSERT INTO `tbl_kecamatan` VALUES ('9417020', '9417', 'OKSIBIL');
+INSERT INTO `tbl_kecamatan` VALUES ('9417021', '9417', 'PEPERA');
+INSERT INTO `tbl_kecamatan` VALUES ('9417022', '9417', 'ALEMSOM');
+INSERT INTO `tbl_kecamatan` VALUES ('9417023', '9417', 'SERAMBAKON');
+INSERT INTO `tbl_kecamatan` VALUES ('9417024', '9417', 'KOLOMDOL');
+INSERT INTO `tbl_kecamatan` VALUES ('9417025', '9417', 'OKSOP');
+INSERT INTO `tbl_kecamatan` VALUES ('9417026', '9417', 'OK BAPE');
+INSERT INTO `tbl_kecamatan` VALUES ('9417027', '9417', 'OK AON');
+INSERT INTO `tbl_kecamatan` VALUES ('9417030', '9417', 'BORME');
+INSERT INTO `tbl_kecamatan` VALUES ('9417031', '9417', 'BIME');
+INSERT INTO `tbl_kecamatan` VALUES ('9417032', '9417', 'EPUMEK');
+INSERT INTO `tbl_kecamatan` VALUES ('9417033', '9417', 'WEIME');
+INSERT INTO `tbl_kecamatan` VALUES ('9417034', '9417', 'PAMEK');
+INSERT INTO `tbl_kecamatan` VALUES ('9417035', '9417', 'NONGME');
+INSERT INTO `tbl_kecamatan` VALUES ('9417036', '9417', 'BATANI');
+INSERT INTO `tbl_kecamatan` VALUES ('9417040', '9417', 'OKBI');
+INSERT INTO `tbl_kecamatan` VALUES ('9417041', '9417', 'ABOY');
+INSERT INTO `tbl_kecamatan` VALUES ('9417042', '9417', 'OKBAB');
+INSERT INTO `tbl_kecamatan` VALUES ('9417043', '9417', 'TEIRAPLU');
+INSERT INTO `tbl_kecamatan` VALUES ('9417044', '9417', 'YEFTA');
+INSERT INTO `tbl_kecamatan` VALUES ('9417050', '9417', 'KIWIROK');
+INSERT INTO `tbl_kecamatan` VALUES ('9417051', '9417', 'KIWIROK TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9417052', '9417', 'OKSEBANG');
+INSERT INTO `tbl_kecamatan` VALUES ('9417053', '9417', 'OKHIKA');
+INSERT INTO `tbl_kecamatan` VALUES ('9417054', '9417', 'OKLIP');
+INSERT INTO `tbl_kecamatan` VALUES ('9417055', '9417', 'OKSAMOL');
+INSERT INTO `tbl_kecamatan` VALUES ('9417056', '9417', 'OKBEMTA');
+INSERT INTO `tbl_kecamatan` VALUES ('9417060', '9417', 'BATOM');
+INSERT INTO `tbl_kecamatan` VALUES ('9417061', '9417', 'MURKIM');
+INSERT INTO `tbl_kecamatan` VALUES ('9417062', '9417', 'MOFINOP');
+INSERT INTO `tbl_kecamatan` VALUES ('9418010', '9418', 'KANGGIME');
+INSERT INTO `tbl_kecamatan` VALUES ('9418011', '9418', 'WONIKI');
+INSERT INTO `tbl_kecamatan` VALUES ('9418012', '9418', 'NABUNAGE');
+INSERT INTO `tbl_kecamatan` VALUES ('9418013', '9418', 'GILUBANDU');
+INSERT INTO `tbl_kecamatan` VALUES ('9418014', '9418', 'WAKUO');
+INSERT INTO `tbl_kecamatan` VALUES ('9418015', '9418', 'AWEKU');
+INSERT INTO `tbl_kecamatan` VALUES ('9418016', '9418', 'BOGONUK');
+INSERT INTO `tbl_kecamatan` VALUES ('9418020', '9418', 'KARUBAGA');
+INSERT INTO `tbl_kecamatan` VALUES ('9418021', '9418', 'GOYAGE');
+INSERT INTO `tbl_kecamatan` VALUES ('9418022', '9418', 'WUNIN');
+INSERT INTO `tbl_kecamatan` VALUES ('9418023', '9418', 'KONDAGA');
+INSERT INTO `tbl_kecamatan` VALUES ('9418024', '9418', 'NELAWI');
+INSERT INTO `tbl_kecamatan` VALUES ('9418025', '9418', 'KUARI');
+INSERT INTO `tbl_kecamatan` VALUES ('9418026', '9418', 'LIANOGOMA');
+INSERT INTO `tbl_kecamatan` VALUES ('9418027', '9418', 'BIUK');
+INSERT INTO `tbl_kecamatan` VALUES ('9418030', '9418', 'BOKONDINI');
+INSERT INTO `tbl_kecamatan` VALUES ('9418031', '9418', 'BOKONERI');
+INSERT INTO `tbl_kecamatan` VALUES ('9418032', '9418', 'BEWANI');
+INSERT INTO `tbl_kecamatan` VALUES ('9418040', '9418', 'KEMBU');
+INSERT INTO `tbl_kecamatan` VALUES ('9418041', '9418', 'WINA');
+INSERT INTO `tbl_kecamatan` VALUES ('9418042', '9418', 'UMAGI');
+INSERT INTO `tbl_kecamatan` VALUES ('9418043', '9418', 'PANAGA');
+INSERT INTO `tbl_kecamatan` VALUES ('9418044', '9418', 'POGANERI');
+INSERT INTO `tbl_kecamatan` VALUES ('9418045', '9418', 'KAMBONERI');
+INSERT INTO `tbl_kecamatan` VALUES ('9418046', '9418', 'AIR GARAM');
+INSERT INTO `tbl_kecamatan` VALUES ('9418047', '9418', 'DOW');
+INSERT INTO `tbl_kecamatan` VALUES ('9418048', '9418', 'WARI / TAIYEVE');
+INSERT INTO `tbl_kecamatan` VALUES ('9418049', '9418', 'EGIAM');
+INSERT INTO `tbl_kecamatan` VALUES ('9418051', '9418', 'NUNGGAWI');
+INSERT INTO `tbl_kecamatan` VALUES ('9418060', '9418', 'KUBU');
+INSERT INTO `tbl_kecamatan` VALUES ('9418061', '9418', 'ANAWI');
+INSERT INTO `tbl_kecamatan` VALUES ('9418062', '9418', 'WUGI');
+INSERT INTO `tbl_kecamatan` VALUES ('9418070', '9418', 'GEYA');
+INSERT INTO `tbl_kecamatan` VALUES ('9418071', '9418', 'WENAM');
+INSERT INTO `tbl_kecamatan` VALUES ('9418080', '9418', 'NUMBA');
+INSERT INTO `tbl_kecamatan` VALUES ('9418081', '9418', 'KAI');
+INSERT INTO `tbl_kecamatan` VALUES ('9418090', '9418', 'DUNDU');
+INSERT INTO `tbl_kecamatan` VALUES ('9418100', '9418', 'GUNDAGI');
+INSERT INTO `tbl_kecamatan` VALUES ('9418110', '9418', 'TIMORI');
+INSERT INTO `tbl_kecamatan` VALUES ('9418121', '9418', 'YUNERI');
+INSERT INTO `tbl_kecamatan` VALUES ('9418125', '9418', 'TAGIME');
+INSERT INTO `tbl_kecamatan` VALUES ('9418126', '9418', 'DANIME');
+INSERT INTO `tbl_kecamatan` VALUES ('9418127', '9418', 'YUKO');
+INSERT INTO `tbl_kecamatan` VALUES ('9418541', '9418', 'TELENGGEME');
+INSERT INTO `tbl_kecamatan` VALUES ('9418542', '9418', 'GIKA');
+INSERT INTO `tbl_kecamatan` VALUES ('9418543', '9418', 'TAGINERI');
+INSERT INTO `tbl_kecamatan` VALUES ('9419021', '9419', 'PANTAI TIMUR BAGIAN BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('9419022', '9419', 'PANTAI TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9419024', '9419', 'SUNGAI BIRI');
+INSERT INTO `tbl_kecamatan` VALUES ('9419031', '9419', 'BONGGO');
+INSERT INTO `tbl_kecamatan` VALUES ('9419032', '9419', 'BONGGO TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9419033', '9419', 'BONGGO BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('9419040', '9419', 'TOR ATAS');
+INSERT INTO `tbl_kecamatan` VALUES ('9419041', '9419', 'ISMARI');
+INSERT INTO `tbl_kecamatan` VALUES ('9419050', '9419', 'SARMI');
+INSERT INTO `tbl_kecamatan` VALUES ('9419051', '9419', 'SARMI TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9419052', '9419', 'SARMI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('9419053', '9419', 'SOBEY');
+INSERT INTO `tbl_kecamatan` VALUES ('9419054', '9419', 'MUARA TOR');
+INSERT INTO `tbl_kecamatan` VALUES ('9419055', '9419', 'VERKAM');
+INSERT INTO `tbl_kecamatan` VALUES ('9419060', '9419', 'PANTAI BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('9419061', '9419', 'APAWER HULU');
+INSERT INTO `tbl_kecamatan` VALUES ('9419062', '9419', 'APAWER HILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('9419063', '9419', 'APAWER TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('9420010', '9420', 'WEB');
+INSERT INTO `tbl_kecamatan` VALUES ('9420011', '9420', 'TOWE');
+INSERT INTO `tbl_kecamatan` VALUES ('9420020', '9420', 'SENGGI');
+INSERT INTO `tbl_kecamatan` VALUES ('9420030', '9420', 'WARIS');
+INSERT INTO `tbl_kecamatan` VALUES ('9420040', '9420', 'ARSO');
+INSERT INTO `tbl_kecamatan` VALUES ('9420041', '9420', 'ARSO TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9420050', '9420', 'SKANTO');
+INSERT INTO `tbl_kecamatan` VALUES ('9426010', '9426', 'WAROPEN BAWAH');
+INSERT INTO `tbl_kecamatan` VALUES ('9426011', '9426', 'INGGERUS');
+INSERT INTO `tbl_kecamatan` VALUES ('9426012', '9426', 'UREI FAISEI');
+INSERT INTO `tbl_kecamatan` VALUES ('9426013', '9426', 'OUDATE');
+INSERT INTO `tbl_kecamatan` VALUES ('9426014', '9426', 'WAPOGA');
+INSERT INTO `tbl_kecamatan` VALUES ('9426020', '9426', 'MASIREI');
+INSERT INTO `tbl_kecamatan` VALUES ('9426021', '9426', 'RISEI SAYATI');
+INSERT INTO `tbl_kecamatan` VALUES ('9426022', '9426', 'DEMBA');
+INSERT INTO `tbl_kecamatan` VALUES ('9426030', '9426', 'WALANI');
+INSERT INTO `tbl_kecamatan` VALUES ('9426040', '9426', 'KIRIHI');
+INSERT INTO `tbl_kecamatan` VALUES ('9427010', '9427', 'SUPIORI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('9427011', '9427', 'KEPULAUAN ARURI');
+INSERT INTO `tbl_kecamatan` VALUES ('9427020', '9427', 'SUPIORI UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('9427021', '9427', 'SUPIORI BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('9427030', '9427', 'SUPIORI TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9428030', '9428', 'WAROPEN ATAS');
+INSERT INTO `tbl_kecamatan` VALUES ('9428031', '9428', 'BENUKI');
+INSERT INTO `tbl_kecamatan` VALUES ('9428032', '9428', 'SAWAI');
+INSERT INTO `tbl_kecamatan` VALUES ('9428040', '9428', 'MAMBERAMO ILIR');
+INSERT INTO `tbl_kecamatan` VALUES ('9428050', '9428', 'MAMBERAMO TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('9428051', '9428', 'IWASO');
+INSERT INTO `tbl_kecamatan` VALUES ('9428060', '9428', 'MAMBERAMO TENGAH TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9428070', '9428', 'ROFAER');
+INSERT INTO `tbl_kecamatan` VALUES ('9428080', '9428', 'MAMBERAMO ULU');
+INSERT INTO `tbl_kecamatan` VALUES ('9429010', '9429', 'WOSAK');
+INSERT INTO `tbl_kecamatan` VALUES ('9429020', '9429', 'KENYAM');
+INSERT INTO `tbl_kecamatan` VALUES ('9429030', '9429', 'GESELMA');
+INSERT INTO `tbl_kecamatan` VALUES ('9429040', '9429', 'MAPENDUMA');
+INSERT INTO `tbl_kecamatan` VALUES ('9429050', '9429', 'MUGI');
+INSERT INTO `tbl_kecamatan` VALUES ('9429060', '9429', 'YIGI');
+INSERT INTO `tbl_kecamatan` VALUES ('9429070', '9429', 'MBUWA');
+INSERT INTO `tbl_kecamatan` VALUES ('9429080', '9429', 'GEAREK');
+INSERT INTO `tbl_kecamatan` VALUES ('9430010', '9430', 'MAKKI');
+INSERT INTO `tbl_kecamatan` VALUES ('9430020', '9430', 'PIRIME');
+INSERT INTO `tbl_kecamatan` VALUES ('9430030', '9430', 'TIOM');
+INSERT INTO `tbl_kecamatan` VALUES ('9430040', '9430', 'BALINGGA');
+INSERT INTO `tbl_kecamatan` VALUES ('9430050', '9430', 'KUYAWAGE');
+INSERT INTO `tbl_kecamatan` VALUES ('9430060', '9430', 'MALAGAINERI');
+INSERT INTO `tbl_kecamatan` VALUES ('9430070', '9430', 'TIOMNERI');
+INSERT INTO `tbl_kecamatan` VALUES ('9430080', '9430', 'DIMBA');
+INSERT INTO `tbl_kecamatan` VALUES ('9430090', '9430', 'GAMELIA');
+INSERT INTO `tbl_kecamatan` VALUES ('9430100', '9430', 'POGA');
+INSERT INTO `tbl_kecamatan` VALUES ('9431010', '9431', 'KOBAKMA');
+INSERT INTO `tbl_kecamatan` VALUES ('9431020', '9431', 'ILUGWA');
+INSERT INTO `tbl_kecamatan` VALUES ('9431030', '9431', 'KELILA');
+INSERT INTO `tbl_kecamatan` VALUES ('9431040', '9431', 'ERAGAYAM');
+INSERT INTO `tbl_kecamatan` VALUES ('9431050', '9431', 'MEGAMBILIS');
+INSERT INTO `tbl_kecamatan` VALUES ('9432010', '9432', 'WELAREK');
+INSERT INTO `tbl_kecamatan` VALUES ('9432020', '9432', 'APALAPSILI');
+INSERT INTO `tbl_kecamatan` VALUES ('9432030', '9432', 'ABENAHO');
+INSERT INTO `tbl_kecamatan` VALUES ('9432040', '9432', 'ELELIM');
+INSERT INTO `tbl_kecamatan` VALUES ('9432050', '9432', 'BENAWA');
+INSERT INTO `tbl_kecamatan` VALUES ('9433010', '9433', 'AGADUGUME');
+INSERT INTO `tbl_kecamatan` VALUES ('9433020', '9433', 'GOME');
+INSERT INTO `tbl_kecamatan` VALUES ('9433030', '9433', 'ILAGA');
+INSERT INTO `tbl_kecamatan` VALUES ('9433040', '9433', 'SINAK');
+INSERT INTO `tbl_kecamatan` VALUES ('9433050', '9433', 'POGOMA');
+INSERT INTO `tbl_kecamatan` VALUES ('9433060', '9433', 'WANGBE');
+INSERT INTO `tbl_kecamatan` VALUES ('9433070', '9433', 'BEOGA');
+INSERT INTO `tbl_kecamatan` VALUES ('9433080', '9433', 'DOUFO');
+INSERT INTO `tbl_kecamatan` VALUES ('9434010', '9434', 'SUKIKAI SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('9434020', '9434', 'PIYAIYE');
+INSERT INTO `tbl_kecamatan` VALUES ('9434030', '9434', 'MAPIA BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('9434040', '9434', 'MAPIA TENGAH');
+INSERT INTO `tbl_kecamatan` VALUES ('9434050', '9434', 'MAPIA');
+INSERT INTO `tbl_kecamatan` VALUES ('9434060', '9434', 'DOGIYAI');
+INSERT INTO `tbl_kecamatan` VALUES ('9434070', '9434', 'KAMU SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('9434080', '9434', 'KAMU');
+INSERT INTO `tbl_kecamatan` VALUES ('9434090', '9434', 'KAMU TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9434100', '9434', 'KAMU UTARA');
+INSERT INTO `tbl_kecamatan` VALUES ('9435010', '9435', 'HOMEYO');
+INSERT INTO `tbl_kecamatan` VALUES ('9435020', '9435', 'SUGAPA');
+INSERT INTO `tbl_kecamatan` VALUES ('9435030', '9435', 'HITADIPA');
+INSERT INTO `tbl_kecamatan` VALUES ('9435040', '9435', 'AGISIGA');
+INSERT INTO `tbl_kecamatan` VALUES ('9435050', '9435', 'BIANDOGA');
+INSERT INTO `tbl_kecamatan` VALUES ('9435060', '9435', 'WANDAI');
+INSERT INTO `tbl_kecamatan` VALUES ('9436010', '9436', 'KAPIRAYA');
+INSERT INTO `tbl_kecamatan` VALUES ('9436020', '9436', 'TIGI BARAT');
+INSERT INTO `tbl_kecamatan` VALUES ('9436030', '9436', 'TIGI');
+INSERT INTO `tbl_kecamatan` VALUES ('9436040', '9436', 'TIGI TIMUR');
+INSERT INTO `tbl_kecamatan` VALUES ('9436050', '9436', 'BOWOBADO');
+INSERT INTO `tbl_kecamatan` VALUES ('9471010', '9471', 'MUARA TAMI');
+INSERT INTO `tbl_kecamatan` VALUES ('9471020', '9471', 'ABEPURA');
+INSERT INTO `tbl_kecamatan` VALUES ('9471021', '9471', 'HERAM');
+INSERT INTO `tbl_kecamatan` VALUES ('9471030', '9471', 'JAYAPURA SELATAN');
+INSERT INTO `tbl_kecamatan` VALUES ('9471040', '9471', 'JAYAPURA UTARA');
 
-INSERT INTO `tbl_kecamatan` (`id_kecamatan`, `id_kabupaten`, `nama_kecamatan`) VALUES
-('1101010', '1101', 'TEUPAH SELATAN'),
-('1101020', '1101', 'SIMEULUE TIMUR'),
-('1101021', '1101', 'TEUPAH BARAT'),
-('1101022', '1101', 'TEUPAH TENGAH'),
-('1101030', '1101', 'SIMEULUE TENGAH'),
-('1101031', '1101', 'TELUK DALAM'),
-('1101032', '1101', 'SIMEULUE CUT'),
-('1101040', '1101', 'SALANG'),
-('1101050', '1101', 'SIMEULUE BARAT'),
-('1101051', '1101', 'ALAFAN'),
-('1102010', '1102', 'PULAU BANYAK'),
-('1102011', '1102', 'PULAU BANYAK BARAT'),
-('1102020', '1102', 'SINGKIL'),
-('1102021', '1102', 'SINGKIL UTARA'),
-('1102022', '1102', 'KUALA BARU'),
-('1102030', '1102', 'SIMPANG KANAN'),
-('1102031', '1102', 'GUNUNG MERIAH'),
-('1102032', '1102', 'DANAU PARIS'),
-('1102033', '1102', 'SURO'),
-('1102042', '1102', 'SINGKOHOR'),
-('1102043', '1102', 'KOTA BAHARU'),
-('1103010', '1103', 'TRUMON'),
-('1103011', '1103', 'TRUMON TIMUR'),
-('1103012', '1103', 'TRUMON TENGAH'),
-('1103020', '1103', 'BAKONGAN'),
-('1103021', '1103', 'BAKONGAN TIMUR'),
-('1103022', '1103', 'KOTA BAHAGIA'),
-('1103030', '1103', 'KLUET SELATAN'),
-('1103031', '1103', 'KLUET TIMUR'),
-('1103040', '1103', 'KLUET UTARA'),
-('1103041', '1103', 'PASIE RAJA'),
-('1103042', '1103', 'KLUET TENGAH'),
-('1103050', '1103', 'TAPAK TUAN'),
-('1103060', '1103', 'SAMA DUA'),
-('1103070', '1103', 'SAWANG'),
-('1103080', '1103', 'MEUKEK'),
-('1103090', '1103', 'LABUHAN HAJI'),
-('1103091', '1103', 'LABUHAN HAJI TIMUR'),
-('1103092', '1103', 'LABUHAN HAJI BARAT'),
-('1104010', '1104', 'LAWE ALAS'),
-('1104011', '1104', 'BABUL RAHMAH'),
-('1104012', '1104', 'TANOH ALAS'),
-('1104020', '1104', 'LAWE SIGALA-GALA'),
-('1104021', '1104', 'BABUL MAKMUR'),
-('1104022', '1104', 'SEMADAM'),
-('1104023', '1104', 'LAUSER'),
-('1104030', '1104', 'BAMBEL'),
-('1104031', '1104', 'BUKIT TUSAM'),
-('1104032', '1104', 'LAWE SUMUR'),
-('1104040', '1104', 'BABUSSALAM'),
-('1104041', '1104', 'LAWE BULAN'),
-('1104050', '1104', 'BADAR'),
-('1104051', '1104', 'DARUL HASANAH'),
-('1104052', '1104', 'KETAMBE'),
-('1104053', '1104', 'DELENG POKHKISEN'),
-('1105080', '1105', 'SERBA JADI'),
-('1105081', '1105', 'SIMPANG JERNIH'),
-('1105082', '1105', 'PEUNARON'),
-('1105090', '1105', 'BIREM BAYEUN'),
-('1105100', '1105', 'RANTAU SELAMAT'),
-('1105101', '1105', 'SUNGAI RAYA'),
-('1105110', '1105', 'PEUREULAK'),
-('1105111', '1105', 'PEUREULAK TIMUR'),
-('1105112', '1105', 'PEUREULAK BARAT'),
-('1105120', '1105', 'RANTO PEUREULAK'),
-('1105130', '1105', 'IDI RAYEUK'),
-('1105131', '1105', 'PEUDAWA'),
-('1105132', '1105', 'BANDA ALAM'),
-('1105133', '1105', 'IDI TUNONG'),
-('1105134', '1105', 'DARUL IHSAN'),
-('1105135', '1105', 'IDI TIMUR'),
-('1105140', '1105', 'DARUL AMAN'),
-('1105150', '1105', 'NURUSSALAM'),
-('1105151', '1105', 'DARUL FALAH'),
-('1105160', '1105', 'JULOK'),
-('1105161', '1105', 'INDRA MAKMUR'),
-('1105170', '1105', 'PANTE BIDARI'),
-('1105180', '1105', 'SIMPANG ULIM'),
-('1105181', '1105', 'MADAT'),
-('1106010', '1106', 'LINGE'),
-('1106011', '1106', 'ATU LINTANG'),
-('1106012', '1106', 'JAGONG JEGET'),
-('1106020', '1106', 'BINTANG'),
-('1106031', '1106', 'LUT TAWAR'),
-('1106032', '1106', 'KEBAYAKAN'),
-('1106040', '1106', 'PEGASING'),
-('1106041', '1106', 'BIES'),
-('1106050', '1106', 'BEBESEN'),
-('1106051', '1106', 'KUTE PANANG'),
-('1106060', '1106', 'SILIH NARA'),
-('1106061', '1106', 'KETOL'),
-('1106062', '1106', 'CELALA'),
-('1106063', '1106', 'RUSIP ANTARA'),
-('1107050', '1107', 'JOHAN PAHLAWAN'),
-('1107060', '1107', 'SAMATIGA'),
-('1107061', '1107', 'BUBON'),
-('1107062', '1107', 'ARONGAN LAMBALEK'),
-('1107070', '1107', 'WOYLA'),
-('1107071', '1107', 'WOYLA BARAT'),
-('1107072', '1107', 'WOYLA TIMUR'),
-('1107080', '1107', 'KAWAY XVI'),
-('1107081', '1107', 'MEUREUBO'),
-('1107082', '1107', 'PANTAI CEUREMEN'),
-('1107083', '1107', 'PANTON REU'),
-('1107090', '1107', 'SUNGAI MAS'),
-('1108010', '1108', 'LHOONG'),
-('1108020', '1108', 'LHOKNGA'),
-('1108021', '1108', 'LEUPUNG'),
-('1108030', '1108', 'INDRAPURI'),
-('1108031', '1108', 'KUTA COT GLIE'),
-('1108040', '1108', 'SEULIMEUM'),
-('1108041', '1108', 'KOTA JANTHO'),
-('1108042', '1108', 'LEMBAH SEULAWAH'),
-('1108050', '1108', 'MESJID RAYA'),
-('1108060', '1108', 'DARUSSALAM'),
-('1108061', '1108', 'BAITUSSALAM'),
-('1108070', '1108', 'KUTA BARO'),
-('1108080', '1108', 'MONTASIK'),
-('1108081', '1108', 'BLANG BINTANG'),
-('1108090', '1108', 'INGIN JAYA'),
-('1108091', '1108', 'KRUENG BARONA JAYA'),
-('1108100', '1108', 'SUKA MAKMUR'),
-('1108101', '1108', 'KUTA MALAKA'),
-('1108102', '1108', 'SIMPANG TIGA'),
-('1108110', '1108', 'DARUL IMARAH'),
-('1108111', '1108', 'DARUL KAMAL'),
-('1108120', '1108', 'PEUKAN BADA'),
-('1108130', '1108', 'PULO ACEH'),
-('1109010', '1109', 'GEUMPANG'),
-('1109011', '1109', 'MANE'),
-('1109070', '1109', 'GLUMPANG TIGA'),
-('1109071', '1109', 'GLUMPANG BARO'),
-('1109080', '1109', 'MUTIARA'),
-('1109081', '1109', 'MUTIARA TIMUR'),
-('1109090', '1109', 'TIRO/TRUSEB'),
-('1109100', '1109', 'TANGSE'),
-('1109111', '1109', 'KEUMALA'),
-('1109112', '1109', 'TITEUE'),
-('1109120', '1109', 'SAKTI'),
-('1109130', '1109', 'MILA'),
-('1109140', '1109', 'PADANG TIJI'),
-('1109150', '1109', 'DELIMA'),
-('1109151', '1109', 'GRONG GRONG'),
-('1109160', '1109', 'INDRAJAYA'),
-('1109170', '1109', 'PEUKAN BARO'),
-('1109180', '1109', 'KEMBANG TANJONG'),
-('1109190', '1109', 'SIMPANG TIGA'),
-('1109200', '1109', 'KOTA SIGLI'),
-('1109210', '1109', 'PIDIE'),
-('1109220', '1109', 'BATEE'),
-('1109230', '1109', 'MUARA TIGA'),
-('1110010', '1110', 'SAMALANGA'),
-('1110011', '1110', 'SIMPANG MAMPLAM'),
-('1110020', '1110', 'PANDRAH'),
-('1110030', '1110', 'JEUNIEB'),
-('1110031', '1110', 'PEULIMBANG'),
-('1110040', '1110', 'PEUDADA'),
-('1110050', '1110', 'JULI'),
-('1110060', '1110', 'JEUMPA'),
-('1110061', '1110', 'KOTA JUANG'),
-('1110062', '1110', 'KUALA'),
-('1110070', '1110', 'JANGKA'),
-('1110080', '1110', 'PEUSANGAN'),
-('1110081', '1110', 'PEUSANGAN SELATAN'),
-('1110082', '1110', 'PEUSANGAN SIBLAH KRUENG'),
-('1110090', '1110', 'MAKMUR'),
-('1110100', '1110', 'GANDA PURA'),
-('1110101', '1110', 'KUTA BLANG'),
-('1111010', '1111', 'SAWANG'),
-('1111020', '1111', 'NISAM'),
-('1111021', '1111', 'NISAM ANTARA'),
-('1111022', '1111', 'BANDA BARO'),
-('1111030', '1111', 'KUTA MAKMUR'),
-('1111031', '1111', 'SIMPANG KERAMAT'),
-('1111040', '1111', 'SYAMTALIRA BAYU'),
-('1111041', '1111', 'GEUREUDONG PASE'),
-('1111050', '1111', 'MEURAH MULIA'),
-('1111060', '1111', 'MATANGKULI'),
-('1111061', '1111', 'PAYA BAKONG'),
-('1111062', '1111', 'PIRAK TIMU'),
-('1111070', '1111', 'COT GIREK'),
-('1111080', '1111', 'TANAH JAMBO AYE'),
-('1111081', '1111', 'LANGKAHAN'),
-('1111090', '1111', 'SEUNUDDON'),
-('1111100', '1111', 'BAKTIYA'),
-('1111101', '1111', 'BAKTIYA BARAT'),
-('1111110', '1111', 'LHOKSUKON'),
-('1111120', '1111', 'TANAH LUAS'),
-('1111121', '1111', 'NIBONG'),
-('1111130', '1111', 'SAMUDERA'),
-('1111140', '1111', 'SYAMTALIRA ARON'),
-('1111150', '1111', 'TANAH PASIR'),
-('1111151', '1111', 'LAPANG'),
-('1111160', '1111', 'MUARA BATU'),
-('1111170', '1111', 'DEWANTARA'),
-('1112010', '1112', 'MANGGENG'),
-('1112011', '1112', 'LEMBAH SABIL'),
-('1112020', '1112', 'TANGAN-TANGAN'),
-('1112021', '1112', 'SETIA'),
-('1112030', '1112', 'BLANG PIDIE'),
-('1112031', '1112', 'JEUMPA'),
-('1112040', '1112', 'SUSOH'),
-('1112050', '1112', 'KUALA BATEE'),
-('1112060', '1112', 'BABAH ROT'),
-('1113010', '1113', 'KUTA PANJANG'),
-('1113011', '1113', 'BLANG JERANGO'),
-('1113020', '1113', 'BLANGKEJEREN'),
-('1113021', '1113', 'PUTRI BETUNG'),
-('1113022', '1113', 'DABUN GELANG'),
-('1113023', '1113', 'BLANG PEGAYON'),
-('1113030', '1113', 'PINING'),
-('1113040', '1113', 'RIKIT GAIB'),
-('1113041', '1113', 'PANTAN CUACA'),
-('1113050', '1113', 'TERANGUN'),
-('1113051', '1113', 'TRIPE JAYA'),
-('1114010', '1114', 'TAMIANG HULU'),
-('1114011', '1114', 'BANDAR PUSAKA'),
-('1114020', '1114', 'KEJURUAN MUDA'),
-('1114021', '1114', 'TENGGULUN'),
-('1114030', '1114', 'RANTAU'),
-('1114040', '1114', 'KOTA KUALA SIMPANG'),
-('1114050', '1114', 'SERUWAY'),
-('1114060', '1114', 'BENDAHARA'),
-('1114061', '1114', 'BANDA MULIA'),
-('1114070', '1114', 'KARANG BARU'),
-('1114071', '1114', 'SEKERAK'),
-('1114080', '1114', 'MANYAK PAYED'),
-('1115010', '1115', 'DARUL MAKMUR'),
-('1115011', '1115', 'TRIPA MAKMUR'),
-('1115020', '1115', 'KUALA'),
-('1115021', '1115', 'KUALA PESISIR'),
-('1115022', '1115', 'TADU RAYA'),
-('1115030', '1115', 'BEUTONG'),
-('1115031', '1115', 'BEUTONG ATEUH BANGGALANG'),
-('1115040', '1115', 'SEUNAGAN'),
-('1115041', '1115', 'SUKA MAKMUE'),
-('1115050', '1115', 'SEUNAGAN TIMUR'),
-('1116010', '1116', 'TEUNOM'),
-('1116011', '1116', 'PASIE RAYA'),
-('1116020', '1116', 'PANGA'),
-('1116030', '1116', 'KRUENG SABEE'),
-('1116040', '1116', 'SETIA BAKTI'),
-('1116050', '1116', 'SAMPOINIET'),
-('1116051', '1116', 'DARUL HIKMAH'),
-('1116060', '1116', 'JAYA'),
-('1116061', '1116', 'INDRA JAYA'),
-('1117010', '1117', 'TIMANG GAJAH'),
-('1117011', '1117', 'GAJAH PUTIH'),
-('1117020', '1117', 'PINTU RIME GAYO'),
-('1117030', '1117', 'BUKIT'),
-('1117040', '1117', 'WIH PESAM'),
-('1117050', '1117', 'BANDAR'),
-('1117051', '1117', 'BENER KELIPAH'),
-('1117060', '1117', 'SYIAH UTAMA'),
-('1117061', '1117', 'MESIDAH'),
-('1117070', '1117', 'PERMATA'),
-('1118010', '1118', 'MEUREUDU'),
-('1118020', '1118', 'MEURAH DUA'),
-('1118030', '1118', 'BANDAR DUA'),
-('1118040', '1118', 'JANGKA BUYA'),
-('1118050', '1118', 'ULIM'),
-('1118060', '1118', 'TRIENGGADENG'),
-('1118070', '1118', 'PANTERAJA'),
-('1118080', '1118', 'BANDAR BARU'),
-('1171010', '1171', 'MEURAXA'),
-('1171011', '1171', 'JAYA BARU'),
-('1171012', '1171', 'BANDA RAYA'),
-('1171020', '1171', 'BAITURRAHMAN'),
-('1171021', '1171', 'LUENG BATA'),
-('1171030', '1171', 'KUTA ALAM'),
-('1171031', '1171', 'KUTA RAJA'),
-('1171040', '1171', 'SYIAH KUALA'),
-('1171041', '1171', 'ULEE KARENG'),
-('1172010', '1172', 'SUKAJAYA'),
-('1172020', '1172', 'SUKAKARYA'),
-('1173010', '1173', 'LANGSA TIMUR'),
-('1173011', '1173', 'LANGSA LAMA'),
-('1173020', '1173', 'LANGSA BARAT'),
-('1173021', '1173', 'LANGSA BARO'),
-('1173030', '1173', 'LANGSA KOTA'),
-('1174010', '1174', 'BLANG MANGAT'),
-('1174020', '1174', 'MUARA DUA'),
-('1174021', '1174', 'MUARA SATU'),
-('1174030', '1174', 'BANDA SAKTI'),
-('1175010', '1175', 'SIMPANG KIRI'),
-('1175020', '1175', 'PENANGGALAN'),
-('1175030', '1175', 'RUNDENG'),
-('1175040', '1175', 'SULTAN DAULAT'),
-('1175050', '1175', 'LONGKIB'),
-('1201060', '1201', 'IDANO GAWO'),
-('1201061', '1201', 'BAWOLATO'),
-('1201062', '1201', 'ULUGAWO'),
-('1201070', '1201', 'GIDO'),
-('1201071', '1201', 'SOGAEADU'),
-('1201081', '1201', 'MA U'),
-('1201082', '1201', 'SOMOLO - MOLO'),
-('1201130', '1201', 'HILIDUHO'),
-('1201131', '1201', 'HILI SERANGKAI'),
-('1201132', '1201', 'BOTOMUZOI'),
-('1202010', '1202', 'BATAHAN'),
-('1202011', '1202', 'SINUNUKAN'),
-('1202020', '1202', 'BATANG NATAL'),
-('1202021', '1202', 'LINGGA BAYU'),
-('1202022', '1202', 'RANTO BAEK'),
-('1202030', '1202', 'KOTANOPAN'),
-('1202031', '1202', 'ULU PUNGKUT'),
-('1202032', '1202', 'TAMBANGAN'),
-('1202033', '1202', 'LEMBAH SORIK MARAPI'),
-('1202034', '1202', 'PUNCAK SORIK MARAPI'),
-('1202040', '1202', 'MUARA SIPONGI'),
-('1202041', '1202', 'PAKANTAN'),
-('1202050', '1202', 'PANYABUNGAN'),
-('1202051', '1202', 'PANYABUNGAN SELATAN'),
-('1202052', '1202', 'PANYABUNGAN BARAT'),
-('1202053', '1202', 'PANYABUNGAN UTARA'),
-('1202054', '1202', 'PANYABUNGAN TIMUR'),
-('1202055', '1202', 'HUTA BARGOT'),
-('1202060', '1202', 'NATAL'),
-('1202070', '1202', 'MUARA BATANG GADIS'),
-('1202080', '1202', 'SIABU'),
-('1202081', '1202', 'BUKIT MALINTANG'),
-('1202082', '1202', 'NAGA JUANG'),
-('1203010', '1203', 'BATANG ANGKOLA'),
-('1203011', '1203', 'SAYUR MATINGGI'),
-('1203012', '1203', 'TANO TOMBANGAN ANGKOLA'),
-('1203070', '1203', 'ANGKOLA TIMUR'),
-('1203080', '1203', 'ANGKOLA SELATAN'),
-('1203090', '1203', 'ANGKOLA  BARAT'),
-('1203091', '1203', 'ANGKOLA SANGKUNUR'),
-('1203100', '1203', 'BATANG TORU'),
-('1203101', '1203', 'MARANCAR'),
-('1203102', '1203', 'MUARA BATANG TORU'),
-('1203110', '1203', 'SIPIROK'),
-('1203120', '1203', 'ARSE'),
-('1203160', '1203', 'SAIPAR DOLOK HOLE'),
-('1203161', '1203', 'AEK BILAH'),
-('1204010', '1204', 'PINANG SORI'),
-('1204011', '1204', 'BADIRI'),
-('1204020', '1204', 'SIBABANGUN'),
-('1204021', '1204', 'LUMUT'),
-('1204022', '1204', 'SUKABANGUN'),
-('1204030', '1204', 'PANDAN'),
-('1204031', '1204', 'TUKKA'),
-('1204032', '1204', 'SARUDIK'),
-('1204040', '1204', 'TAPIAN NAULI'),
-('1204041', '1204', 'SITAHUIS'),
-('1204050', '1204', 'KOLANG'),
-('1204060', '1204', 'SORKAM'),
-('1204061', '1204', 'SORKAM BARAT'),
-('1204062', '1204', 'PASARIBU TOBING'),
-('1204070', '1204', 'BARUS'),
-('1204071', '1204', 'SOSOR GADONG'),
-('1204072', '1204', 'ANDAM DEWI'),
-('1204073', '1204', 'BARUS UTARA'),
-('1204080', '1204', 'MANDUAMAS'),
-('1204081', '1204', 'SIRANDORUNG'),
-('1205030', '1205', 'PARMONANGAN'),
-('1205040', '1205', 'ADIAN KOTING'),
-('1205050', '1205', 'SIPOHOLON'),
-('1205060', '1205', 'TARUTUNG'),
-('1205061', '1205', 'SIATAS BARITA'),
-('1205070', '1205', 'PAHAE JULU'),
-('1205080', '1205', 'PAHAE JAE'),
-('1205081', '1205', 'PURBATUA'),
-('1205082', '1205', 'SIMANGUMBAN'),
-('1205090', '1205', 'PANGARIBUAN'),
-('1205100', '1205', 'GAROGA'),
-('1205110', '1205', 'SIPAHUTAR'),
-('1205120', '1205', 'SIBORONG-BORONG'),
-('1205130', '1205', 'PAGARAN'),
-('1205180', '1205', 'MUARA'),
-('1206030', '1206', 'BALIGE'),
-('1206031', '1206', 'TAMPAHAN'),
-('1206040', '1206', 'LAGUBOTI'),
-('1206050', '1206', 'HABINSARAN'),
-('1206051', '1206', 'BORBOR'),
-('1206052', '1206', 'NASSAU'),
-('1206060', '1206', 'SILAEN'),
-('1206061', '1206', 'SIGUMPAR'),
-('1206070', '1206', 'PORSEA'),
-('1206071', '1206', 'PINTU POHAN MERANTI'),
-('1206072', '1206', 'SIANTAR NARUMONDA'),
-('1206073', '1206', 'PARMAKSIAN'),
-('1206080', '1206', 'LUMBAN JULU'),
-('1206081', '1206', 'ULUAN'),
-('1206082', '1206', 'AJIBATA'),
-('1206083', '1206', 'BONATUA LUNASI'),
-('1207050', '1207', 'BILAH HULU'),
-('1207070', '1207', 'PANGKATAN'),
-('1207080', '1207', 'BILAH BARAT'),
-('1207130', '1207', 'BILAH HILIR'),
-('1207140', '1207', 'PANAI HULU'),
-('1207150', '1207', 'PANAI TENGAH'),
-('1207160', '1207', 'PANAI HILIR'),
-('1207210', '1207', 'RANTAU SELATAN'),
-('1207220', '1207', 'RANTAU UTARA'),
-('1208010', '1208', 'BANDAR PASIR MANDOGE'),
-('1208020', '1208', 'BANDAR PULAU'),
-('1208021', '1208', 'AEK SONGSONGAN'),
-('1208022', '1208', 'RAHUNING'),
-('1208030', '1208', 'PULAU RAKYAT'),
-('1208031', '1208', 'AEK KUASAN'),
-('1208032', '1208', 'AEK LEDONG'),
-('1208040', '1208', 'SEI KEPAYANG'),
-('1208041', '1208', 'SEI KEPAYANG BARAT'),
-('1208042', '1208', 'SEI KEPAYANG TIMUR'),
-('1208050', '1208', 'TANJUNG BALAI'),
-('1208060', '1208', 'SIMPANG EMPAT'),
-('1208061', '1208', 'TELUK DALAM'),
-('1208070', '1208', 'AIR BATU'),
-('1208071', '1208', 'SEI DADAP'),
-('1208080', '1208', 'BUNTU PANE'),
-('1208081', '1208', 'TINGGI RAJA'),
-('1208082', '1208', 'SETIA JANJI'),
-('1208090', '1208', 'MERANTI'),
-('1208091', '1208', 'PULO BANDRING'),
-('1208092', '1208', 'RAWANG PANCA ARGA'),
-('1208100', '1208', 'AIR JOMAN'),
-('1208101', '1208', 'SILAU LAUT'),
-('1208160', '1208', 'KISARAN BARAT'),
-('1208170', '1208', 'KISARAN TIMUR'),
-('1209010', '1209', 'SILIMAKUTA'),
-('1209011', '1209', 'PEMATANG SILIMAHUTA'),
-('1209020', '1209', 'PURBA'),
-('1209021', '1209', 'HARANGGAOL HORISON'),
-('1209030', '1209', 'DOLOK PARDAMEAN'),
-('1209040', '1209', 'SIDAMANIK'),
-('1209041', '1209', 'PEMATANG SIDAMANIK'),
-('1209050', '1209', 'GIRSANG SIPANGAN BOLON'),
-('1209060', '1209', 'TANAH JAWA'),
-('1209061', '1209', 'HATONDUHAN'),
-('1209070', '1209', 'DOLOK PANRIBUAN'),
-('1209080', '1209', 'JORLANG HATARAN'),
-('1209090', '1209', 'PANEI'),
-('1209091', '1209', 'PANOMBEAN PANEI'),
-('1209100', '1209', 'RAYA'),
-('1209110', '1209', 'DOLOK SILAU'),
-('1209120', '1209', 'SILAU KAHEAN'),
-('1209130', '1209', 'RAYA KAHEAN'),
-('1209140', '1209', 'TAPIAN DOLOK'),
-('1209150', '1209', 'DOLOK BATU NANGGAR'),
-('1209160', '1209', 'SIANTAR'),
-('1209161', '1209', 'GUNUNG MALELA'),
-('1209162', '1209', 'GUNUNG MALIGAS'),
-('1209170', '1209', 'HUTABAYU RAJA'),
-('1209171', '1209', 'JAWA MARAJA BAH JAMBI'),
-('1209180', '1209', 'PEMATANG BANDAR'),
-('1209181', '1209', 'BANDAR HULUAN'),
-('1209190', '1209', 'BANDAR'),
-('1209191', '1209', 'BANDAR MASILAM'),
-('1209200', '1209', 'BOSAR MALIGAS'),
-('1209210', '1209', 'UJUNG PADANG'),
-('1210030', '1210', 'SIDIKALANG'),
-('1210031', '1210', 'BERAMPU'),
-('1210032', '1210', 'SITINJO'),
-('1210040', '1210', 'PARBULUAN'),
-('1210050', '1210', 'SUMBUL'),
-('1210051', '1210', 'SILAHI SABUNGAN'),
-('1210060', '1210', 'SILIMA PUNGGA-PUNGGA'),
-('1210061', '1210', 'LAE PARIRA'),
-('1210070', '1210', 'SIEMPAT NEMPU'),
-('1210080', '1210', 'SIEMPAT NEMPU HULU'),
-('1210090', '1210', 'SIEMPAT NEMPU HILIR'),
-('1210100', '1210', 'TIGA LINGGA'),
-('1210101', '1210', 'GUNUNG SITEMBER'),
-('1210110', '1210', 'PEGAGAN HILIR'),
-('1210120', '1210', 'TANAH PINEM'),
-('1211010', '1211', 'MARDINGDING'),
-('1211020', '1211', 'LAUBALENG'),
-('1211030', '1211', 'TIGA BINANGA'),
-('1211040', '1211', 'JUHAR'),
-('1211050', '1211', 'MUNTE'),
-('1211060', '1211', 'KUTA BULUH'),
-('1211070', '1211', 'PAYUNG'),
-('1211071', '1211', 'TIGANDERKET'),
-('1211080', '1211', 'SIMPANG EMPAT'),
-('1211081', '1211', 'NAMAN TERAN'),
-('1211082', '1211', 'MERDEKA'),
-('1211090', '1211', 'KABANJAHE'),
-('1211100', '1211', 'BERASTAGI'),
-('1211110', '1211', 'TIGAPANAH'),
-('1211111', '1211', 'DOLAT RAYAT'),
-('1211120', '1211', 'MEREK'),
-('1211130', '1211', 'BARUSJAHE'),
-('1212010', '1212', 'GUNUNG MERIAH'),
-('1212020', '1212', 'SINEMBAH TANJUNG MUDA HULU'),
-('1212030', '1212', 'SIBOLANGIT'),
-('1212040', '1212', 'KUTALIMBARU'),
-('1212050', '1212', 'PANCUR BATU'),
-('1212060', '1212', 'NAMO RAMBE'),
-('1212070', '1212', 'BIRU-BIRU'),
-('1212080', '1212', 'SINEMBAH TANJUNG MUDA HILIR'),
-('1212090', '1212', 'BANGUN PURBA'),
-('1212190', '1212', 'GALANG'),
-('1212200', '1212', 'TANJUNG MORAWA'),
-('1212210', '1212', 'PATUMBAK'),
-('1212220', '1212', 'DELI TUA'),
-('1212230', '1212', 'SUNGGAL'),
-('1212240', '1212', 'HAMPARAN PERAK'),
-('1212250', '1212', 'LABUHAN DELI'),
-('1212260', '1212', 'PERCUT SEI TUAN'),
-('1212270', '1212', 'BATANG KUIS'),
-('1212280', '1212', 'PANTAI LABU'),
-('1212290', '1212', 'BERINGIN'),
-('1212300', '1212', 'LUBUK PAKAM'),
-('1212310', '1212', 'PAGAR MERBAU'),
-('1213010', '1213', 'BOHOROK'),
-('1213011', '1213', 'SIRAPIT'),
-('1213020', '1213', 'SALAPIAN'),
-('1213021', '1213', 'KUTAMBARU'),
-('1213030', '1213', 'SEI BINGAI'),
-('1213040', '1213', 'KUALA'),
-('1213050', '1213', 'SELESAI'),
-('1213060', '1213', 'BINJAI'),
-('1213070', '1213', 'STABAT'),
-('1213080', '1213', 'WAMPU'),
-('1213090', '1213', 'BATANG SERANGAN'),
-('1213100', '1213', 'SAWIT SEBERANG'),
-('1213110', '1213', 'PADANG TUALANG'),
-('1213120', '1213', 'HINAI'),
-('1213130', '1213', 'SECANGGANG'),
-('1213140', '1213', 'TANJUNG PURA'),
-('1213150', '1213', 'GEBANG'),
-('1213160', '1213', 'BABALAN'),
-('1213170', '1213', 'SEI LEPAN'),
-('1213180', '1213', 'BRANDAN BARAT'),
-('1213190', '1213', 'BESITANG'),
-('1213200', '1213', 'PANGKALAN SUSU'),
-('1213201', '1213', 'PEMATANG JAYA'),
-('1214010', '1214', 'HIBALA'),
-('1214011', '1214', 'TANAH MASA'),
-('1214020', '1214', 'PULAU-PULAU BATU'),
-('1214021', '1214', 'PULAU-PULAU BATU TIMUR'),
-('1214022', '1214', 'SIMUK'),
-('1214023', '1214', 'PULAU-PULAU BATU BARAT'),
-('1214024', '1214', 'PULAU-PULAU BATU UTARA'),
-('1214030', '1214', 'TELUK DALAM'),
-('1214031', '1214', 'FANAYAMA'),
-('1214032', '1214', 'TOMA'),
-('1214033', '1214', 'MANIAMOLO'),
-('1214034', '1214', 'MAZINO'),
-('1214035', '1214', 'LUAHAGUNDRE MANIAMOLO'),
-('1214036', '1214', 'ONOLALU'),
-('1214040', '1214', 'AMANDRAYA'),
-('1214041', '1214', 'ARAMO'),
-('1214042', '1214', 'ULUSUSUA'),
-('1214050', '1214', 'LAHUSA'),
-('1214051', '1214', 'SIDUAORI'),
-('1214052', '1214', 'SOMAMBAWA'),
-('1214060', '1214', 'GOMO'),
-('1214061', '1214', 'SUSUA'),
-('1214062', '1214', 'MAZO'),
-('1214063', '1214', 'UMBUNASI'),
-('1214064', '1214', 'IDANOTAE'),
-('1214065', '1214', 'ULUIDANOTAE'),
-('1214066', '1214', 'BORONADU'),
-('1214070', '1214', 'LOLOMATUA'),
-('1214071', '1214', 'ULUNOYO'),
-('1214072', '1214', 'HURUNA'),
-('1214080', '1214', 'LOLOWA\'U'),
-('1214081', '1214', 'HILIMEGAI'),
-('1214082', '1214', 'OOU'),
-('1214083', '1214', 'ONOHAZUMBA'),
-('1214084', '1214', 'HILISALAWAAHE'),
-('1215010', '1215', 'PAKKAT'),
-('1215020', '1215', 'ONAN GANJANG'),
-('1215030', '1215', 'SIJAMA POLANG'),
-('1215040', '1215', 'DOLOK SANGGUL'),
-('1215050', '1215', 'LINTONG NIHUTA'),
-('1215060', '1215', 'PARANGINAN'),
-('1215070', '1215', 'BAKTI RAJA'),
-('1215080', '1215', 'POLLUNG'),
-('1215090', '1215', 'PARLILITAN'),
-('1215100', '1215', 'TARA BINTANG'),
-('1216010', '1216', 'SALAK'),
-('1216011', '1216', 'SITELLU TALI URANG JEHE'),
-('1216012', '1216', 'PAGINDAR'),
-('1216013', '1216', 'SITELLU TALI URANG JULU'),
-('1216014', '1216', 'PERGETTENG-GETTENG SENGKUT'),
-('1216020', '1216', 'KERAJAAN'),
-('1216021', '1216', 'TINADA'),
-('1216022', '1216', 'SIEMPAT RUBE'),
-('1217010', '1217', 'SIANJUR MULA MULA'),
-('1217020', '1217', 'HARIAN'),
-('1217030', '1217', 'SITIO-TIO'),
-('1217040', '1217', 'ONAN RUNGGU'),
-('1217050', '1217', 'NAINGGOLAN'),
-('1217060', '1217', 'PALIPI'),
-('1217070', '1217', 'RONGGUR NIHUTA'),
-('1217080', '1217', 'PANGURURAN'),
-('1217090', '1217', 'SIMANINDO'),
-('1218010', '1218', 'KOTARIH'),
-('1218011', '1218', 'SILINDA'),
-('1218012', '1218', 'BINTANG BAYU'),
-('1218020', '1218', 'DOLOK MASIHUL'),
-('1218021', '1218', 'SERBAJADI'),
-('1218030', '1218', 'SIPISPIS'),
-('1218040', '1218', 'DOLOK MERAWAN'),
-('1218050', '1218', 'TEBINGTINGGI'),
-('1218051', '1218', 'TEBING SYAHBANDAR'),
-('1218060', '1218', 'BANDAR KHALIPAH'),
-('1218070', '1218', 'TANJUNG BERINGIN'),
-('1218080', '1218', 'SEI RAMPAH'),
-('1218081', '1218', 'SEI BAMBAN'),
-('1218090', '1218', 'TELUK MENGKUDU'),
-('1218100', '1218', 'PERBAUNGAN'),
-('1218101', '1218', 'PEGAJAHAN'),
-('1218110', '1218', 'PANTAI CERMIN'),
-('1219010', '1219', 'SEI BALAI'),
-('1219020', '1219', 'TANJUNG TIRAM'),
-('1219030', '1219', 'TALAWI'),
-('1219040', '1219', 'LIMAPULUH'),
-('1219050', '1219', 'AIR PUTIH'),
-('1219060', '1219', 'SEI SUKA'),
-('1219070', '1219', 'MEDANG DERAS'),
-('1220010', '1220', 'BATANG ONANG'),
-('1220020', '1220', 'PADANG BOLAK JULU'),
-('1220030', '1220', 'PORTIBI'),
-('1220040', '1220', 'PADANG BOLAK'),
-('1220050', '1220', 'SIMANGAMBAT'),
-('1220060', '1220', 'HALONGONAN'),
-('1220070', '1220', 'DOLOK'),
-('1220080', '1220', 'DOLOK SIGOMPULON'),
-('1220090', '1220', 'HULU SIHAPAS'),
-('1221010', '1221', 'SOSOPAN'),
-('1221020', '1221', 'ULU BARUMUN'),
-('1221030', '1221', 'BARUMUN'),
-('1221031', '1221', 'BARUMUN SELATAN'),
-('1221040', '1221', 'LUBUK BARUMUN'),
-('1221050', '1221', 'SOSA'),
-('1221060', '1221', 'BATANG LUBU SUTAM'),
-('1221070', '1221', 'HUTA RAJA TINGGI'),
-('1221080', '1221', 'HURISTAK'),
-('1221090', '1221', 'BARUMUN TENGAH'),
-('1221091', '1221', 'AEK NABARA BARUMUN'),
-('1221092', '1221', 'SIHAPAS BARUMUN'),
-('1222010', '1222', 'SUNGAI KANAN'),
-('1222020', '1222', 'TORGAMBA'),
-('1222030', '1222', 'KOTA PINANG'),
-('1222040', '1222', 'SILANGKITANG'),
-('1222050', '1222', 'KAMPUNG RAKYAT'),
-('1223010', '1223', 'NA IX-X'),
-('1223020', '1223', 'MARBAU'),
-('1223030', '1223', 'AEK KUO'),
-('1223040', '1223', 'AEK NATAS'),
-('1223050', '1223', 'KUALUH SELATAN'),
-('1223060', '1223', 'KUALUH HILIR'),
-('1223070', '1223', 'KUALUH HULU'),
-('1223080', '1223', 'KUALUH LEIDONG'),
-('1224010', '1224', 'TUGALA OYO'),
-('1224020', '1224', 'ALASA'),
-('1224030', '1224', 'ALASA TALU MUZOI'),
-('1224040', '1224', 'NAMOHALU ESIWA'),
-('1224050', '1224', 'SITOLU ORI'),
-('1224060', '1224', 'TUHEMBERUA'),
-('1224070', '1224', 'SAWO'),
-('1224080', '1224', 'LOTU'),
-('1224090', '1224', 'LAHEWA TIMUR'),
-('1224100', '1224', 'AFULU'),
-('1224110', '1224', 'LAHEWA'),
-('1225010', '1225', 'SIROMBU'),
-('1225020', '1225', 'LAHOMI'),
-('1225030', '1225', 'ULU MORO O'),
-('1225040', '1225', 'LOLOFITU MOI'),
-('1225050', '1225', 'MANDREHE UTARA'),
-('1225060', '1225', 'MANDREHE'),
-('1225070', '1225', 'MANDREHE BARAT'),
-('1225080', '1225', 'MORO O'),
-('1271010', '1271', 'SIBOLGA UTARA'),
-('1271020', '1271', 'SIBOLGA KOTA'),
-('1271030', '1271', 'SIBOLGA SELATAN'),
-('1271031', '1271', 'SIBOLGA SAMBAS'),
-('1272010', '1272', 'DATUK BANDAR'),
-('1272011', '1272', 'DATUK BANDAR TIMUR'),
-('1272020', '1272', 'TANJUNG BALAI SELATAN'),
-('1272030', '1272', 'TANJUNG BALAI UTARA'),
-('1272040', '1272', 'SEI TUALANG RASO'),
-('1272050', '1272', 'TELUK NIBUNG'),
-('1273010', '1273', 'SIANTAR MARIHAT'),
-('1273011', '1273', 'SIANTAR MARIMBUN'),
-('1273020', '1273', 'SIANTAR SELATAN'),
-('1273030', '1273', 'SIANTAR BARAT'),
-('1273040', '1273', 'SIANTAR UTARA'),
-('1273050', '1273', 'SIANTAR TIMUR'),
-('1273060', '1273', 'SIANTAR MARTOBA'),
-('1273061', '1273', 'SIANTAR SITALASARI'),
-('1274010', '1274', 'PADANG HULU'),
-('1274011', '1274', 'TEBING TINGGI KOTA'),
-('1274020', '1274', 'RAMBUTAN'),
-('1274021', '1274', 'BAJENIS'),
-('1274030', '1274', 'PADANG HILIR'),
-('1275010', '1275', 'MEDAN TUNTUNGAN'),
-('1275020', '1275', 'MEDAN JOHOR'),
-('1275030', '1275', 'MEDAN AMPLAS'),
-('1275040', '1275', 'MEDAN DENAI'),
-('1275050', '1275', 'MEDAN AREA'),
-('1275060', '1275', 'MEDAN KOTA'),
-('1275070', '1275', 'MEDAN MAIMUN'),
-('1275080', '1275', 'MEDAN POLONIA'),
-('1275090', '1275', 'MEDAN BARU'),
-('1275100', '1275', 'MEDAN SELAYANG'),
-('1275110', '1275', 'MEDAN SUNGGAL'),
-('1275120', '1275', 'MEDAN HELVETIA'),
-('1275130', '1275', 'MEDAN PETISAH'),
-('1275140', '1275', 'MEDAN BARAT'),
-('1275150', '1275', 'MEDAN TIMUR'),
-('1275160', '1275', 'MEDAN PERJUANGAN'),
-('1275170', '1275', 'MEDAN TEMBUNG'),
-('1275180', '1275', 'MEDAN DELI'),
-('1275190', '1275', 'MEDAN LABUHAN'),
-('1275200', '1275', 'MEDAN MARELAN'),
-('1275210', '1275', 'MEDAN BELAWAN'),
-('1276010', '1276', 'BINJAI SELATAN'),
-('1276020', '1276', 'BINJAI KOTA'),
-('1276030', '1276', 'BINJAI TIMUR'),
-('1276040', '1276', 'BINJAI UTARA'),
-('1276050', '1276', 'BINJAI BARAT'),
-('1277010', '1277', 'PADANGSIDIMPUAN TENGGARA'),
-('1277020', '1277', 'PADANGSIDIMPUAN SELATAN'),
-('1277030', '1277', 'PADANGSIDIMPUAN BATUNADUA'),
-('1277040', '1277', 'PADANGSIDIMPUAN UTARA'),
-('1277050', '1277', 'PADANGSIDIMPUAN HUTAIMBARU'),
-('1277051', '1277', 'PADANGSIDIMPUAN ANGKOLA JULU'),
-('1278010', '1278', 'GUNUNGSITOLI IDANOI'),
-('1278020', '1278', 'GUNUNGSITOLI SELATAN'),
-('1278030', '1278', 'GUNUNGSITOLI BARAT'),
-('1278040', '1278', 'GUNUNG SITOLI'),
-('1278050', '1278', 'GUNUNGSITOLI ALO OA'),
-('1278060', '1278', 'GUNUNGSITOLI UTARA'),
-('1301011', '1301', 'PAGAI SELATAN'),
-('1301012', '1301', 'SIKAKAP'),
-('1301013', '1301', 'PAGAI UTARA'),
-('1301021', '1301', 'SIPORA SELATAN'),
-('1301022', '1301', 'SIPORA UTARA'),
-('1301030', '1301', 'SIBERUT SELATAN'),
-('1301031', '1301', 'SEBERUT BARAT DAYA'),
-('1301032', '1301', 'SIBERUT TENGAH'),
-('1301040', '1301', 'SIBERUT UTARA'),
-('1301041', '1301', 'SIBERUT BARAT'),
-('1302011', '1302', 'SILAUT'),
-('1302012', '1302', 'LUNANG'),
-('1302020', '1302', 'BASA AMPEK BALAI TAPAN'),
-('1302021', '1302', 'RANAH AMPEK HULU TAPAN'),
-('1302030', '1302', 'PANCUNG SOAL'),
-('1302031', '1302', 'AIRPURA'),
-('1302040', '1302', 'LINGGO SARI BAGANTI'),
-('1302050', '1302', 'RANAH PESISIR'),
-('1302060', '1302', 'LENGAYANG'),
-('1302070', '1302', 'SUTERA'),
-('1302080', '1302', 'BATANG KAPAS'),
-('1302090', '1302', 'IV JURAI'),
-('1302100', '1302', 'BAYANG'),
-('1302101', '1302', 'IV  NAGARI BAYANG UTARA'),
-('1302110', '1302', 'KOTO XI TARUSAN'),
-('1303040', '1303', 'PANTAI CERMIN'),
-('1303050', '1303', 'LEMBAH GUMANTI'),
-('1303051', '1303', 'HILIRAN GUMANTI'),
-('1303060', '1303', 'PAYUNG SEKAKI'),
-('1303061', '1303', 'TIGO LURAH'),
-('1303070', '1303', 'LEMBANG JAYA'),
-('1303071', '1303', 'DANAU KEMBAR'),
-('1303080', '1303', 'GUNUNG TALANG'),
-('1303090', '1303', 'BUKIT SUNDI'),
-('1303100', '1303', 'IX KOTO SUNGAI LASI'),
-('1303110', '1303', 'KUBUNG'),
-('1303120', '1303', 'X KOTO DIATAS'),
-('1303130', '1303', 'X KOTO SINGKARAK'),
-('1303140', '1303', 'JUNJUNG SIRIH'),
-('1304050', '1304', 'KAMANG BARU'),
-('1304060', '1304', 'TANJUNG GADANG'),
-('1304070', '1304', 'SIJUNJUNG'),
-('1304071', '1304', 'LUBUK TAROK'),
-('1304080', '1304', 'IV NAGARI'),
-('1304090', '1304', 'KUPITAN'),
-('1304100', '1304', 'KOTO TUJUH'),
-('1304110', '1304', 'SUMPUR KUDUS'),
-('1305010', '1305', 'SEPULUH KOTO'),
-('1305020', '1305', 'BATIPUH'),
-('1305021', '1305', 'BATIPUH SELATAN'),
-('1305030', '1305', 'PARIANGAN'),
-('1305040', '1305', 'RAMBATAN'),
-('1305050', '1305', 'LIMA KAUM'),
-('1305060', '1305', 'TANJUNG EMAS'),
-('1305070', '1305', 'PADANG GANTING'),
-('1305080', '1305', 'LINTAU BUO'),
-('1305081', '1305', 'LINTAU BUO UTARA'),
-('1305090', '1305', 'SUNGAYANG'),
-('1305100', '1305', 'SUNGAI TARAB'),
-('1305110', '1305', 'SALIMPAUNG'),
-('1305111', '1305', 'TANJUNG BARU'),
-('1306010', '1306', 'BATANG ANAI'),
-('1306020', '1306', 'LUBUK ALUNG'),
-('1306021', '1306', 'SINTUK TOBOH GADANG'),
-('1306030', '1306', 'ULAKAN TAPAKIS'),
-('1306040', '1306', 'NAN SABARIS'),
-('1306050', '1306', '2 X 11 ENAM LINGKUNG'),
-('1306051', '1306', 'ENAM LINGKUNG'),
-('1306052', '1306', '2 X 11 KAYU TANAM'),
-('1306060', '1306', 'VII KOTO SUNGAI SARIAK'),
-('1306061', '1306', 'PATAMUAN'),
-('1306062', '1306', 'PADANG SAGO'),
-('1306070', '1306', 'V KOTO KP DALAM'),
-('1306071', '1306', 'V KOTO TIMUR'),
-('1306080', '1306', 'SUNGAI LIMAU'),
-('1306081', '1306', 'BATANG GASAN'),
-('1306090', '1306', 'SUNGAI GERINGGING'),
-('1306100', '1306', 'IV KOTO AUR MALINTANG'),
-('1307010', '1307', 'TANJUNG MUTIARA'),
-('1307020', '1307', 'LUBUK BASUNG'),
-('1307021', '1307', 'AMPEK NAGARI'),
-('1307030', '1307', 'TANJUNG RAYA'),
-('1307040', '1307', 'MATUR'),
-('1307050', '1307', 'IV KOTO'),
-('1307051', '1307', 'MALALAK'),
-('1307061', '1307', 'BANUHAMPU'),
-('1307062', '1307', 'SUNGAI PUA'),
-('1307070', '1307', 'AMPEK ANGKEK'),
-('1307071', '1307', 'CANDUANG'),
-('1307080', '1307', 'BASO'),
-('1307090', '1307', 'TILATANG KAMANG'),
-('1307091', '1307', 'KAMANG MAGEK'),
-('1307100', '1307', 'PALEMBAYAN'),
-('1307110', '1307', 'PALUPUH'),
-('1308010', '1308', 'PAYAKUMBUH'),
-('1308011', '1308', 'AKABILURU'),
-('1308020', '1308', 'LUAK'),
-('1308021', '1308', 'LAREH SAGO HALABAN'),
-('1308022', '1308', 'SITUJUAH LIMO NAGARI'),
-('1308030', '1308', 'HARAU'),
-('1308040', '1308', 'GUGUAK'),
-('1308041', '1308', 'MUNGKA'),
-('1308050', '1308', 'SULIKI'),
-('1308051', '1308', 'BUKIK BARISAN'),
-('1308060', '1308', 'GUNUANG OMEH'),
-('1308070', '1308', 'KAPUR IX'),
-('1308080', '1308', 'PANGKALAN KOTO BARU'),
-('1309070', '1309', 'BONJOL'),
-('1309071', '1309', 'TIGO NAGARI'),
-('1309072', '1309', 'SIMPANG ALAHAN MATI'),
-('1309080', '1309', 'LUBUK SIKAPING'),
-('1309100', '1309', 'DUA KOTO'),
-('1309110', '1309', 'PANTI'),
-('1309111', '1309', 'PADANG GELUGUR'),
-('1309121', '1309', 'RAO'),
-('1309122', '1309', 'MAPAT TUNGGUL'),
-('1309123', '1309', 'MAPAT TUNGGUL SELATAN'),
-('1309124', '1309', 'RAO SELATAN'),
-('1309125', '1309', 'RAO UTARA'),
-('1310010', '1310', 'SANGIR'),
-('1310020', '1310', 'SANGIR JUJUAN'),
-('1310021', '1310', 'SANGIR BALAI JANGGO'),
-('1310030', '1310', 'SANGIR BATANG HARI'),
-('1310040', '1310', 'SUNGAI PAGU'),
-('1310041', '1310', 'PAUAH DUO'),
-('1310050', '1310', 'KOTO PARIK GADANG DIATEH'),
-('1311010', '1311', 'SUNGAI RUMBAI'),
-('1311011', '1311', 'KOTO BESAR'),
-('1311012', '1311', 'ASAM JUJUHAN'),
-('1311020', '1311', 'KOTO BARU'),
-('1311021', '1311', 'KOTO SALAK'),
-('1311022', '1311', 'TIUMANG'),
-('1311023', '1311', 'PADANG LAWEH'),
-('1311030', '1311', 'SITIUNG'),
-('1311031', '1311', 'TIMPEH'),
-('1311040', '1311', 'PULAU PUNJUNG'),
-('1311041', '1311', 'IX KOTO'),
-('1312010', '1312', 'SUNGAI BEREMAS'),
-('1312020', '1312', 'RANAH BATAHAN'),
-('1312030', '1312', 'KOTO BALINGKA'),
-('1312040', '1312', 'SUNGAI AUR'),
-('1312050', '1312', 'LEMBAH MALINTANG'),
-('1312060', '1312', 'GUNUNG TULEH'),
-('1312070', '1312', 'TALAMAU'),
-('1312080', '1312', 'PASAMAN'),
-('1312090', '1312', 'LUHAK NAN DUO'),
-('1312100', '1312', 'SASAK RANAH PASISIE'),
-('1312110', '1312', 'KINALI'),
-('1371010', '1371', 'BUNGUS TELUK KABUNG'),
-('1371020', '1371', 'LUBUK KILANGAN'),
-('1371030', '1371', 'LUBUK BEGALUNG'),
-('1371040', '1371', 'PADANG SELATAN'),
-('1371050', '1371', 'PADANG TIMUR'),
-('1371060', '1371', 'PADANG BARAT'),
-('1371070', '1371', 'PADANG UTARA'),
-('1371080', '1371', 'NANGGALO'),
-('1371090', '1371', 'KURANJI'),
-('1371100', '1371', 'PAUH'),
-('1371110', '1371', 'KOTO TANGAH'),
-('1372010', '1372', 'LUBUK SIKARAH'),
-('1372020', '1372', 'TANJUNG HARAPAN'),
-('1373010', '1373', 'SILUNGKANG'),
-('1373020', '1373', 'LEMBAH SEGAR'),
-('1373030', '1373', 'BARANGIN'),
-('1373040', '1373', 'TALAWI'),
-('1374010', '1374', 'PADANG PANJANG BARAT'),
-('1374020', '1374', 'PADANG PANJANG TIMUR'),
-('1375010', '1375', 'GUGUK PANJANG'),
-('1375020', '1375', 'MANDIANGIN KOTO SELAYAN'),
-('1375030', '1375', 'AUR BIRUGO TIGO BALEH'),
-('1376010', '1376', 'PAYAKUMBUH BARAT'),
-('1376011', '1376', 'PAYAKUMBUH SELATAN'),
-('1376020', '1376', 'PAYAKUMBUH TIMUR'),
-('1376030', '1376', 'PAYAKUMBUH UTARA'),
-('1376031', '1376', 'LAMPOSI TIGO NAGORI'),
-('1377010', '1377', 'PARIAMAN SELATAN'),
-('1377020', '1377', 'PARIAMAN TENGAH'),
-('1377021', '1377', 'PARIAMAN TIMUR'),
-('1377030', '1377', 'PARIAMAN UTARA'),
-('1401010', '1401', 'KUANTAN MUDIK'),
-('1401011', '1401', 'HULU KUANTAN'),
-('1401012', '1401', 'GUNUNG TOAR'),
-('1401013', '1401', 'PUCUK RANTAU'),
-('1401020', '1401', 'SINGINGI'),
-('1401021', '1401', 'SINGINGI HILIR'),
-('1401030', '1401', 'KUANTAN TENGAH'),
-('1401031', '1401', 'SENTAJO RAYA'),
-('1401040', '1401', 'BENAI'),
-('1401050', '1401', 'KUANTAN HILIR'),
-('1401051', '1401', 'PANGEAN'),
-('1401052', '1401', 'LOGAS TANAH DARAT'),
-('1401053', '1401', 'KUANTAN HILIR SEBERANG'),
-('1401060', '1401', 'CERENTI'),
-('1401061', '1401', 'INUMAN'),
-('1402010', '1402', 'PERANAP'),
-('1402011', '1402', 'BATANG PERANAP'),
-('1402020', '1402', 'SEBERIDA'),
-('1402021', '1402', 'BATANG CENAKU'),
-('1402022', '1402', 'BATANG GANSAL'),
-('1402030', '1402', 'KELAYANG'),
-('1402031', '1402', 'RAKIT KULIM'),
-('1402040', '1402', 'PASIR PENYU'),
-('1402041', '1402', 'LIRIK'),
-('1402042', '1402', 'SUNGAI LALA'),
-('1402043', '1402', 'LUBUK BATU JAYA'),
-('1402050', '1402', 'RENGAT BARAT'),
-('1402060', '1402', 'RENGAT'),
-('1402061', '1402', 'KUALA CENAKU'),
-('1403010', '1403', 'KERITANG'),
-('1403011', '1403', 'KEMUNING'),
-('1403020', '1403', 'RETEH'),
-('1403021', '1403', 'SUNGAI BATANG'),
-('1403030', '1403', 'ENOK'),
-('1403040', '1403', 'TANAH MERAH'),
-('1403050', '1403', 'KUALA INDRAGIRI'),
-('1403051', '1403', 'CONCONG'),
-('1403060', '1403', 'TEMBILAHAN'),
-('1403061', '1403', 'TEMBILAHAN HULU'),
-('1403070', '1403', 'TEMPULING'),
-('1403071', '1403', 'KEMPAS'),
-('1403080', '1403', 'BATANG TUAKA'),
-('1403090', '1403', 'GAUNG ANAK SERKA'),
-('1403100', '1403', 'GAUNG'),
-('1403110', '1403', 'MANDAH'),
-('1403120', '1403', 'KATEMAN'),
-('1403121', '1403', 'PELANGIRAN'),
-('1403122', '1403', 'TELUK BELENGKONG'),
-('1403123', '1403', 'PULAU BURUNG'),
-('1404010', '1404', 'LANGGAM'),
-('1404011', '1404', 'PANGKALAN KERINCI'),
-('1404012', '1404', 'BANDAR SEIKIJANG'),
-('1404020', '1404', 'PANGKALAN KURAS'),
-('1404021', '1404', 'UKUI'),
-('1404022', '1404', 'PANGKALAN LESUNG'),
-('1404030', '1404', 'BUNUT'),
-('1404031', '1404', 'PELALAWAN'),
-('1404032', '1404', 'BANDAR PETALANGAN'),
-('1404040', '1404', 'KUALA KAMPAR'),
-('1404041', '1404', 'KERUMUTAN'),
-('1404042', '1404', 'TELUK MERANTI'),
-('1405010', '1405', 'MINAS'),
-('1405011', '1405', 'SUNGAI MANDAU'),
-('1405012', '1405', 'KANDIS'),
-('1405020', '1405', 'SIAK'),
-('1405021', '1405', 'KERINCI KANAN'),
-('1405022', '1405', 'TUALANG'),
-('1405023', '1405', 'DAYUN'),
-('1405024', '1405', 'LUBUK DALAM'),
-('1405025', '1405', 'KOTO GASIB'),
-('1405026', '1405', 'MEMPURA'),
-('1405030', '1405', 'SUNGAI APIT'),
-('1405031', '1405', 'BUNGA RAYA'),
-('1405032', '1405', 'SABAK AUH'),
-('1405033', '1405', 'PUSAKO'),
-('1406010', '1406', 'KAMPAR KIRI'),
-('1406011', '1406', 'KAMPAR KIRI HULU'),
-('1406012', '1406', 'KAMPAR KIRI HILIR'),
-('1406013', '1406', 'GUNUNG SAHILAN'),
-('1406014', '1406', 'KAMPAR KIRI TENGAH'),
-('1406020', '1406', 'XIII KOTO KAMPAR'),
-('1406021', '1406', 'KOTO KAMPAR HULU'),
-('1406030', '1406', 'KUOK'),
-('1406031', '1406', 'SALO'),
-('1406040', '1406', 'TAPUNG'),
-('1406041', '1406', 'TAPUNG HULU'),
-('1406042', '1406', 'TAPUNG HILIR'),
-('1406050', '1406', 'BANGKINANG KOTA'),
-('1406051', '1406', 'BANGKINANG'),
-('1406060', '1406', 'KAMPAR'),
-('1406061', '1406', 'KAMPAR TIMUR'),
-('1406062', '1406', 'RUMBIO JAYA'),
-('1406063', '1406', 'KAMPAR UTARA'),
-('1406070', '1406', 'TAMBANG'),
-('1406080', '1406', 'SIAK HULU'),
-('1406081', '1406', 'PERHENTIAN RAJA'),
-('1407010', '1407', 'ROKAN IV KOTO'),
-('1407011', '1407', 'PENDALIAN IV KOTO'),
-('1407020', '1407', 'TANDUN'),
-('1407021', '1407', 'KABUN'),
-('1407022', '1407', 'UJUNG BATU'),
-('1407030', '1407', 'RAMBAH SAMO'),
-('1407040', '1407', 'RAMBAH'),
-('1407041', '1407', 'RAMBAH HILIR'),
-('1407042', '1407', 'BANGUN PURBA'),
-('1407050', '1407', 'TAMBUSAI'),
-('1407051', '1407', 'TAMBUSAI UTARA'),
-('1407060', '1407', 'KEPENUHAN'),
-('1407061', '1407', 'KEPENUHAN HULU'),
-('1407070', '1407', 'KUNTO DARUSSALAM'),
-('1407071', '1407', 'PAGARAN TAPAH DARUSSALAM'),
-('1407072', '1407', 'BONAI DARUSSALAM'),
-('1408010', '1408', 'MANDAU'),
-('1408011', '1408', 'PINGGIR'),
-('1408020', '1408', 'BUKIT BATU'),
-('1408021', '1408', 'SIAK KECIL'),
-('1408030', '1408', 'RUPAT'),
-('1408031', '1408', 'RUPAT UTARA'),
-('1408040', '1408', 'BENGKALIS'),
-('1408050', '1408', 'BANTAN'),
-('1409010', '1409', 'TANAH PUTIH'),
-('1409011', '1409', 'PUJUD'),
-('1409012', '1409', 'TANAH PUTIH TANJUNG MELAWAN'),
-('1409013', '1409', 'RANTAU KOPAR'),
-('1409014', '1409', 'TANJUNG MEDAN'),
-('1409020', '1409', 'BAGAN SINEMBAH'),
-('1409021', '1409', 'SIMPANG KANAN'),
-('1409022', '1409', 'BAGAN SINEMBAH RAYA'),
-('1409023', '1409', 'BALAI JAYA'),
-('1409030', '1409', 'KUBU'),
-('1409031', '1409', 'PASIR LIMAU KAPAS'),
-('1409032', '1409', 'KUBU BABUSSALAM'),
-('1409040', '1409', 'BANGKO'),
-('1409041', '1409', 'SINABOI'),
-('1409042', '1409', 'BATU HAMPAR'),
-('1409043', '1409', 'PEKAITAN'),
-('1409050', '1409', 'RIMBA MELINTANG'),
-('1409051', '1409', 'BANGKO PUSAKO'),
-('1410010', '1410', 'TEBING TINGGI BARAT'),
-('1410020', '1410', 'TEBING TINGGI'),
-('1410021', '1410', 'TEBING TINGGI TIMUR'),
-('1410030', '1410', 'RANGSANG'),
-('1410031', '1410', 'RANGSANG PESISIR'),
-('1410040', '1410', 'RANGSANG BARAT'),
-('1410050', '1410', 'MERBAU'),
-('1410051', '1410', 'PULAU MERBAU'),
-('1410052', '1410', 'PUTRI PUYU'),
-('1471010', '1471', 'TAMPAN'),
-('1471011', '1471', 'PAYUNG SEKAKI'),
-('1471020', '1471', 'BUKIT RAYA'),
-('1471021', '1471', 'MARPOYAN DAMAI'),
-('1471022', '1471', 'TENAYAN RAYA'),
-('1471030', '1471', 'LIMAPULUH'),
-('1471040', '1471', 'SAIL'),
-('1471050', '1471', 'PEKANBARU KOTA'),
-('1471060', '1471', 'SUKAJADI'),
-('1471070', '1471', 'SENAPELAN'),
-('1471080', '1471', 'RUMBAI'),
-('1471081', '1471', 'RUMBAI PESISIR'),
-('1473010', '1473', 'BUKIT KAPUR'),
-('1473011', '1473', 'MEDANG KAMPAI'),
-('1473012', '1473', 'SUNGAI SEMBILAN'),
-('1473020', '1473', 'DUMAI BARAT'),
-('1473021', '1473', 'DUMAI SELATAN'),
-('1473030', '1473', 'DUMAI TIMUR'),
-('1473031', '1473', 'DUMAI KOTA'),
-('1501010', '1501', 'GUNUNG RAYA'),
-('1501011', '1501', 'BUKIT KERMAN'),
-('1501020', '1501', 'BATANG MERANGIN'),
-('1501030', '1501', 'KELILING DANAU'),
-('1501040', '1501', 'DANAU KERINCI'),
-('1501050', '1501', 'SITINJAU LAUT'),
-('1501070', '1501', 'AIR HANGAT'),
-('1501071', '1501', 'AIR HANGAT TIMUR'),
-('1501072', '1501', 'DEPATI VII'),
-('1501073', '1501', 'AIR HANGAT BARAT'),
-('1501080', '1501', 'GUNUNG KERINCI'),
-('1501081', '1501', 'SIULAK'),
-('1501082', '1501', 'SIULAK MUKAI'),
-('1501090', '1501', 'KAYU ARO'),
-('1501091', '1501', 'GUNUNG TUJUH'),
-('1501092', '1501', 'KAYU ARO BARAT'),
-('1502010', '1502', 'JANGKAT'),
-('1502011', '1502', 'SUNGAI TENANG'),
-('1502020', '1502', 'MUARA SIAU'),
-('1502021', '1502', 'LEMBAH MASURAI'),
-('1502022', '1502', 'TIANG PUMPUNG'),
-('1502030', '1502', 'PAMENANG'),
-('1502031', '1502', 'PAMENANG BARAT'),
-('1502032', '1502', 'RENAH PAMENANG'),
-('1502033', '1502', 'PAMENANG SELATAN'),
-('1502040', '1502', 'BANGKO'),
-('1502041', '1502', 'BANGKO BARAT'),
-('1502042', '1502', 'NALO TANTAN'),
-('1502043', '1502', 'BATANG MASUMAI'),
-('1502050', '1502', 'SUNGAI MANAU'),
-('1502051', '1502', 'RENAH PEMBARAP'),
-('1502052', '1502', 'PANGKALAN JAMBU'),
-('1502060', '1502', 'TABIR'),
-('1502061', '1502', 'TABIR ULU'),
-('1502062', '1502', 'TABIR SELATAN'),
-('1502063', '1502', 'TABIR ILIR'),
-('1502064', '1502', 'TABIR TIMUR'),
-('1502065', '1502', 'TABIR LINTAS'),
-('1502066', '1502', 'MARGO TABIR'),
-('1502067', '1502', 'TABIR BARAT'),
-('1503010', '1503', 'BATANG ASAI'),
-('1503020', '1503', 'LIMUN'),
-('1503021', '1503', 'CERMIN NAN GEDANG'),
-('1503030', '1503', 'PELAWAN'),
-('1503031', '1503', 'SINGKUT'),
-('1503040', '1503', 'SAROLANGUN'),
-('1503041', '1503', 'BATHIN VIII'),
-('1503050', '1503', 'PAUH'),
-('1503051', '1503', 'AIR HITAM'),
-('1503060', '1503', 'MANDIANGIN'),
-('1504010', '1504', 'MERSAM'),
-('1504011', '1504', 'MARO SEBO ULU'),
-('1504020', '1504', 'BATIN XXIV'),
-('1504030', '1504', 'MUARA TEMBESI'),
-('1504040', '1504', 'MUARA BULIAN'),
-('1504041', '1504', 'BAJUBANG'),
-('1504042', '1504', 'MARO SEBO ILIR'),
-('1504050', '1504', 'PEMAYUNG'),
-('1505010', '1505', 'MESTONG'),
-('1505011', '1505', 'SUNGAI BAHAR'),
-('1505012', '1505', 'BAHAR SELATAN'),
-('1505013', '1505', 'BAHAR UTARA'),
-('1505020', '1505', 'KUMPEH ULU'),
-('1505021', '1505', 'SUNGAI GELAM'),
-('1505030', '1505', 'KUMPEH'),
-('1505040', '1505', 'MARO SEBO'),
-('1505041', '1505', 'TAMAN RAJO'),
-('1505050', '1505', 'JAMBI LUAR KOTA'),
-('1505060', '1505', 'SEKERNAN'),
-('1506010', '1506', 'MENDAHARA'),
-('1506011', '1506', 'MENDAHARA ULU'),
-('1506012', '1506', 'GERAGAI'),
-('1506020', '1506', 'DENDANG'),
-('1506031', '1506', 'MUARA SABAK BARAT'),
-('1506032', '1506', 'MUARA SABAK TIMUR'),
-('1506033', '1506', 'KUALA JAMBI'),
-('1506040', '1506', 'RANTAU RASAU'),
-('1506041', '1506', 'BERBAK'),
-('1506050', '1506', 'NIPAH PANJANG'),
-('1506060', '1506', 'SADU'),
-('1507010', '1507', 'TUNGKAL ULU'),
-('1507011', '1507', 'MERLUNG'),
-('1507012', '1507', 'BATANG ASAM'),
-('1507013', '1507', 'TEBING TINGGI'),
-('1507014', '1507', 'RENAH MENDALUH'),
-('1507015', '1507', 'MUARA PAPALIK'),
-('1507020', '1507', 'PENGABUAN'),
-('1507021', '1507', 'SENYERANG'),
-('1507030', '1507', 'TUNGKAL ILIR'),
-('1507031', '1507', 'BRAM ITAM'),
-('1507032', '1507', 'SEBERANG KOTA'),
-('1507040', '1507', 'BETARA'),
-('1507041', '1507', 'KUALA BETARA'),
-('1508010', '1508', 'TEBO ILIR'),
-('1508011', '1508', 'MUARA TABIR'),
-('1508020', '1508', 'TEBO TENGAH'),
-('1508021', '1508', 'SUMAY'),
-('1508022', '1508', 'TENGAH ILIR'),
-('1508030', '1508', 'RIMBO BUJANG'),
-('1508031', '1508', 'RIMBO ULU'),
-('1508032', '1508', 'RIMBO ILIR'),
-('1508040', '1508', 'TEBO ULU'),
-('1508041', '1508', 'VII KOTO'),
-('1508042', '1508', 'SERAI SERUMPUN'),
-('1508043', '1508', 'VII KOTO ILIR'),
-('1509010', '1509', 'PELEPAT'),
-('1509011', '1509', 'PELEPAT ILIR'),
-('1509021', '1509', 'BATHIN II BABEKO'),
-('1509022', '1509', 'RIMBO TENGAH'),
-('1509023', '1509', 'BUNGO DANI'),
-('1509024', '1509', 'PASAR MUARA BUNGO'),
-('1509025', '1509', 'BATHIN III'),
-('1509030', '1509', 'RANTAU PANDAN'),
-('1509031', '1509', 'MUKO-MUKO BATHIN VII'),
-('1509032', '1509', 'BATHIN III ULU'),
-('1509040', '1509', 'TANAH SEPENGGAL'),
-('1509041', '1509', 'TANAH SEPENGGAL LINTAS'),
-('1509050', '1509', 'TANAH TUMBUH'),
-('1509051', '1509', 'LIMBUR LUBUK MENGKUANG'),
-('1509052', '1509', 'BATHIN II PELAYANG'),
-('1509060', '1509', 'JUJUHAN'),
-('1509061', '1509', 'JUJUHAN ILIR'),
-('1571010', '1571', 'KOTA BARU'),
-('1571020', '1571', 'JAMBI SELATAN'),
-('1571030', '1571', 'JELUTUNG'),
-('1571040', '1571', 'PASAR JAMBI'),
-('1571050', '1571', 'TELANAIPURA'),
-('1571060', '1571', 'DANAU TELUK'),
-('1571070', '1571', 'PELAYANGAN'),
-('1571080', '1571', 'JAMBI TIMUR'),
-('1572010', '1572', 'TANAH KAMPUNG'),
-('1572020', '1572', 'KUMUN DEBAI'),
-('1572030', '1572', 'SUNGAI PENUH'),
-('1572031', '1572', 'PONDOK TINGGGI'),
-('1572032', '1572', 'SUNGAI BUNGKAL'),
-('1572040', '1572', 'HAMPARAN RAWANG'),
-('1572050', '1572', 'PESISIR BUKIT'),
-('1572051', '1572', 'KOTO BARU'),
-('1601052', '1601', 'LENGKITI'),
-('1601070', '1601', 'SOSOH BUAY RAYAP'),
-('1601080', '1601', 'PENGANDONAN'),
-('1601081', '1601', 'SEMIDANG AJI'),
-('1601082', '1601', 'ULU OGAN'),
-('1601083', '1601', 'MUARA JAYA'),
-('1601090', '1601', 'PENINJAUAN'),
-('1601091', '1601', 'LUBUK BATANG'),
-('1601092', '1601', 'SINAR PENINJAUAN'),
-('1601130', '1601', 'BATU RAJA TIMUR'),
-('1601131', '1601', 'LUBUK RAJA'),
-('1601140', '1601', 'BATU RAJA BARAT'),
-('1602010', '1602', 'LEMPUING'),
-('1602011', '1602', 'LEMPUING JAYA'),
-('1602020', '1602', 'MESUJI'),
-('1602021', '1602', 'SUNGAI MENANG'),
-('1602022', '1602', 'MESUJI MAKMUR'),
-('1602023', '1602', 'MESUJI RAYA'),
-('1602030', '1602', 'TULUNG SELAPAN'),
-('1602031', '1602', 'CENGAL'),
-('1602040', '1602', 'PEDAMARAN'),
-('1602041', '1602', 'PEDAMARAN TIMUR'),
-('1602050', '1602', 'TANJUNG LUBUK'),
-('1602051', '1602', 'TELUK GELAM'),
-('1602060', '1602', 'KOTA KAYU AGUNG'),
-('1602120', '1602', 'SIRAH PULAU PADANG'),
-('1602121', '1602', 'JEJAWI'),
-('1602130', '1602', 'PAMPANGAN'),
-('1602131', '1602', 'PANGKALAN LAPAM'),
-('1602140', '1602', 'AIR SUGIHAN'),
-('1603010', '1603', 'SEMENDO DARAT LAUT'),
-('1603011', '1603', 'SEMENDO DARAT ULU'),
-('1603012', '1603', 'SEMENDO DARAT TENGAH'),
-('1603020', '1603', 'TANJUNG AGUNG'),
-('1603031', '1603', 'RAMBANG'),
-('1603032', '1603', 'LUBAI'),
-('1603033', '1603', 'LUBAI ULU'),
-('1603040', '1603', 'LAWANG KIDUL'),
-('1603050', '1603', 'MUARA ENIM'),
-('1603051', '1603', 'UJAN MAS'),
-('1603060', '1603', 'GUNUNG MEGANG'),
-('1603061', '1603', 'BENAKAT'),
-('1603062', '1603', 'BELIMBING'),
-('1603070', '1603', 'RAMBANG DANGKU'),
-('1603090', '1603', 'GELUMBANG'),
-('1603091', '1603', 'LEMBAK'),
-('1603092', '1603', 'SUNGAI ROTAN'),
-('1603093', '1603', 'MUARA BELIDA'),
-('1603094', '1603', 'KELEKAR'),
-('1603095', '1603', 'BELIDA DARAT'),
-('1604011', '1604', 'TANJUNG SAKTI PUMI'),
-('1604012', '1604', 'TANJUNG SAKTI PUMU'),
-('1604040', '1604', 'KOTA AGUNG'),
-('1604041', '1604', 'MULAK ULU'),
-('1604042', '1604', 'TANJUNG TEBAT'),
-('1604050', '1604', 'PULAU PINANG'),
-('1604051', '1604', 'PAGAR GUNUNG'),
-('1604052', '1604', 'GUMAY ULU'),
-('1604060', '1604', 'JARAI'),
-('1604061', '1604', 'PAJAR BULAN'),
-('1604062', '1604', 'MUARA PAYANG'),
-('1604063', '1604', 'SUKAMERINDU'),
-('1604111', '1604', 'KIKIM BARAT'),
-('1604112', '1604', 'KIKIM TIMUR'),
-('1604113', '1604', 'KIKIM SELATAN'),
-('1604114', '1604', 'KIKIM TENGAH'),
-('1604120', '1604', 'LAHAT'),
-('1604121', '1604', 'GUMAY TALANG'),
-('1604122', '1604', 'PSEKSU'),
-('1604131', '1604', 'MERAPI BARAT'),
-('1604132', '1604', 'MERAPI TIMUR'),
-('1604133', '1604', 'MERAPI SELATAN'),
-('1605030', '1605', 'SUKU TENGAH LAKITAN ULU'),
-('1605031', '1605', 'SELANGIT'),
-('1605032', '1605', 'SUMBER HARTA'),
-('1605040', '1605', 'TUGUMULYO'),
-('1605041', '1605', 'PURWODADI'),
-('1605050', '1605', 'MUARA BELITI'),
-('1605051', '1605', 'TIANG PUMPUNG KEPUNGUT'),
-('1605060', '1605', 'JAYALOKA'),
-('1605061', '1605', 'SUKA KARYA'),
-('1605070', '1605', 'MUARA KELINGI'),
-('1605071', '1605', 'BULANG TENGAH SUKU ULU'),
-('1605072', '1605', 'TUAH NEGERI'),
-('1605080', '1605', 'MUARA LAKITAN'),
-('1605090', '1605', 'MEGANG SAKTI'),
-('1606010', '1606', 'SANGA DESA'),
-('1606020', '1606', 'BABAT TOMAN'),
-('1606021', '1606', 'BATANGHARI LEKO'),
-('1606022', '1606', 'PLAKAT TINGGI'),
-('1606023', '1606', 'LAWANG WETAN'),
-('1606030', '1606', 'SUNGAI KERUH'),
-('1606040', '1606', 'SEKAYU'),
-('1606041', '1606', 'LAIS'),
-('1606090', '1606', 'SUNGAI LILIN'),
-('1606091', '1606', 'KELUANG'),
-('1606092', '1606', 'BABAT SUPAT'),
-('1606100', '1606', 'BAYUNG LENCIR'),
-('1606101', '1606', 'LALAN'),
-('1606102', '1606', 'TUNGKAL JAYA'),
-('1607010', '1607', 'RANTAU BAYUR'),
-('1607020', '1607', 'BETUNG'),
-('1607021', '1607', 'SUAK TAPEH'),
-('1607030', '1607', 'PULAU RIMAU'),
-('1607031', '1607', 'TUNGKAL ILIR'),
-('1607040', '1607', 'BANYUASIN III'),
-('1607041', '1607', 'SEMBAWA'),
-('1607050', '1607', 'TALANG KELAPA'),
-('1607051', '1607', 'TANJUNG LAGO'),
-('1607060', '1607', 'BANYUASIN I'),
-('1607061', '1607', 'AIR KUMBANG'),
-('1607070', '1607', 'RAMBUTAN'),
-('1607080', '1607', 'MUARA PADANG'),
-('1607081', '1607', 'MUARA SUGIHAN'),
-('1607090', '1607', 'MAKARTI JAYA'),
-('1607091', '1607', 'AIR SALEH'),
-('1607100', '1607', 'BANYUASIN II'),
-('1607110', '1607', 'MUARA TELANG'),
-('1607111', '1607', 'SUMBER MARGA TELANG'),
-('1608010', '1608', 'MEKAKAU ILIR'),
-('1608020', '1608', 'BANDING AGUNG'),
-('1608021', '1608', 'WARKUK RANAU SELATAN'),
-('1608022', '1608', 'BUAY PEMATANG RIBU RANAU TENGAH'),
-('1608030', '1608', 'BUAY PEMACA'),
-('1608040', '1608', 'SIMPANG'),
-('1608041', '1608', 'BUANA PEMACA'),
-('1608050', '1608', 'MUARADUA'),
-('1608051', '1608', 'BUAY RAWAN'),
-('1608060', '1608', 'BUAY SANDANG AJI'),
-('1608061', '1608', 'TIGA DIHAJI'),
-('1608070', '1608', 'BUAY RUNJUNG'),
-('1608071', '1608', 'RUNJUNG AGUNG'),
-('1608080', '1608', 'KISAM TINGGI'),
-('1608090', '1608', 'MUARADUA KISAM'),
-('1608091', '1608', 'KISAM ILIR'),
-('1608100', '1608', 'PULAU BERINGIN'),
-('1608101', '1608', 'SINDANG DANAU'),
-('1608102', '1608', 'SUNGAI ARE'),
-('1609010', '1609', 'MARTAPURA'),
-('1609011', '1609', 'BUNGA MAYANG'),
-('1609012', '1609', 'JAYA PURA'),
-('1609020', '1609', 'BUAY PEMUKA PELIUNG'),
-('1609030', '1609', 'BUAY MADANG'),
-('1609031', '1609', 'BUAY MADANG TIMUR'),
-('1609032', '1609', 'BUAY PEMUKA BANGSA RAJA'),
-('1609040', '1609', 'MADANG SUKU II'),
-('1609041', '1609', 'MADANG SUKU III'),
-('1609050', '1609', 'MADANG SUKU I'),
-('1609051', '1609', 'BELITANG MADANG RAYA'),
-('1609060', '1609', 'BELITANG'),
-('1609061', '1609', 'BELITANG JAYA'),
-('1609070', '1609', 'BELITANG III'),
-('1609080', '1609', 'BELITANG II'),
-('1609081', '1609', 'BELITANG MULYA'),
-('1609090', '1609', 'SEMENDAWAI SUKU III'),
-('1609091', '1609', 'SEMENDAWAI TIMUR'),
-('1609100', '1609', 'CEMPAKA'),
-('1609101', '1609', 'SEMENDAWAI BARAT'),
-('1610010', '1610', 'MUARA KUANG'),
-('1610011', '1610', 'RAMBANG KUANG'),
-('1610012', '1610', 'LUBUK KELIAT'),
-('1610020', '1610', 'TANJUNG BATU'),
-('1610021', '1610', 'PAYARAMAN'),
-('1610030', '1610', 'RANTAU ALAI'),
-('1610031', '1610', 'KANDIS'),
-('1610040', '1610', 'TANJUNG RAJA'),
-('1610041', '1610', 'RANTAU PANJANG'),
-('1610042', '1610', 'SUNGAI PINANG'),
-('1610050', '1610', 'PEMULUTAN'),
-('1610051', '1610', 'PEMULUTAN SELATAN'),
-('1610052', '1610', 'PEMULUTAN BARAT'),
-('1610060', '1610', 'INDRALAYA'),
-('1610061', '1610', 'INDRALAYA UTARA'),
-('1610062', '1610', 'INDRALAYA SELATAN'),
-('1611010', '1611', 'MUARA PINANG'),
-('1611020', '1611', 'LINTANG KANAN'),
-('1611030', '1611', 'PENDOPO'),
-('1611031', '1611', 'PENDOPO BARAT'),
-('1611040', '1611', 'PASEMAH AIR KERUH'),
-('1611050', '1611', 'ULU MUSI'),
-('1611051', '1611', 'SIKAP DALAM'),
-('1611060', '1611', 'TALANG PADANG'),
-('1611070', '1611', 'TEBING TINGGI'),
-('1611071', '1611', 'SALING'),
-('1612010', '1612', 'TALANG UBI'),
-('1612020', '1612', 'TANAH ABANG'),
-('1612030', '1612', 'ABAB'),
-('1612040', '1612', 'PENUKAL'),
-('1612050', '1612', 'PENUKAL UTARA'),
-('1613010', '1613', 'ULU RAWAS'),
-('1613020', '1613', 'KARANG JAYA'),
-('1613030', '1613', 'RAWAS ULU'),
-('1613040', '1613', 'RUPIT'),
-('1613050', '1613', 'KARANG DAPO'),
-('1613060', '1613', 'RAWAS ILIR'),
-('1613070', '1613', 'NIBUNG'),
-('1671010', '1671', 'ILIR BARAT II'),
-('1671011', '1671', 'GANDUS'),
-('1671020', '1671', 'SEBERANG ULU I'),
-('1671021', '1671', 'KERTAPATI'),
-('1671030', '1671', 'SEBERANG ULU II'),
-('1671031', '1671', 'PLAJU'),
-('1671040', '1671', 'ILIR BARAT I'),
-('1671041', '1671', 'BUKIT KECIL'),
-('1671050', '1671', 'ILIR TIMUR I'),
-('1671051', '1671', 'KEMUNING'),
-('1671060', '1671', 'ILIR TIMUR II'),
-('1671061', '1671', 'KALIDONI'),
-('1671070', '1671', 'SAKO'),
-('1671071', '1671', 'SEMATANG BORANG'),
-('1671080', '1671', 'SUKARAMI'),
-('1671081', '1671', 'ALANG ALANG LEBAR'),
-('1672010', '1672', 'RAMBANG KAPAK TENGAH'),
-('1672020', '1672', 'PRABUMULIH TIMUR'),
-('1672021', '1672', 'PRABUMULIH SELATAN'),
-('1672030', '1672', 'PRABUMULIH BARAT'),
-('1672031', '1672', 'PRABUMULIH UTARA'),
-('1672040', '1672', 'CAMBAI'),
-('1673010', '1673', 'DEMPO SELATAN'),
-('1673011', '1673', 'DEMPO TENGAH'),
-('1673020', '1673', 'DEMPO UTARA'),
-('1673030', '1673', 'PAGAR ALAM SELATAN'),
-('1673040', '1673', 'PAGAR ALAM UTARA'),
-('1674011', '1674', 'LUBUK LINGGAU BARAT I'),
-('1674012', '1674', 'LUBUK LINGGAU BARAT II'),
-('1674021', '1674', 'LUBUK LINGGAU SELATAN I'),
-('1674022', '1674', 'LUBUK LINGGAU SELATAN II'),
-('1674031', '1674', 'LUBUK LINGGAU TIMUR I'),
-('1674032', '1674', 'LUBUK LINGGAU TIMUR II'),
-('1674041', '1674', 'LUBUK LINGGAU UTARA I'),
-('1674042', '1674', 'LUBUK LINGGAU UTARA II'),
-('1701040', '1701', 'MANNA'),
-('1701041', '1701', 'KOTA MANNA'),
-('1701042', '1701', 'KEDURANG'),
-('1701043', '1701', 'BUNGA MAS'),
-('1701044', '1701', 'PASAR MANNA'),
-('1701045', '1701', 'KEDURANG ILIR'),
-('1701050', '1701', 'SEGINIM'),
-('1701051', '1701', 'AIR NIPIS'),
-('1701060', '1701', 'PINO'),
-('1701061', '1701', 'PINORAYA'),
-('1701062', '1701', 'ULU MANNA'),
-('1702020', '1702', 'KOTA PADANG'),
-('1702021', '1702', 'SINDANG BELITI ILIR'),
-('1702030', '1702', 'PADANG ULAK TANDING');
-INSERT INTO `tbl_kecamatan` (`id_kecamatan`, `id_kabupaten`, `nama_kecamatan`) VALUES
-('1702031', '1702', 'SINDANG KELINGI'),
-('1702032', '1702', 'BINDU RIANG'),
-('1702033', '1702', 'SINDANG BELITI ULU'),
-('1702034', '1702', 'SINDANG DATARAN'),
-('1702040', '1702', 'CURUP'),
-('1702041', '1702', 'BERMANI ULU'),
-('1702042', '1702', 'SELUPU REJANG'),
-('1702043', '1702', 'CURUP SELATAN'),
-('1702044', '1702', 'CURUP TENGAH'),
-('1702045', '1702', 'BERMANI ULU RAYA'),
-('1702046', '1702', 'CURUP UTARA'),
-('1702047', '1702', 'CURUP TIMUR'),
-('1703010', '1703', 'ENGGANO'),
-('1703050', '1703', 'KERKAP'),
-('1703051', '1703', 'AIR NAPAL'),
-('1703052', '1703', 'AIR BESI'),
-('1703053', '1703', 'HULU PALIK'),
-('1703054', '1703', 'TANJUNG AGUNG PALIK'),
-('1703060', '1703', 'ARGA MAKMUR'),
-('1703061', '1703', 'ARMA JAYA'),
-('1703070', '1703', 'LAIS'),
-('1703071', '1703', 'BATIK NAU'),
-('1703072', '1703', 'GIRI MULYA'),
-('1703073', '1703', 'AIR PADANG'),
-('1703080', '1703', 'PADANG JAYA'),
-('1703090', '1703', 'KETAHUN'),
-('1703091', '1703', 'NAPAL PUTIH'),
-('1703092', '1703', 'ULOK KUPAI'),
-('1703100', '1703', 'PUTRI HIJAU'),
-('1704010', '1704', 'NASAL'),
-('1704020', '1704', 'MAJE'),
-('1704030', '1704', 'KAUR SELATAN'),
-('1704031', '1704', 'TETAP'),
-('1704040', '1704', 'KAUR TENGAH'),
-('1704041', '1704', 'LUAS'),
-('1704042', '1704', 'MUARA SAHUNG'),
-('1704050', '1704', 'KINAL'),
-('1704051', '1704', 'SEMIDANG GUMAY'),
-('1704060', '1704', 'TANJUNG KEMUNING'),
-('1704061', '1704', 'KELAM TENGAH'),
-('1704070', '1704', 'KAUR UTARA'),
-('1704071', '1704', 'PADANG GUCI HILIR'),
-('1704072', '1704', 'LUNGKANG KULE'),
-('1704073', '1704', 'PADANG GUCI HULU'),
-('1705010', '1705', 'SEMIDANG ALAS MARAS'),
-('1705020', '1705', 'SEMIDANG ALAS'),
-('1705030', '1705', 'TALO'),
-('1705031', '1705', 'ILIR TALO'),
-('1705032', '1705', 'TALO KECIL'),
-('1705033', '1705', 'ULU TALO'),
-('1705040', '1705', 'SELUMA'),
-('1705041', '1705', 'SELUMA SELATAN'),
-('1705042', '1705', 'SELUMA BARAT'),
-('1705043', '1705', 'SELUMA TIMUR'),
-('1705044', '1705', 'SELUMA UTARA'),
-('1705050', '1705', 'SUKARAJA'),
-('1705051', '1705', 'AIR PERIUKAN'),
-('1705052', '1705', 'LUBUK SANDI'),
-('1706010', '1706', 'IPUH'),
-('1706011', '1706', 'AIR RAMI'),
-('1706012', '1706', 'MALIN DEMAN'),
-('1706020', '1706', 'PONDOK SUGUH'),
-('1706021', '1706', 'SUNGAI RUMBAI'),
-('1706022', '1706', 'TERAMANG JAYA'),
-('1706030', '1706', 'TERAS TERUNJAM'),
-('1706031', '1706', 'PENARIK'),
-('1706032', '1706', 'SELAGAN RAYA'),
-('1706040', '1706', 'KOTA MUKOMUKO'),
-('1706041', '1706', 'AIR DIKIT'),
-('1706042', '1706', 'XIV KOTO'),
-('1706050', '1706', 'LUBUK PINANG'),
-('1706051', '1706', 'AIR MANJUNTO'),
-('1706052', '1706', 'V KOTO'),
-('1707010', '1707', 'RIMBO PENGADANG'),
-('1707011', '1707', 'TOPOS'),
-('1707020', '1707', 'LEBONG SELATAN'),
-('1707021', '1707', 'BINGIN KUNING'),
-('1707030', '1707', 'LEBONG TENGAH'),
-('1707031', '1707', 'LEBONG SAKTI'),
-('1707040', '1707', 'LEBONG ATAS'),
-('1707041', '1707', 'PADANG BANO'),
-('1707042', '1707', 'PELABAI'),
-('1707050', '1707', 'LEBONG UTARA'),
-('1707051', '1707', 'AMEN'),
-('1707052', '1707', 'URAM JAYA'),
-('1707053', '1707', 'PINANG BELAPIS'),
-('1708010', '1708', 'MUARA KEMUMU'),
-('1708020', '1708', 'BERMANI ILIR'),
-('1708030', '1708', 'SEBERANG MUSI'),
-('1708040', '1708', 'TEBAT KARAI'),
-('1708050', '1708', 'KEPAHIANG'),
-('1708060', '1708', 'KABA WETAN'),
-('1708070', '1708', 'UJAN MAS'),
-('1708080', '1708', 'MERIGI'),
-('1709010', '1709', 'TALANG EMPAT'),
-('1709020', '1709', 'KARANG TINGGI'),
-('1709030', '1709', 'TABA PENANJUNG'),
-('1709031', '1709', 'MERIGI KELINDANG'),
-('1709040', '1709', 'PAGAR JATI'),
-('1709041', '1709', 'MERIGI SAKTI'),
-('1709050', '1709', 'PONDOK KELAPA'),
-('1709051', '1709', 'PONDOK KUBANG'),
-('1709060', '1709', 'PEMATANG TIGA'),
-('1709061', '1709', 'BANG HAJI'),
-('1771010', '1771', 'SELEBAR'),
-('1771011', '1771', 'KAMPUNG MELAYU'),
-('1771020', '1771', 'GADING CEMPAKA'),
-('1771021', '1771', 'RATU AGUNG'),
-('1771022', '1771', 'RATU SAMBAN'),
-('1771023', '1771', 'SINGARAN PATI'),
-('1771030', '1771', 'TELUK SEGARA'),
-('1771031', '1771', 'SUNGAI SERUT'),
-('1771040', '1771', 'MUARA BANGKA HULU'),
-('1801040', '1801', 'BALIK BUKIT'),
-('1801041', '1801', 'SUKAU'),
-('1801042', '1801', 'LUMBOK SEMINUNG'),
-('1801050', '1801', 'BELALAU'),
-('1801051', '1801', 'SEKINCAU'),
-('1801052', '1801', 'SUOH'),
-('1801053', '1801', 'BATU BRAK'),
-('1801054', '1801', 'PAGAR DEWA'),
-('1801055', '1801', 'BATU KETULIS'),
-('1801056', '1801', 'BANDAR NEGERI SUOH'),
-('1801060', '1801', 'SUMBER JAYA'),
-('1801061', '1801', 'WAY TENONG'),
-('1801062', '1801', 'GEDUNG SURIAN'),
-('1801063', '1801', 'KEBUN TEBU'),
-('1801064', '1801', 'AIR HITAM'),
-('1802010', '1802', 'WONOSOBO'),
-('1802011', '1802', 'SEMAKA'),
-('1802012', '1802', 'BANDAR NEGERI SEMUONG'),
-('1802020', '1802', 'KOTA AGUNG'),
-('1802021', '1802', 'PEMATANG SAWA'),
-('1802022', '1802', 'KOTA AGUNG TIMUR'),
-('1802023', '1802', 'KOTA AGUNG BARAT'),
-('1802030', '1802', 'PULAU PANGGUNG'),
-('1802031', '1802', 'ULUBELU'),
-('1802032', '1802', 'AIR NANINGAN'),
-('1802040', '1802', 'TALANG PADANG'),
-('1802041', '1802', 'SUMBEREJO'),
-('1802042', '1802', 'GISTING'),
-('1802043', '1802', 'GUNUNG ALIP'),
-('1802050', '1802', 'PUGUNG'),
-('1802101', '1802', 'BULOK'),
-('1802110', '1802', 'CUKUH BALAK'),
-('1802111', '1802', 'KELUMBAYAN'),
-('1802112', '1802', 'LIMAU'),
-('1802113', '1802', 'KELUMBAYAN BARAT'),
-('1803060', '1803', 'NATAR'),
-('1803070', '1803', 'JATI AGUNG'),
-('1803080', '1803', 'TANJUNG BINTANG'),
-('1803081', '1803', 'TANJUNG SARI'),
-('1803090', '1803', 'KATIBUNG'),
-('1803091', '1803', 'MERBAU MATARAM'),
-('1803092', '1803', 'WAY SULAN'),
-('1803100', '1803', 'SIDOMULYO'),
-('1803101', '1803', 'CANDIPURO'),
-('1803102', '1803', 'WAY PANJI'),
-('1803110', '1803', 'KALIANDA'),
-('1803111', '1803', 'RAJABASA'),
-('1803120', '1803', 'PALAS'),
-('1803121', '1803', 'SRAGI'),
-('1803130', '1803', 'PENENGAHAN'),
-('1803131', '1803', 'KETAPANG'),
-('1803132', '1803', 'BAKAUHENI'),
-('1804010', '1804', 'METRO KIBANG'),
-('1804020', '1804', 'BATANGHARI'),
-('1804030', '1804', 'SEKAMPUNG'),
-('1804040', '1804', 'MARGATIGA'),
-('1804050', '1804', 'SEKAMPUNG UDIK'),
-('1804060', '1804', 'JABUNG'),
-('1804061', '1804', 'PASIR SAKTI'),
-('1804062', '1804', 'WAWAY KARYA'),
-('1804063', '1804', 'MARGA SEKAMPUNG'),
-('1804070', '1804', 'LABUHAN MARINGGAI'),
-('1804071', '1804', 'MATARAM BARU'),
-('1804072', '1804', 'BANDAR SRIBAWONO'),
-('1804073', '1804', 'MELINTING'),
-('1804074', '1804', 'GUNUNG PELINDUNG'),
-('1804080', '1804', 'WAY JEPARA'),
-('1804081', '1804', 'BRAJA SLEBAH'),
-('1804082', '1804', 'LABUHAN RATU'),
-('1804090', '1804', 'SUKADANA'),
-('1804091', '1804', 'BUMI AGUNG'),
-('1804092', '1804', 'BATANGHARI NUBAN'),
-('1804100', '1804', 'PEKALONGAN'),
-('1804110', '1804', 'RAMAN UTARA'),
-('1804120', '1804', 'PURBOLINGGO'),
-('1804121', '1804', 'WAY BUNGUR'),
-('1805010', '1805', 'PADANG RATU'),
-('1805011', '1805', 'SELAGAI LINGGA'),
-('1805012', '1805', 'PUBIAN'),
-('1805013', '1805', 'ANAK TUHA'),
-('1805014', '1805', 'ANAK RATU AJI'),
-('1805020', '1805', 'KALIREJO'),
-('1805021', '1805', 'SENDANG AGUNG'),
-('1805030', '1805', 'BANGUNREJO'),
-('1805040', '1805', 'GUNUNG SUGIH'),
-('1805041', '1805', 'BEKRI'),
-('1805042', '1805', 'BUMI RATU NUBAN'),
-('1805050', '1805', 'TRIMURJO'),
-('1805060', '1805', 'PUNGGUR'),
-('1805061', '1805', 'KOTA GAJAH'),
-('1805070', '1805', 'SEPUTIH RAMAN'),
-('1805080', '1805', 'TERBANGGI BESAR'),
-('1805081', '1805', 'SEPUTIH AGUNG'),
-('1805082', '1805', 'WAY PENGUBUAN'),
-('1805090', '1805', 'TERUSAN NUNYAI'),
-('1805100', '1805', 'SEPUTIH MATARAM'),
-('1805101', '1805', 'BANDAR MATARAM'),
-('1805110', '1805', 'SEPUTIH BANYAK'),
-('1805111', '1805', 'WAY SEPUTIH'),
-('1805120', '1805', 'RUMBIA'),
-('1805121', '1805', 'BUMI NABUNG'),
-('1805122', '1805', 'PUTRA RUMBIA'),
-('1805130', '1805', 'SEPUTIH SURABAYA'),
-('1805131', '1805', 'BANDAR SURABAYA'),
-('1806010', '1806', 'BUKIT KEMUNING'),
-('1806011', '1806', 'ABUNG TINGGI'),
-('1806020', '1806', 'TANJUNG RAJA'),
-('1806030', '1806', 'ABUNG BARAT'),
-('1806031', '1806', 'ABUNG TENGAH'),
-('1806032', '1806', 'ABUNG  KUNANG'),
-('1806033', '1806', 'ABUNG PEKURUN'),
-('1806040', '1806', 'KOTABUMI'),
-('1806041', '1806', 'KOTABUMI UTARA'),
-('1806042', '1806', 'KOTABUMI SELATAN'),
-('1806050', '1806', 'ABUNG SELATAN'),
-('1806051', '1806', 'ABUNG SEMULI'),
-('1806052', '1806', 'BLAMBANGAN PAGAR'),
-('1806060', '1806', 'ABUNG TIMUR'),
-('1806061', '1806', 'ABUNG SURAKARTA'),
-('1806070', '1806', 'SUNGKAI SELATAN'),
-('1806071', '1806', 'MUARA SUNGKAI'),
-('1806072', '1806', 'BUNGA MAYANG'),
-('1806073', '1806', 'SUNGKAI  BARAT'),
-('1806074', '1806', 'SUNGKAI JAYA'),
-('1806080', '1806', 'SUNGKAI UTARA'),
-('1806081', '1806', 'HULUSUNGKAI'),
-('1806082', '1806', 'SUNGKAI TENGAH'),
-('1807010', '1807', 'BANJIT'),
-('1807020', '1807', 'BARADATU'),
-('1807021', '1807', 'GUNUNG LABUHAN'),
-('1807030', '1807', 'KASUI'),
-('1807031', '1807', 'REBANG TANGKAS'),
-('1807040', '1807', 'BLAMBANGAN UMPU'),
-('1807041', '1807', 'WAY TUBA'),
-('1807042', '1807', 'NEGERI AGUNG'),
-('1807050', '1807', 'BAHUGA'),
-('1807051', '1807', 'BUAY  BAHUGA'),
-('1807052', '1807', 'BUMI AGUNG'),
-('1807060', '1807', 'PAKUAN RATU'),
-('1807061', '1807', 'NEGARA BATIN'),
-('1807062', '1807', 'NEGERI BESAR'),
-('1808030', '1808', 'BANJAR AGUNG'),
-('1808031', '1808', 'BANJAR MARGO'),
-('1808032', '1808', 'BANJAR BARU'),
-('1808040', '1808', 'GEDUNG AJI'),
-('1808041', '1808', 'PENAWAR AJI'),
-('1808042', '1808', 'MERAKSA AJI'),
-('1808050', '1808', 'MENGGALA'),
-('1808051', '1808', 'PENAWAR TAMA'),
-('1808052', '1808', 'RAWAJITU SELATAN'),
-('1808053', '1808', 'GEDUNG MENENG'),
-('1808054', '1808', 'RAWAJITU TIMUR'),
-('1808055', '1808', 'RAWA PITU'),
-('1808056', '1808', 'GEDUNG AJI BARU'),
-('1808057', '1808', 'DENTE TELADAS'),
-('1808058', '1808', 'MENGGALA TIMUR'),
-('1809010', '1809', 'PUNDUH PIDADA'),
-('1809011', '1809', 'MARGA PUNDUH'),
-('1809020', '1809', 'PADANG CERMIN'),
-('1809021', '1809', 'TELUK PANDAN'),
-('1809022', '1809', 'WAY RATAI'),
-('1809030', '1809', 'KEDONDONG'),
-('1809031', '1809', 'WAY KHILAU'),
-('1809040', '1809', 'WAY LIMA'),
-('1809050', '1809', 'GEDUNG TATAAN'),
-('1809060', '1809', 'NEGERI KATON'),
-('1809070', '1809', 'TEGINENENG'),
-('1810010', '1810', 'PARDASUKA'),
-('1810020', '1810', 'AMBARAWA'),
-('1810030', '1810', 'PAGELARAN'),
-('1810031', '1810', 'PAGELARAN UTARA'),
-('1810040', '1810', 'PRINGSEWU'),
-('1810050', '1810', 'GADING REJO'),
-('1810060', '1810', 'SUKOHARJO'),
-('1810070', '1810', 'BANYUMAS'),
-('1810080', '1810', 'ADI LUWIH'),
-('1811010', '1811', 'WAY SERDANG'),
-('1811020', '1811', 'SIMPANG PEMATANG'),
-('1811030', '1811', 'PANCA JAYA'),
-('1811040', '1811', 'TANJUNG RAYA'),
-('1811050', '1811', 'MESUJI'),
-('1811060', '1811', 'MESUJI TIMUR'),
-('1811070', '1811', 'RAWAJITU UTARA'),
-('1812010', '1812', 'TULANG BAWANG UDIK'),
-('1812020', '1812', 'TUMI JAJAR'),
-('1812030', '1812', 'TULANG BAWANG TENGAH'),
-('1812040', '1812', 'PAGAR DEWA'),
-('1812050', '1812', 'LAMBU KIBANG'),
-('1812060', '1812', 'GUNUNG TERANG'),
-('1812070', '1812', 'GUNUNG AGUNG'),
-('1812080', '1812', 'WAY KENANGA'),
-('1813010', '1813', 'LEMONG'),
-('1813020', '1813', 'PESISIR UTARA'),
-('1813030', '1813', 'PULAU PISANG'),
-('1813040', '1813', 'KARYA PENGGAWA'),
-('1813050', '1813', 'WAY KRUI'),
-('1813060', '1813', 'PESISIR TENGAH'),
-('1813070', '1813', 'KRUI SELATAN'),
-('1813080', '1813', 'PESISIR SELATAN'),
-('1813090', '1813', 'NGAMBUR'),
-('1813100', '1813', 'BENGKUNAT'),
-('1813110', '1813', 'BENGKUNAT BELIMBING'),
-('1871010', '1871', 'TELUK BETUNG BARAT'),
-('1871011', '1871', 'TELUKBETUNG TIMUR'),
-('1871020', '1871', 'TELUK BETUNG SELATAN'),
-('1871021', '1871', 'BUMI WARAS'),
-('1871030', '1871', 'PANJANG'),
-('1871040', '1871', 'TANJUNG KARANG TIMUR'),
-('1871041', '1871', 'KEDAMAIAN'),
-('1871050', '1871', 'TELUK BETUNG UTARA'),
-('1871060', '1871', 'TANJUNG KARANG PUSAT'),
-('1871061', '1871', 'ENGGAL'),
-('1871070', '1871', 'TANJUNG KARANG BARAT'),
-('1871071', '1871', 'KEMILING'),
-('1871072', '1871', 'LANGKAPURA'),
-('1871080', '1871', 'KEDATON'),
-('1871081', '1871', 'RAJABASA'),
-('1871082', '1871', 'TANJUNG SENANG'),
-('1871083', '1871', 'LABUHAN RATU'),
-('1871090', '1871', 'SUKARAME'),
-('1871091', '1871', 'SUKABUMI'),
-('1871092', '1871', 'WAY HALIM'),
-('1872011', '1872', 'METRO SELATAN'),
-('1872012', '1872', 'METRO BARAT'),
-('1872021', '1872', 'METRO TIMUR'),
-('1872022', '1872', 'METRO PUSAT'),
-('1872023', '1872', 'METRO UTARA'),
-('1901070', '1901', 'MENDO BARAT'),
-('1901080', '1901', 'MERAWANG'),
-('1901081', '1901', 'PUDING BESAR'),
-('1901090', '1901', 'SUNGAI LIAT'),
-('1901091', '1901', 'PEMALI'),
-('1901092', '1901', 'BAKAM'),
-('1901130', '1901', 'BELINYU'),
-('1901131', '1901', 'RIAU SILIP'),
-('1902010', '1902', 'MEMBALONG'),
-('1902060', '1902', 'TANJUNG PANDAN'),
-('1902061', '1902', 'BADAU'),
-('1902062', '1902', 'SIJUK'),
-('1902063', '1902', 'SELAT NASIK'),
-('1903010', '1903', 'KELAPA'),
-('1903020', '1903', 'TEMPILANG'),
-('1903030', '1903', 'MENTOK'),
-('1903040', '1903', 'SIMPANG TERITIP'),
-('1903050', '1903', 'JEBUS'),
-('1903051', '1903', 'PARITTIGA'),
-('1904010', '1904', 'KOBA'),
-('1904011', '1904', 'LUBUK BESAR'),
-('1904020', '1904', 'PANGKALAN BARU'),
-('1904021', '1904', 'NAMANG'),
-('1904030', '1904', 'SUNGAI SELAN'),
-('1904040', '1904', 'SIMPANG KATIS'),
-('1905010', '1905', 'PAYUNG'),
-('1905011', '1905', 'PULAU BESAR'),
-('1905020', '1905', 'SIMPANG RIMBA'),
-('1905030', '1905', 'TOBOALI'),
-('1905031', '1905', 'TUKAK SADAI'),
-('1905040', '1905', 'AIR GEGAS'),
-('1905050', '1905', 'LEPAR PONGOK'),
-('1905051', '1905', 'KEPULAUAN PONGOK'),
-('1906010', '1906', 'DENDANG'),
-('1906011', '1906', 'SIMPANG PESAK'),
-('1906020', '1906', 'GANTUNG'),
-('1906021', '1906', 'SIMPANG RENGGIANG'),
-('1906030', '1906', 'MANGGAR'),
-('1906031', '1906', 'DAMAR'),
-('1906040', '1906', 'KELAPA KAMPIT'),
-('1971010', '1971', 'RANGKUI'),
-('1971020', '1971', 'BUKIT INTAN'),
-('1971021', '1971', 'GIRIMAYA'),
-('1971030', '1971', 'PANGKAL BALAM'),
-('1971031', '1971', 'GABEK'),
-('1971040', '1971', 'TAMAN SARI'),
-('1971041', '1971', 'GERUNGGANG'),
-('2101010', '2101', 'MORO'),
-('2101011', '2101', 'DURAI'),
-('2101020', '2101', 'KUNDUR'),
-('2101021', '2101', 'KUNDUR UTARA'),
-('2101022', '2101', 'KUNDUR BARAT'),
-('2101023', '2101', 'UNGAR'),
-('2101024', '2101', 'BELAT'),
-('2101030', '2101', 'KARIMUN'),
-('2101031', '2101', 'BURU'),
-('2101032', '2101', 'MERAL'),
-('2101033', '2101', 'TEBING'),
-('2101034', '2101', 'MERAL BARAT'),
-('2102040', '2102', 'TELUK BINTAN'),
-('2102050', '2102', 'BINTAN UTARA'),
-('2102051', '2102', 'TELUK SEBONG'),
-('2102052', '2102', 'SERI KUALA LOBAM'),
-('2102060', '2102', 'BINTAN TIMUR'),
-('2102061', '2102', 'GUNUNG KIJANG'),
-('2102062', '2102', 'MANTANG'),
-('2102063', '2102', 'BINTAN PESISIR'),
-('2102064', '2102', 'TOAPAYA'),
-('2102070', '2102', 'TAMBELAN'),
-('2103030', '2103', 'MIDAI'),
-('2103040', '2103', 'BUNGURAN BARAT'),
-('2103041', '2103', 'BUNGURAN UTARA'),
-('2103042', '2103', 'PULAU LAUT'),
-('2103043', '2103', 'PULAU TIGA'),
-('2103050', '2103', 'BUNGURAN TIMUR'),
-('2103051', '2103', 'BUNGURAN TIMUR LAUT'),
-('2103052', '2103', 'BUNGURAN TENGAH'),
-('2103053', '2103', 'BUNGURAN SELATAN'),
-('2103060', '2103', 'SERASAN'),
-('2103061', '2103', 'SUBI'),
-('2103062', '2103', 'SERASAN TIMUR'),
-('2104010', '2104', 'SINGKEP BARAT'),
-('2104020', '2104', 'SINGKEP'),
-('2104021', '2104', 'SINGKEP SELATAN'),
-('2104022', '2104', 'SINGKEP PESISIR'),
-('2104030', '2104', 'LINGGA'),
-('2104031', '2104', 'SELAYAR'),
-('2104032', '2104', 'LINGGA TIMUR'),
-('2104040', '2104', 'LINGGA UTARA'),
-('2104050', '2104', 'SENAYANG'),
-('2105010', '2105', 'JEMAJA'),
-('2105020', '2105', 'JEMAJA TIMUR'),
-('2105030', '2105', 'SIANTAN SELATAN'),
-('2105040', '2105', 'SIANTAN'),
-('2105050', '2105', 'SIANTAN TIMUR'),
-('2105060', '2105', 'SIANTAN TENGAH'),
-('2105070', '2105', 'PALMATAK'),
-('2171010', '2171', 'BELAKANG PADANG'),
-('2171020', '2171', 'BULANG'),
-('2171030', '2171', 'GALANG'),
-('2171040', '2171', 'SEI BEDUK'),
-('2171041', '2171', 'SAGULUNG'),
-('2171050', '2171', 'NONGSA'),
-('2171051', '2171', 'BATAM KOTA'),
-('2171060', '2171', 'SEKUPANG'),
-('2171061', '2171', 'BATU AJI'),
-('2171070', '2171', 'LUBUK BAJA'),
-('2171080', '2171', 'BATU AMPAR'),
-('2171081', '2171', 'BENGKONG'),
-('2172010', '2172', 'BUKIT BESTARI'),
-('2172020', '2172', 'TANJUNGPINANG TIMUR'),
-('2172030', '2172', 'TANJUNGPINANG KOTA'),
-('2172040', '2172', 'TANJUNGPINANG BARAT'),
-('3101010', '3101', 'KEPULAUAN SERIBU SELATAN'),
-('3101020', '3101', 'KEPULAUAN SERIBU UTARA'),
-('3171010', '3171', 'JAGAKARSA'),
-('3171020', '3171', 'PASAR MINGGU'),
-('3171030', '3171', 'CILANDAK'),
-('3171040', '3171', 'PESANGGRAHAN'),
-('3171050', '3171', 'KEBAYORAN LAMA'),
-('3171060', '3171', 'KEBAYORAN BARU'),
-('3171070', '3171', 'MAMPANG PRAPATAN'),
-('3171080', '3171', 'PANCORAN'),
-('3171090', '3171', 'TEBET'),
-('3171100', '3171', 'SETIA BUDI'),
-('3172010', '3172', 'PASAR REBO'),
-('3172020', '3172', 'CIRACAS'),
-('3172030', '3172', 'CIPAYUNG'),
-('3172040', '3172', 'MAKASAR'),
-('3172050', '3172', 'KRAMAT JATI'),
-('3172060', '3172', 'JATINEGARA'),
-('3172070', '3172', 'DUREN SAWIT'),
-('3172080', '3172', 'CAKUNG'),
-('3172090', '3172', 'PULO GADUNG'),
-('3172100', '3172', 'MATRAMAN'),
-('3173010', '3173', 'TANAH ABANG'),
-('3173020', '3173', 'MENTENG'),
-('3173030', '3173', 'SENEN'),
-('3173040', '3173', 'JOHAR BARU'),
-('3173050', '3173', 'CEMPAKA PUTIH'),
-('3173060', '3173', 'KEMAYORAN'),
-('3173070', '3173', 'SAWAH BESAR'),
-('3173080', '3173', 'GAMBIR'),
-('3174010', '3174', 'KEMBANGAN'),
-('3174020', '3174', 'KEBON JERUK'),
-('3174030', '3174', 'PALMERAH'),
-('3174040', '3174', 'GROGOL PETAMBURAN'),
-('3174050', '3174', 'TAMBORA'),
-('3174060', '3174', 'TAMAN SARI'),
-('3174070', '3174', 'CENGKARENG'),
-('3174080', '3174', 'KALI DERES'),
-('3175010', '3175', 'PENJARINGAN'),
-('3175020', '3175', 'PADEMANGAN'),
-('3175030', '3175', 'TANJUNG PRIOK'),
-('3175040', '3175', 'KOJA'),
-('3175050', '3175', 'KELAPA GADING'),
-('3175060', '3175', 'CILINCING'),
-('3201010', '3201', 'NANGGUNG'),
-('3201020', '3201', 'LEUWILIANG'),
-('3201021', '3201', 'LEUWISADENG'),
-('3201030', '3201', 'PAMIJAHAN'),
-('3201040', '3201', 'CIBUNGBULANG'),
-('3201050', '3201', 'CIAMPEA'),
-('3201051', '3201', 'TENJOLAYA'),
-('3201060', '3201', 'DRAMAGA'),
-('3201070', '3201', 'CIOMAS'),
-('3201071', '3201', 'TAMANSARI'),
-('3201080', '3201', 'CIJERUK'),
-('3201081', '3201', 'CIGOMBONG'),
-('3201090', '3201', 'CARINGIN'),
-('3201100', '3201', 'CIAWI'),
-('3201110', '3201', 'CISARUA'),
-('3201120', '3201', 'MEGAMENDUNG'),
-('3201130', '3201', 'SUKARAJA'),
-('3201140', '3201', 'BABAKAN MADANG'),
-('3201150', '3201', 'SUKAMAKMUR'),
-('3201160', '3201', 'CARIU'),
-('3201161', '3201', 'TANJUNGSARI'),
-('3201170', '3201', 'JONGGOL'),
-('3201180', '3201', 'CILEUNGSI'),
-('3201181', '3201', 'KELAPA NUNGGAL'),
-('3201190', '3201', 'GUNUNG PUTRI'),
-('3201200', '3201', 'CITEUREUP'),
-('3201210', '3201', 'CIBINONG'),
-('3201220', '3201', 'BOJONG GEDE'),
-('3201221', '3201', 'TAJUR HALANG'),
-('3201230', '3201', 'KEMANG'),
-('3201231', '3201', 'RANCA BUNGUR'),
-('3201240', '3201', 'PARUNG'),
-('3201241', '3201', 'CISEENG'),
-('3201250', '3201', 'GUNUNG SINDUR'),
-('3201260', '3201', 'RUMPIN'),
-('3201270', '3201', 'CIGUDEG'),
-('3201271', '3201', 'SUKAJAYA'),
-('3201280', '3201', 'JASINGA'),
-('3201290', '3201', 'TENJO'),
-('3201300', '3201', 'PARUNG PANJANG'),
-('3202010', '3202', 'CIEMAS'),
-('3202020', '3202', 'CIRACAP'),
-('3202021', '3202', 'WALURAN'),
-('3202030', '3202', 'SURADE'),
-('3202031', '3202', 'CIBITUNG'),
-('3202040', '3202', 'JAMPANG KULON'),
-('3202041', '3202', 'CIMANGGU'),
-('3202050', '3202', 'KALI BUNDER'),
-('3202060', '3202', 'TEGAL BULEUD'),
-('3202070', '3202', 'CIDOLOG'),
-('3202080', '3202', 'SAGARANTEN'),
-('3202081', '3202', 'CIDADAP'),
-('3202082', '3202', 'CURUGKEMBAR'),
-('3202090', '3202', 'PABUARAN'),
-('3202100', '3202', 'LENGKONG'),
-('3202110', '3202', 'PALABUHANRATU'),
-('3202111', '3202', 'SIMPENAN'),
-('3202120', '3202', 'WARUNG KIARA'),
-('3202121', '3202', 'BANTARGADUNG'),
-('3202130', '3202', 'JAMPANG TENGAH'),
-('3202131', '3202', 'PURABAYA'),
-('3202140', '3202', 'CIKEMBAR'),
-('3202150', '3202', 'NYALINDUNG'),
-('3202160', '3202', 'GEGER BITUNG'),
-('3202170', '3202', 'SUKARAJA'),
-('3202171', '3202', 'KEBONPEDES'),
-('3202172', '3202', 'CIREUNGHAS'),
-('3202173', '3202', 'SUKALARANG'),
-('3202180', '3202', 'SUKABUMI'),
-('3202190', '3202', 'KADUDAMPIT'),
-('3202200', '3202', 'CISAAT'),
-('3202201', '3202', 'GUNUNGGURUH'),
-('3202210', '3202', 'CIBADAK'),
-('3202211', '3202', 'CICANTAYAN'),
-('3202212', '3202', 'CARINGIN'),
-('3202220', '3202', 'NAGRAK'),
-('3202221', '3202', 'CIAMBAR'),
-('3202230', '3202', 'CICURUG'),
-('3202240', '3202', 'CIDAHU'),
-('3202250', '3202', 'PARAKAN SALAK'),
-('3202260', '3202', 'PARUNG KUDA'),
-('3202261', '3202', 'BOJONG GENTENG'),
-('3202270', '3202', 'KALAPA NUNGGAL'),
-('3202280', '3202', 'CIKIDANG'),
-('3202290', '3202', 'CISOLOK'),
-('3202291', '3202', 'CIKAKAK'),
-('3202300', '3202', 'KABANDUNGAN'),
-('3203010', '3203', 'AGRABINTA'),
-('3203011', '3203', 'LELES'),
-('3203020', '3203', 'SINDANGBARANG'),
-('3203030', '3203', 'CIDAUN'),
-('3203040', '3203', 'NARINGGUL'),
-('3203050', '3203', 'CIBINONG'),
-('3203051', '3203', 'CIKADU'),
-('3203060', '3203', 'TANGGEUNG'),
-('3203061', '3203', 'PASIRKUDA'),
-('3203070', '3203', 'KADUPANDAK'),
-('3203071', '3203', 'CIJATI'),
-('3203080', '3203', 'TAKOKAK'),
-('3203090', '3203', 'SUKANAGARA'),
-('3203100', '3203', 'PAGELARAN'),
-('3203110', '3203', 'CAMPAKA'),
-('3203111', '3203', 'CAMPAKA MULYA'),
-('3203120', '3203', 'CIBEBER'),
-('3203130', '3203', 'WARUNGKONDANG'),
-('3203131', '3203', 'GEKBRONG'),
-('3203140', '3203', 'CILAKU'),
-('3203150', '3203', 'SUKALUYU'),
-('3203160', '3203', 'BOJONGPICUNG'),
-('3203161', '3203', 'HAURWANGI'),
-('3203170', '3203', 'CIRANJANG'),
-('3203180', '3203', 'MANDE'),
-('3203190', '3203', 'KARANGTENGAH'),
-('3203200', '3203', 'CIANJUR'),
-('3203210', '3203', 'CUGENANG'),
-('3203220', '3203', 'PACET'),
-('3203221', '3203', 'CIPANAS'),
-('3203230', '3203', 'SUKARESMI'),
-('3203240', '3203', 'CIKALONGKULON'),
-('3204010', '3204', 'CIWIDEY'),
-('3204011', '3204', 'RANCABALI'),
-('3204020', '3204', 'PASIRJAMBU'),
-('3204030', '3204', 'CIMAUNG'),
-('3204040', '3204', 'PANGALENGAN'),
-('3204050', '3204', 'KERTASARI'),
-('3204060', '3204', 'PACET'),
-('3204070', '3204', 'IBUN'),
-('3204080', '3204', 'PASEH'),
-('3204090', '3204', 'CIKANCUNG'),
-('3204100', '3204', 'CICALENGKA'),
-('3204101', '3204', 'NAGREG'),
-('3204110', '3204', 'RANCAEKEK'),
-('3204120', '3204', 'MAJALAYA'),
-('3204121', '3204', 'SOLOKAN JERUK'),
-('3204130', '3204', 'CIPARAY'),
-('3204140', '3204', 'BALEENDAH'),
-('3204150', '3204', 'ARJASARI'),
-('3204160', '3204', 'BANJARAN'),
-('3204161', '3204', 'CANGKUANG'),
-('3204170', '3204', 'PAMEUNGPEUK'),
-('3204180', '3204', 'KATAPANG'),
-('3204190', '3204', 'SOREANG'),
-('3204191', '3204', 'KUTAWARINGIN'),
-('3204250', '3204', 'MARGAASIH'),
-('3204260', '3204', 'MARGAHAYU'),
-('3204270', '3204', 'DAYEUHKOLOT'),
-('3204280', '3204', 'BOJONGSOANG'),
-('3204290', '3204', 'CILEUNYI'),
-('3204300', '3204', 'CILENGKRANG'),
-('3204310', '3204', 'CIMENYAN'),
-('3205010', '3205', 'CISEWU'),
-('3205011', '3205', 'CARINGIN'),
-('3205020', '3205', 'TALEGONG'),
-('3205030', '3205', 'BUNGBULANG'),
-('3205031', '3205', 'MEKARMUKTI'),
-('3205040', '3205', 'PAMULIHAN'),
-('3205050', '3205', 'PAKENJENG'),
-('3205060', '3205', 'CIKELET'),
-('3205070', '3205', 'PAMEUNGPEUK'),
-('3205080', '3205', 'CIBALONG'),
-('3205090', '3205', 'CISOMPET'),
-('3205100', '3205', 'PEUNDEUY'),
-('3205110', '3205', 'SINGAJAYA'),
-('3205111', '3205', 'CIHURIP'),
-('3205120', '3205', 'CIKAJANG'),
-('3205130', '3205', 'BANJARWANGI'),
-('3205140', '3205', 'CILAWU'),
-('3205150', '3205', 'BAYONGBONG'),
-('3205151', '3205', 'CIGEDUG'),
-('3205160', '3205', 'CISURUPAN'),
-('3205161', '3205', 'SUKARESMI'),
-('3205170', '3205', 'SAMARANG'),
-('3205171', '3205', 'PASIRWANGI'),
-('3205181', '3205', 'TAROGONG KIDUL'),
-('3205182', '3205', 'TAROGONG KALER'),
-('3205190', '3205', 'GARUT KOTA'),
-('3205200', '3205', 'KARANGPAWITAN'),
-('3205210', '3205', 'WANARAJA'),
-('3205211', '3205', 'SUCINARAJA'),
-('3205212', '3205', 'PANGATIKAN'),
-('3205220', '3205', 'SUKAWENING'),
-('3205221', '3205', 'KARANGTENGAH'),
-('3205230', '3205', 'BANYURESMI'),
-('3205240', '3205', 'LELES'),
-('3205250', '3205', 'LEUWIGOONG'),
-('3205260', '3205', 'CIBATU'),
-('3205261', '3205', 'KERSAMANAH'),
-('3205270', '3205', 'CIBIUK'),
-('3205280', '3205', 'KADUNGORA'),
-('3205290', '3205', 'BLUBUR LIMBANGAN'),
-('3205300', '3205', 'SELAAWI'),
-('3205310', '3205', 'MALANGBONG'),
-('3206010', '3206', 'CIPATUJAH'),
-('3206020', '3206', 'KARANGNUNGGAL'),
-('3206030', '3206', 'CIKALONG'),
-('3206040', '3206', 'PANCATENGAH'),
-('3206050', '3206', 'CIKATOMAS'),
-('3206060', '3206', 'CIBALONG'),
-('3206061', '3206', 'PARUNGPONTENG'),
-('3206070', '3206', 'BANTARKALONG'),
-('3206071', '3206', 'BOJONGASIH'),
-('3206072', '3206', 'CULAMEGA'),
-('3206080', '3206', 'BOJONGGAMBIR'),
-('3206090', '3206', 'SODONGHILIR'),
-('3206100', '3206', 'TARAJU'),
-('3206110', '3206', 'SALAWU'),
-('3206111', '3206', 'PUSPAHIANG'),
-('3206120', '3206', 'TANJUNGJAYA'),
-('3206130', '3206', 'SUKARAJA'),
-('3206140', '3206', 'SALOPA'),
-('3206141', '3206', 'JATIWARAS'),
-('3206150', '3206', 'CINEAM'),
-('3206151', '3206', 'KARANGJAYA'),
-('3206160', '3206', 'MANONJAYA'),
-('3206161', '3206', 'GUNUNGTANJUNG'),
-('3206190', '3206', 'SINGAPARNA'),
-('3206191', '3206', 'SUKARAME'),
-('3206192', '3206', 'MANGUNREJA'),
-('3206200', '3206', 'CIGALONTANG'),
-('3206210', '3206', 'LEUWISARI'),
-('3206211', '3206', 'SARIWANGI'),
-('3206212', '3206', 'PADAKEMBANG'),
-('3206221', '3206', 'SUKARATU'),
-('3206230', '3206', 'CISAYONG'),
-('3206231', '3206', 'SUKAHENING'),
-('3206240', '3206', 'RAJAPOLAH'),
-('3206250', '3206', 'JAMANIS'),
-('3206260', '3206', 'CIAWI'),
-('3206261', '3206', 'KADIPATEN'),
-('3206270', '3206', 'PAGERAGEUNG'),
-('3206271', '3206', 'SUKARESIK'),
-('3207100', '3207', 'BANJARSARI'),
-('3207110', '3207', 'LAKBOK'),
-('3207111', '3207', 'PURWADADI'),
-('3207120', '3207', 'PAMARICAN'),
-('3207130', '3207', 'CIDOLOG'),
-('3207140', '3207', 'CIMARAGAS'),
-('3207150', '3207', 'CIJEUNGJING'),
-('3207160', '3207', 'CISAGA'),
-('3207170', '3207', 'TAMBAKSARI'),
-('3207180', '3207', 'RANCAH'),
-('3207190', '3207', 'RAJADESA'),
-('3207200', '3207', 'SUKADANA'),
-('3207210', '3207', 'CIAMIS'),
-('3207211', '3207', 'BAREGBEG'),
-('3207220', '3207', 'CIKONENG'),
-('3207221', '3207', 'SINDANGKASIH'),
-('3207230', '3207', 'CIHAURBEUTI'),
-('3207240', '3207', 'SADANANYA'),
-('3207250', '3207', 'CIPAKU'),
-('3207260', '3207', 'JATINAGARA'),
-('3207270', '3207', 'PANAWANGAN'),
-('3207280', '3207', 'KAWALI'),
-('3207281', '3207', 'LUMBUNG'),
-('3207290', '3207', 'PANJALU'),
-('3207291', '3207', 'SUKAMANTRI'),
-('3207300', '3207', 'PANUMBANGAN'),
-('3208010', '3208', 'DARMA'),
-('3208020', '3208', 'KADUGEDE'),
-('3208021', '3208', 'NUSAHERANG'),
-('3208030', '3208', 'CINIRU'),
-('3208031', '3208', 'HANTARA'),
-('3208040', '3208', 'SELAJAMBE'),
-('3208050', '3208', 'SUBANG'),
-('3208051', '3208', 'CILEBAK'),
-('3208060', '3208', 'CIWARU'),
-('3208061', '3208', 'KARANGKANCANA'),
-('3208070', '3208', 'CIBINGBIN'),
-('3208071', '3208', 'CIBEUREUM'),
-('3208080', '3208', 'LURAGUNG'),
-('3208081', '3208', 'CIMAHI'),
-('3208090', '3208', 'CIDAHU'),
-('3208091', '3208', 'KALIMANGGIS'),
-('3208100', '3208', 'CIAWIGEBANG'),
-('3208101', '3208', 'CIPICUNG'),
-('3208110', '3208', 'LEBAKWANGI'),
-('3208111', '3208', 'MALEBER'),
-('3208120', '3208', 'GARAWANGI'),
-('3208121', '3208', 'SINDANGAGUNG'),
-('3208130', '3208', 'KUNINGAN'),
-('3208140', '3208', 'CIGUGUR'),
-('3208150', '3208', 'KRAMATMULYA'),
-('3208160', '3208', 'JALAKSANA'),
-('3208161', '3208', 'JAPARA'),
-('3208170', '3208', 'CILIMUS'),
-('3208171', '3208', 'CIGANDAMEKAR'),
-('3208180', '3208', 'MANDIRANCAN'),
-('3208181', '3208', 'PANCALANG'),
-('3208190', '3208', 'PASAWAHAN'),
-('3209010', '3209', 'WALED'),
-('3209011', '3209', 'PASALEMAN'),
-('3209020', '3209', 'CILEDUG'),
-('3209021', '3209', 'PABUARAN'),
-('3209030', '3209', 'LOSARI'),
-('3209031', '3209', 'PABEDILAN'),
-('3209040', '3209', 'BABAKAN'),
-('3209041', '3209', 'GEBANG'),
-('3209050', '3209', 'KARANGSEMBUNG'),
-('3209051', '3209', 'KARANGWARENG'),
-('3209060', '3209', 'LEMAHABANG'),
-('3209061', '3209', 'SUSUKANLEBAK'),
-('3209070', '3209', 'SEDONG'),
-('3209080', '3209', 'ASTANAJAPURA'),
-('3209081', '3209', 'PANGENAN'),
-('3209090', '3209', 'MUNDU'),
-('3209100', '3209', 'BEBER'),
-('3209101', '3209', 'GREGED'),
-('3209111', '3209', 'TALUN'),
-('3209120', '3209', 'SUMBER'),
-('3209121', '3209', 'DUKUPUNTANG'),
-('3209130', '3209', 'PALIMANAN'),
-('3209140', '3209', 'PLUMBON'),
-('3209141', '3209', 'DEPOK'),
-('3209150', '3209', 'WERU'),
-('3209151', '3209', 'PLERED'),
-('3209161', '3209', 'TENGAH TANI'),
-('3209162', '3209', 'KEDAWUNG'),
-('3209171', '3209', 'GUNUNGJATI'),
-('3209180', '3209', 'KAPETAKAN'),
-('3209181', '3209', 'SURANENGGALA'),
-('3209190', '3209', 'KLANGENAN'),
-('3209191', '3209', 'JAMBLANG'),
-('3209200', '3209', 'ARJAWINANGUN'),
-('3209201', '3209', 'PANGURAGAN'),
-('3209210', '3209', 'CIWARINGIN'),
-('3209211', '3209', 'GEMPOL'),
-('3209220', '3209', 'SUSUKAN'),
-('3209230', '3209', 'GEGESIK'),
-('3209231', '3209', 'KALIWEDI'),
-('3210010', '3210', 'LEMAHSUGIH'),
-('3210020', '3210', 'BANTARUJEG'),
-('3210021', '3210', 'MALAUSMA'),
-('3210030', '3210', 'CIKIJING'),
-('3210031', '3210', 'CINGAMBUL'),
-('3210040', '3210', 'TALAGA'),
-('3210041', '3210', 'BANJARAN'),
-('3210050', '3210', 'ARGAPURA'),
-('3210060', '3210', 'MAJA'),
-('3210070', '3210', 'MAJALENGKA'),
-('3210080', '3210', 'CIGASONG'),
-('3210090', '3210', 'SUKAHAJI'),
-('3210091', '3210', 'SINDANG'),
-('3210100', '3210', 'RAJAGALUH'),
-('3210110', '3210', 'SINDANGWANGI'),
-('3210120', '3210', 'LEUWIMUNDING'),
-('3210130', '3210', 'PALASAH'),
-('3210140', '3210', 'JATIWANGI'),
-('3210150', '3210', 'DAWUAN'),
-('3210151', '3210', 'KASOKANDEL'),
-('3210160', '3210', 'PANYINGKIRAN'),
-('3210170', '3210', 'KADIPATEN'),
-('3210180', '3210', 'KERTAJATI'),
-('3210190', '3210', 'JATITUJUH'),
-('3210200', '3210', 'LIGUNG'),
-('3210210', '3210', 'SUMBERJAYA'),
-('3211010', '3211', 'JATINANGOR'),
-('3211020', '3211', 'CIMANGGUNG'),
-('3211030', '3211', 'TANJUNGSARI'),
-('3211031', '3211', 'SUKASARI'),
-('3211032', '3211', 'PAMULIHAN'),
-('3211040', '3211', 'RANCAKALONG'),
-('3211050', '3211', 'SUMEDANG SELATAN'),
-('3211060', '3211', 'SUMEDANG UTARA'),
-('3211061', '3211', 'GANEAS'),
-('3211070', '3211', 'SITURAJA'),
-('3211071', '3211', 'CISITU'),
-('3211080', '3211', 'DARMARAJA'),
-('3211090', '3211', 'CIBUGEL'),
-('3211100', '3211', 'WADO'),
-('3211101', '3211', 'JATINUNGGAL'),
-('3211111', '3211', 'JATIGEDE'),
-('3211120', '3211', 'TOMO'),
-('3211130', '3211', 'UJUNG JAYA'),
-('3211140', '3211', 'CONGGEANG'),
-('3211150', '3211', 'PASEH'),
-('3211160', '3211', 'CIMALAKA'),
-('3211161', '3211', 'CISARUA'),
-('3211170', '3211', 'TANJUNGKERTA'),
-('3211171', '3211', 'TANJUNGMEDAR'),
-('3211180', '3211', 'BUAHDUA'),
-('3211181', '3211', 'SURIAN'),
-('3212010', '3212', 'HAURGEULIS'),
-('3212011', '3212', 'GANTAR'),
-('3212020', '3212', 'KROYA'),
-('3212030', '3212', 'GABUSWETAN'),
-('3212040', '3212', 'CIKEDUNG'),
-('3212041', '3212', 'TERISI'),
-('3212050', '3212', 'LELEA'),
-('3212060', '3212', 'BANGODUA'),
-('3212061', '3212', 'TUKDANA'),
-('3212070', '3212', 'WIDASARI'),
-('3212080', '3212', 'KERTASEMAYA'),
-('3212081', '3212', 'SUKAGUMIWANG'),
-('3212090', '3212', 'KRANGKENG'),
-('3212100', '3212', 'KARANGAMPEL'),
-('3212101', '3212', 'KEDOKAN BUNDER'),
-('3212110', '3212', 'JUNTINYUAT'),
-('3212120', '3212', 'SLIYEG'),
-('3212130', '3212', 'JATIBARANG'),
-('3212140', '3212', 'BALONGAN'),
-('3212150', '3212', 'INDRAMAYU'),
-('3212160', '3212', 'SINDANG'),
-('3212161', '3212', 'CANTIGI'),
-('3212162', '3212', 'PASEKAN'),
-('3212170', '3212', 'LOHBENER'),
-('3212171', '3212', 'ARAHAN'),
-('3212180', '3212', 'LOSARANG'),
-('3212190', '3212', 'KANDANGHAUR'),
-('3212200', '3212', 'BONGAS'),
-('3212210', '3212', 'ANJATAN'),
-('3212220', '3212', 'SUKRA'),
-('3212221', '3212', 'PATROL'),
-('3213010', '3213', 'SAGALAHERANG'),
-('3213011', '3213', 'SERANGPANJANG'),
-('3213020', '3213', 'JALANCAGAK'),
-('3213021', '3213', 'CIATER'),
-('3213030', '3213', 'CISALAK'),
-('3213031', '3213', 'KASOMALANG'),
-('3213040', '3213', 'TANJUNGSIANG'),
-('3213050', '3213', 'CIJAMBE'),
-('3213060', '3213', 'CIBOGO'),
-('3213070', '3213', 'SUBANG'),
-('3213080', '3213', 'KALIJATI'),
-('3213081', '3213', 'DAWUAN'),
-('3213090', '3213', 'CIPEUNDEUY'),
-('3213100', '3213', 'PABUARAN'),
-('3213110', '3213', 'PATOKBEUSI'),
-('3213120', '3213', 'PURWADADI'),
-('3213130', '3213', 'CIKAUM'),
-('3213140', '3213', 'PAGADEN'),
-('3213141', '3213', 'PAGADEN BARAT'),
-('3213150', '3213', 'CIPUNAGARA'),
-('3213160', '3213', 'COMPRENG'),
-('3213170', '3213', 'BINONG'),
-('3213171', '3213', 'TAMBAKDAHAN'),
-('3213180', '3213', 'CIASEM'),
-('3213190', '3213', 'PAMANUKAN'),
-('3213191', '3213', 'SUKASARI'),
-('3213200', '3213', 'PUSAKANAGARA'),
-('3213201', '3213', 'PUSAKAJAYA'),
-('3213210', '3213', 'LEGONKULON'),
-('3213220', '3213', 'BLANAKAN'),
-('3214010', '3214', 'JATILUHUR'),
-('3214011', '3214', 'SUKASARI'),
-('3214020', '3214', 'MANIIS'),
-('3214030', '3214', 'TEGAL WARU'),
-('3214040', '3214', 'PLERED'),
-('3214050', '3214', 'SUKATANI'),
-('3214060', '3214', 'DARANGDAN'),
-('3214070', '3214', 'BOJONG'),
-('3214080', '3214', 'WANAYASA'),
-('3214081', '3214', 'KIARAPEDES'),
-('3214090', '3214', 'PASAWAHAN'),
-('3214091', '3214', 'PONDOK SALAM'),
-('3214100', '3214', 'PURWAKARTA'),
-('3214101', '3214', 'BABAKANCIKAO'),
-('3214110', '3214', 'CAMPAKA'),
-('3214111', '3214', 'CIBATU'),
-('3214112', '3214', 'BUNGURSARI'),
-('3215010', '3215', 'PANGKALAN'),
-('3215011', '3215', 'TEGALWARU'),
-('3215020', '3215', 'CIAMPEL'),
-('3215031', '3215', 'TELUKJAMBE TIMUR'),
-('3215032', '3215', 'TELUKJAMBE BARAT'),
-('3215040', '3215', 'KLARI'),
-('3215050', '3215', 'CIKAMPEK'),
-('3215051', '3215', 'PURWASARI'),
-('3215060', '3215', 'TIRTAMULYA'),
-('3215070', '3215', 'JATISARI'),
-('3215071', '3215', 'BANYUSARI'),
-('3215072', '3215', 'KOTABARU'),
-('3215081', '3215', 'CILAMAYA WETAN'),
-('3215082', '3215', 'CILAMAYA KULON'),
-('3215090', '3215', 'LEMAHABANG'),
-('3215100', '3215', 'TALAGASARI'),
-('3215111', '3215', 'MAJALAYA'),
-('3215112', '3215', 'KARAWANG TIMUR'),
-('3215113', '3215', 'KARAWANG BARAT'),
-('3215120', '3215', 'RAWAMERTA'),
-('3215130', '3215', 'TEMPURAN'),
-('3215140', '3215', 'KUTAWALUYA'),
-('3215150', '3215', 'RENGASDENGKLOK'),
-('3215151', '3215', 'JAYAKERTA'),
-('3215160', '3215', 'PEDES'),
-('3215161', '3215', 'CILEBAR'),
-('3215170', '3215', 'CIBUAYA'),
-('3215180', '3215', 'TIRTAJAYA'),
-('3215190', '3215', 'BATUJAYA'),
-('3215200', '3215', 'PAKISJAYA'),
-('3216010', '3216', 'SETU'),
-('3216021', '3216', 'SERANG BARU'),
-('3216022', '3216', 'CIKARANG PUSAT'),
-('3216023', '3216', 'CIKARANG SELATAN'),
-('3216030', '3216', 'CIBARUSAH'),
-('3216031', '3216', 'BOJONGMANGU'),
-('3216041', '3216', 'CIKARANG TIMUR'),
-('3216050', '3216', 'KEDUNGWARINGIN'),
-('3216061', '3216', 'CIKARANG UTARA'),
-('3216062', '3216', 'KARANGBAHAGIA'),
-('3216070', '3216', 'CIBITUNG'),
-('3216071', '3216', 'CIKARANG BARAT'),
-('3216081', '3216', 'TAMBUN SELATAN'),
-('3216082', '3216', 'TAMBUN UTARA'),
-('3216090', '3216', 'BABELAN'),
-('3216100', '3216', 'TARUMAJAYA'),
-('3216110', '3216', 'TAMBELANG'),
-('3216111', '3216', 'SUKAWANGI'),
-('3216120', '3216', 'SUKATANI'),
-('3216121', '3216', 'SUKAKARYA'),
-('3216130', '3216', 'PEBAYURAN'),
-('3216140', '3216', 'CABANGBUNGIN'),
-('3216150', '3216', 'MUARA GEMBONG'),
-('3217010', '3217', 'RONGGA'),
-('3217020', '3217', 'GUNUNGHALU'),
-('3217030', '3217', 'SINDANGKERTA'),
-('3217040', '3217', 'CILILIN'),
-('3217050', '3217', 'CIHAMPELAS'),
-('3217060', '3217', 'CIPONGKOR'),
-('3217070', '3217', 'BATUJAJAR'),
-('3217071', '3217', 'SAGULING'),
-('3217080', '3217', 'CIPATAT'),
-('3217090', '3217', 'PADALARANG'),
-('3217100', '3217', 'NGAMPRAH'),
-('3217110', '3217', 'PARONGPONG'),
-('3217120', '3217', 'LEMBANG'),
-('3217130', '3217', 'CISARUA'),
-('3217140', '3217', 'CIKALONG WETAN'),
-('3217150', '3217', 'CIPEUNDEUY'),
-('3218010', '3218', 'CIMERAK'),
-('3218020', '3218', 'CIJULANG'),
-('3218030', '3218', 'CIGUGUR'),
-('3218040', '3218', 'LANGKAPLANCAR'),
-('3218050', '3218', 'PARIGI'),
-('3218060', '3218', 'SIDAMULIH'),
-('3218070', '3218', 'PANGANDARAN'),
-('3218080', '3218', 'KALIPUCANG'),
-('3218090', '3218', 'PADAHERANG'),
-('3218100', '3218', 'MANGUNJAYA'),
-('3271010', '3271', 'BOGOR SELATAN'),
-('3271020', '3271', 'BOGOR TIMUR'),
-('3271030', '3271', 'BOGOR UTARA'),
-('3271040', '3271', 'BOGOR TENGAH'),
-('3271050', '3271', 'BOGOR BARAT'),
-('3271060', '3271', 'TANAH SEREAL'),
-('3272010', '3272', 'BAROS'),
-('3272011', '3272', 'LEMBURSITU'),
-('3272012', '3272', 'CIBEUREUM'),
-('3272020', '3272', 'CITAMIANG'),
-('3272030', '3272', 'WARUDOYONG'),
-('3272040', '3272', 'GUNUNG PUYUH'),
-('3272050', '3272', 'CIKOLE'),
-('3273010', '3273', 'BANDUNG KULON'),
-('3273020', '3273', 'BABAKAN CIPARAY'),
-('3273030', '3273', 'BOJONGLOA KALER'),
-('3273040', '3273', 'BOJONGLOA KIDUL'),
-('3273050', '3273', 'ASTANAANYAR'),
-('3273060', '3273', 'REGOL'),
-('3273070', '3273', 'LENGKONG'),
-('3273080', '3273', 'BANDUNG KIDUL'),
-('3273090', '3273', 'BUAHBATU'),
-('3273100', '3273', 'RANCASARI'),
-('3273101', '3273', 'GEDEBAGE'),
-('3273110', '3273', 'CIBIRU'),
-('3273111', '3273', 'PANYILEUKAN'),
-('3273120', '3273', 'UJUNG BERUNG'),
-('3273121', '3273', 'CINAMBO'),
-('3273130', '3273', 'ARCAMANIK'),
-('3273141', '3273', 'ANTAPANI'),
-('3273142', '3273', 'MANDALAJATI'),
-('3273150', '3273', 'KIARACONDONG'),
-('3273160', '3273', 'BATUNUNGGAL'),
-('3273170', '3273', 'SUMUR BANDUNG'),
-('3273180', '3273', 'ANDIR'),
-('3273190', '3273', 'CICENDO'),
-('3273200', '3273', 'BANDUNG WETAN'),
-('3273210', '3273', 'CIBEUNYING KIDUL'),
-('3273220', '3273', 'CIBEUNYING KALER'),
-('3273230', '3273', 'COBLONG'),
-('3273240', '3273', 'SUKAJADI'),
-('3273250', '3273', 'SUKASARI'),
-('3273260', '3273', 'CIDADAP'),
-('3274010', '3274', 'HARJAMUKTI'),
-('3274020', '3274', 'LEMAHWUNGKUK'),
-('3274030', '3274', 'PEKALIPAN'),
-('3274040', '3274', 'KESAMBI'),
-('3274050', '3274', 'KEJAKSAN'),
-('3275010', '3275', 'PONDOKGEDE'),
-('3275011', '3275', 'JATISAMPURNA'),
-('3275012', '3275', 'PONDOKMELATI'),
-('3275020', '3275', 'JATIASIH'),
-('3275030', '3275', 'BANTARGEBANG'),
-('3275031', '3275', 'MUSTIKAJAYA'),
-('3275040', '3275', 'BEKASI TIMUR'),
-('3275041', '3275', 'RAWALUMBU'),
-('3275050', '3275', 'BEKASI SELATAN'),
-('3275060', '3275', 'BEKASI BARAT'),
-('3275061', '3275', 'MEDAN SATRIA'),
-('3275070', '3275', 'BEKASI UTARA'),
-('3276010', '3276', 'SAWANGAN'),
-('3276011', '3276', 'BOJONGSARI'),
-('3276020', '3276', 'PANCORAN MAS'),
-('3276021', '3276', 'CIPAYUNG'),
-('3276030', '3276', 'SUKMA JAYA'),
-('3276031', '3276', 'CILODONG'),
-('3276040', '3276', 'CIMANGGIS'),
-('3276041', '3276', 'TAPOS'),
-('3276050', '3276', 'BEJI'),
-('3276060', '3276', 'LIMO'),
-('3276061', '3276', 'CINERE'),
-('3277010', '3277', 'CIMAHI SELATAN'),
-('3277020', '3277', 'CIMAHI TENGAH'),
-('3277030', '3277', 'CIMAHI UTARA'),
-('3278010', '3278', 'KAWALU'),
-('3278020', '3278', 'TAMANSARI'),
-('3278030', '3278', 'CIBEUREUM'),
-('3278031', '3278', 'PURBARATU'),
-('3278040', '3278', 'TAWANG'),
-('3278050', '3278', 'CIHIDEUNG'),
-('3278060', '3278', 'MANGKUBUMI'),
-('3278070', '3278', 'INDIHIANG'),
-('3278071', '3278', 'BUNGURSARI'),
-('3278080', '3278', 'CIPEDES'),
-('3279010', '3279', 'BANJAR'),
-('3279020', '3279', 'PURWAHARJA'),
-('3279030', '3279', 'PATARUMAN'),
-('3279040', '3279', 'LANGENSARI'),
-('3301010', '3301', 'DAYEUHLUHUR'),
-('3301020', '3301', 'WANAREJA'),
-('3301030', '3301', 'MAJENANG'),
-('3301040', '3301', 'CIMANGGU'),
-('3301050', '3301', 'KARANGPUCUNG'),
-('3301060', '3301', 'CIPARI'),
-('3301070', '3301', 'SIDAREJA'),
-('3301080', '3301', 'KEDUNGREJA'),
-('3301090', '3301', 'PATIMUAN'),
-('3301100', '3301', 'GANDRUNGMANGU'),
-('3301110', '3301', 'BANTARSARI'),
-('3301120', '3301', 'KAWUNGANTEN'),
-('3301121', '3301', 'KAMPUNG LAUT'),
-('3301130', '3301', 'JERUKLEGI'),
-('3301140', '3301', 'KESUGIHAN'),
-('3301150', '3301', 'ADIPALA'),
-('3301160', '3301', 'MAOS'),
-('3301170', '3301', 'SAMPANG'),
-('3301180', '3301', 'KROYA'),
-('3301190', '3301', 'BINANGUN'),
-('3301200', '3301', 'NUSAWUNGU'),
-('3301710', '3301', 'CILACAP SELATAN'),
-('3301720', '3301', 'CILACAP TENGAH'),
-('3301730', '3301', 'CILACAP UTARA'),
-('3302010', '3302', 'LUMBIR'),
-('3302020', '3302', 'WANGON'),
-('3302030', '3302', 'JATILAWANG'),
-('3302040', '3302', 'RAWALO'),
-('3302050', '3302', 'KEBASEN'),
-('3302060', '3302', 'KEMRANJEN'),
-('3302070', '3302', 'SUMPIUH'),
-('3302080', '3302', 'TAMBAK'),
-('3302090', '3302', 'SOMAGEDE'),
-('3302100', '3302', 'KALIBAGOR'),
-('3302110', '3302', 'BANYUMAS'),
-('3302120', '3302', 'PATIKRAJA'),
-('3302130', '3302', 'PURWOJATI'),
-('3302140', '3302', 'AJIBARANG'),
-('3302150', '3302', 'GUMELAR'),
-('3302160', '3302', 'PEKUNCEN'),
-('3302170', '3302', 'CILONGOK'),
-('3302180', '3302', 'KARANGLEWAS'),
-('3302190', '3302', 'KEDUNG BANTENG'),
-('3302200', '3302', 'BATURRADEN'),
-('3302210', '3302', 'SUMBANG'),
-('3302220', '3302', 'KEMBARAN'),
-('3302230', '3302', 'SOKARAJA'),
-('3302710', '3302', 'PURWOKERTO SELATAN'),
-('3302720', '3302', 'PURWOKERTO BARAT'),
-('3302730', '3302', 'PURWOKERTO TIMUR'),
-('3302740', '3302', 'PURWOKERTO UTARA'),
-('3303010', '3303', 'KEMANGKON'),
-('3303020', '3303', 'BUKATEJA'),
-('3303030', '3303', 'KEJOBONG'),
-('3303040', '3303', 'PENGADEGAN'),
-('3303050', '3303', 'KALIGONDANG'),
-('3303060', '3303', 'PURBALINGGA'),
-('3303070', '3303', 'KALIMANAH'),
-('3303080', '3303', 'PADAMARA'),
-('3303090', '3303', 'KUTASARI'),
-('3303100', '3303', 'BOJONGSARI'),
-('3303110', '3303', 'MREBET'),
-('3303120', '3303', 'BOBOTSARI'),
-('3303130', '3303', 'KARANGREJA'),
-('3303131', '3303', 'KARANGJAMBU'),
-('3303140', '3303', 'KARANGANYAR'),
-('3303141', '3303', 'KERTANEGARA'),
-('3303150', '3303', 'KARANGMONCOL'),
-('3303160', '3303', 'REMBANG'),
-('3304010', '3304', 'SUSUKAN'),
-('3304020', '3304', 'PURWAREJA KLAMPOK'),
-('3304030', '3304', 'MANDIRAJA'),
-('3304040', '3304', 'PURWANEGARA'),
-('3304050', '3304', 'BAWANG'),
-('3304060', '3304', 'BANJARNEGARA'),
-('3304061', '3304', 'PAGEDONGAN'),
-('3304070', '3304', 'SIGALUH'),
-('3304080', '3304', 'MADUKARA'),
-('3304090', '3304', 'BANJARMANGU'),
-('3304100', '3304', 'WANADADI'),
-('3304110', '3304', 'RAKIT'),
-('3304120', '3304', 'PUNGGELAN'),
-('3304130', '3304', 'KARANGKOBAR'),
-('3304140', '3304', 'PAGENTAN'),
-('3304150', '3304', 'PEJAWARAN'),
-('3304160', '3304', 'BATUR'),
-('3304170', '3304', 'WANAYASA'),
-('3304180', '3304', 'KALIBENING'),
-('3304181', '3304', 'PANDANARUM'),
-('3305010', '3305', 'AYAH'),
-('3305020', '3305', 'BUAYAN'),
-('3305030', '3305', 'PURING'),
-('3305040', '3305', 'PETANAHAN'),
-('3305050', '3305', 'KLIRONG'),
-('3305060', '3305', 'BULUSPESANTREN'),
-('3305070', '3305', 'AMBAL'),
-('3305080', '3305', 'MIRIT'),
-('3305081', '3305', 'BONOROWO'),
-('3305090', '3305', 'PREMBUN'),
-('3305091', '3305', 'PADURESO'),
-('3305100', '3305', 'KUTOWINANGUN'),
-('3305110', '3305', 'ALIAN'),
-('3305111', '3305', 'PONCOWARNO'),
-('3305120', '3305', 'KEBUMEN'),
-('3305130', '3305', 'PEJAGOAN'),
-('3305140', '3305', 'SRUWENG'),
-('3305150', '3305', 'ADIMULYO'),
-('3305160', '3305', 'KUWARASAN'),
-('3305170', '3305', 'ROWOKELE'),
-('3305180', '3305', 'SEMPOR'),
-('3305190', '3305', 'GOMBONG'),
-('3305200', '3305', 'KARANGANYAR'),
-('3305210', '3305', 'KARANGGAYAM'),
-('3305220', '3305', 'SADANG'),
-('3305221', '3305', 'KARANGSAMBUNG'),
-('3306010', '3306', 'GRABAG'),
-('3306020', '3306', 'NGOMBOL'),
-('3306030', '3306', 'PURWODADI'),
-('3306040', '3306', 'BAGELEN'),
-('3306050', '3306', 'KALIGESING'),
-('3306060', '3306', 'PURWOREJO'),
-('3306070', '3306', 'BANYU URIP'),
-('3306080', '3306', 'BAYAN'),
-('3306090', '3306', 'KUTOARJO'),
-('3306100', '3306', 'BUTUH'),
-('3306110', '3306', 'PITURUH'),
-('3306120', '3306', 'KEMIRI'),
-('3306130', '3306', 'BRUNO'),
-('3306140', '3306', 'GEBANG'),
-('3306150', '3306', 'LOANO'),
-('3306160', '3306', 'BENER'),
-('3307010', '3307', 'WADASLINTANG'),
-('3307020', '3307', 'KEPIL'),
-('3307030', '3307', 'SAPURAN'),
-('3307031', '3307', 'KALIBAWANG'),
-('3307040', '3307', 'KALIWIRO'),
-('3307050', '3307', 'LEKSONO'),
-('3307051', '3307', 'SUKOHARJO'),
-('3307060', '3307', 'SELOMERTO'),
-('3307070', '3307', 'KALIKAJAR'),
-('3307080', '3307', 'KERTEK'),
-('3307090', '3307', 'WONOSOBO'),
-('3307100', '3307', 'WATUMALANG'),
-('3307110', '3307', 'MOJOTENGAH'),
-('3307120', '3307', 'GARUNG'),
-('3307130', '3307', 'KEJAJAR'),
-('3308010', '3308', 'SALAMAN'),
-('3308020', '3308', 'BOROBUDUR'),
-('3308030', '3308', 'NGLUWAR'),
-('3308040', '3308', 'SALAM'),
-('3308050', '3308', 'SRUMBUNG'),
-('3308060', '3308', 'DUKUN'),
-('3308070', '3308', 'MUNTILAN'),
-('3308080', '3308', 'MUNGKID'),
-('3308090', '3308', 'SAWANGAN'),
-('3308100', '3308', 'CANDIMULYO'),
-('3308110', '3308', 'MERTOYUDAN'),
-('3308120', '3308', 'TEMPURAN'),
-('3308130', '3308', 'KAJORAN'),
-('3308140', '3308', 'KALIANGKRIK'),
-('3308150', '3308', 'BANDONGAN'),
-('3308160', '3308', 'WINDUSARI'),
-('3308170', '3308', 'SECANG'),
-('3308180', '3308', 'TEGALREJO'),
-('3308190', '3308', 'PAKIS'),
-('3308200', '3308', 'GRABAG'),
-('3308210', '3308', 'NGABLAK'),
-('3309010', '3309', 'SELO'),
-('3309020', '3309', 'AMPEL'),
-('3309030', '3309', 'CEPOGO'),
-('3309040', '3309', 'MUSUK'),
-('3309050', '3309', 'BOYOLALI'),
-('3309060', '3309', 'MOJOSONGO'),
-('3309070', '3309', 'TERAS'),
-('3309080', '3309', 'SAWIT'),
-('3309090', '3309', 'BANYUDONO'),
-('3309100', '3309', 'SAMBI'),
-('3309110', '3309', 'NGEMPLAK'),
-('3309120', '3309', 'NOGOSARI'),
-('3309130', '3309', 'SIMO'),
-('3309140', '3309', 'KARANGGEDE'),
-('3309150', '3309', 'KLEGO'),
-('3309160', '3309', 'ANDONG'),
-('3309170', '3309', 'KEMUSU'),
-('3309180', '3309', 'WONOSEGORO'),
-('3309190', '3309', 'JUWANGI'),
-('3310010', '3310', 'PRAMBANAN'),
-('3310020', '3310', 'GANTIWARNO'),
-('3310030', '3310', 'WEDI'),
-('3310040', '3310', 'BAYAT'),
-('3310050', '3310', 'CAWAS'),
-('3310060', '3310', 'TRUCUK'),
-('3310070', '3310', 'KALIKOTES'),
-('3310080', '3310', 'KEBONARUM'),
-('3310090', '3310', 'JOGONALAN'),
-('3310100', '3310', 'MANISRENGGO'),
-('3310110', '3310', 'KARANGNONGKO'),
-('3310120', '3310', 'NGAWEN'),
-('3310130', '3310', 'CEPER'),
-('3310140', '3310', 'PEDAN'),
-('3310150', '3310', 'KARANGDOWO'),
-('3310160', '3310', 'JUWIRING'),
-('3310170', '3310', 'WONOSARI'),
-('3310180', '3310', 'DELANGGU'),
-('3310190', '3310', 'POLANHARJO'),
-('3310200', '3310', 'KARANGANOM'),
-('3310210', '3310', 'TULUNG'),
-('3310220', '3310', 'JATINOM'),
-('3310230', '3310', 'KEMALANG'),
-('3310710', '3310', 'KLATEN SELATAN'),
-('3310720', '3310', 'KLATEN TENGAH'),
-('3310730', '3310', 'KLATEN UTARA'),
-('3311010', '3311', 'WERU'),
-('3311020', '3311', 'BULU'),
-('3311030', '3311', 'TAWANGSARI'),
-('3311040', '3311', 'SUKOHARJO'),
-('3311050', '3311', 'NGUTER'),
-('3311060', '3311', 'BENDOSARI'),
-('3311070', '3311', 'POLOKARTO'),
-('3311080', '3311', 'MOJOLABAN'),
-('3311090', '3311', 'GROGOL'),
-('3311100', '3311', 'BAKI'),
-('3311110', '3311', 'GATAK'),
-('3311120', '3311', 'KARTASURA'),
-('3312010', '3312', 'PRACIMANTORO'),
-('3312020', '3312', 'PARANGGUPITO'),
-('3312030', '3312', 'GIRITONTRO'),
-('3312040', '3312', 'GIRIWOYO'),
-('3312050', '3312', 'BATUWARNO'),
-('3312060', '3312', 'KARANGTENGAH'),
-('3312070', '3312', 'TIRTOMOYO'),
-('3312080', '3312', 'NGUNTORONADI'),
-('3312090', '3312', 'BATURETNO'),
-('3312100', '3312', 'EROMOKO'),
-('3312110', '3312', 'WURYANTORO'),
-('3312120', '3312', 'MANYARAN'),
-('3312130', '3312', 'SELOGIRI'),
-('3312140', '3312', 'WONOGIRI'),
-('3312150', '3312', 'NGADIROJO'),
-('3312160', '3312', 'SIDOHARJO'),
-('3312170', '3312', 'JATIROTO'),
-('3312180', '3312', 'KISMANTORO'),
-('3312190', '3312', 'PURWANTORO'),
-('3312200', '3312', 'BULUKERTO'),
-('3312201', '3312', 'PUHPELEM'),
-('3312210', '3312', 'SLOGOHIMO'),
-('3312220', '3312', 'JATISRONO'),
-('3312230', '3312', 'JATIPURNO'),
-('3312240', '3312', 'GIRIMARTO'),
-('3313010', '3313', 'JATIPURO'),
-('3313020', '3313', 'JATIYOSO'),
-('3313030', '3313', 'JUMAPOLO'),
-('3313040', '3313', 'JUMANTONO'),
-('3313050', '3313', 'MATESIH'),
-('3313060', '3313', 'TAWANGMANGU'),
-('3313070', '3313', 'NGARGOYOSO'),
-('3313080', '3313', 'KARANGPANDAN'),
-('3313090', '3313', 'KARANGANYAR'),
-('3313100', '3313', 'TASIKMADU'),
-('3313110', '3313', 'JATEN'),
-('3313120', '3313', 'COLOMADU'),
-('3313130', '3313', 'GONDANGREJO'),
-('3313140', '3313', 'KEBAKKRAMAT'),
-('3313150', '3313', 'MOJOGEDANG'),
-('3313160', '3313', 'KERJO'),
-('3313170', '3313', 'JENAWI'),
-('3314010', '3314', 'KALIJAMBE'),
-('3314020', '3314', 'PLUPUH'),
-('3314030', '3314', 'MASARAN'),
-('3314040', '3314', 'KEDAWUNG'),
-('3314050', '3314', 'SAMBIREJO'),
-('3314060', '3314', 'GONDANG'),
-('3314070', '3314', 'SAMBUNG MACAN'),
-('3314080', '3314', 'NGRAMPAL'),
-('3314090', '3314', 'KARANGMALANG'),
-('3314100', '3314', 'SRAGEN'),
-('3314110', '3314', 'SIDOHARJO'),
-('3314120', '3314', 'TANON'),
-('3314130', '3314', 'GEMOLONG'),
-('3314140', '3314', 'MIRI'),
-('3314150', '3314', 'SUMBERLAWANG'),
-('3314160', '3314', 'MONDOKAN'),
-('3314170', '3314', 'SUKODONO'),
-('3314180', '3314', 'GESI'),
-('3314190', '3314', 'TANGEN'),
-('3314200', '3314', 'JENAR'),
-('3315010', '3315', 'KEDUNGJATI'),
-('3315020', '3315', 'KARANGRAYUNG'),
-('3315030', '3315', 'PENAWANGAN'),
-('3315040', '3315', 'TOROH'),
-('3315050', '3315', 'GEYER'),
-('3315060', '3315', 'PULOKULON'),
-('3315070', '3315', 'KRADENAN'),
-('3315080', '3315', 'GABUS'),
-('3315090', '3315', 'NGARINGAN'),
-('3315100', '3315', 'WIROSARI'),
-('3315110', '3315', 'TAWANGHARJO'),
-('3315120', '3315', 'GROBOGAN'),
-('3315130', '3315', 'PURWODADI'),
-('3315140', '3315', 'BRATI'),
-('3315150', '3315', 'KLAMBU'),
-('3315160', '3315', 'GODONG'),
-('3315170', '3315', 'GUBUG'),
-('3315180', '3315', 'TEGOWANU'),
-('3315190', '3315', 'TANGGUNGHARJO'),
-('3316010', '3316', 'JATI'),
-('3316020', '3316', 'RANDUBLATUNG'),
-('3316030', '3316', 'KRADENAN'),
-('3316040', '3316', 'KEDUNGTUBAN'),
-('3316050', '3316', 'CEPU'),
-('3316060', '3316', 'SAMBONG'),
-('3316070', '3316', 'JIKEN'),
-('3316080', '3316', 'BOGOREJO'),
-('3316090', '3316', 'JEPON'),
-('3316100', '3316', 'KOTA BLORA'),
-('3316110', '3316', 'BANJAREJO'),
-('3316120', '3316', 'TUNJUNGAN'),
-('3316130', '3316', 'JAPAH'),
-('3316140', '3316', 'NGAWEN'),
-('3316150', '3316', 'KUNDURAN'),
-('3316160', '3316', 'TODANAN'),
-('3317010', '3317', 'SUMBER'),
-('3317020', '3317', 'BULU'),
-('3317030', '3317', 'GUNEM'),
-('3317040', '3317', 'SALE'),
-('3317050', '3317', 'SARANG'),
-('3317060', '3317', 'SEDAN'),
-('3317070', '3317', 'PAMOTAN'),
-('3317080', '3317', 'SULANG'),
-('3317090', '3317', 'KALIORI'),
-('3317100', '3317', 'REMBANG'),
-('3317110', '3317', 'PANCUR'),
-('3317120', '3317', 'KRAGAN'),
-('3317130', '3317', 'SLUKE'),
-('3317140', '3317', 'LASEM'),
-('3318010', '3318', 'SUKOLILO'),
-('3318020', '3318', 'KAYEN'),
-('3318030', '3318', 'TAMBAKROMO'),
-('3318040', '3318', 'WINONG'),
-('3318050', '3318', 'PUCAKWANGI'),
-('3318060', '3318', 'JAKEN'),
-('3318070', '3318', 'BATANGAN'),
-('3318080', '3318', 'JUWANA'),
-('3318090', '3318', 'JAKENAN'),
-('3318100', '3318', 'PATI'),
-('3318110', '3318', 'GABUS'),
-('3318120', '3318', 'MARGOREJO'),
-('3318130', '3318', 'GEMBONG'),
-('3318140', '3318', 'TLOGOWUNGU'),
-('3318150', '3318', 'WEDARIJAKSA'),
-('3318160', '3318', 'TRANGKIL'),
-('3318170', '3318', 'MARGOYOSO'),
-('3318180', '3318', 'GUNUNG WUNGKAL'),
-('3318190', '3318', 'CLUWAK'),
-('3318200', '3318', 'TAYU'),
-('3318210', '3318', 'DUKUHSETI'),
-('3319010', '3319', 'KALIWUNGU'),
-('3319020', '3319', 'KOTA KUDUS'),
-('3319030', '3319', 'JATI'),
-('3319040', '3319', 'UNDAAN'),
-('3319050', '3319', 'MEJOBO'),
-('3319060', '3319', 'JEKULO'),
-('3319070', '3319', 'BAE'),
-('3319080', '3319', 'GEBOG'),
-('3319090', '3319', 'DAWE'),
-('3320010', '3320', 'KEDUNG'),
-('3320020', '3320', 'PECANGAAN'),
-('3320021', '3320', 'KALINYAMATAN'),
-('3320030', '3320', 'WELAHAN'),
-('3320040', '3320', 'MAYONG'),
-('3320050', '3320', 'NALUMSARI'),
-('3320060', '3320', 'BATEALIT'),
-('3320070', '3320', 'TAHUNAN'),
-('3320080', '3320', 'JEPARA'),
-('3320090', '3320', 'MLONGGO'),
-('3320091', '3320', 'PAKIS AJI'),
-('3320100', '3320', 'BANGSRI'),
-('3320101', '3320', 'KEMBANG'),
-('3320110', '3320', 'KELING'),
-('3320111', '3320', 'DONOROJO'),
-('3320120', '3320', 'KARIMUNJAWA'),
-('3321010', '3321', 'MRANGGEN'),
-('3321020', '3321', 'KARANGAWEN'),
-('3321030', '3321', 'GUNTUR'),
-('3321040', '3321', 'SAYUNG'),
-('3321050', '3321', 'KARANG TENGAH'),
-('3321060', '3321', 'BONANG'),
-('3321070', '3321', 'DEMAK'),
-('3321080', '3321', 'WONOSALAM'),
-('3321090', '3321', 'DEMPET'),
-('3321091', '3321', 'KEBONAGUNG'),
-('3321100', '3321', 'GAJAH'),
-('3321110', '3321', 'KARANGANYAR'),
-('3321120', '3321', 'MIJEN'),
-('3321130', '3321', 'WEDUNG'),
-('3322010', '3322', 'GETASAN'),
-('3322020', '3322', 'TENGARAN'),
-('3322030', '3322', 'SUSUKAN'),
-('3322031', '3322', 'KALIWUNGU'),
-('3322040', '3322', 'SURUH'),
-('3322050', '3322', 'PABELAN'),
-('3322060', '3322', 'TUNTANG'),
-('3322070', '3322', 'BANYUBIRU'),
-('3322080', '3322', 'JAMBU'),
-('3322090', '3322', 'SUMOWONO'),
-('3322100', '3322', 'AMBARAWA'),
-('3322101', '3322', 'BANDUNGAN'),
-('3322110', '3322', 'BAWEN'),
-('3322120', '3322', 'BRINGIN'),
-('3322121', '3322', 'BANCAK'),
-('3322130', '3322', 'PRINGAPUS'),
-('3322140', '3322', 'BERGAS'),
-('3322151', '3322', 'UNGARAN BARAT'),
-('3322152', '3322', 'UNGARAN TIMUR'),
-('3323010', '3323', 'PARAKAN'),
-('3323011', '3323', 'KLEDUNG'),
-('3323012', '3323', 'BANSARI'),
-('3323020', '3323', 'BULU'),
-('3323030', '3323', 'TEMANGGUNG'),
-('3323031', '3323', 'TLOGOMULYO');
-INSERT INTO `tbl_kecamatan` (`id_kecamatan`, `id_kabupaten`, `nama_kecamatan`) VALUES
-('3323040', '3323', 'TEMBARAK'),
-('3323041', '3323', 'SELOPAMPANG'),
-('3323050', '3323', 'KRANGGAN'),
-('3323060', '3323', 'PRINGSURAT'),
-('3323070', '3323', 'KALORAN'),
-('3323080', '3323', 'KANDANGAN'),
-('3323090', '3323', 'KEDU'),
-('3323100', '3323', 'NGADIREJO'),
-('3323110', '3323', 'JUMO'),
-('3323111', '3323', 'GEMAWANG'),
-('3323120', '3323', 'CANDIROTO'),
-('3323121', '3323', 'BEJEN'),
-('3323130', '3323', 'TRETEP'),
-('3323131', '3323', 'WONOBOYO'),
-('3324010', '3324', 'PLANTUNGAN'),
-('3324020', '3324', 'SUKOREJO'),
-('3324030', '3324', 'PAGERRUYUNG'),
-('3324040', '3324', 'PATEAN'),
-('3324050', '3324', 'SINGOROJO'),
-('3324060', '3324', 'LIMBANGAN'),
-('3324070', '3324', 'BOJA'),
-('3324080', '3324', 'KALIWUNGU'),
-('3324081', '3324', 'KALIWUNGU SELATAN'),
-('3324090', '3324', 'BRANGSONG'),
-('3324100', '3324', 'PEGANDON'),
-('3324101', '3324', 'NGAMPEL'),
-('3324110', '3324', 'GEMUH'),
-('3324111', '3324', 'RINGINARUM'),
-('3324120', '3324', 'WELERI'),
-('3324130', '3324', 'ROWOSARI'),
-('3324140', '3324', 'KANGKUNG'),
-('3324150', '3324', 'CEPIRING'),
-('3324160', '3324', 'PATEBON'),
-('3324170', '3324', 'KOTA KENDAL'),
-('3325010', '3325', 'WONOTUNGGAL'),
-('3325020', '3325', 'BANDAR'),
-('3325030', '3325', 'BLADO'),
-('3325040', '3325', 'REBAN'),
-('3325050', '3325', 'BAWANG'),
-('3325060', '3325', 'TERSONO'),
-('3325070', '3325', 'GRINGSING'),
-('3325080', '3325', 'LIMPUNG'),
-('3325081', '3325', 'BANYUPUTIH'),
-('3325090', '3325', 'SUBAH'),
-('3325091', '3325', 'PECALUNGAN'),
-('3325100', '3325', 'TULIS'),
-('3325101', '3325', 'KANDEMAN'),
-('3325110', '3325', 'BATANG'),
-('3325120', '3325', 'WARUNG ASEM'),
-('3326010', '3326', 'KANDANGSERANG'),
-('3326020', '3326', 'PANINGGARAN'),
-('3326030', '3326', 'LEBAKBARANG'),
-('3326040', '3326', 'PETUNGKRIONO'),
-('3326050', '3326', 'TALUN'),
-('3326060', '3326', 'DORO'),
-('3326070', '3326', 'KARANGANYAR'),
-('3326080', '3326', 'KAJEN'),
-('3326090', '3326', 'KESESI'),
-('3326100', '3326', 'SRAGI'),
-('3326101', '3326', 'SIWALAN'),
-('3326110', '3326', 'BOJONG'),
-('3326120', '3326', 'WONOPRINGGO'),
-('3326130', '3326', 'KEDUNGWUNI'),
-('3326131', '3326', 'KARANGDADAP'),
-('3326140', '3326', 'BUARAN'),
-('3326150', '3326', 'TIRTO'),
-('3326160', '3326', 'WIRADESA'),
-('3326161', '3326', 'WONOKERTO'),
-('3327010', '3327', 'MOGA'),
-('3327011', '3327', 'WARUNGPRING'),
-('3327020', '3327', 'PULOSARI'),
-('3327030', '3327', 'BELIK'),
-('3327040', '3327', 'WATUKUMPUL'),
-('3327050', '3327', 'BODEH'),
-('3327060', '3327', 'BANTARBOLANG'),
-('3327070', '3327', 'RANDUDONGKAL'),
-('3327080', '3327', 'PEMALANG'),
-('3327090', '3327', 'TAMAN'),
-('3327100', '3327', 'PETARUKAN'),
-('3327110', '3327', 'AMPELGADING'),
-('3327120', '3327', 'COMAL'),
-('3327130', '3327', 'ULUJAMI'),
-('3328010', '3328', 'MARGASARI'),
-('3328020', '3328', 'BUMIJAWA'),
-('3328030', '3328', 'BOJONG'),
-('3328040', '3328', 'BALAPULANG'),
-('3328050', '3328', 'PAGERBARANG'),
-('3328060', '3328', 'LEBAKSIU'),
-('3328070', '3328', 'JATINEGARA'),
-('3328080', '3328', 'KEDUNG BANTENG'),
-('3328090', '3328', 'PANGKAH'),
-('3328100', '3328', 'SLAWI'),
-('3328110', '3328', 'DUKUHWARU'),
-('3328120', '3328', 'ADIWERNA'),
-('3328130', '3328', 'DUKUHTURI'),
-('3328140', '3328', 'TALANG'),
-('3328150', '3328', 'TARUB'),
-('3328160', '3328', 'KRAMAT'),
-('3328170', '3328', 'SURADADI'),
-('3328180', '3328', 'WARUREJA'),
-('3329010', '3329', 'SALEM'),
-('3329020', '3329', 'BANTARKAWUNG'),
-('3329030', '3329', 'BUMIAYU'),
-('3329040', '3329', 'PAGUYANGAN'),
-('3329050', '3329', 'SIRAMPOG'),
-('3329060', '3329', 'TONJONG'),
-('3329070', '3329', 'LARANGAN'),
-('3329080', '3329', 'KETANGGUNGAN'),
-('3329090', '3329', 'BANJARHARJO'),
-('3329100', '3329', 'LOSARI'),
-('3329110', '3329', 'TANJUNG'),
-('3329120', '3329', 'KERSANA'),
-('3329130', '3329', 'BULAKAMBA'),
-('3329140', '3329', 'WANASARI'),
-('3329150', '3329', 'SONGGOM'),
-('3329160', '3329', 'JATIBARANG'),
-('3329170', '3329', 'BREBES'),
-('3371010', '3371', 'MAGELANG SELATAN'),
-('3371011', '3371', 'MAGELANG TENGAH'),
-('3371020', '3371', 'MAGELANG UTARA'),
-('3372010', '3372', 'LAWEYAN'),
-('3372020', '3372', 'SERENGAN'),
-('3372030', '3372', 'PASAR KLIWON'),
-('3372040', '3372', 'JEBRES'),
-('3372050', '3372', 'BANJARSARI'),
-('3373010', '3373', 'ARGOMULYO'),
-('3373020', '3373', 'TINGKIR'),
-('3373030', '3373', 'SIDOMUKTI'),
-('3373040', '3373', 'SIDOREJO'),
-('3374010', '3374', 'MIJEN'),
-('3374020', '3374', 'GUNUNG PATI'),
-('3374030', '3374', 'BANYUMANIK'),
-('3374040', '3374', 'GAJAH MUNGKUR'),
-('3374050', '3374', 'SEMARANG SELATAN'),
-('3374060', '3374', 'CANDISARI'),
-('3374070', '3374', 'TEMBALANG'),
-('3374080', '3374', 'PEDURUNGAN'),
-('3374090', '3374', 'GENUK'),
-('3374100', '3374', 'GAYAMSARI'),
-('3374110', '3374', 'SEMARANG TIMUR'),
-('3374120', '3374', 'SEMARANG UTARA'),
-('3374130', '3374', 'SEMARANG TENGAH'),
-('3374140', '3374', 'SEMARANG BARAT'),
-('3374150', '3374', 'TUGU'),
-('3374160', '3374', 'NGALIYAN'),
-('3375010', '3375', 'PEKALONGAN BARAT'),
-('3375020', '3375', 'PEKALONGAN TIMUR'),
-('3375030', '3375', 'PEKALONGAN SELATAN'),
-('3375040', '3375', 'PEKALONGAN UTARA'),
-('3376010', '3376', 'TEGAL SELATAN'),
-('3376020', '3376', 'TEGAL TIMUR'),
-('3376030', '3376', 'TEGAL BARAT'),
-('3376040', '3376', 'MARGADANA'),
-('3401010', '3401', 'TEMON'),
-('3401020', '3401', 'WATES'),
-('3401030', '3401', 'PANJATAN'),
-('3401040', '3401', 'GALUR'),
-('3401050', '3401', 'LENDAH'),
-('3401060', '3401', 'SENTOLO'),
-('3401070', '3401', 'PENGASIH'),
-('3401080', '3401', 'KOKAP'),
-('3401090', '3401', 'GIRIMULYO'),
-('3401100', '3401', 'NANGGULAN'),
-('3401110', '3401', 'KALIBAWANG'),
-('3401120', '3401', 'SAMIGALUH'),
-('3402010', '3402', 'SRANDAKAN'),
-('3402020', '3402', 'SANDEN'),
-('3402030', '3402', 'KRETEK'),
-('3402040', '3402', 'PUNDONG'),
-('3402050', '3402', 'BAMBANG LIPURO'),
-('3402060', '3402', 'PANDAK'),
-('3402070', '3402', 'BANTUL'),
-('3402080', '3402', 'JETIS'),
-('3402090', '3402', 'IMOGIRI'),
-('3402100', '3402', 'DLINGO'),
-('3402110', '3402', 'PLERET'),
-('3402120', '3402', 'PIYUNGAN'),
-('3402130', '3402', 'BANGUNTAPAN'),
-('3402140', '3402', 'SEWON'),
-('3402150', '3402', 'KASIHAN'),
-('3402160', '3402', 'PAJANGAN'),
-('3402170', '3402', 'SEDAYU'),
-('3403010', '3403', 'PANGGANG'),
-('3403011', '3403', 'PURWOSARI'),
-('3403020', '3403', 'PALIYAN'),
-('3403030', '3403', 'SAPTO SARI'),
-('3403040', '3403', 'TEPUS'),
-('3403041', '3403', 'TANJUNGSARI'),
-('3403050', '3403', 'RONGKOP'),
-('3403051', '3403', 'GIRISUBO'),
-('3403060', '3403', 'SEMANU'),
-('3403070', '3403', 'PONJONG'),
-('3403080', '3403', 'KARANGMOJO'),
-('3403090', '3403', 'WONOSARI'),
-('3403100', '3403', 'PLAYEN'),
-('3403110', '3403', 'PATUK'),
-('3403120', '3403', 'GEDANG SARI'),
-('3403130', '3403', 'NGLIPAR'),
-('3403140', '3403', 'NGAWEN'),
-('3403150', '3403', 'SEMIN'),
-('3404010', '3404', 'MOYUDAN'),
-('3404020', '3404', 'MINGGIR'),
-('3404030', '3404', 'SEYEGAN'),
-('3404040', '3404', 'GODEAN'),
-('3404050', '3404', 'GAMPING'),
-('3404060', '3404', 'MLATI'),
-('3404070', '3404', 'DEPOK'),
-('3404080', '3404', 'BERBAH'),
-('3404090', '3404', 'PRAMBANAN'),
-('3404100', '3404', 'KALASAN'),
-('3404110', '3404', 'NGEMPLAK'),
-('3404120', '3404', 'NGAGLIK'),
-('3404130', '3404', 'SLEMAN'),
-('3404140', '3404', 'TEMPEL'),
-('3404150', '3404', 'TURI'),
-('3404160', '3404', 'PAKEM'),
-('3404170', '3404', 'CANGKRINGAN'),
-('3471010', '3471', 'MANTRIJERON'),
-('3471020', '3471', 'KRATON'),
-('3471030', '3471', 'MERGANGSAN'),
-('3471040', '3471', 'UMBULHARJO'),
-('3471050', '3471', 'KOTAGEDE'),
-('3471060', '3471', 'GONDOKUSUMAN'),
-('3471070', '3471', 'DANUREJAN'),
-('3471080', '3471', 'PAKUALAMAN'),
-('3471090', '3471', 'GONDOMANAN'),
-('3471100', '3471', 'NGAMPILAN'),
-('3471110', '3471', 'WIROBRAJAN'),
-('3471120', '3471', 'GEDONG TENGEN'),
-('3471130', '3471', 'JETIS'),
-('3471140', '3471', 'TEGALREJO'),
-('3501010', '3501', 'DONOROJO'),
-('3501020', '3501', 'PUNUNG'),
-('3501030', '3501', 'PRINGKUKU'),
-('3501040', '3501', 'PACITAN'),
-('3501050', '3501', 'KEBONAGUNG'),
-('3501060', '3501', 'ARJOSARI'),
-('3501070', '3501', 'NAWANGAN'),
-('3501080', '3501', 'BANDAR'),
-('3501090', '3501', 'TEGALOMBO'),
-('3501100', '3501', 'TULAKAN'),
-('3501110', '3501', 'NGADIROJO'),
-('3501120', '3501', 'SUDIMORO'),
-('3502010', '3502', 'NGRAYUN'),
-('3502020', '3502', 'SLAHUNG'),
-('3502030', '3502', 'BUNGKAL'),
-('3502040', '3502', 'SAMBIT'),
-('3502050', '3502', 'SAWOO'),
-('3502060', '3502', 'SOOKO'),
-('3502061', '3502', 'PUDAK'),
-('3502070', '3502', 'PULUNG'),
-('3502080', '3502', 'MLARAK'),
-('3502090', '3502', 'SIMAN'),
-('3502100', '3502', 'JETIS'),
-('3502110', '3502', 'BALONG'),
-('3502120', '3502', 'KAUMAN'),
-('3502130', '3502', 'JAMBON'),
-('3502140', '3502', 'BADEGAN'),
-('3502150', '3502', 'SAMPUNG'),
-('3502160', '3502', 'SUKOREJO'),
-('3502170', '3502', 'PONOROGO'),
-('3502180', '3502', 'BABADAN'),
-('3502190', '3502', 'JENANGAN'),
-('3502200', '3502', 'NGEBEL'),
-('3503010', '3503', 'PANGGUL'),
-('3503020', '3503', 'MUNJUNGAN'),
-('3503030', '3503', 'WATULIMO'),
-('3503040', '3503', 'KAMPAK'),
-('3503050', '3503', 'DONGKO'),
-('3503060', '3503', 'PULE'),
-('3503070', '3503', 'KARANGAN'),
-('3503071', '3503', 'SURUH'),
-('3503080', '3503', 'GANDUSARI'),
-('3503090', '3503', 'DURENAN'),
-('3503100', '3503', 'POGALAN'),
-('3503110', '3503', 'TRENGGALEK'),
-('3503120', '3503', 'TUGU'),
-('3503130', '3503', 'BENDUNGAN'),
-('3504010', '3504', 'BESUKI'),
-('3504020', '3504', 'BANDUNG'),
-('3504030', '3504', 'PAKEL'),
-('3504040', '3504', 'CAMPUR DARAT'),
-('3504050', '3504', 'TANGGUNG GUNUNG'),
-('3504060', '3504', 'KALIDAWIR'),
-('3504070', '3504', 'PUCANG LABAN'),
-('3504080', '3504', 'REJOTANGAN'),
-('3504090', '3504', 'NGUNUT'),
-('3504100', '3504', 'SUMBERGEMPOL'),
-('3504110', '3504', 'BOYOLANGU'),
-('3504120', '3504', 'TULUNGAGUNG'),
-('3504130', '3504', 'KEDUNGWARU'),
-('3504140', '3504', 'NGANTRU'),
-('3504150', '3504', 'KARANGREJO'),
-('3504160', '3504', 'KAUMAN'),
-('3504170', '3504', 'GONDANG'),
-('3504180', '3504', 'PAGER WOJO'),
-('3504190', '3504', 'SENDANG'),
-('3505010', '3505', 'BAKUNG'),
-('3505020', '3505', 'WONOTIRTO'),
-('3505030', '3505', 'PANGGUNGREJO'),
-('3505040', '3505', 'WATES'),
-('3505050', '3505', 'BINANGUN'),
-('3505060', '3505', 'SUTOJAYAN'),
-('3505070', '3505', 'KADEMANGAN'),
-('3505080', '3505', 'KANIGORO'),
-('3505090', '3505', 'TALUN'),
-('3505100', '3505', 'SELOPURO'),
-('3505110', '3505', 'KESAMBEN'),
-('3505120', '3505', 'SELOREJO'),
-('3505130', '3505', 'DOKO'),
-('3505140', '3505', 'WLINGI'),
-('3505150', '3505', 'GANDUSARI'),
-('3505160', '3505', 'GARUM'),
-('3505170', '3505', 'NGLEGOK'),
-('3505180', '3505', 'SANANKULON'),
-('3505190', '3505', 'PONGGOK'),
-('3505200', '3505', 'SRENGAT'),
-('3505210', '3505', 'WONODADI'),
-('3505220', '3505', 'UDANAWU'),
-('3506010', '3506', 'MOJO'),
-('3506020', '3506', 'SEMEN'),
-('3506030', '3506', 'NGADILUWIH'),
-('3506040', '3506', 'KRAS'),
-('3506050', '3506', 'RINGINREJO'),
-('3506060', '3506', 'KANDAT'),
-('3506070', '3506', 'WATES'),
-('3506080', '3506', 'NGANCAR'),
-('3506090', '3506', 'PLOSOKLATEN'),
-('3506100', '3506', 'GURAH'),
-('3506110', '3506', 'PUNCU'),
-('3506120', '3506', 'KEPUNG'),
-('3506130', '3506', 'KANDANGAN'),
-('3506140', '3506', 'PARE'),
-('3506141', '3506', 'BADAS'),
-('3506150', '3506', 'KUNJANG'),
-('3506160', '3506', 'PLEMAHAN'),
-('3506170', '3506', 'PURWOASRI'),
-('3506180', '3506', 'PAPAR'),
-('3506190', '3506', 'PAGU'),
-('3506191', '3506', 'KAYEN KIDUL'),
-('3506200', '3506', 'GAMPENGREJO'),
-('3506201', '3506', 'NGASEM'),
-('3506210', '3506', 'BANYAKAN'),
-('3506220', '3506', 'GROGOL'),
-('3506230', '3506', 'TAROKAN'),
-('3507010', '3507', 'DONOMULYO'),
-('3507020', '3507', 'KALIPARE'),
-('3507030', '3507', 'PAGAK'),
-('3507040', '3507', 'BANTUR'),
-('3507050', '3507', 'GEDANGAN'),
-('3507060', '3507', 'SUMBERMANJING'),
-('3507070', '3507', 'DAMPIT'),
-('3507080', '3507', 'TIRTO YUDO'),
-('3507090', '3507', 'AMPELGADING'),
-('3507100', '3507', 'PONCOKUSUMO'),
-('3507110', '3507', 'WAJAK'),
-('3507120', '3507', 'TUREN'),
-('3507130', '3507', 'BULULAWANG'),
-('3507140', '3507', 'GONDANGLEGI'),
-('3507150', '3507', 'PAGELARAN'),
-('3507160', '3507', 'KEPANJEN'),
-('3507170', '3507', 'SUMBER PUCUNG'),
-('3507180', '3507', 'KROMENGAN'),
-('3507190', '3507', 'NGAJUM'),
-('3507200', '3507', 'WONOSARI'),
-('3507210', '3507', 'WAGIR'),
-('3507220', '3507', 'PAKISAJI'),
-('3507230', '3507', 'TAJINAN'),
-('3507240', '3507', 'TUMPANG'),
-('3507250', '3507', 'PAKIS'),
-('3507260', '3507', 'JABUNG'),
-('3507270', '3507', 'LAWANG'),
-('3507280', '3507', 'SINGOSARI'),
-('3507290', '3507', 'KARANGPLOSO'),
-('3507300', '3507', 'DAU'),
-('3507310', '3507', 'PUJON'),
-('3507320', '3507', 'NGANTANG'),
-('3507330', '3507', 'KASEMBON'),
-('3508010', '3508', 'TEMPURSARI'),
-('3508020', '3508', 'PRONOJIWO'),
-('3508030', '3508', 'CANDIPURO'),
-('3508040', '3508', 'PASIRIAN'),
-('3508050', '3508', 'TEMPEH'),
-('3508060', '3508', 'LUMAJANG'),
-('3508061', '3508', 'SUMBERSUKO'),
-('3508070', '3508', 'TEKUNG'),
-('3508080', '3508', 'KUNIR'),
-('3508090', '3508', 'YOSOWILANGUN'),
-('3508100', '3508', 'ROWOKANGKUNG'),
-('3508110', '3508', 'JATIROTO'),
-('3508120', '3508', 'RANDUAGUNG'),
-('3508130', '3508', 'SUKODONO'),
-('3508140', '3508', 'PADANG'),
-('3508150', '3508', 'PASRUJAMBE'),
-('3508160', '3508', 'SENDURO'),
-('3508170', '3508', 'GUCIALIT'),
-('3508180', '3508', 'KEDUNGJAJANG'),
-('3508190', '3508', 'KLAKAH'),
-('3508200', '3508', 'RANUYOSO'),
-('3509010', '3509', 'KENCONG'),
-('3509020', '3509', 'GUMUK MAS'),
-('3509030', '3509', 'PUGER'),
-('3509040', '3509', 'WULUHAN'),
-('3509050', '3509', 'AMBULU'),
-('3509060', '3509', 'TEMPUREJO'),
-('3509070', '3509', 'SILO'),
-('3509080', '3509', 'MAYANG'),
-('3509090', '3509', 'MUMBULSARI'),
-('3509100', '3509', 'JENGGAWAH'),
-('3509110', '3509', 'AJUNG'),
-('3509120', '3509', 'RAMBIPUJI'),
-('3509130', '3509', 'BALUNG'),
-('3509140', '3509', 'UMBULSARI'),
-('3509150', '3509', 'SEMBORO'),
-('3509160', '3509', 'JOMBANG'),
-('3509170', '3509', 'SUMBER BARU'),
-('3509180', '3509', 'TANGGUL'),
-('3509190', '3509', 'BANGSALSARI'),
-('3509200', '3509', 'PANTI'),
-('3509210', '3509', 'SUKORAMBI'),
-('3509220', '3509', 'ARJASA'),
-('3509230', '3509', 'PAKUSARI'),
-('3509240', '3509', 'KALISAT'),
-('3509250', '3509', 'LEDOKOMBO'),
-('3509260', '3509', 'SUMBERJAMBE'),
-('3509270', '3509', 'SUKOWONO'),
-('3509280', '3509', 'JELBUK'),
-('3509710', '3509', 'KALIWATES'),
-('3509720', '3509', 'SUMBERSARI'),
-('3509730', '3509', 'PATRANG'),
-('3510010', '3510', 'PESANGGARAN'),
-('3510011', '3510', 'SILIRAGUNG'),
-('3510020', '3510', 'BANGOREJO'),
-('3510030', '3510', 'PURWOHARJO'),
-('3510040', '3510', 'TEGALDLIMO'),
-('3510050', '3510', 'MUNCAR'),
-('3510060', '3510', 'CLURING'),
-('3510070', '3510', 'GAMBIRAN'),
-('3510071', '3510', 'TEGALSARI'),
-('3510080', '3510', 'GLENMORE'),
-('3510090', '3510', 'KALIBARU'),
-('3510100', '3510', 'GENTENG'),
-('3510110', '3510', 'SRONO'),
-('3510120', '3510', 'ROGOJAMPI'),
-('3510130', '3510', 'KABAT'),
-('3510140', '3510', 'SINGOJURUH'),
-('3510150', '3510', 'SEMPU'),
-('3510160', '3510', 'SONGGON'),
-('3510170', '3510', 'GLAGAH'),
-('3510171', '3510', 'LICIN'),
-('3510180', '3510', 'BANYUWANGI'),
-('3510190', '3510', 'GIRI'),
-('3510200', '3510', 'KALIPURO'),
-('3510210', '3510', 'WONGSOREJO'),
-('3511010', '3511', 'MAESAN'),
-('3511020', '3511', 'GRUJUGAN'),
-('3511030', '3511', 'TAMANAN'),
-('3511031', '3511', 'JAMBESARI DARUS SHOLAH'),
-('3511040', '3511', 'PUJER'),
-('3511050', '3511', 'TLOGOSARI'),
-('3511060', '3511', 'SUKOSARI'),
-('3511061', '3511', 'SUMBER WRINGIN'),
-('3511070', '3511', 'TAPEN'),
-('3511080', '3511', 'WONOSARI'),
-('3511090', '3511', 'TENGGARANG'),
-('3511100', '3511', 'BONDOWOSO'),
-('3511110', '3511', 'CURAH DAMI'),
-('3511111', '3511', 'BINAKAL'),
-('3511120', '3511', 'PAKEM'),
-('3511130', '3511', 'WRINGIN'),
-('3511140', '3511', 'TEGALAMPEL'),
-('3511141', '3511', 'TAMAN KROCOK'),
-('3511150', '3511', 'KLABANG'),
-('3511151', '3511', 'SEMPOL'),
-('3511152', '3511', 'BOTOLINGGO'),
-('3511160', '3511', 'PRAJEKAN'),
-('3511170', '3511', 'CERMEE'),
-('3512010', '3512', 'SUMBERMALANG'),
-('3512020', '3512', 'JATIBANTENG'),
-('3512030', '3512', 'BANYUGLUGUR'),
-('3512040', '3512', 'BESUKI'),
-('3512050', '3512', 'SUBOH'),
-('3512060', '3512', 'MLANDINGAN'),
-('3512070', '3512', 'BUNGATAN'),
-('3512080', '3512', 'KENDIT'),
-('3512090', '3512', 'PANARUKAN'),
-('3512100', '3512', 'SITUBONDO'),
-('3512110', '3512', 'MANGARAN'),
-('3512120', '3512', 'PANJI'),
-('3512130', '3512', 'KAPONGAN'),
-('3512140', '3512', 'ARJASA'),
-('3512150', '3512', 'JANGKAR'),
-('3512160', '3512', 'ASEMBAGUS'),
-('3512170', '3512', 'BANYUPUTIH'),
-('3513010', '3513', 'SUKAPURA'),
-('3513020', '3513', 'SUMBER'),
-('3513030', '3513', 'KURIPAN'),
-('3513040', '3513', 'BANTARAN'),
-('3513050', '3513', 'LECES'),
-('3513060', '3513', 'TEGALSIWALAN'),
-('3513070', '3513', 'BANYUANYAR'),
-('3513080', '3513', 'TIRIS'),
-('3513090', '3513', 'KRUCIL'),
-('3513100', '3513', 'GADING'),
-('3513110', '3513', 'PAKUNIRAN'),
-('3513120', '3513', 'KOTAANYAR'),
-('3513130', '3513', 'PAITON'),
-('3513140', '3513', 'BESUK'),
-('3513150', '3513', 'KRAKSAAN'),
-('3513160', '3513', 'KREJENGAN'),
-('3513170', '3513', 'PAJARAKAN'),
-('3513180', '3513', 'MARON'),
-('3513190', '3513', 'GENDING'),
-('3513200', '3513', 'DRINGU'),
-('3513210', '3513', 'WONOMERTO'),
-('3513220', '3513', 'LUMBANG'),
-('3513230', '3513', 'TONGAS'),
-('3513240', '3513', 'SUMBERASIH'),
-('3514010', '3514', 'PURWODADI'),
-('3514020', '3514', 'TUTUR'),
-('3514030', '3514', 'PUSPO'),
-('3514040', '3514', 'TOSARI'),
-('3514050', '3514', 'LUMBANG'),
-('3514060', '3514', 'PASREPAN'),
-('3514070', '3514', 'KEJAYAN'),
-('3514080', '3514', 'WONOREJO'),
-('3514090', '3514', 'PURWOSARI'),
-('3514100', '3514', 'PRIGEN'),
-('3514110', '3514', 'SUKOREJO'),
-('3514120', '3514', 'PANDAAN'),
-('3514130', '3514', 'GEMPOL'),
-('3514140', '3514', 'BEJI'),
-('3514150', '3514', 'BANGIL'),
-('3514160', '3514', 'REMBANG'),
-('3514170', '3514', 'KRATON'),
-('3514180', '3514', 'POHJENTREK'),
-('3514190', '3514', 'GONDANG WETAN'),
-('3514200', '3514', 'REJOSO'),
-('3514210', '3514', 'WINONGAN'),
-('3514220', '3514', 'GRATI'),
-('3514230', '3514', 'LEKOK'),
-('3514240', '3514', 'NGULING'),
-('3515010', '3515', 'TARIK'),
-('3515020', '3515', 'PRAMBON'),
-('3515030', '3515', 'KREMBUNG'),
-('3515040', '3515', 'PORONG'),
-('3515050', '3515', 'JABON'),
-('3515060', '3515', 'TANGGULANGIN'),
-('3515070', '3515', 'CANDI'),
-('3515080', '3515', 'TULANGAN'),
-('3515090', '3515', 'WONOAYU'),
-('3515100', '3515', 'SUKODONO'),
-('3515110', '3515', 'SIDOARJO'),
-('3515120', '3515', 'BUDURAN'),
-('3515130', '3515', 'SEDATI'),
-('3515140', '3515', 'WARU'),
-('3515150', '3515', 'GEDANGAN'),
-('3515160', '3515', 'TAMAN'),
-('3515170', '3515', 'KRIAN'),
-('3515180', '3515', 'BALONG BENDO'),
-('3516010', '3516', 'JATIREJO'),
-('3516020', '3516', 'GONDANG'),
-('3516030', '3516', 'PACET'),
-('3516040', '3516', 'TRAWAS'),
-('3516050', '3516', 'NGORO'),
-('3516060', '3516', 'PUNGGING'),
-('3516070', '3516', 'KUTOREJO'),
-('3516080', '3516', 'MOJOSARI'),
-('3516090', '3516', 'BANGSAL'),
-('3516091', '3516', 'MOJOANYAR'),
-('3516100', '3516', 'DLANGGU'),
-('3516110', '3516', 'PURI'),
-('3516120', '3516', 'TROWULAN'),
-('3516130', '3516', 'SOOKO'),
-('3516140', '3516', 'GEDEK'),
-('3516150', '3516', 'KEMLAGI'),
-('3516160', '3516', 'JETIS'),
-('3516170', '3516', 'DAWAR BLANDONG'),
-('3517010', '3517', 'BANDAR KEDUNG MULYO'),
-('3517020', '3517', 'PERAK'),
-('3517030', '3517', 'GUDO'),
-('3517040', '3517', 'DIWEK'),
-('3517050', '3517', 'NGORO'),
-('3517060', '3517', 'MOJOWARNO'),
-('3517070', '3517', 'BARENG'),
-('3517080', '3517', 'WONOSALAM'),
-('3517090', '3517', 'MOJOAGUNG'),
-('3517100', '3517', 'SUMOBITO'),
-('3517110', '3517', 'JOGO ROTO'),
-('3517120', '3517', 'PETERONGAN'),
-('3517130', '3517', 'JOMBANG'),
-('3517140', '3517', 'MEGALUH'),
-('3517150', '3517', 'TEMBELANG'),
-('3517160', '3517', 'KESAMBEN'),
-('3517170', '3517', 'KUDU'),
-('3517171', '3517', 'NGUSIKAN'),
-('3517180', '3517', 'PLOSO'),
-('3517190', '3517', 'KABUH'),
-('3517200', '3517', 'PLANDAAN'),
-('3518010', '3518', 'SAWAHAN'),
-('3518020', '3518', 'NGETOS'),
-('3518030', '3518', 'BERBEK'),
-('3518040', '3518', 'LOCERET'),
-('3518050', '3518', 'PACE'),
-('3518060', '3518', 'TANJUNGANOM'),
-('3518070', '3518', 'PRAMBON'),
-('3518080', '3518', 'NGRONGGOT'),
-('3518090', '3518', 'KERTOSONO'),
-('3518100', '3518', 'PATIANROWO'),
-('3518110', '3518', 'BARON'),
-('3518120', '3518', 'GONDANG'),
-('3518130', '3518', 'SUKOMORO'),
-('3518140', '3518', 'NGANJUK'),
-('3518150', '3518', 'BAGOR'),
-('3518160', '3518', 'WILANGAN'),
-('3518170', '3518', 'REJOSO'),
-('3518180', '3518', 'NGLUYU'),
-('3518190', '3518', 'LENGKONG'),
-('3518200', '3518', 'JATIKALEN'),
-('3519010', '3519', 'KEBONSARI'),
-('3519020', '3519', 'GEGER'),
-('3519030', '3519', 'DOLOPO'),
-('3519040', '3519', 'DAGANGAN'),
-('3519050', '3519', 'WUNGU'),
-('3519060', '3519', 'KARE'),
-('3519070', '3519', 'GEMARANG'),
-('3519080', '3519', 'SARADAN'),
-('3519090', '3519', 'PILANGKENCENG'),
-('3519100', '3519', 'MEJAYAN'),
-('3519110', '3519', 'WONOASRI'),
-('3519120', '3519', 'BALEREJO'),
-('3519130', '3519', 'MADIUN'),
-('3519140', '3519', 'SAWAHAN'),
-('3519150', '3519', 'JIWAN'),
-('3520010', '3520', 'PONCOL'),
-('3520020', '3520', 'PARANG'),
-('3520030', '3520', 'LEMBEYAN'),
-('3520040', '3520', 'TAKERAN'),
-('3520041', '3520', 'NGUNTORONADI'),
-('3520050', '3520', 'KAWEDANAN'),
-('3520060', '3520', 'MAGETAN'),
-('3520061', '3520', 'NGARIBOYO'),
-('3520070', '3520', 'PLAOSAN'),
-('3520071', '3520', 'SIDOREJO'),
-('3520080', '3520', 'PANEKAN'),
-('3520090', '3520', 'SUKOMORO'),
-('3520100', '3520', 'BENDO'),
-('3520110', '3520', 'MAOSPATI'),
-('3520120', '3520', 'KARANGREJO'),
-('3520121', '3520', 'KARAS'),
-('3520130', '3520', 'BARAT'),
-('3520131', '3520', 'KARTOHARJO'),
-('3521010', '3521', 'SINE'),
-('3521020', '3521', 'NGRAMBE'),
-('3521030', '3521', 'JOGOROGO'),
-('3521040', '3521', 'KENDAL'),
-('3521050', '3521', 'GENENG'),
-('3521051', '3521', 'GERIH'),
-('3521060', '3521', 'KWADUNGAN'),
-('3521070', '3521', 'PANGKUR'),
-('3521080', '3521', 'KARANGJATI'),
-('3521090', '3521', 'BRINGIN'),
-('3521100', '3521', 'PADAS'),
-('3521101', '3521', 'KASREMAN'),
-('3521110', '3521', 'NGAWI'),
-('3521120', '3521', 'PARON'),
-('3521130', '3521', 'KEDUNGGALAR'),
-('3521140', '3521', 'PITU'),
-('3521150', '3521', 'WIDODAREN'),
-('3521160', '3521', 'MANTINGAN'),
-('3521170', '3521', 'KARANGANYAR'),
-('3522010', '3522', 'MARGOMULYO'),
-('3522020', '3522', 'NGRAHO'),
-('3522030', '3522', 'TAMBAKREJO'),
-('3522040', '3522', 'NGAMBON'),
-('3522041', '3522', 'SEKAR'),
-('3522050', '3522', 'BUBULAN'),
-('3522051', '3522', 'GONDANG'),
-('3522060', '3522', 'TEMAYANG'),
-('3522070', '3522', 'SUGIHWARAS'),
-('3522080', '3522', 'KEDUNGADEM'),
-('3522090', '3522', 'KEPOH BARU'),
-('3522100', '3522', 'BAURENO'),
-('3522110', '3522', 'KANOR'),
-('3522120', '3522', 'SUMBEREJO'),
-('3522130', '3522', 'BALEN'),
-('3522140', '3522', 'SUKOSEWU'),
-('3522150', '3522', 'KAPAS'),
-('3522160', '3522', 'BOJONEGORO'),
-('3522170', '3522', 'TRUCUK'),
-('3522180', '3522', 'DANDER'),
-('3522190', '3522', 'NGASEM'),
-('3522191', '3522', 'GAYAM'),
-('3522200', '3522', 'KALITIDU'),
-('3522210', '3522', 'MALO'),
-('3522220', '3522', 'PURWOSARI'),
-('3522230', '3522', 'PADANGAN'),
-('3522240', '3522', 'KASIMAN'),
-('3522241', '3522', 'KEDEWAN'),
-('3523010', '3523', 'KENDURUAN'),
-('3523020', '3523', 'BANGILAN'),
-('3523030', '3523', 'SENORI'),
-('3523040', '3523', 'SINGGAHAN'),
-('3523050', '3523', 'MONTONG'),
-('3523060', '3523', 'PARENGAN'),
-('3523070', '3523', 'SOKO'),
-('3523080', '3523', 'RENGEL'),
-('3523081', '3523', 'GRABAGAN'),
-('3523090', '3523', 'PLUMPANG'),
-('3523100', '3523', 'WIDANG'),
-('3523110', '3523', 'PALANG'),
-('3523120', '3523', 'SEMANDING'),
-('3523130', '3523', 'TUBAN'),
-('3523140', '3523', 'JENU'),
-('3523150', '3523', 'MERAKURAK'),
-('3523160', '3523', 'KEREK'),
-('3523170', '3523', 'TAMBAKBOYO'),
-('3523180', '3523', 'JATIROGO'),
-('3523190', '3523', 'BANCAR'),
-('3524010', '3524', 'SUKORAME'),
-('3524020', '3524', 'BLULUK'),
-('3524030', '3524', 'NGIMBANG'),
-('3524040', '3524', 'SAMBENG'),
-('3524050', '3524', 'MANTUP'),
-('3524060', '3524', 'KEMBANGBAHU'),
-('3524070', '3524', 'SUGIO'),
-('3524080', '3524', 'KEDUNGPRING'),
-('3524090', '3524', 'MODO'),
-('3524100', '3524', 'BABAT'),
-('3524110', '3524', 'PUCUK'),
-('3524120', '3524', 'SUKODADI'),
-('3524130', '3524', 'LAMONGAN'),
-('3524140', '3524', 'TIKUNG'),
-('3524141', '3524', 'SARIREJO'),
-('3524150', '3524', 'DEKET'),
-('3524160', '3524', 'GLAGAH'),
-('3524170', '3524', 'KARANGBINANGUN'),
-('3524180', '3524', 'TURI'),
-('3524190', '3524', 'KALITENGAH'),
-('3524200', '3524', 'KARANG GENENG'),
-('3524210', '3524', 'SEKARAN'),
-('3524220', '3524', 'MADURAN'),
-('3524230', '3524', 'LAREN'),
-('3524240', '3524', 'SOLOKURO'),
-('3524250', '3524', 'PACIRAN'),
-('3524260', '3524', 'BRONDONG'),
-('3525010', '3525', 'WRINGINANOM'),
-('3525020', '3525', 'DRIYOREJO'),
-('3525030', '3525', 'KEDAMEAN'),
-('3525040', '3525', 'MENGANTI'),
-('3525050', '3525', 'CERME'),
-('3525060', '3525', 'BENJENG'),
-('3525070', '3525', 'BALONGPANGGANG'),
-('3525080', '3525', 'DUDUKSAMPEYAN'),
-('3525090', '3525', 'KEBOMAS'),
-('3525100', '3525', 'GRESIK'),
-('3525110', '3525', 'MANYAR'),
-('3525120', '3525', 'BUNGAH'),
-('3525130', '3525', 'SIDAYU'),
-('3525140', '3525', 'DUKUN'),
-('3525150', '3525', 'PANCENG'),
-('3525160', '3525', 'UJUNGPANGKAH'),
-('3525170', '3525', 'SANGKAPURA'),
-('3525180', '3525', 'TAMBAK'),
-('3526010', '3526', 'KAMAL'),
-('3526020', '3526', 'LABANG'),
-('3526030', '3526', 'KWANYAR'),
-('3526040', '3526', 'MODUNG'),
-('3526050', '3526', 'BLEGA'),
-('3526060', '3526', 'KONANG'),
-('3526070', '3526', 'GALIS'),
-('3526080', '3526', 'TANAH MERAH'),
-('3526090', '3526', 'TRAGAH'),
-('3526100', '3526', 'SOCAH'),
-('3526110', '3526', 'BANGKALAN'),
-('3526120', '3526', 'BURNEH'),
-('3526130', '3526', 'AROSBAYA'),
-('3526140', '3526', 'GEGER'),
-('3526150', '3526', 'KOKOP'),
-('3526160', '3526', 'TANJUNGBUMI'),
-('3526170', '3526', 'SEPULU'),
-('3526180', '3526', 'KLAMPIS'),
-('3527010', '3527', 'SRESEH'),
-('3527020', '3527', 'TORJUN'),
-('3527021', '3527', 'PANGARENGAN'),
-('3527030', '3527', 'SAMPANG'),
-('3527040', '3527', 'CAMPLONG'),
-('3527050', '3527', 'OMBEN'),
-('3527060', '3527', 'KEDUNGDUNG'),
-('3527070', '3527', 'JRENGIK'),
-('3527080', '3527', 'TAMBELANGAN'),
-('3527090', '3527', 'BANYUATES'),
-('3527100', '3527', 'ROBATAL'),
-('3527101', '3527', 'KARANG PENANG'),
-('3527110', '3527', 'KETAPANG'),
-('3527120', '3527', 'SOKOBANAH'),
-('3528010', '3528', 'TLANAKAN'),
-('3528020', '3528', 'PADEMAWU'),
-('3528030', '3528', 'GALIS'),
-('3528040', '3528', 'LARANGAN'),
-('3528050', '3528', 'PAMEKASAN'),
-('3528060', '3528', 'PROPPO'),
-('3528070', '3528', 'PALENGAAN'),
-('3528080', '3528', 'PEGANTENAN'),
-('3528090', '3528', 'KADUR'),
-('3528100', '3528', 'PAKONG'),
-('3528110', '3528', 'WARU'),
-('3528120', '3528', 'BATU MARMAR'),
-('3528130', '3528', 'PASEAN'),
-('3529010', '3529', 'PRAGAAN'),
-('3529020', '3529', 'BLUTO'),
-('3529030', '3529', 'SARONGGI'),
-('3529040', '3529', 'GILIGENTENG'),
-('3529050', '3529', 'TALANGO'),
-('3529060', '3529', 'KALIANGET'),
-('3529070', '3529', 'KOTA SUMENEP'),
-('3529071', '3529', 'BATUAN'),
-('3529080', '3529', 'LENTENG'),
-('3529090', '3529', 'GANDING'),
-('3529100', '3529', 'GULUK GULUK'),
-('3529110', '3529', 'PASONGSONGAN'),
-('3529120', '3529', 'AMBUNTEN'),
-('3529130', '3529', 'RUBARU'),
-('3529140', '3529', 'DASUK'),
-('3529150', '3529', 'MANDING'),
-('3529160', '3529', 'BATUPUTIH'),
-('3529170', '3529', 'GAPURA'),
-('3529180', '3529', 'BATANG BATANG'),
-('3529190', '3529', 'DUNGKEK'),
-('3529200', '3529', 'NONGGUNONG'),
-('3529210', '3529', 'GAYAM'),
-('3529220', '3529', 'RAAS'),
-('3529230', '3529', 'SAPEKEN'),
-('3529240', '3529', 'ARJASA'),
-('3529241', '3529', 'KANGAYAN'),
-('3529250', '3529', 'MASALEMBU'),
-('3571010', '3571', 'MOJOROTO'),
-('3571020', '3571', 'KOTA KEDIRI'),
-('3571030', '3571', 'PESANTREN'),
-('3572010', '3572', 'SUKOREJO'),
-('3572020', '3572', 'KEPANJENKIDUL'),
-('3572030', '3572', 'SANANWETAN'),
-('3573010', '3573', 'KEDUNGKANDANG'),
-('3573020', '3573', 'SUKUN'),
-('3573030', '3573', 'KLOJEN'),
-('3573040', '3573', 'BLIMBING'),
-('3573050', '3573', 'LOWOKWARU'),
-('3574010', '3574', 'KADEMANGAN'),
-('3574011', '3574', 'KEDOPOK'),
-('3574020', '3574', 'WONOASIH'),
-('3574030', '3574', 'MAYANGAN'),
-('3574031', '3574', 'KANIGARAN'),
-('3575010', '3575', 'GADINGREJO'),
-('3575020', '3575', 'PURWOREJO'),
-('3575030', '3575', 'BUGULKIDUL'),
-('3575031', '3575', 'PANGGUNGREJO'),
-('3576010', '3576', 'PRAJURIT KULON'),
-('3576020', '3576', 'MAGERSARI'),
-('3577010', '3577', 'MANGU HARJO'),
-('3577020', '3577', 'TAMAN'),
-('3577030', '3577', 'KARTOHARJO'),
-('3578010', '3578', 'KARANG PILANG'),
-('3578020', '3578', 'JAMBANGAN'),
-('3578030', '3578', 'GAYUNGAN'),
-('3578040', '3578', 'WONOCOLO'),
-('3578050', '3578', 'TENGGILIS MEJOYO'),
-('3578060', '3578', 'GUNUNG ANYAR'),
-('3578070', '3578', 'RUNGKUT'),
-('3578080', '3578', 'SUKOLILO'),
-('3578090', '3578', 'MULYOREJO'),
-('3578100', '3578', 'GUBENG'),
-('3578110', '3578', 'WONOKROMO'),
-('3578120', '3578', 'DUKUH PAKIS'),
-('3578130', '3578', 'WIYUNG'),
-('3578140', '3578', 'LAKARSANTRI'),
-('3578141', '3578', 'SAMBIKEREP'),
-('3578150', '3578', 'TANDES'),
-('3578160', '3578', 'SUKO MANUNGGAL'),
-('3578170', '3578', 'SAWAHAN'),
-('3578180', '3578', 'TEGALSARI'),
-('3578190', '3578', 'GENTENG'),
-('3578200', '3578', 'TAMBAKSARI'),
-('3578210', '3578', 'KENJERAN'),
-('3578211', '3578', 'BULAK'),
-('3578220', '3578', 'SIMOKERTO'),
-('3578230', '3578', 'SEMAMPIR'),
-('3578240', '3578', 'PABEAN CANTIAN'),
-('3578250', '3578', 'BUBUTAN'),
-('3578260', '3578', 'KREMBANGAN'),
-('3578270', '3578', 'ASEMROWO'),
-('3578280', '3578', 'BENOWO'),
-('3578281', '3578', 'PAKAL'),
-('3579010', '3579', 'BATU'),
-('3579020', '3579', 'JUNREJO'),
-('3579030', '3579', 'BUMIAJI'),
-('3601010', '3601', 'SUMUR'),
-('3601020', '3601', 'CIMANGGU'),
-('3601030', '3601', 'CIBALIUNG'),
-('3601031', '3601', 'CIBITUNG'),
-('3601040', '3601', 'CIKEUSIK'),
-('3601050', '3601', 'CIGEULIS'),
-('3601060', '3601', 'PANIMBANG'),
-('3601061', '3601', 'SOBANG'),
-('3601070', '3601', 'MUNJUL'),
-('3601071', '3601', 'ANGSANA'),
-('3601072', '3601', 'SINDANGRESMI'),
-('3601080', '3601', 'PICUNG'),
-('3601090', '3601', 'BOJONG'),
-('3601100', '3601', 'SAKETI'),
-('3601101', '3601', 'CISATA'),
-('3601110', '3601', 'PAGELARAN'),
-('3601111', '3601', 'PATIA'),
-('3601112', '3601', 'SUKARESMI'),
-('3601120', '3601', 'LABUAN'),
-('3601121', '3601', 'CARITA'),
-('3601130', '3601', 'JIPUT'),
-('3601131', '3601', 'CIKEDAL'),
-('3601140', '3601', 'MENES'),
-('3601141', '3601', 'PULOSARI'),
-('3601150', '3601', 'MANDALAWANGI'),
-('3601160', '3601', 'CIMANUK'),
-('3601161', '3601', 'CIPEUCANG'),
-('3601170', '3601', 'BANJAR'),
-('3601171', '3601', 'KADUHEJO'),
-('3601172', '3601', 'MEKARJAYA'),
-('3601180', '3601', 'PANDEGLANG'),
-('3601181', '3601', 'MAJASARI'),
-('3601190', '3601', 'CADASARI'),
-('3601191', '3601', 'KARANGTANJUNG'),
-('3601192', '3601', 'KORONCONG'),
-('3602010', '3602', 'MALINGPING'),
-('3602011', '3602', 'WANASALAM'),
-('3602020', '3602', 'PANGGARANGAN'),
-('3602021', '3602', 'CIHARA'),
-('3602030', '3602', 'BAYAH'),
-('3602031', '3602', 'CILOGRANG'),
-('3602040', '3602', 'CIBEBER'),
-('3602050', '3602', 'CIJAKU'),
-('3602051', '3602', 'CIGEMBLONG'),
-('3602060', '3602', 'BANJARSARI'),
-('3602070', '3602', 'CILELES'),
-('3602080', '3602', 'GUNUNG KENCANA'),
-('3602090', '3602', 'BOJONGMANIK'),
-('3602091', '3602', 'CIRINTEN'),
-('3602100', '3602', 'LEUWIDAMAR'),
-('3602110', '3602', 'MUNCANG'),
-('3602111', '3602', 'SOBANG'),
-('3602120', '3602', 'CIPANAS'),
-('3602121', '3602', 'LEBAKGEDONG'),
-('3602130', '3602', 'SAJIRA'),
-('3602140', '3602', 'CIMARGA'),
-('3602150', '3602', 'CIKULUR'),
-('3602160', '3602', 'WARUNGGUNUNG'),
-('3602170', '3602', 'CIBADAK'),
-('3602180', '3602', 'RANGKASBITUNG'),
-('3602181', '3602', 'KALANGANYAR'),
-('3602190', '3602', 'MAJA'),
-('3602191', '3602', 'CURUGBITUNG'),
-('3603010', '3603', 'CISOKA'),
-('3603011', '3603', 'SOLEAR'),
-('3603020', '3603', 'TIGARAKSA'),
-('3603021', '3603', 'JAMBE'),
-('3603030', '3603', 'CIKUPA'),
-('3603040', '3603', 'PANONGAN'),
-('3603050', '3603', 'CURUG'),
-('3603051', '3603', 'KELAPA DUA'),
-('3603060', '3603', 'LEGOK'),
-('3603070', '3603', 'PAGEDANGAN'),
-('3603081', '3603', 'CISAUK'),
-('3603120', '3603', 'PASARKEMIS'),
-('3603121', '3603', 'SINDANG JAYA'),
-('3603130', '3603', 'BALARAJA'),
-('3603131', '3603', 'JAYANTI'),
-('3603132', '3603', 'SUKAMULYA'),
-('3603140', '3603', 'KRESEK'),
-('3603141', '3603', 'GUNUNG KALER'),
-('3603150', '3603', 'KRONJO'),
-('3603151', '3603', 'MEKAR BARU'),
-('3603160', '3603', 'MAUK'),
-('3603161', '3603', 'KEMIRI'),
-('3603162', '3603', 'SUKADIRI'),
-('3603170', '3603', 'RAJEG'),
-('3603180', '3603', 'SEPATAN'),
-('3603181', '3603', 'SEPATAN TIMUR'),
-('3603190', '3603', 'PAKUHAJI'),
-('3603200', '3603', 'TELUKNAGA'),
-('3603210', '3603', 'KOSAMBI'),
-('3604010', '3604', 'CINANGKA'),
-('3604020', '3604', 'PADARINCANG'),
-('3604030', '3604', 'CIOMAS'),
-('3604040', '3604', 'PABUARAN'),
-('3604041', '3604', 'GUNUNG SARI'),
-('3604050', '3604', 'BAROS'),
-('3604060', '3604', 'PETIR'),
-('3604061', '3604', 'TUNJUNG TEJA'),
-('3604080', '3604', 'CIKEUSAL'),
-('3604090', '3604', 'PAMARAYAN'),
-('3604091', '3604', 'BANDUNG'),
-('3604100', '3604', 'JAWILAN'),
-('3604110', '3604', 'KOPO'),
-('3604120', '3604', 'CIKANDE'),
-('3604121', '3604', 'KIBIN'),
-('3604130', '3604', 'KRAGILAN'),
-('3604180', '3604', 'WARINGINKURUNG'),
-('3604190', '3604', 'MANCAK'),
-('3604200', '3604', 'ANYAR'),
-('3604210', '3604', 'BOJONEGARA'),
-('3604211', '3604', 'PULO AMPEL'),
-('3604220', '3604', 'KRAMATWATU'),
-('3604240', '3604', 'CIRUAS'),
-('3604250', '3604', 'PONTANG'),
-('3604251', '3604', 'LEBAK WANGI'),
-('3604260', '3604', 'CARENANG'),
-('3604261', '3604', 'BINUANG'),
-('3604270', '3604', 'TIRTAYASA'),
-('3604271', '3604', 'TANARA'),
-('3671010', '3671', 'CILEDUG'),
-('3671011', '3671', 'LARANGAN'),
-('3671012', '3671', 'KARANG TENGAH'),
-('3671020', '3671', 'CIPONDOH'),
-('3671021', '3671', 'PINANG'),
-('3671030', '3671', 'TANGERANG'),
-('3671031', '3671', 'KARAWACI'),
-('3671040', '3671', 'JATI UWUNG'),
-('3671041', '3671', 'CIBODAS'),
-('3671042', '3671', 'PERIUK'),
-('3671050', '3671', 'BATUCEPER'),
-('3671051', '3671', 'NEGLASARI'),
-('3671060', '3671', 'BENDA'),
-('3672010', '3672', 'CIWANDAN'),
-('3672011', '3672', 'CITANGKIL'),
-('3672020', '3672', 'PULOMERAK'),
-('3672021', '3672', 'PURWAKARTA'),
-('3672022', '3672', 'GROGOL'),
-('3672030', '3672', 'CILEGON'),
-('3672031', '3672', 'JOMBANG'),
-('3672040', '3672', 'CIBEBER'),
-('3673010', '3673', 'CURUG'),
-('3673020', '3673', 'WALANTAKA'),
-('3673030', '3673', 'CIPOCOK JAYA'),
-('3673040', '3673', 'SERANG'),
-('3673050', '3673', 'TAKTAKAN'),
-('3673060', '3673', 'KASEMEN'),
-('3674010', '3674', 'SETU'),
-('3674020', '3674', 'SERPONG'),
-('3674030', '3674', 'PAMULANG'),
-('3674040', '3674', 'CIPUTAT'),
-('3674050', '3674', 'CIPUTAT TIMUR'),
-('3674060', '3674', 'PONDOK AREN'),
-('3674070', '3674', 'SERPONG UTARA'),
-('5101010', '5101', 'MELAYA'),
-('5101020', '5101', 'NEGARA'),
-('5101021', '5101', 'JEMBRANA'),
-('5101030', '5101', 'MENDOYO'),
-('5101040', '5101', 'PEKUTATAN'),
-('5102010', '5102', 'SELEMADEG'),
-('5102011', '5102', 'SELEMADEG TIMUR'),
-('5102012', '5102', 'SELEMADEG BARAT'),
-('5102020', '5102', 'KERAMBITAN'),
-('5102030', '5102', 'TABANAN'),
-('5102040', '5102', 'KEDIRI'),
-('5102050', '5102', 'MARGA'),
-('5102060', '5102', 'BATURITI'),
-('5102070', '5102', 'PENEBEL'),
-('5102080', '5102', 'PUPUAN'),
-('5103010', '5103', 'KUTA SELATAN'),
-('5103020', '5103', 'KUTA'),
-('5103030', '5103', 'KUTA UTARA'),
-('5103040', '5103', 'MENGWI'),
-('5103050', '5103', 'ABIANSEMAL'),
-('5103060', '5103', 'PETANG'),
-('5104010', '5104', 'SUKAWATI'),
-('5104020', '5104', 'BLAHBATUH'),
-('5104030', '5104', 'GIANYAR'),
-('5104040', '5104', 'TAMPAKSIRING'),
-('5104050', '5104', 'UBUD'),
-('5104060', '5104', 'TEGALLALANG'),
-('5104070', '5104', 'PAYANGAN'),
-('5105010', '5105', 'NUSAPENIDA'),
-('5105020', '5105', 'BANJARANGKAN'),
-('5105030', '5105', 'KLUNGKUNG'),
-('5105040', '5105', 'DAWAN'),
-('5106010', '5106', 'SUSUT'),
-('5106020', '5106', 'BANGLI'),
-('5106030', '5106', 'TEMBUKU'),
-('5106040', '5106', 'KINTAMANI'),
-('5107010', '5107', 'RENDANG'),
-('5107020', '5107', 'SIDEMEN'),
-('5107030', '5107', 'MANGGIS'),
-('5107040', '5107', 'KARANGASEM'),
-('5107050', '5107', 'ABANG'),
-('5107060', '5107', 'BEBANDEM'),
-('5107070', '5107', 'SELAT'),
-('5107080', '5107', 'KUBU'),
-('5108010', '5108', 'GEROKGAK'),
-('5108020', '5108', 'SERIRIT'),
-('5108030', '5108', 'BUSUNGBIU'),
-('5108040', '5108', 'BANJAR'),
-('5108050', '5108', 'SUKASADA'),
-('5108060', '5108', 'BULELENG'),
-('5108070', '5108', 'SAWAN'),
-('5108080', '5108', 'KUBUTAMBAHAN'),
-('5108090', '5108', 'TEJAKULA'),
-('5171010', '5171', 'DENPASAR SELATAN'),
-('5171020', '5171', 'DENPASAR TIMUR'),
-('5171030', '5171', 'DENPASAR BARAT'),
-('5171031', '5171', 'DENPASAR UTARA'),
-('5201010', '5201', 'SEKOTONG'),
-('5201011', '5201', 'LEMBAR'),
-('5201020', '5201', 'GERUNG'),
-('5201030', '5201', 'LABU API'),
-('5201040', '5201', 'KEDIRI'),
-('5201041', '5201', 'KURIPAN'),
-('5201050', '5201', 'NARMADA'),
-('5201051', '5201', 'LINGSAR'),
-('5201060', '5201', 'GUNUNG SARI'),
-('5201061', '5201', 'BATU LAYAR'),
-('5202010', '5202', 'PRAYA BARAT'),
-('5202011', '5202', 'PRAYA BARAT DAYA'),
-('5202020', '5202', 'PUJUT'),
-('5202030', '5202', 'PRAYA TIMUR'),
-('5202040', '5202', 'JANAPRIA'),
-('5202050', '5202', 'KOPANG'),
-('5202060', '5202', 'PRAYA'),
-('5202061', '5202', 'PRAYA TENGAH'),
-('5202070', '5202', 'JONGGAT'),
-('5202080', '5202', 'PRINGGARATA'),
-('5202090', '5202', 'BATUKLIANG'),
-('5202091', '5202', 'BATUKLIANG UTARA'),
-('5203010', '5203', 'KERUAK'),
-('5203011', '5203', 'JEROWARU'),
-('5203020', '5203', 'SAKRA'),
-('5203021', '5203', 'SAKRA BARAT'),
-('5203022', '5203', 'SAKRA TIMUR'),
-('5203030', '5203', 'TERARA'),
-('5203031', '5203', 'MONTONG GADING'),
-('5203040', '5203', 'SIKUR'),
-('5203050', '5203', 'MASBAGIK'),
-('5203051', '5203', 'PRINGGASELA'),
-('5203060', '5203', 'SUKAMULIA'),
-('5203061', '5203', 'SURALAGA'),
-('5203070', '5203', 'SELONG'),
-('5203071', '5203', 'LABUHAN HAJI'),
-('5203080', '5203', 'PRINGGABAYA'),
-('5203081', '5203', 'SUELA'),
-('5203090', '5203', 'AIKMEL'),
-('5203091', '5203', 'WANASABA'),
-('5203092', '5203', 'SEMBALUN'),
-('5203100', '5203', 'SAMBELIA'),
-('5204020', '5204', 'LUNYUK'),
-('5204021', '5204', 'ORONG TELU'),
-('5204050', '5204', 'ALAS'),
-('5204051', '5204', 'ALAS BARAT'),
-('5204052', '5204', 'BUER'),
-('5204061', '5204', 'UTAN'),
-('5204062', '5204', 'RHEE'),
-('5204070', '5204', 'BATULANTEH'),
-('5204080', '5204', 'SUMBAWA'),
-('5204081', '5204', 'LABUHAN BADAS'),
-('5204082', '5204', 'UNTER IWES'),
-('5204090', '5204', 'MOYOHILIR'),
-('5204091', '5204', 'MOYO UTARA'),
-('5204100', '5204', 'MOYOHULU'),
-('5204110', '5204', 'ROPANG'),
-('5204111', '5204', 'LENANGGUAR'),
-('5204112', '5204', 'LANTUNG'),
-('5204121', '5204', 'LAPE'),
-('5204122', '5204', 'LOPOK'),
-('5204130', '5204', 'PLAMPANG'),
-('5204131', '5204', 'LABANGKA'),
-('5204132', '5204', 'MARONGE'),
-('5204140', '5204', 'EMPANG'),
-('5204141', '5204', 'TARANO'),
-('5205010', '5205', 'HU\'U'),
-('5205011', '5205', 'PAJO'),
-('5205020', '5205', 'DOMPU'),
-('5205030', '5205', 'WOJA'),
-('5205040', '5205', 'KILO'),
-('5205050', '5205', 'KEMPO'),
-('5205051', '5205', 'MANGGALEWA'),
-('5205060', '5205', 'PEKAT'),
-('5206010', '5206', 'MONTA'),
-('5206011', '5206', 'PARADO'),
-('5206020', '5206', 'BOLO'),
-('5206021', '5206', 'MADA PANGGA'),
-('5206030', '5206', 'WOHA'),
-('5206040', '5206', 'BELO'),
-('5206041', '5206', 'PALIBELO'),
-('5206050', '5206', 'WAWO'),
-('5206051', '5206', 'LANGGUDU'),
-('5206052', '5206', 'LAMBITU'),
-('5206060', '5206', 'SAPE'),
-('5206061', '5206', 'LAMBU'),
-('5206070', '5206', 'WERA'),
-('5206071', '5206', 'AMBALAWI'),
-('5206080', '5206', 'DONGGO'),
-('5206081', '5206', 'SOROMANDI'),
-('5206090', '5206', 'SANGGAR'),
-('5206091', '5206', 'TAMBORA'),
-('5207010', '5207', 'SEKONGKANG'),
-('5207020', '5207', 'JEREWEH'),
-('5207021', '5207', 'MALUK'),
-('5207030', '5207', 'TALIWANG'),
-('5207031', '5207', 'BRANG ENE'),
-('5207040', '5207', 'BRANG REA'),
-('5207050', '5207', 'SETELUK'),
-('5207051', '5207', 'POTO TANO'),
-('5208010', '5208', 'PEMENANG'),
-('5208020', '5208', 'TANJUNG'),
-('5208030', '5208', 'GANGGA'),
-('5208040', '5208', 'KAYANGAN'),
-('5208050', '5208', 'BAYAN'),
-('5271010', '5271', 'AMPENAN'),
-('5271011', '5271', 'SEKARBELA'),
-('5271020', '5271', 'MATARAM'),
-('5271021', '5271', 'SELAPARANG'),
-('5271030', '5271', 'CAKRANEGARA'),
-('5271031', '5271', 'SANDUBAYA'),
-('5272010', '5272', 'RASANAE BARAT'),
-('5272011', '5272', 'MPUNDA'),
-('5272020', '5272', 'RASANAE TIMUR'),
-('5272021', '5272', 'RABA'),
-('5272030', '5272', 'ASAKOTA'),
-('5301021', '5301', 'LAMBOYA'),
-('5301022', '5301', 'WANOKAKA'),
-('5301023', '5301', 'LABOYA BARAT'),
-('5301050', '5301', 'LOLI'),
-('5301060', '5301', 'KOTA WAIKABUBAK'),
-('5301072', '5301', 'TANA RIGHU'),
-('5302010', '5302', 'LEWA'),
-('5302011', '5302', 'NGGAHA ORIANGU'),
-('5302012', '5302', 'LEWA TIDAHU'),
-('5302013', '5302', 'KATALA HAMU LINGU'),
-('5302020', '5302', 'TABUNDUNG'),
-('5302021', '5302', 'PINUPAHAR'),
-('5302030', '5302', 'PABERIWAI'),
-('5302031', '5302', 'KARERA'),
-('5302032', '5302', 'MATAWAI LA PAWU'),
-('5302033', '5302', 'KAHAUNGU ETI'),
-('5302034', '5302', 'MAHU'),
-('5302035', '5302', 'NGADU NGALA'),
-('5302040', '5302', 'PAHUNGA LODU'),
-('5302041', '5302', 'WULA WAIJELU'),
-('5302051', '5302', 'RINDI'),
-('5302052', '5302', 'UMALULU'),
-('5302060', '5302', 'PANDAWAI'),
-('5302061', '5302', 'KAMBATA MAPAMBUHANG'),
-('5302070', '5302', 'KOTA WAINGAPU'),
-('5302071', '5302', 'KAMBERA'),
-('5302080', '5302', 'HAHARU'),
-('5302081', '5302', 'KANATANG'),
-('5303100', '5303', 'SEMAU'),
-('5303101', '5303', 'SEMAU SELATAN'),
-('5303110', '5303', 'KUPANG BARAT'),
-('5303111', '5303', 'NEKAMESE'),
-('5303120', '5303', 'KUPANG TENGAH'),
-('5303121', '5303', 'TAEBENU'),
-('5303130', '5303', 'AMARASI'),
-('5303131', '5303', 'AMARASI BARAT'),
-('5303132', '5303', 'AMARASI SELATAN'),
-('5303133', '5303', 'AMARASI TIMUR'),
-('5303140', '5303', 'KUPANG TIMUR'),
-('5303141', '5303', 'AMABI OEFETO TIMUR'),
-('5303142', '5303', 'AMABI OEFETO'),
-('5303150', '5303', 'SULAMU'),
-('5303160', '5303', 'FATULEU'),
-('5303161', '5303', 'FATULEU TENGAH'),
-('5303162', '5303', 'FATULEU BARAT'),
-('5303170', '5303', 'TAKARI'),
-('5303180', '5303', 'AMFOANG SELATAN'),
-('5303181', '5303', 'AMFOANG BARAT DAYA'),
-('5303182', '5303', 'AMFOANG TENGAH'),
-('5303190', '5303', 'AMFOANG UTARA'),
-('5303191', '5303', 'AMFOANG BARAT LAUT'),
-('5303192', '5303', 'AMFOANG TIMUR'),
-('5304010', '5304', 'MOLLO UTARA'),
-('5304011', '5304', 'FATUMNASI'),
-('5304012', '5304', 'TOBU'),
-('5304013', '5304', 'NUNBENA'),
-('5304020', '5304', 'MOLLO SELATAN'),
-('5304021', '5304', 'POLEN'),
-('5304022', '5304', 'MOLLO BARAT'),
-('5304023', '5304', 'MOLLO TENGAH'),
-('5304030', '5304', 'KOTA SOE'),
-('5304040', '5304', 'AMANUBAN BARAT'),
-('5304041', '5304', 'BATU PUTIH'),
-('5304042', '5304', 'KUATNANA'),
-('5304050', '5304', 'AMANUBAN SELATAN'),
-('5304051', '5304', 'NOEBEBA'),
-('5304060', '5304', 'KUAN FATU'),
-('5304061', '5304', 'KUALIN'),
-('5304070', '5304', 'AMANUBAN TENGAH'),
-('5304071', '5304', 'KOLBANO'),
-('5304072', '5304', 'OENINO'),
-('5304080', '5304', 'AMANUBAN TIMUR'),
-('5304081', '5304', 'FAUTMOLO'),
-('5304082', '5304', 'FATUKOPA'),
-('5304090', '5304', 'KIE'),
-('5304091', '5304', 'KOT\'OLIN'),
-('5304100', '5304', 'AMANATUN SELATAN'),
-('5304101', '5304', 'BOKING'),
-('5304102', '5304', 'NUNKOLO'),
-('5304103', '5304', 'NOEBANA'),
-('5304104', '5304', 'SANTIAN'),
-('5304110', '5304', 'AMANATUN UTARA'),
-('5304111', '5304', 'TOIANAS'),
-('5304112', '5304', 'KOKBAUN'),
-('5305010', '5305', 'MIOMAFFO BARAT'),
-('5305011', '5305', 'MIOMAFFO TENGAH'),
-('5305012', '5305', 'MUSI'),
-('5305013', '5305', 'MUTIS'),
-('5305020', '5305', 'MIOMAFFO TIMUR'),
-('5305021', '5305', 'NOEMUTI'),
-('5305022', '5305', 'BIKOMI SELATAN'),
-('5305023', '5305', 'BIKOMI TENGAH'),
-('5305024', '5305', 'BIKOMI NILULAT'),
-('5305025', '5305', 'BIKOMI UTARA'),
-('5305026', '5305', 'NAIBENU'),
-('5305027', '5305', 'NOEMUTI TIMUR'),
-('5305030', '5305', 'KOTA KEFAMENANU'),
-('5305040', '5305', 'INSANA'),
-('5305041', '5305', 'INSANA UTARA'),
-('5305042', '5305', 'INSANA BARAT'),
-('5305043', '5305', 'INSANA TENGAH'),
-('5305044', '5305', 'INSANA FAFINESU'),
-('5305050', '5305', 'BIBOKI SELATAN'),
-('5305051', '5305', 'BIBOKI TANPAH'),
-('5305052', '5305', 'BIBOKI MOENLEU'),
-('5305060', '5305', 'BIBOKI UTARA'),
-('5305061', '5305', 'BIBOKI ANLEU'),
-('5305062', '5305', 'BIBOKI FEOTLEU'),
-('5306032', '5306', 'RAI MANUK'),
-('5306050', '5306', 'TASIFETO BARAT'),
-('5306051', '5306', 'KAKULUK MESAK'),
-('5306052', '5306', 'NANAET DUBESI'),
-('5306060', '5306', 'ATAMBUA'),
-('5306061', '5306', 'ATAMBUA BARAT'),
-('5306062', '5306', 'ATAMBUA SELATAN'),
-('5306070', '5306', 'TASIFETO TIMUR'),
-('5306071', '5306', 'RAIHAT'),
-('5306072', '5306', 'LASIOLAT'),
-('5306080', '5306', 'LAMAKNEN'),
-('5306081', '5306', 'LAMAKNEN SELATAN'),
-('5307010', '5307', 'PANTAR'),
-('5307011', '5307', 'PANTAR BARAT'),
-('5307012', '5307', 'PANTAR TIMUR'),
-('5307013', '5307', 'PANTAR BARAT LAUT'),
-('5307014', '5307', 'PANTAR TENGAH'),
-('5307020', '5307', 'ALOR BARAT DAYA'),
-('5307021', '5307', 'MATARU'),
-('5307030', '5307', 'ALOR SELATAN'),
-('5307040', '5307', 'ALOR TIMUR'),
-('5307041', '5307', 'ALOR TIMUR LAUT'),
-('5307042', '5307', 'PUREMAN'),
-('5307050', '5307', 'TELUK MUTIARA'),
-('5307051', '5307', 'KABOLA'),
-('5307060', '5307', 'ALOR BARAT LAUT'),
-('5307061', '5307', 'ALOR TENGAH UTARA'),
-('5307062', '5307', 'PULAU PURA'),
-('5307063', '5307', 'LEMBUR'),
-('5308010', '5308', 'NAGAWUTUNG'),
-('5308011', '5308', 'WULANDONI'),
-('5308020', '5308', 'ATADEI'),
-('5308030', '5308', 'ILE APE'),
-('5308031', '5308', 'ILE APE TIMUR'),
-('5308040', '5308', 'LEBATUKAN'),
-('5308050', '5308', 'NUBATUKAN'),
-('5308060', '5308', 'OMESURI'),
-('5308070', '5308', 'BUYASARI'),
-('5309010', '5309', 'WULANGGITANG'),
-('5309011', '5309', 'TITEHENA'),
-('5309012', '5309', 'ILEBURA'),
-('5309020', '5309', 'TANJUNG BUNGA'),
-('5309021', '5309', 'LEWO LEMA'),
-('5309030', '5309', 'LARANTUKA'),
-('5309031', '5309', 'ILE MANDIRI'),
-('5309032', '5309', 'DEMON PAGONG'),
-('5309040', '5309', 'SOLOR BARAT'),
-('5309041', '5309', 'SOLOR SELATAN'),
-('5309050', '5309', 'SOLOR TIMUR'),
-('5309060', '5309', 'ADONARA BARAT'),
-('5309061', '5309', 'WOTAN ULU MADO'),
-('5309062', '5309', 'ADONARA TENGAH'),
-('5309070', '5309', 'ADONARA TIMUR'),
-('5309071', '5309', 'ILE BOLENG'),
-('5309072', '5309', 'WITIHAMA'),
-('5309073', '5309', 'KELUBAGOLIT'),
-('5309074', '5309', 'ADONARA'),
-('5310010', '5310', 'PAGA'),
-('5310011', '5310', 'MEGO'),
-('5310012', '5310', 'TANA WAWO'),
-('5310020', '5310', 'LELA'),
-('5310030', '5310', 'BOLA'),
-('5310031', '5310', 'DORENG'),
-('5310032', '5310', 'MAPITARA'),
-('5310040', '5310', 'TALIBURA'),
-('5310041', '5310', 'WAIGETE'),
-('5310042', '5310', 'WAIBLAMA'),
-('5310050', '5310', 'KEWAPANTE'),
-('5310051', '5310', 'HEWOKLOANG'),
-('5310052', '5310', 'KANGAE'),
-('5310061', '5310', 'PALUE'),
-('5310062', '5310', 'KOTING'),
-('5310063', '5310', 'NELLE'),
-('5310070', '5310', 'NITA'),
-('5310071', '5310', 'MAGEPANDA'),
-('5310080', '5310', 'ALOK'),
-('5310081', '5310', 'ALOK BARAT'),
-('5310082', '5310', 'ALOK TIMUR'),
-('5311010', '5311', 'NANGAPANDA'),
-('5311011', '5311', 'PULAU ENDE'),
-('5311012', '5311', 'MAUKARO'),
-('5311020', '5311', 'ENDE'),
-('5311030', '5311', 'ENDE SELATAN'),
-('5311031', '5311', 'ENDE TIMUR'),
-('5311032', '5311', 'ENDE TENGAH'),
-('5311033', '5311', 'ENDE UTARA'),
-('5311040', '5311', 'NDONA'),
-('5311041', '5311', 'NDONA TIMUR'),
-('5311050', '5311', 'WOLOWARU'),
-('5311051', '5311', 'WOLOJITA'),
-('5311052', '5311', 'LIO TIMUR'),
-('5311053', '5311', 'KELIMUTU'),
-('5311054', '5311', 'NDORI'),
-('5311060', '5311', 'MAUROLE'),
-('5311061', '5311', 'KOTABARU'),
-('5311062', '5311', 'DETUKELI'),
-('5311063', '5311', 'LEPEMBUSU KELISOKE'),
-('5311070', '5311', 'DETUSOKO'),
-('5311071', '5311', 'WEWARIA'),
-('5312010', '5312', 'AIMERE'),
-('5312011', '5312', 'JEREBUU'),
-('5312012', '5312', 'INERIE'),
-('5312020', '5312', 'BAJAWA'),
-('5312030', '5312', 'GOLEWA'),
-('5312031', '5312', 'GOLEWA SELATAN'),
-('5312032', '5312', 'GOLEWA BARAT'),
-('5312070', '5312', 'BAJAWA UTARA'),
-('5312071', '5312', 'SOA'),
-('5312080', '5312', 'RIUNG'),
-('5312081', '5312', 'RIUNG BARAT'),
-('5312082', '5312', 'WOLOMEZE'),
-('5313040', '5313', 'SATAR MESE'),
-('5313041', '5313', 'SATAR MESE BARAT'),
-('5313110', '5313', 'LANGKE REMBONG'),
-('5313120', '5313', 'RUTENG'),
-('5313121', '5313', 'WAE RII'),
-('5313122', '5313', 'LELAK'),
-('5313123', '5313', 'RAHONG UTARA'),
-('5313130', '5313', 'CIBAL'),
-('5313131', '5313', 'CIBAL BARAT'),
-('5313140', '5313', 'REOK'),
-('5313141', '5313', 'REOK BARAT'),
-('5314010', '5314', 'ROTE BARAT DAYA'),
-('5314020', '5314', 'ROTE BARAT LAUT'),
-('5314030', '5314', 'LOBALAIN'),
-('5314040', '5314', 'ROTE TENGAH'),
-('5314041', '5314', 'ROTE SELATAN'),
-('5314050', '5314', 'PANTAI BARU'),
-('5314060', '5314', 'ROTE TIMUR'),
-('5314061', '5314', 'LANDU LEKO'),
-('5314070', '5314', 'ROTE BARAT'),
-('5314071', '5314', 'NDAO NUSE'),
-('5315010', '5315', 'KOMODO'),
-('5315011', '5315', 'BOLENG'),
-('5315020', '5315', 'SANO NGGOANG'),
-('5315021', '5315', 'MBELILING'),
-('5315030', '5315', 'LEMBOR'),
-('5315031', '5315', 'WELAK'),
-('5315032', '5315', 'LEMBOR SELATAN'),
-('5315040', '5315', 'KUWUS'),
-('5315041', '5315', 'NDOSO'),
-('5315050', '5315', 'MACANG PACAR'),
-('5316010', '5316', 'KATIKUTANA'),
-('5316011', '5316', 'KATIKUTANA SELATAN'),
-('5316020', '5316', 'UMBU RATU NGGAY BARAT'),
-('5316030', '5316', 'UMBU RATU NGGAY'),
-('5316040', '5316', 'MAMBORO'),
-('5317010', '5317', 'KODI BANGEDO'),
-('5317011', '5317', 'KODI BALAGHAR'),
-('5317020', '5317', 'KODI'),
-('5317030', '5317', 'KODI UTARA'),
-('5317040', '5317', 'WEWEWA SELATAN'),
-('5317050', '5317', 'WEWEWA BARAT'),
-('5317060', '5317', 'WEWEWA TIMUR'),
-('5317061', '5317', 'WEWEWA TENGAH'),
-('5317070', '5317', 'WEWEWA UTARA'),
-('5317080', '5317', 'LOURA'),
-('5317081', '5317', 'KOTA TAMBOLAKA'),
-('5318010', '5318', 'MAUPONGGO'),
-('5318020', '5318', 'KEO TENGAH'),
-('5318030', '5318', 'NANGARORO'),
-('5318040', '5318', 'BOAWAE'),
-('5318050', '5318', 'AESESA SELATAN'),
-('5318060', '5318', 'AESESA'),
-('5318070', '5318', 'WOLOWAE'),
-('5319010', '5319', 'BORONG'),
-('5319011', '5319', 'RANA MESE'),
-('5319020', '5319', 'KOTA KOMBA'),
-('5319030', '5319', 'ELAR'),
-('5319031', '5319', 'ELAR SELATAN'),
-('5319040', '5319', 'SAMBI RAMPAS'),
-('5319050', '5319', 'POCO RANAKA'),
-('5319051', '5319', 'POCO RANAKA TIMUR'),
-('5319060', '5319', 'LAMBA LEDA'),
-('5320010', '5320', 'RAIJUA'),
-('5320020', '5320', 'HAWU MEHARA'),
-('5320030', '5320', 'SABU LIAE'),
-('5320040', '5320', 'SABU BARAT'),
-('5320050', '5320', 'SABU TENGAH'),
-('5320060', '5320', 'SABU TIMUR'),
-('5321010', '5321', 'WEWIKU'),
-('5321020', '5321', 'MALAKA BARAT'),
-('5321030', '5321', 'WELIMAN'),
-('5321040', '5321', 'RINHAT'),
-('5321050', '5321', 'IO KUFEU'),
-('5321060', '5321', 'SASITA MEAN'),
-('5321070', '5321', 'MALAKA TENGAH'),
-('5321080', '5321', 'BOTIN LEOBELE'),
-('5321090', '5321', 'LAEN MANEN'),
-('5321100', '5321', 'MALAKA TIMUR'),
-('5321110', '5321', 'KOBALIMA'),
-('5321120', '5321', 'KOBALIMA TIMUR'),
-('5371010', '5371', 'ALAK'),
-('5371020', '5371', 'MAULAFA'),
-('5371030', '5371', 'OEBOBO'),
-('5371031', '5371', 'KOTA RAJA'),
-('5371040', '5371', 'KELAPA LIMA'),
-('5371041', '5371', 'KOTA LAMA'),
-('6101010', '6101', 'SELAKAU'),
-('6101011', '6101', 'SELAKAU TIMUR'),
-('6101020', '6101', 'PEMANGKAT'),
-('6101021', '6101', 'SEMPARUK'),
-('6101022', '6101', 'SALATIGA'),
-('6101030', '6101', 'TEBAS'),
-('6101031', '6101', 'TEKARANG'),
-('6101040', '6101', 'SAMBAS'),
-('6101041', '6101', 'SUBAH'),
-('6101042', '6101', 'SEBAWI'),
-('6101043', '6101', 'SAJAD'),
-('6101050', '6101', 'JAWAI'),
-('6101051', '6101', 'JAWAI SELATAN'),
-('6101060', '6101', 'TELUK KERAMAT'),
-('6101061', '6101', 'GALING'),
-('6101062', '6101', 'TANGARAN'),
-('6101070', '6101', 'SEJANGKUNG'),
-('6101080', '6101', 'SAJINGAN BESAR'),
-('6101090', '6101', 'PALOH'),
-('6102010', '6102', 'SUNGAI RAYA'),
-('6102011', '6102', 'CAPKALA'),
-('6102012', '6102', 'SUNGAI RAYA KEPULAUAN'),
-('6102030', '6102', 'SAMALANTAN'),
-('6102031', '6102', 'MONTERADO'),
-('6102032', '6102', 'LEMBAH BAWANG'),
-('6102040', '6102', 'BENGKAYANG'),
-('6102041', '6102', 'TERIAK'),
-('6102042', '6102', 'SUNGAI BETUNG'),
-('6102050', '6102', 'LEDO'),
-('6102051', '6102', 'SUTI SEMARANG'),
-('6102052', '6102', 'LUMAR'),
-('6102060', '6102', 'SANGGAU LEDO'),
-('6102061', '6102', 'TUJUHBELAS'),
-('6102070', '6102', 'SELUAS'),
-('6102080', '6102', 'JAGOI BABANG'),
-('6102081', '6102', 'SIDING'),
-('6103020', '6103', 'SEBANGKI'),
-('6103030', '6103', 'NGABANG'),
-('6103031', '6103', 'JELIMPO'),
-('6103040', '6103', 'SENGAH TEMILA'),
-('6103050', '6103', 'MANDOR'),
-('6103060', '6103', 'MENJALIN'),
-('6103070', '6103', 'MEMPAWAH HULU'),
-('6103071', '6103', 'SOMPAK'),
-('6103080', '6103', 'MENYUKE'),
-('6103081', '6103', 'BANYUKE HULU'),
-('6103090', '6103', 'MERANTI'),
-('6103100', '6103', 'KUALA BEHE'),
-('6103110', '6103', 'AIR BESAR'),
-('6104080', '6104', 'SIANTAN'),
-('6104081', '6104', 'SEGEDONG'),
-('6104090', '6104', 'SUNGAI PINYUH'),
-('6104091', '6104', 'ANJONGAN'),
-('6104100', '6104', 'MEMPAWAH HILIR'),
-('6104101', '6104', 'MEMPAWAH TIMUR'),
-('6104110', '6104', 'SUNGAI KUNYIT'),
-('6104120', '6104', 'TOHO'),
-('6104121', '6104', 'SADANIANG'),
-('6105010', '6105', 'TOBA'),
-('6105020', '6105', 'MELIAU'),
-('6105060', '6105', 'KAPUAS'),
-('6105070', '6105', 'MUKOK'),
-('6105120', '6105', 'JANGKANG'),
-('6105130', '6105', 'BONTI'),
-('6105140', '6105', 'PARINDU'),
-('6105150', '6105', 'TAYAN HILIR');
-INSERT INTO `tbl_kecamatan` (`id_kecamatan`, `id_kabupaten`, `nama_kecamatan`) VALUES
-('6105160', '6105', 'BALAI'),
-('6105170', '6105', 'TAYAN HULU'),
-('6105180', '6105', 'KEMBAYAN'),
-('6105190', '6105', 'BEDUWAI'),
-('6105200', '6105', 'NOYAN'),
-('6105210', '6105', 'SEKAYAM'),
-('6105220', '6105', 'ENTIKONG'),
-('6106010', '6106', 'KENDAWANGAN'),
-('6106020', '6106', 'MANIS MATA'),
-('6106030', '6106', 'MARAU'),
-('6106031', '6106', 'SINGKUP'),
-('6106032', '6106', 'AIR UPAS'),
-('6106040', '6106', 'JELAI HULU'),
-('6106050', '6106', 'TUMBANG TITI'),
-('6106051', '6106', 'PEMAHAN'),
-('6106052', '6106', 'SUNGAI MELAYU RAYAK'),
-('6106060', '6106', 'MATAN HILIR SELATAN'),
-('6106061', '6106', 'BENUA KAYONG'),
-('6106070', '6106', 'MATAN HILIR UTARA'),
-('6106071', '6106', 'DELTA PAWAN'),
-('6106072', '6106', 'MUARA PAWAN'),
-('6106090', '6106', 'NANGA TAYAP'),
-('6106100', '6106', 'SANDAI'),
-('6106101', '6106', 'HULU SUNGAI'),
-('6106110', '6106', 'SUNGAI LAUR'),
-('6106120', '6106', 'SIMPANG HULU'),
-('6106121', '6106', 'SIMPANG DUA'),
-('6107060', '6107', 'SERAWAI'),
-('6107070', '6107', 'AMBALAU'),
-('6107080', '6107', 'KAYAN HULU'),
-('6107110', '6107', 'SEPAUK'),
-('6107120', '6107', 'TEMPUNAK'),
-('6107130', '6107', 'SUNGAI TEBELIAN'),
-('6107140', '6107', 'SINTANG'),
-('6107150', '6107', 'DEDAI'),
-('6107160', '6107', 'KAYAN HILIR'),
-('6107170', '6107', 'KELAM PERMAI'),
-('6107180', '6107', 'BINJAI HULU'),
-('6107190', '6107', 'KETUNGAU HILIR'),
-('6107200', '6107', 'KETUNGAU TENGAH'),
-('6107210', '6107', 'KETUNGAU HULU'),
-('6108010', '6108', 'SILAT HILIR'),
-('6108020', '6108', 'SILAT HULU'),
-('6108030', '6108', 'HULU GURUNG'),
-('6108040', '6108', 'BUNUT HULU'),
-('6108050', '6108', 'MENTEBAH'),
-('6108060', '6108', 'BIKA'),
-('6108070', '6108', 'KALIS'),
-('6108080', '6108', 'PUTUSSIBAU SELATAN'),
-('6108090', '6108', 'EMBALOH HILIR'),
-('6108100', '6108', 'BUNUT HILIR'),
-('6108110', '6108', 'BOYAN TANJUNG'),
-('6108120', '6108', 'PENGKADAN'),
-('6108130', '6108', 'JONGKONG'),
-('6108140', '6108', 'SELIMBAU'),
-('6108150', '6108', 'SUHAID'),
-('6108160', '6108', 'SEBERUANG'),
-('6108170', '6108', 'SEMITAU'),
-('6108180', '6108', 'EMPANANG'),
-('6108190', '6108', 'PURING KENCANA'),
-('6108200', '6108', 'BADAU'),
-('6108210', '6108', 'BATANG LUPAR'),
-('6108220', '6108', 'EMBALOH HULU'),
-('6108230', '6108', 'PUTUSSIBAU UTARA'),
-('6109010', '6109', 'NANGA MAHAP'),
-('6109020', '6109', 'NANGA TAMAN'),
-('6109030', '6109', 'SEKADAU HULU'),
-('6109040', '6109', 'SEKADAU HILIR'),
-('6109050', '6109', 'BELITANG HILIR'),
-('6109060', '6109', 'BELITANG'),
-('6109070', '6109', 'BELITANG HULU'),
-('6110010', '6110', 'SOKAN'),
-('6110020', '6110', 'TANAH PINOH'),
-('6110021', '6110', 'TANAH PINOH BARAT'),
-('6110030', '6110', 'SAYAN'),
-('6110040', '6110', 'BELIMBING'),
-('6110041', '6110', 'BELIMBING HULU'),
-('6110050', '6110', 'NANGA PINOH'),
-('6110051', '6110', 'PINOH SELATAN'),
-('6110052', '6110', 'PINOH UTARA'),
-('6110060', '6110', 'ELLA HILIR'),
-('6110070', '6110', 'MENUKUNG'),
-('6111010', '6111', 'PULAU MAYA'),
-('6111011', '6111', 'KEPULAUAN KARIMATA'),
-('6111020', '6111', 'SUKADANA'),
-('6111030', '6111', 'SIMPANG HILIR'),
-('6111040', '6111', 'TELUK BATANG'),
-('6111050', '6111', 'SEPONTI'),
-('6112010', '6112', 'BATU AMPAR'),
-('6112020', '6112', 'TERENTANG'),
-('6112030', '6112', 'KUBU'),
-('6112040', '6112', 'TELOK PA\'KEDAI'),
-('6112050', '6112', 'SUNGAI KAKAP'),
-('6112060', '6112', 'RASAU JAYA'),
-('6112070', '6112', 'SUNGAI RAYA'),
-('6112080', '6112', 'SUNGAI AMBAWANG'),
-('6112090', '6112', 'KUALA MANDOR-B'),
-('6171010', '6171', 'PONTIANAK SELATAN'),
-('6171011', '6171', 'PONTIANAK TENGGARA'),
-('6171020', '6171', 'PONTIANAK TIMUR'),
-('6171030', '6171', 'PONTIANAK BARAT'),
-('6171031', '6171', 'PONTIANAK KOTA'),
-('6171040', '6171', 'PONTIANAK UTARA'),
-('6172010', '6172', 'SINGKAWANG SELATAN'),
-('6172020', '6172', 'SINGKAWANG TIMUR'),
-('6172030', '6172', 'SINGKAWANG UTARA'),
-('6172040', '6172', 'SINGKAWANG BARAT'),
-('6172050', '6172', 'SINGKAWANG TENGAH'),
-('6201040', '6201', 'KOTAWARINGIN LAMA'),
-('6201050', '6201', 'ARUT SELATAN'),
-('6201060', '6201', 'KUMAI'),
-('6201061', '6201', 'PANGKALAN BANTENG'),
-('6201062', '6201', 'PANGKALAN LADA'),
-('6201070', '6201', 'ARUT UTARA'),
-('6202020', '6202', 'MENTAYA HILIR SELATAN'),
-('6202021', '6202', 'TELUK SAMPIT'),
-('6202050', '6202', 'PULAU HANAUT'),
-('6202060', '6202', 'MENTAWA BARU/KETAPANG'),
-('6202061', '6202', 'SERANAU'),
-('6202070', '6202', 'MENTAYA HILIR UTARA'),
-('6202110', '6202', 'KOTA BESI'),
-('6202111', '6202', 'TELAWANG'),
-('6202120', '6202', 'BAAMANG'),
-('6202190', '6202', 'CEMPAGA'),
-('6202191', '6202', 'CEMPAGA HULU'),
-('6202200', '6202', 'PARENGGEAN'),
-('6202201', '6202', 'TUALAN HULU'),
-('6202210', '6202', 'MENTAYA HULU'),
-('6202211', '6202', 'BUKIT SANTUAI'),
-('6202230', '6202', 'ANTANG KALANG'),
-('6202231', '6202', 'TELAGA ANTANG'),
-('6203020', '6203', 'KAPUAS KUALA'),
-('6203021', '6203', 'TAMBAN CATUR'),
-('6203030', '6203', 'KAPUAS TIMUR'),
-('6203040', '6203', 'SELAT'),
-('6203041', '6203', 'BATAGUH'),
-('6203070', '6203', 'BASARANG'),
-('6203080', '6203', 'KAPUAS HILIR'),
-('6203090', '6203', 'PULAU PETAK'),
-('6203100', '6203', 'KAPUAS MURUNG'),
-('6203101', '6203', 'DADAHUP'),
-('6203110', '6203', 'KAPUAS BARAT'),
-('6203150', '6203', 'MANTANGAI'),
-('6203160', '6203', 'TIMPAH'),
-('6203170', '6203', 'KAPUAS TENGAH'),
-('6203171', '6203', 'PASAK TALAWANG'),
-('6203180', '6203', 'KAPUAS HULU'),
-('6203181', '6203', 'MANDAU TALAWANG'),
-('6204010', '6204', 'JENAMAS'),
-('6204020', '6204', 'DUSUN HILIR'),
-('6204030', '6204', 'KARAU KUALA'),
-('6204040', '6204', 'DUSUN SELATAN'),
-('6204050', '6204', 'DUSUN UTARA'),
-('6204060', '6204', 'GUNUNG BINTANG AWAI'),
-('6205010', '6205', 'MONTALLAT'),
-('6205020', '6205', 'GUNUNG TIMANG'),
-('6205030', '6205', 'GUNUNG PUREI'),
-('6205040', '6205', 'TEWEH TIMUR'),
-('6205050', '6205', 'TEWEH TENGAH'),
-('6205051', '6205', 'TEWEH  BARU'),
-('6205052', '6205', 'TEWEH SELATAN'),
-('6205060', '6205', 'LAHEI'),
-('6205061', '6205', 'LAHEI BARAT'),
-('6206010', '6206', 'JELAI'),
-('6206011', '6206', 'PANTAI LUNCI'),
-('6206020', '6206', 'SUKAMARA'),
-('6206030', '6206', 'BALAI RIAM'),
-('6206031', '6206', 'PERMATA KECUBUNG'),
-('6207010', '6207', 'BULIK'),
-('6207011', '6207', 'SEMATU JAYA'),
-('6207012', '6207', 'MENTHOBI RAYA'),
-('6207013', '6207', 'BULIK TIMUR'),
-('6207020', '6207', 'LAMANDAU'),
-('6207021', '6207', 'BELANTIKAN RAYA'),
-('6207030', '6207', 'DELANG'),
-('6207031', '6207', 'BATANGKAWA'),
-('6208010', '6208', 'SERUYAN HILIR'),
-('6208011', '6208', 'SERUYAN HILIR TIMUR'),
-('6208020', '6208', 'DANAU SEMBULUH'),
-('6208021', '6208', 'SERUYAN RAYA'),
-('6208030', '6208', 'HANAU'),
-('6208031', '6208', 'DANAU SELULUK'),
-('6208040', '6208', 'SERUYAN TENGAH'),
-('6208041', '6208', 'BATU AMPAR'),
-('6208050', '6208', 'SERUYAN HULU'),
-('6208051', '6208', 'SULING TAMBUN'),
-('6209010', '6209', 'KATINGAN KUALA'),
-('6209020', '6209', 'MENDAWAI'),
-('6209030', '6209', 'KAMIPANG'),
-('6209040', '6209', 'TASIK PAYAWAN'),
-('6209050', '6209', 'KATINGAN HILIR'),
-('6209060', '6209', 'TEWANG SANGALANG GARING'),
-('6209070', '6209', 'PULAU MALAN'),
-('6209080', '6209', 'KATINGAN TENGAH'),
-('6209090', '6209', 'SANAMAN MANTIKEI'),
-('6209091', '6209', 'PETAK MALAI'),
-('6209100', '6209', 'MARIKIT'),
-('6209110', '6209', 'KATINGAN HULU'),
-('6209111', '6209', 'BUKIT RAYA'),
-('6210010', '6210', 'KAHAYAN KUALA'),
-('6210011', '6210', 'SEBANGAU KUALA'),
-('6210020', '6210', 'PANDIH BATU'),
-('6210030', '6210', 'MALIKU'),
-('6210040', '6210', 'KAHAYAN HILIR'),
-('6210041', '6210', 'JABIREN RAYA'),
-('6210050', '6210', 'KAHAYAN TENGAH'),
-('6210060', '6210', 'BANAMA TINGANG'),
-('6211010', '6211', 'MANUHING'),
-('6211011', '6211', 'MANUHING RAYA'),
-('6211020', '6211', 'RUNGAN'),
-('6211021', '6211', 'RUNGAN HULU'),
-('6211022', '6211', 'RUNGAN BARAT'),
-('6211030', '6211', 'SEPANG'),
-('6211031', '6211', 'MIHING RAYA'),
-('6211040', '6211', 'KURUN'),
-('6211050', '6211', 'TEWAH'),
-('6211060', '6211', 'KAHAYAN HULU UTARA'),
-('6211061', '6211', 'DAMANG BATU'),
-('6211062', '6211', 'MIRI MANASA'),
-('6212010', '6212', 'BENUA LIMA'),
-('6212020', '6212', 'DUSUN TIMUR'),
-('6212021', '6212', 'PAJU EPAT'),
-('6212030', '6212', 'AWANG'),
-('6212040', '6212', 'PATANGKEP TUTUI'),
-('6212050', '6212', 'DUSUN TENGAH'),
-('6212051', '6212', 'RAREN BATUAH'),
-('6212052', '6212', 'PAKU'),
-('6212053', '6212', 'KARUSEN JANANG'),
-('6212060', '6212', 'PEMATANG KARAU'),
-('6213010', '6213', 'PERMATA INTAN'),
-('6213011', '6213', 'SUNGAI BABUAT'),
-('6213020', '6213', 'MURUNG'),
-('6213030', '6213', 'LAUNG TUHUP'),
-('6213031', '6213', 'BARITO TUHUP RAYA'),
-('6213040', '6213', 'TANAH SIANG'),
-('6213041', '6213', 'TANAH SIANG SELATAN'),
-('6213050', '6213', 'SUMBER BARITO'),
-('6213051', '6213', 'SERIBU RIAM'),
-('6213052', '6213', 'UUT MURUNG'),
-('6271010', '6271', 'PAHANDUT'),
-('6271011', '6271', 'SABANGAU'),
-('6271012', '6271', 'JEKAN RAYA'),
-('6271020', '6271', 'BUKIT BATU'),
-('6271021', '6271', 'RAKUMPIT'),
-('6301010', '6301', 'PANYIPATAN'),
-('6301020', '6301', 'TAKISUNG'),
-('6301030', '6301', 'KURAU'),
-('6301031', '6301', 'BUMI MAKMUR'),
-('6301040', '6301', 'BATI - BATI'),
-('6301050', '6301', 'TAMBANG ULANG'),
-('6301060', '6301', 'PELAIHARI'),
-('6301061', '6301', 'BAJUIN'),
-('6301070', '6301', 'BATU AMPAR'),
-('6301080', '6301', 'JORONG'),
-('6301090', '6301', 'KINTAP'),
-('6302010', '6302', 'PULAU SEMBILAN'),
-('6302020', '6302', 'PULAU LAUT BARAT'),
-('6302021', '6302', 'PULAU LAUT TANJUNG SELAYAR'),
-('6302030', '6302', 'PULAU LAUT SELATAN'),
-('6302031', '6302', 'PULAU LAUT KEPULAUAN'),
-('6302040', '6302', 'PULAU LAUT TIMUR'),
-('6302050', '6302', 'PULAU SEBUKU'),
-('6302060', '6302', 'PULAU LAUT UTARA'),
-('6302061', '6302', 'PULAU LAUT TENGAH'),
-('6302120', '6302', 'KELUMPANG SELATAN'),
-('6302121', '6302', 'KELUMPANG HILIR'),
-('6302130', '6302', 'KELUMPANG HULU'),
-('6302140', '6302', 'HAMPANG'),
-('6302150', '6302', 'SUNGAI DURIAN'),
-('6302160', '6302', 'KELUMPANG TENGAH'),
-('6302161', '6302', 'KELUMPANG BARAT'),
-('6302170', '6302', 'KELUMPANG UTARA'),
-('6302180', '6302', 'PAMUKAN SELATAN'),
-('6302190', '6302', 'SAMPANAHAN'),
-('6302200', '6302', 'PAMUKAN UTARA'),
-('6302201', '6302', 'PAMUKAN BARAT'),
-('6303010', '6303', 'ALUH - ALUH'),
-('6303011', '6303', 'BERUNTUNG BARU'),
-('6303020', '6303', 'GAMBUT'),
-('6303030', '6303', 'KERTAK HANYAR'),
-('6303031', '6303', 'TATAH MAKMUR'),
-('6303040', '6303', 'SUNGAI TABUK'),
-('6303050', '6303', 'MARTAPURA'),
-('6303051', '6303', 'MARTAPURA TIMUR'),
-('6303052', '6303', 'MARTAPURA BARAT'),
-('6303060', '6303', 'ASTAMBUL'),
-('6303070', '6303', 'KARANG INTAN'),
-('6303080', '6303', 'ARANIO'),
-('6303090', '6303', 'SUNGAI PINANG'),
-('6303091', '6303', 'PARAMASAN'),
-('6303100', '6303', 'PENGARON'),
-('6303101', '6303', 'SAMBUNG MAKMUR'),
-('6303110', '6303', 'MATARAMAN'),
-('6303120', '6303', 'SIMPANG EMPAT'),
-('6303121', '6303', 'TELAGA BAUNTUNG'),
-('6304010', '6304', 'TABUNGANEN'),
-('6304020', '6304', 'TAMBAN'),
-('6304030', '6304', 'MEKAR SARI'),
-('6304040', '6304', 'ANJIR PASAR'),
-('6304050', '6304', 'ANJIR MUARA'),
-('6304060', '6304', 'ALALAK'),
-('6304070', '6304', 'MANDASTANA'),
-('6304071', '6304', 'JEJANGKIT'),
-('6304080', '6304', 'BELAWANG'),
-('6304090', '6304', 'WANARAYA'),
-('6304100', '6304', 'BARAMBAI'),
-('6304110', '6304', 'RANTAU BADAUH'),
-('6304120', '6304', 'CERBON'),
-('6304130', '6304', 'BAKUMPAI'),
-('6304140', '6304', 'MARABAHAN'),
-('6304150', '6304', 'TABUKAN'),
-('6304160', '6304', 'KURIPAN'),
-('6305010', '6305', 'BINUANG'),
-('6305011', '6305', 'HATUNGUN'),
-('6305020', '6305', 'TAPIN SELATAN'),
-('6305021', '6305', 'SALAM BABARIS'),
-('6305030', '6305', 'TAPIN TENGAH'),
-('6305040', '6305', 'BUNGUR'),
-('6305050', '6305', 'PIANI'),
-('6305060', '6305', 'LOKPAIKAT'),
-('6305070', '6305', 'TAPIN UTARA'),
-('6305080', '6305', 'BAKARANGAN'),
-('6305090', '6305', 'CANDI LARAS SELATAN'),
-('6305100', '6305', 'CANDI LARAS UTARA'),
-('6306010', '6306', 'PADANG BATUNG'),
-('6306020', '6306', 'LOKSADO'),
-('6306030', '6306', 'TELAGA LANGSAT'),
-('6306040', '6306', 'ANGKINANG'),
-('6306050', '6306', 'KANDANGAN'),
-('6306060', '6306', 'SUNGAI RAYA'),
-('6306070', '6306', 'SIMPUR'),
-('6306080', '6306', 'KALUMPANG'),
-('6306090', '6306', 'DAHA SELATAN'),
-('6306091', '6306', 'DAHA BARAT'),
-('6306100', '6306', 'DAHA UTARA'),
-('6307010', '6307', 'HARUYAN'),
-('6307020', '6307', 'BATU BENAWA'),
-('6307030', '6307', 'HANTAKAN'),
-('6307040', '6307', 'BATANG ALAI SELATAN'),
-('6307041', '6307', 'BATANG ALAI TIMUR'),
-('6307050', '6307', 'BARABAI'),
-('6307060', '6307', 'LABUAN AMAS SELATAN'),
-('6307070', '6307', 'LABUAN AMAS UTARA'),
-('6307080', '6307', 'PANDAWAN'),
-('6307090', '6307', 'BATANG ALAI UTARA'),
-('6307091', '6307', 'LIMPASU'),
-('6308010', '6308', 'DANAU PANGGANG'),
-('6308011', '6308', 'PAMINGGIR'),
-('6308020', '6308', 'BABIRIK'),
-('6308030', '6308', 'SUNGAI PANDAN'),
-('6308031', '6308', 'SUNGAI TABUKAN'),
-('6308040', '6308', 'AMUNTAI SELATAN'),
-('6308050', '6308', 'AMUNTAI TENGAH'),
-('6308060', '6308', 'BANJANG'),
-('6308070', '6308', 'AMUNTAI UTARA'),
-('6308071', '6308', 'HAUR GADING'),
-('6309010', '6309', 'BANUA LAWAS'),
-('6309020', '6309', 'PUGAAN'),
-('6309030', '6309', 'KELUA'),
-('6309040', '6309', 'MUARA HARUS'),
-('6309050', '6309', 'TANTA'),
-('6309060', '6309', 'TANJUNG'),
-('6309070', '6309', 'MURUNG PUDAK'),
-('6309080', '6309', 'HARUAI'),
-('6309081', '6309', 'BINTANG ARA'),
-('6309090', '6309', 'UPAU'),
-('6309100', '6309', 'MUARA UYA'),
-('6309110', '6309', 'JARO'),
-('6310010', '6310', 'KUSAN HILIR'),
-('6310020', '6310', 'SUNGAI LOBAN'),
-('6310030', '6310', 'SATUI'),
-('6310031', '6310', 'ANGSANA'),
-('6310040', '6310', 'KUSAN HULU'),
-('6310041', '6310', 'KURANJI'),
-('6310050', '6310', 'BATU LICIN'),
-('6310051', '6310', 'KARANG BINTANG'),
-('6310052', '6310', 'SIMPANG EMPAT'),
-('6310053', '6310', 'MANTEWE'),
-('6311010', '6311', 'LAMPIHONG'),
-('6311020', '6311', 'BATU MANDI'),
-('6311030', '6311', 'AWAYAN'),
-('6311031', '6311', 'TEBING TINGGI'),
-('6311040', '6311', 'PARINGIN'),
-('6311041', '6311', 'PARINGIN SELATAN'),
-('6311050', '6311', 'JUAI'),
-('6311060', '6311', 'HALONG'),
-('6371010', '6371', 'BANJARMASIN SELATAN'),
-('6371020', '6371', 'BANJARMASIN TIMUR'),
-('6371030', '6371', 'BANJARMASIN BARAT'),
-('6371031', '6371', 'BANJARMASIN TENGAH'),
-('6371040', '6371', 'BANJARMASIN UTARA'),
-('6372010', '6372', 'LANDASAN ULIN'),
-('6372011', '6372', 'LIANG ANGGANG'),
-('6372020', '6372', 'CEMPAKA'),
-('6372031', '6372', 'BANJAR BARU UTARA'),
-('6372032', '6372', 'BANJAR BARU SELATAN'),
-('6401010', '6401', 'BATU SOPANG'),
-('6401011', '6401', 'MUARA SAMU'),
-('6401021', '6401', 'BATU ENGAU'),
-('6401022', '6401', 'TANJUNG HARAPAN'),
-('6401030', '6401', 'PASIR BELENGKONG'),
-('6401040', '6401', 'TANAH GROGOT'),
-('6401050', '6401', 'KUARO'),
-('6401060', '6401', 'LONG IKIS'),
-('6401070', '6401', 'MUARA KOMAM'),
-('6401080', '6401', 'LONG KALI'),
-('6402010', '6402', 'BONGAN'),
-('6402020', '6402', 'JEMPANG'),
-('6402030', '6402', 'PENYINGGAHAN'),
-('6402040', '6402', 'MUARA PAHU'),
-('6402041', '6402', 'SILUQ NGURAI'),
-('6402050', '6402', 'MUARA LAWA'),
-('6402051', '6402', 'BENTIAN BESAR'),
-('6402060', '6402', 'DAMAI'),
-('6402061', '6402', 'NYUATAN'),
-('6402070', '6402', 'BARONG TONGKOK'),
-('6402071', '6402', 'LINGGANG BIGUNG'),
-('6402080', '6402', 'MELAK'),
-('6402081', '6402', 'SEKOLAQ DARAT'),
-('6402082', '6402', 'MANOR BULATN'),
-('6402090', '6402', 'LONG IRAM'),
-('6402091', '6402', 'TERING'),
-('6403010', '6403', 'SEMBOJA'),
-('6403020', '6403', 'MUARA JAWA'),
-('6403030', '6403', 'SANGA-SANGA'),
-('6403040', '6403', 'LOA JANAN'),
-('6403050', '6403', 'LOA KULU'),
-('6403060', '6403', 'MUARA MUNTAI'),
-('6403070', '6403', 'MUARA WIS'),
-('6403080', '6403', 'KOTABANGUN'),
-('6403090', '6403', 'TENGGARONG'),
-('6403100', '6403', 'SEBULU'),
-('6403110', '6403', 'TENGGARONG SEBERANG'),
-('6403120', '6403', 'ANGGANA'),
-('6403130', '6403', 'MUARA BADAK'),
-('6403140', '6403', 'MARANG KAYU'),
-('6403150', '6403', 'MUARA KAMAN'),
-('6403160', '6403', 'KENOHAN'),
-('6403170', '6403', 'KEMBANG JANGGUT'),
-('6403180', '6403', 'TABANG'),
-('6404010', '6404', 'MUARA ANCALONG'),
-('6404011', '6404', 'BUSANG'),
-('6404012', '6404', 'LONG MESANGAT'),
-('6404020', '6404', 'MUARA WAHAU'),
-('6404021', '6404', 'TELEN'),
-('6404022', '6404', 'KONGBENG'),
-('6404030', '6404', 'MUARA BENGKAL'),
-('6404031', '6404', 'BATU AMPAR'),
-('6404040', '6404', 'SANGATTA UTARA'),
-('6404041', '6404', 'BENGALON'),
-('6404042', '6404', 'TELUK PANDAN'),
-('6404043', '6404', 'SANGATTA SELATAN'),
-('6404044', '6404', 'RANTAU PULUNG'),
-('6404050', '6404', 'SANGKULIRANG'),
-('6404051', '6404', 'KALIORANG'),
-('6404052', '6404', 'SANDARAN'),
-('6404053', '6404', 'KAUBUN'),
-('6404054', '6404', 'KARANGAN'),
-('6405010', '6405', 'KELAY'),
-('6405020', '6405', 'TALISAYAN'),
-('6405021', '6405', 'TABALAR'),
-('6405030', '6405', 'BIDUK BIDUK'),
-('6405040', '6405', 'PULAU DERAWAN'),
-('6405041', '6405', 'MARATUA'),
-('6405050', '6405', 'SAMBALIUNG'),
-('6405060', '6405', 'TANJUNG REDEB'),
-('6405070', '6405', 'GUNUNG TABUR'),
-('6405080', '6405', 'SEGAH'),
-('6405090', '6405', 'TELUK BAYUR'),
-('6405100', '6405', 'BATU PUTIH'),
-('6405110', '6405', 'BIATAN'),
-('6409010', '6409', 'BABULU'),
-('6409020', '6409', 'WARU'),
-('6409030', '6409', 'PENAJAM'),
-('6409040', '6409', 'SEPAKU'),
-('6411010', '6411', 'LAHAM'),
-('6411020', '6411', 'LONG HUBUNG'),
-('6411030', '6411', 'LONG BAGUN'),
-('6411040', '6411', 'LONG PAHANGAI'),
-('6411050', '6411', 'LONG APARI'),
-('6471010', '6471', 'BALIKPAPAN SELATAN'),
-('6471011', '6471', 'BALIKPAPAN KOTA'),
-('6471020', '6471', 'BALIKPAPAN TIMUR'),
-('6471030', '6471', 'BALIKPAPAN UTARA'),
-('6471040', '6471', 'BALIKPAPAN TENGAH'),
-('6471050', '6471', 'BALIKPAPAN BARAT'),
-('6472010', '6472', 'PALARAN'),
-('6472020', '6472', 'SAMARINDA ILIR'),
-('6472021', '6472', 'SAMARINDA KOTA'),
-('6472022', '6472', 'SAMBUTAN'),
-('6472030', '6472', 'SAMARINDA SEBERANG'),
-('6472031', '6472', 'LOA JANAN ILIR'),
-('6472040', '6472', 'SUNGAI KUNJANG'),
-('6472050', '6472', 'SAMARINDA ULU'),
-('6472060', '6472', 'SAMARINDA UTARA'),
-('6472061', '6472', 'SUNGAI PINANG'),
-('6474010', '6474', 'BONTANG SELATAN'),
-('6474020', '6474', 'BONTANG UTARA'),
-('6474030', '6474', 'BONTANG BARAT'),
-('6501010', '6501', 'SUNGAI BOH'),
-('6501020', '6501', 'KAYAN SELATAN'),
-('6501030', '6501', 'KAYAN HULU'),
-('6501040', '6501', 'KAYAN HILIR'),
-('6501050', '6501', 'PUJUNGAN'),
-('6501060', '6501', 'BAHAU HULU'),
-('6501070', '6501', 'SUNGAI TUBU'),
-('6501080', '6501', 'MALINAU SELATAN HULU'),
-('6501090', '6501', 'MALINAU SELATAN'),
-('6501100', '6501', 'MALINAU SELATAN HILIR'),
-('6501110', '6501', 'MENTARANG'),
-('6501120', '6501', 'MENTARANG HULU'),
-('6501130', '6501', 'MALINAU UTARA'),
-('6501140', '6501', 'MALINAU BARAT'),
-('6501150', '6501', 'MALINAU KOTA'),
-('6502010', '6502', 'PESO'),
-('6502020', '6502', 'PESO HILIR'),
-('6502030', '6502', 'TANJUNG PALAS BARAT'),
-('6502040', '6502', 'TANJUNG PALAS'),
-('6502050', '6502', 'TANJUNG SELOR'),
-('6502060', '6502', 'TANJUNG PALAS TIMUR'),
-('6502070', '6502', 'TANJUNG PALAS TENGAH'),
-('6502080', '6502', 'TANJUNG PALAS UTARA'),
-('6502090', '6502', 'SEKATAK'),
-('6502100', '6502', 'BUNYU'),
-('6503010', '6503', 'MURUK RIAN'),
-('6503020', '6503', 'SESAYAP'),
-('6503030', '6503', 'BETAYAU'),
-('6503040', '6503', 'SESAYAP HILIR'),
-('6503050', '6503', 'TANA LIA'),
-('6504010', '6504', 'KRAYAN SELATAN'),
-('6504020', '6504', 'KRAYAN'),
-('6504030', '6504', 'LUMBIS OGONG'),
-('6504040', '6504', 'LUMBIS'),
-('6504050', '6504', 'SEMBAKUNG ATULAI'),
-('6504060', '6504', 'SEMBAKUNG'),
-('6504070', '6504', 'SEBUKU'),
-('6504080', '6504', 'TULIN ONSOI'),
-('6504090', '6504', 'SEI MENGGARIS'),
-('6504100', '6504', 'NUNUKAN'),
-('6504110', '6504', 'NUNUKAN SELATAN'),
-('6504120', '6504', 'SEBATIK BARAT'),
-('6504130', '6504', 'SEBATIK'),
-('6504140', '6504', 'SEBATIK TIMUR'),
-('6504150', '6504', 'SEBATIK TENGAH'),
-('6504160', '6504', 'SEBATIK UTARA'),
-('6571010', '6571', 'TARAKAN TIMUR'),
-('6571020', '6571', 'TARAKAN TENGAH'),
-('6571030', '6571', 'TARAKAN BARAT'),
-('6571040', '6571', 'TARAKAN UTARA'),
-('7101021', '7101', 'DUMOGA BARAT'),
-('7101022', '7101', 'DUMOGA UTARA'),
-('7101023', '7101', 'DUMOGA TIMUR'),
-('7101024', '7101', 'DUMOGA TENGAH'),
-('7101025', '7101', 'DUMOGA TENGGARA'),
-('7101026', '7101', 'DUMOGA'),
-('7101060', '7101', 'LOLAYAN'),
-('7101081', '7101', 'PASSI BARAT'),
-('7101082', '7101', 'PASSI TIMUR'),
-('7101083', '7101', 'BILALANG'),
-('7101090', '7101', 'POIGAR'),
-('7101100', '7101', 'BOLAANG'),
-('7101101', '7101', 'BOLAANG TIMUR'),
-('7101110', '7101', 'LOLAK'),
-('7101120', '7101', 'SANGTOMBOLANG'),
-('7102091', '7102', 'LANGOWAN TIMUR'),
-('7102092', '7102', 'LANGOWAN BARAT'),
-('7102093', '7102', 'LANGOWAN SELATAN'),
-('7102094', '7102', 'LANGOWAN UTARA'),
-('7102110', '7102', 'TOMPASO'),
-('7102111', '7102', 'TOMPASO BARAT'),
-('7102120', '7102', 'KAWANGKOAN'),
-('7102121', '7102', 'KAWANGKOAN BARAT'),
-('7102122', '7102', 'KAWANGKOAN UTARA'),
-('7102130', '7102', 'SONDER'),
-('7102160', '7102', 'TOMBARIRI'),
-('7102161', '7102', 'TOMBARIRI TIMUR'),
-('7102170', '7102', 'PINELENG'),
-('7102171', '7102', 'TOMBULU'),
-('7102172', '7102', 'MANDOLANG'),
-('7102190', '7102', 'TONDANO BARAT'),
-('7102191', '7102', 'TONDANO SELATAN'),
-('7102200', '7102', 'REMBOKEN'),
-('7102210', '7102', 'KAKAS'),
-('7102211', '7102', 'KAKAS BARAT'),
-('7102220', '7102', 'LEMBEAN TIMUR'),
-('7102230', '7102', 'ERIS'),
-('7102240', '7102', 'KOMBI'),
-('7102250', '7102', 'TONDANO TIMUR'),
-('7102251', '7102', 'TONDANO UTARA'),
-('7103040', '7103', 'MANGANITU SELATAN'),
-('7103041', '7103', 'TATOARENG'),
-('7103050', '7103', 'TAMAKO'),
-('7103060', '7103', 'TABUKAN SELATAN'),
-('7103061', '7103', 'TABUKAN SELATAN TENGAH'),
-('7103062', '7103', 'TABUKAN SELATAN TENGGARA'),
-('7103070', '7103', 'TABUKAN TENGAH'),
-('7103080', '7103', 'MANGANITU'),
-('7103090', '7103', 'TAHUNA'),
-('7103091', '7103', 'TAHUNA TIMUR'),
-('7103092', '7103', 'TAHUNA BARAT'),
-('7103100', '7103', 'TABUKAN UTARA'),
-('7103101', '7103', 'NUSA TABUKAN'),
-('7103102', '7103', 'KEPULAUAN MARORE'),
-('7103110', '7103', 'KENDAHE'),
-('7104010', '7104', 'KABARUAN'),
-('7104011', '7104', 'DAMAU'),
-('7104020', '7104', 'LIRUNG'),
-('7104021', '7104', 'SALIBABU'),
-('7104022', '7104', 'KALONGAN'),
-('7104023', '7104', 'MORONGE'),
-('7104030', '7104', 'MELONGUANE'),
-('7104031', '7104', 'MELONGUANE TIMUR'),
-('7104040', '7104', 'BEO'),
-('7104041', '7104', 'BEO UTARA'),
-('7104042', '7104', 'BEO SELATAN'),
-('7104050', '7104', 'RAINIS'),
-('7104051', '7104', 'TAMPA NA\'MMA'),
-('7104052', '7104', 'PULUTAN'),
-('7104060', '7104', 'ESSANG'),
-('7104061', '7104', 'ESSANG SELATAN'),
-('7104070', '7104', 'GEMEH'),
-('7104080', '7104', 'NANUSA'),
-('7104081', '7104', 'MIANGAS'),
-('7105010', '7105', 'MODOINDING'),
-('7105020', '7105', 'TOMPASO BARU'),
-('7105021', '7105', 'MAESAAN'),
-('7105070', '7105', 'RANOYAPO'),
-('7105080', '7105', 'MOTOLING'),
-('7105081', '7105', 'KUMELEMBUAI'),
-('7105082', '7105', 'MOTOLING BARAT'),
-('7105083', '7105', 'MOTOLING TIMUR'),
-('7105090', '7105', 'SINONSAYANG'),
-('7105100', '7105', 'TENGA'),
-('7105111', '7105', 'AMURANG'),
-('7105112', '7105', 'AMURANG BARAT'),
-('7105113', '7105', 'AMURANG TIMUR'),
-('7105120', '7105', 'TARERAN'),
-('7105121', '7105', 'SULTA'),
-('7105130', '7105', 'TUMPAAN'),
-('7105131', '7105', 'TATAPAAN'),
-('7106010', '7106', 'KEMA'),
-('7106020', '7106', 'KAUDITAN'),
-('7106030', '7106', 'AIRMADIDI'),
-('7106040', '7106', 'KALAWAT'),
-('7106050', '7106', 'DIMEMBE'),
-('7106051', '7106', 'TALAWAAN'),
-('7106060', '7106', 'WORI'),
-('7106070', '7106', 'LIKUPANG BARAT'),
-('7106080', '7106', 'LIKUPANG TIMUR'),
-('7106081', '7106', 'LIKUPANG SELATAN'),
-('7107010', '7107', 'SANGKUB'),
-('7107020', '7107', 'BINTAUNA'),
-('7107030', '7107', 'BOLANG ITANG TIMUR'),
-('7107040', '7107', 'BOLANG ITANG BARAT'),
-('7107050', '7107', 'KAIDIPANG'),
-('7107060', '7107', 'PINOGALUMAN'),
-('7108010', '7108', 'BIARO'),
-('7108020', '7108', 'TAGULANDANG SELATAN'),
-('7108030', '7108', 'TAGULANDANG'),
-('7108040', '7108', 'TAGULANDANG UTARA'),
-('7108050', '7108', 'SIAU BARAT SELATAN'),
-('7108060', '7108', 'SIAU TIMUR SELATAN'),
-('7108070', '7108', 'SIAU BARAT'),
-('7108080', '7108', 'SIAU TENGAH'),
-('7108090', '7108', 'SIAU TIMUR'),
-('7108100', '7108', 'SIAU BARAT UTARA'),
-('7109010', '7109', 'RATATOTOK'),
-('7109020', '7109', 'PUSOMAEN'),
-('7109030', '7109', 'BELANG'),
-('7109040', '7109', 'RATAHAN'),
-('7109041', '7109', 'PASAN'),
-('7109042', '7109', 'RATAHAN TIMUR'),
-('7109050', '7109', 'TOMBATU'),
-('7109051', '7109', 'TOMBATU TIMUR'),
-('7109052', '7109', 'TOMBATU UTARA'),
-('7109060', '7109', 'TOULUAAN'),
-('7109061', '7109', 'TOULUAAN SELATAN'),
-('7109062', '7109', 'SILIAN RAYA'),
-('7110010', '7110', 'POSIGADAN'),
-('7110020', '7110', 'BOLANG UKI'),
-('7110030', '7110', 'PINOLOSIAN'),
-('7110040', '7110', 'PINOLOSIAN TENGAH'),
-('7110050', '7110', 'PINOLOSIAN TIMUR'),
-('7111010', '7111', 'NUANGAN'),
-('7111020', '7111', 'TUTUYAN'),
-('7111030', '7111', 'KOTABUNAN'),
-('7111040', '7111', 'MODAYAG'),
-('7111050', '7111', 'MODAYAG BARAT'),
-('7171010', '7171', 'MALALAYANG'),
-('7171020', '7171', 'SARIO'),
-('7171021', '7171', 'WANEA'),
-('7171030', '7171', 'WENANG'),
-('7171031', '7171', 'TIKALA'),
-('7171032', '7171', 'PAAL DUA'),
-('7171040', '7171', 'MAPANGET'),
-('7171051', '7171', 'SINGKIL'),
-('7171052', '7171', 'TUMINTING'),
-('7171053', '7171', 'BUNAKEN'),
-('7171054', '7171', 'BUNAKEN KEPULAUAN'),
-('7172010', '7172', 'MADIDIR'),
-('7172011', '7172', 'MATUARI'),
-('7172012', '7172', 'GIRIAN'),
-('7172021', '7172', 'LEMBEH SELATAN'),
-('7172022', '7172', 'LEMBEH UTARA'),
-('7172030', '7172', 'AERTEMBAGA'),
-('7172031', '7172', 'MAESA'),
-('7172040', '7172', 'RANOWULU'),
-('7173010', '7173', 'TOMOHON SELATAN'),
-('7173020', '7173', 'TOMOHON TENGAH'),
-('7173021', '7173', 'TOMOHON TIMUR'),
-('7173022', '7173', 'TOMOHON BARAT'),
-('7173030', '7173', 'TOMOHON UTARA'),
-('7174010', '7174', 'KOTAMOBAGU SELATAN'),
-('7174020', '7174', 'KOTAMOBAGU TIMUR'),
-('7174030', '7174', 'KOTAMOBAGU BARAT'),
-('7174040', '7174', 'KOTAMOBAGU UTARA'),
-('7201030', '7201', 'TOTIKUM'),
-('7201031', '7201', 'TOTIKUM SELATAN'),
-('7201040', '7201', 'TINANGKUNG'),
-('7201041', '7201', 'TINANGKUNG SELATAN'),
-('7201042', '7201', 'TINANGKUNG UTARA'),
-('7201050', '7201', 'LIANG'),
-('7201051', '7201', 'PELING TENGAH'),
-('7201060', '7201', 'BULAGI'),
-('7201061', '7201', 'BULAGI SELATAN'),
-('7201062', '7201', 'BULAGI UTARA'),
-('7201070', '7201', 'BUKO'),
-('7201071', '7201', 'BUKO SELATAN'),
-('7202010', '7202', 'TOILI'),
-('7202011', '7202', 'TOILI BARAT'),
-('7202012', '7202', 'MOILONG'),
-('7202020', '7202', 'BATUI'),
-('7202021', '7202', 'BATUI SELATAN'),
-('7202030', '7202', 'BUNTA'),
-('7202031', '7202', 'NUHON'),
-('7202032', '7202', 'SIMPANG RAYA'),
-('7202040', '7202', 'KINTOM'),
-('7202050', '7202', 'LUWUK'),
-('7202051', '7202', 'LUWUK TIMUR'),
-('7202052', '7202', 'LUWUK UTARA'),
-('7202053', '7202', 'LUWUK SELATAN'),
-('7202054', '7202', 'NAMBO'),
-('7202060', '7202', 'PAGIMANA'),
-('7202061', '7202', 'BUALEMO'),
-('7202062', '7202', 'LOBU'),
-('7202070', '7202', 'LAMALA'),
-('7202071', '7202', 'MASAMA'),
-('7202072', '7202', 'MANTOH'),
-('7202080', '7202', 'BALANTAK'),
-('7202081', '7202', 'BALANTAK SELATAN'),
-('7202082', '7202', 'BALANTAK UTARA'),
-('7203010', '7203', 'MENUI KEPULAUAN'),
-('7203020', '7203', 'BUNGKU SELATAN'),
-('7203021', '7203', 'BAHODOPI'),
-('7203022', '7203', 'BUNGKU PESISIR'),
-('7203030', '7203', 'BUNGKU TENGAH'),
-('7203031', '7203', 'BUNGKU TIMUR'),
-('7203040', '7203', 'BUNGKU BARAT'),
-('7203041', '7203', 'BUMI RAYA'),
-('7203042', '7203', 'WITA PONDA'),
-('7204010', '7204', 'PAMONA SELATAN'),
-('7204011', '7204', 'PAMONA BARAT'),
-('7204012', '7204', 'PAMONA TENGGARA'),
-('7204020', '7204', 'LORE SELATAN'),
-('7204021', '7204', 'LORE BARAT'),
-('7204030', '7204', 'PAMONA PUSALEMBA'),
-('7204031', '7204', 'PAMONA TIMUR'),
-('7204032', '7204', 'PAMONA UTARA'),
-('7204040', '7204', 'LORE UTARA'),
-('7204041', '7204', 'LORE TENGAH'),
-('7204042', '7204', 'LORE TIMUR'),
-('7204043', '7204', 'LORE PEORE'),
-('7204050', '7204', 'POSO PESISIR'),
-('7204051', '7204', 'POSO PESISIR SELATAN'),
-('7204052', '7204', 'POSO PESISIR UTARA'),
-('7204060', '7204', 'LAGE'),
-('7204070', '7204', 'POSO KOTA'),
-('7204071', '7204', 'POSO KOTA UTARA'),
-('7204072', '7204', 'POSO KOTA SELATAN'),
-('7205041', '7205', 'RIO PAKAVA'),
-('7205051', '7205', 'PINEMBANI'),
-('7205080', '7205', 'BANAWA'),
-('7205081', '7205', 'BANAWA SELATAN'),
-('7205082', '7205', 'BANAWA TENGAH'),
-('7205090', '7205', 'LABUAN'),
-('7205091', '7205', 'TANANTOVEA'),
-('7205100', '7205', 'SINDUE'),
-('7205101', '7205', 'SINDUE TOMBUSABORA'),
-('7205102', '7205', 'SINDUE TOBATA'),
-('7205120', '7205', 'SIRENJA'),
-('7205130', '7205', 'BALAESANG'),
-('7205131', '7205', 'BALAESANG TANJUNG'),
-('7205140', '7205', 'DAMPELAS'),
-('7205160', '7205', 'SOJOL'),
-('7205161', '7205', 'SOJOL UTARA'),
-('7206010', '7206', 'DAMPAL SELATAN'),
-('7206020', '7206', 'DAMPAL UTARA'),
-('7206030', '7206', 'DONDO'),
-('7206031', '7206', 'OGODEIDE'),
-('7206032', '7206', 'BASIDONDO'),
-('7206040', '7206', 'BAOLAN'),
-('7206041', '7206', 'LAMPASIO'),
-('7206050', '7206', 'GALANG'),
-('7206060', '7206', 'TOLITOLI UTARA'),
-('7206061', '7206', 'DAKO PAMEAN'),
-('7207010', '7207', 'LAKEA'),
-('7207011', '7207', 'BIAU'),
-('7207012', '7207', 'KARAMAT'),
-('7207020', '7207', 'MOMUNU'),
-('7207021', '7207', 'TILOAN'),
-('7207030', '7207', 'BOKAT'),
-('7207031', '7207', 'BUKAL'),
-('7207040', '7207', 'BUNOBOGU'),
-('7207041', '7207', 'GADUNG'),
-('7207050', '7207', 'PALELEH'),
-('7207051', '7207', 'PALELEH BARAT'),
-('7208010', '7208', 'SAUSU'),
-('7208011', '7208', 'TORUE'),
-('7208012', '7208', 'BALINGGI'),
-('7208020', '7208', 'PARIGI'),
-('7208021', '7208', 'PARIGI SELATAN'),
-('7208022', '7208', 'PARIGI BARAT'),
-('7208023', '7208', 'PARIGI UTARA'),
-('7208024', '7208', 'PARIGI TENGAH'),
-('7208030', '7208', 'AMPIBABO'),
-('7208031', '7208', 'KASIMBAR'),
-('7208032', '7208', 'TORIBULU'),
-('7208033', '7208', 'SINIU'),
-('7208040', '7208', 'TINOMBO'),
-('7208041', '7208', 'TINOMBO SELATAN'),
-('7208042', '7208', 'SIDOAN'),
-('7208050', '7208', 'TOMINI'),
-('7208051', '7208', 'MEPANGA'),
-('7208052', '7208', 'PALASA'),
-('7208060', '7208', 'MOUTONG'),
-('7208061', '7208', 'BOLANO LAMBUNU'),
-('7208062', '7208', 'TAOPA'),
-('7208063', '7208', 'BOLANO'),
-('7208064', '7208', 'ONGKA MALINO'),
-('7209010', '7209', 'TOJO BARAT'),
-('7209020', '7209', 'TOJO'),
-('7209030', '7209', 'ULUBONGKA'),
-('7209040', '7209', 'AMPANA TETE'),
-('7209050', '7209', 'AMPANA KOTA'),
-('7209051', '7209', 'RATOLINDO'),
-('7209060', '7209', 'UNA - UNA'),
-('7209061', '7209', 'BATUDAKA'),
-('7209070', '7209', 'TOGEAN'),
-('7209080', '7209', 'WALEA KEPULAUAN'),
-('7209081', '7209', 'WALEA BESAR'),
-('7209082', '7209', 'TALATAKO'),
-('7210010', '7210', 'PIPIKORO'),
-('7210020', '7210', 'KULAWI SELATAN'),
-('7210030', '7210', 'KULAWI'),
-('7210040', '7210', 'LINDU'),
-('7210050', '7210', 'NOKILALAKI'),
-('7210060', '7210', 'PALOLO'),
-('7210070', '7210', 'GUMBASA'),
-('7210080', '7210', 'DOLO SELATAN'),
-('7210090', '7210', 'DOLO BARAT'),
-('7210100', '7210', 'TANAMBULAVA'),
-('7210110', '7210', 'DOLO'),
-('7210120', '7210', 'SIGI BIROMARU'),
-('7210130', '7210', 'MARAWOLA'),
-('7210140', '7210', 'MARAWOLA BARAT'),
-('7210150', '7210', 'KINOVARO'),
-('7211010', '7211', 'BANGKURUNG'),
-('7211020', '7211', 'LABOBO'),
-('7211030', '7211', 'BANGGAI UTARA'),
-('7211040', '7211', 'BANGGAI'),
-('7211050', '7211', 'BANGGAI TENGAH'),
-('7211060', '7211', 'BANGGAI SELATAN'),
-('7211070', '7211', 'BOKAN KEPULAUAN'),
-('7212010', '7212', 'MORI ATAS'),
-('7212020', '7212', 'LEMBO'),
-('7212030', '7212', 'LEMBO RAYA'),
-('7212040', '7212', 'PETASIA TIMUR'),
-('7212050', '7212', 'PETASIA'),
-('7212060', '7212', 'PETASIA BARAT'),
-('7212070', '7212', 'MORI UTARA'),
-('7212080', '7212', 'SOYO JAYA'),
-('7212090', '7212', 'BUNGKU UTARA'),
-('7212100', '7212', 'MAMOSALATO'),
-('7271010', '7271', 'PALU BARAT'),
-('7271011', '7271', 'TATANGA'),
-('7271012', '7271', 'ULUJADI'),
-('7271020', '7271', 'PALU SELATAN'),
-('7271030', '7271', 'PALU TIMUR'),
-('7271031', '7271', 'MANTIKULORE'),
-('7271040', '7271', 'PALU UTARA'),
-('7271041', '7271', 'TAWAELI'),
-('7301010', '7301', 'PASIMARANNU'),
-('7301011', '7301', 'PASILAMBENA'),
-('7301020', '7301', 'PASIMASSUNGGU'),
-('7301021', '7301', 'TAKABONERATE'),
-('7301022', '7301', 'PASIMASSUNGGU TIMUR'),
-('7301030', '7301', 'BONTOSIKUYU'),
-('7301040', '7301', 'BONTOHARU'),
-('7301041', '7301', 'BENTENG'),
-('7301042', '7301', 'BONTOMANAI'),
-('7301050', '7301', 'BONTOMATENE'),
-('7301051', '7301', 'BUKI'),
-('7302010', '7302', 'GANTARANG'),
-('7302020', '7302', 'UJUNG BULU'),
-('7302021', '7302', 'UJUNG LOE'),
-('7302030', '7302', 'BONTO BAHARI'),
-('7302040', '7302', 'BONTOTIRO'),
-('7302050', '7302', 'HERO LANGE-LANGE'),
-('7302060', '7302', 'KAJANG'),
-('7302070', '7302', 'BULUKUMPA'),
-('7302080', '7302', 'RILAU ALE'),
-('7302090', '7302', 'KINDANG'),
-('7303010', '7303', 'BISSAPPU'),
-('7303011', '7303', 'ULUERE'),
-('7303012', '7303', 'SINOA'),
-('7303020', '7303', 'BANTAENG'),
-('7303021', '7303', 'EREMERASA'),
-('7303030', '7303', 'TOMPOBULU'),
-('7303031', '7303', 'PA\'JUKUKANG'),
-('7303032', '7303', 'GANTARANGKEKE'),
-('7304010', '7304', 'BANGKALA'),
-('7304011', '7304', 'BANGKALA BARAT'),
-('7304020', '7304', 'TAMALATEA'),
-('7304021', '7304', 'BONTORAMBA'),
-('7304030', '7304', 'BINAMU'),
-('7304031', '7304', 'TURATEA'),
-('7304040', '7304', 'BATANG'),
-('7304041', '7304', 'ARUNGKEKE'),
-('7304042', '7304', 'TAROWANG'),
-('7304050', '7304', 'KELARA'),
-('7304051', '7304', 'RUMBIA'),
-('7305010', '7305', 'MANGARA BOMBANG'),
-('7305020', '7305', 'MAPPAKASUNGGU'),
-('7305021', '7305', 'SANROBONE'),
-('7305030', '7305', 'POLOMBANGKENG SELATAN'),
-('7305031', '7305', 'PATTALLASSANG'),
-('7305040', '7305', 'POLOMBANGKENG UTARA'),
-('7305050', '7305', 'GALESONG SELATAN'),
-('7305051', '7305', 'GALESONG'),
-('7305060', '7305', 'GALESONG UTARA'),
-('7306010', '7306', 'BONTONOMPO'),
-('7306011', '7306', 'BONTONOMPO SELATAN'),
-('7306020', '7306', 'BAJENG'),
-('7306021', '7306', 'BAJENG BARAT'),
-('7306030', '7306', 'PALLANGGA'),
-('7306031', '7306', 'BAROMBONG'),
-('7306040', '7306', 'SOMBA OPU'),
-('7306050', '7306', 'BONTOMARANNU'),
-('7306051', '7306', 'PATTALLASSANG'),
-('7306060', '7306', 'PARANGLOE'),
-('7306061', '7306', 'MANUJU'),
-('7306070', '7306', 'TINGGIMONCONG'),
-('7306071', '7306', 'TOMBOLO PAO'),
-('7306072', '7306', 'PARIGI'),
-('7306080', '7306', 'BUNGAYA'),
-('7306081', '7306', 'BONTOLEMPANGAN'),
-('7306090', '7306', 'TOMPOBULU'),
-('7306091', '7306', 'BIRINGBULU'),
-('7307010', '7307', 'SINJAI BARAT'),
-('7307020', '7307', 'SINJAI BORONG'),
-('7307030', '7307', 'SINJAI SELATAN'),
-('7307040', '7307', 'TELLU LIMPOE'),
-('7307050', '7307', 'SINJAI TIMUR'),
-('7307060', '7307', 'SINJAI TENGAH'),
-('7307070', '7307', 'SINJAI UTARA'),
-('7307080', '7307', 'BULUPODDO'),
-('7307090', '7307', 'PULAU SEMBILAN'),
-('7308010', '7308', 'MANDAI'),
-('7308011', '7308', 'MONCONGLOE'),
-('7308020', '7308', 'MAROS BARU'),
-('7308021', '7308', 'MARUSU'),
-('7308022', '7308', 'TURIKALE'),
-('7308023', '7308', 'LAU'),
-('7308030', '7308', 'BONTOA'),
-('7308040', '7308', 'BANTIMURUNG'),
-('7308041', '7308', 'SIMBANG'),
-('7308050', '7308', 'TANRALILI'),
-('7308051', '7308', 'TOMPU BULU'),
-('7308060', '7308', 'CAMBA'),
-('7308061', '7308', 'CENRANA'),
-('7308070', '7308', 'MALLAWA'),
-('7309010', '7309', 'LIUKANG TANGAYA'),
-('7309020', '7309', 'LIUKANG KALMAS'),
-('7309030', '7309', 'LIUKANG TUPABBIRING'),
-('7309031', '7309', 'LIUKANG TUPABBIRING UTARA'),
-('7309040', '7309', 'PANGKAJENE'),
-('7309041', '7309', 'MINASATENE'),
-('7309050', '7309', 'BALOCCI'),
-('7309051', '7309', 'TONDONG TALLASA'),
-('7309060', '7309', 'BUNGORO'),
-('7309070', '7309', 'LABAKKANG'),
-('7309080', '7309', 'MA\'RANG'),
-('7309091', '7309', 'SEGERI'),
-('7309092', '7309', 'MANDALLE'),
-('7310010', '7310', 'TANETE RIAJA'),
-('7310011', '7310', 'PUJANANTING'),
-('7310020', '7310', 'TANETE RILAU'),
-('7310030', '7310', 'BARRU'),
-('7310040', '7310', 'SOPPENG RIAJA'),
-('7310041', '7310', 'BALUSU'),
-('7310050', '7310', 'MALLUSETASI'),
-('7311010', '7311', 'BONTOCANI'),
-('7311020', '7311', 'KAHU'),
-('7311030', '7311', 'KAJUARA'),
-('7311040', '7311', 'SALOMEKKO'),
-('7311050', '7311', 'TONRA'),
-('7311060', '7311', 'PATIMPENG'),
-('7311070', '7311', 'LIBURENG'),
-('7311080', '7311', 'MARE'),
-('7311090', '7311', 'SIBULUE'),
-('7311100', '7311', 'CINA'),
-('7311110', '7311', 'BAREBBO'),
-('7311120', '7311', 'PONRE'),
-('7311130', '7311', 'LAPPARIAJA'),
-('7311140', '7311', 'LAMURU'),
-('7311141', '7311', 'TELLU LIMPOE'),
-('7311150', '7311', 'BENGO'),
-('7311160', '7311', 'ULAWENG'),
-('7311170', '7311', 'PALAKKA'),
-('7311180', '7311', 'AWANGPONE'),
-('7311190', '7311', 'TELLU SIATTINGE'),
-('7311200', '7311', 'AMALI'),
-('7311210', '7311', 'AJANGALE'),
-('7311220', '7311', 'DUA BOCCOE'),
-('7311230', '7311', 'CENRANA'),
-('7311710', '7311', 'TANETE RIATTANG BARAT'),
-('7311720', '7311', 'TANETE RIATTANG'),
-('7311730', '7311', 'TANETE RIATTANG TIMUR'),
-('7312010', '7312', 'MARIO RIWAWO'),
-('7312020', '7312', 'LALABATA'),
-('7312030', '7312', 'LILI RIAJA'),
-('7312031', '7312', 'GANRA'),
-('7312032', '7312', 'CITTA'),
-('7312040', '7312', 'LILI RILAU'),
-('7312050', '7312', 'DONRI DONRI'),
-('7312060', '7312', 'MARIO RIAWA'),
-('7313010', '7313', 'SABBANG PARU'),
-('7313020', '7313', 'TEMPE'),
-('7313030', '7313', 'PAMMANA'),
-('7313040', '7313', 'BOLA'),
-('7313050', '7313', 'TAKKALALLA'),
-('7313060', '7313', 'SAJOANGING'),
-('7313061', '7313', 'PENRANG'),
-('7313070', '7313', 'MAJAULENG'),
-('7313080', '7313', 'TANA SITOLO'),
-('7313090', '7313', 'BELAWA'),
-('7313100', '7313', 'MANIANG PAJO'),
-('7313101', '7313', 'GILIRENG'),
-('7313110', '7313', 'KEERA'),
-('7313120', '7313', 'PITUMPANUA'),
-('7314010', '7314', 'PANCA LAUTANG'),
-('7314020', '7314', 'TELLULIMPO E'),
-('7314030', '7314', 'WATANG PULU'),
-('7314040', '7314', 'BARANTI'),
-('7314050', '7314', 'PANCA RIJANG'),
-('7314051', '7314', 'KULO'),
-('7314060', '7314', 'MARITENGNGAE'),
-('7314061', '7314', 'WATANG SIDENRENG'),
-('7314070', '7314', 'PITU RIAWA'),
-('7314080', '7314', 'DUAPITUE'),
-('7314081', '7314', 'PITU RIASE'),
-('7315010', '7315', 'SUPPA'),
-('7315020', '7315', 'MATTIROSOMPE'),
-('7315021', '7315', 'LANRISANG'),
-('7315030', '7315', 'MATTIRO BULU'),
-('7315040', '7315', 'WATANG SAWITTO'),
-('7315041', '7315', 'PALETEANG'),
-('7315042', '7315', 'TIROANG'),
-('7315050', '7315', 'PATAMPANUA'),
-('7315060', '7315', 'CEMPA'),
-('7315070', '7315', 'DUAMPANUA'),
-('7315071', '7315', 'BATULAPPA'),
-('7315080', '7315', 'LEMBANG'),
-('7316010', '7316', 'MAIWA'),
-('7316011', '7316', 'BUNGIN'),
-('7316020', '7316', 'ENREKANG'),
-('7316021', '7316', 'CENDANA'),
-('7316030', '7316', 'BARAKA'),
-('7316031', '7316', 'BUNTU BATU'),
-('7316040', '7316', 'ANGGERAJA'),
-('7316041', '7316', 'MALUA'),
-('7316050', '7316', 'ALLA'),
-('7316051', '7316', 'CURIO'),
-('7316052', '7316', 'MASALLE'),
-('7316053', '7316', 'BAROKO'),
-('7317010', '7317', 'LAROMPONG'),
-('7317011', '7317', 'LAROMPONG SELATAN'),
-('7317020', '7317', 'SULI'),
-('7317021', '7317', 'SULI BARAT'),
-('7317030', '7317', 'BELOPA'),
-('7317031', '7317', 'KAMANRE'),
-('7317032', '7317', 'BELOPA UTARA'),
-('7317040', '7317', 'BAJO'),
-('7317041', '7317', 'BAJO BARAT'),
-('7317050', '7317', 'BASSESANGTEMPE'),
-('7317051', '7317', 'LATIMOJONG'),
-('7317052', '7317', 'BASSESANGTEMPE UTARA'),
-('7317060', '7317', 'BUPON'),
-('7317061', '7317', 'PONRANG'),
-('7317062', '7317', 'PONRANG SELATAN'),
-('7317070', '7317', 'BUA'),
-('7317080', '7317', 'WALENRANG'),
-('7317081', '7317', 'WALENRANG TIMUR'),
-('7317090', '7317', 'LAMASI'),
-('7317091', '7317', 'WALENRANG UTARA'),
-('7317092', '7317', 'WALENRANG BARAT'),
-('7317093', '7317', 'LAMASI TIMUR'),
-('7318010', '7318', 'BONGGAKARADENG'),
-('7318011', '7318', 'SIMBUANG'),
-('7318012', '7318', 'RANO'),
-('7318013', '7318', 'MAPPAK'),
-('7318020', '7318', 'MENGKENDEK'),
-('7318021', '7318', 'GANDANG BATU SILANAN'),
-('7318030', '7318', 'SANGALLA'),
-('7318031', '7318', 'SANGALA SELATAN'),
-('7318032', '7318', 'SANGALLA UTARA'),
-('7318040', '7318', 'MAKALE'),
-('7318041', '7318', 'MAKALE SELATAN'),
-('7318042', '7318', 'MAKALE UTARA'),
-('7318050', '7318', 'SALUPUTTI'),
-('7318051', '7318', 'BITTUANG'),
-('7318052', '7318', 'REMBON'),
-('7318053', '7318', 'MASANDA'),
-('7318054', '7318', 'MALIMBONG BALEPE'),
-('7318061', '7318', 'RANTETAYO'),
-('7318067', '7318', 'KURRA'),
-('7322010', '7322', 'SABBANG'),
-('7322020', '7322', 'BAEBUNTA'),
-('7322030', '7322', 'MALANGKE'),
-('7322031', '7322', 'MALANGKE BARAT'),
-('7322040', '7322', 'SUKAMAJU'),
-('7322050', '7322', 'BONE-BONE'),
-('7322051', '7322', 'TANA LILI'),
-('7322120', '7322', 'MASAMBA'),
-('7322121', '7322', 'MAPPEDECENG'),
-('7322122', '7322', 'RAMPI'),
-('7322130', '7322', 'LIMBONG'),
-('7322131', '7322', 'SEKO'),
-('7325010', '7325', 'BURAU'),
-('7325020', '7325', 'WOTU'),
-('7325030', '7325', 'TOMONI'),
-('7325031', '7325', 'TOMONI TIMUR'),
-('7325040', '7325', 'ANGKONA'),
-('7325050', '7325', 'MALILI'),
-('7325060', '7325', 'TOWUTI'),
-('7325070', '7325', 'NUHA'),
-('7325071', '7325', 'WASUPONDA'),
-('7325080', '7325', 'MANGKUTANA'),
-('7325081', '7325', 'KALAENA'),
-('7326010', '7326', 'SOPAI'),
-('7326020', '7326', 'KESU'),
-('7326030', '7326', 'SANGGALANGI'),
-('7326040', '7326', 'BUNTAO'),
-('7326050', '7326', 'RANTEBUA'),
-('7326060', '7326', 'NANGGALA'),
-('7326070', '7326', 'TONDON'),
-('7326080', '7326', 'TALLUNGLIPU'),
-('7326090', '7326', 'RANTEPAO'),
-('7326100', '7326', 'TIKALA'),
-('7326110', '7326', 'SESEAN'),
-('7326120', '7326', 'BALUSU'),
-('7326130', '7326', 'SA\'DAN'),
-('7326140', '7326', 'BENGKELEKILA'),
-('7326150', '7326', 'SESEAN SULOARA'),
-('7326160', '7326', 'KAPALA PITU'),
-('7326170', '7326', 'DENDE PIONGAN NAPO'),
-('7326180', '7326', 'AWAN RANTE KARUA'),
-('7326190', '7326', 'RINDINGALO'),
-('7326200', '7326', 'BUNTU PEPASAN'),
-('7326210', '7326', 'BARUPPU'),
-('7371010', '7371', 'MARISO'),
-('7371020', '7371', 'MAMAJANG'),
-('7371030', '7371', 'TAMALATE'),
-('7371031', '7371', 'RAPPOCINI'),
-('7371040', '7371', 'MAKASSAR'),
-('7371050', '7371', 'UJUNG PANDANG'),
-('7371060', '7371', 'WAJO'),
-('7371070', '7371', 'BONTOALA'),
-('7371080', '7371', 'UJUNG TANAH'),
-('7371090', '7371', 'TALLO'),
-('7371100', '7371', 'PANAKKUKANG'),
-('7371101', '7371', 'MANGGALA'),
-('7371110', '7371', 'BIRING KANAYA'),
-('7371111', '7371', 'TAMALANREA'),
-('7372010', '7372', 'BACUKIKI'),
-('7372011', '7372', 'BACUKIKI BARAT'),
-('7372020', '7372', 'UJUNG'),
-('7372030', '7372', 'SOREANG'),
-('7373010', '7373', 'WARA SELATAN'),
-('7373011', '7373', 'SENDANA'),
-('7373020', '7373', 'WARA'),
-('7373021', '7373', 'WARA TIMUR'),
-('7373022', '7373', 'MUNGKAJANG'),
-('7373030', '7373', 'WARA UTARA'),
-('7373031', '7373', 'BARA'),
-('7373040', '7373', 'TELLUWANUA'),
-('7373041', '7373', 'WARA BARAT'),
-('7401050', '7401', 'LASALIMU'),
-('7401051', '7401', 'LASALIMU SELATAN'),
-('7401052', '7401', 'SIONTAPINA'),
-('7401060', '7401', 'PASAR WAJO'),
-('7401061', '7401', 'WOLOWA'),
-('7401062', '7401', 'WABULA'),
-('7401110', '7401', 'KAPONTORI'),
-('7402010', '7402', 'TONGKUNO'),
-('7402011', '7402', 'TONGKUNO SELATAN'),
-('7402020', '7402', 'PARIGI'),
-('7402021', '7402', 'BONE'),
-('7402022', '7402', 'MAROBO'),
-('7402030', '7402', 'KABAWO'),
-('7402031', '7402', 'KABANGKA'),
-('7402032', '7402', 'KONTUKOWUNA'),
-('7402061', '7402', 'KONTUNAGA'),
-('7402062', '7402', 'WATOPUTE'),
-('7402070', '7402', 'KATOBU'),
-('7402071', '7402', 'LOHIA'),
-('7402072', '7402', 'DURUKA'),
-('7402073', '7402', 'BATALAIWORU'),
-('7402080', '7402', 'NAPABALANO'),
-('7402081', '7402', 'LASALEPA'),
-('7402083', '7402', 'TOWEA'),
-('7402090', '7402', 'WAKORUMBA SELATAN'),
-('7402091', '7402', 'PASIR PUTIH'),
-('7402092', '7402', 'PASI KOLAGA'),
-('7402111', '7402', 'MALIGANO'),
-('7402112', '7402', 'BATUKARA'),
-('7403090', '7403', 'SOROPIA'),
-('7403091', '7403', 'LALONGGASUMEETO'),
-('7403100', '7403', 'SAMPARA'),
-('7403101', '7403', 'BONDOALA'),
-('7403102', '7403', 'BESULUTU'),
-('7403103', '7403', 'KAPOIALA'),
-('7403104', '7403', 'ANGGALOMOARE'),
-('7403105', '7403', 'MOROSI'),
-('7403130', '7403', 'LAMBUYA'),
-('7403131', '7403', 'UEPAI'),
-('7403132', '7403', 'PURIALA'),
-('7403133', '7403', 'ONEMBUTE'),
-('7403140', '7403', 'PONDIDAHA'),
-('7403141', '7403', 'WONGGEDUKU'),
-('7403142', '7403', 'AMONGGEDO'),
-('7403143', '7403', 'WONGGEDUKU BARAT'),
-('7403150', '7403', 'WAWOTOBI'),
-('7403151', '7403', 'MELUHU'),
-('7403152', '7403', 'KONAWE'),
-('7403170', '7403', 'UNAAHA'),
-('7403171', '7403', 'ANGGABERI'),
-('7403180', '7403', 'ABUKI'),
-('7403181', '7403', 'LATOMA'),
-('7403182', '7403', 'TONGAUNA'),
-('7403183', '7403', 'ASINUA'),
-('7403184', '7403', 'PADANGGUNI'),
-('7403193', '7403', 'ROUTA'),
-('7404010', '7404', 'WATUBANGGA'),
-('7404011', '7404', 'TANGGETADA'),
-('7404012', '7404', 'TOARI'),
-('7404013', '7404', 'POLINGGONA'),
-('7404020', '7404', 'POMALAA'),
-('7404030', '7404', 'WUNDULAKO'),
-('7404031', '7404', 'BAULA'),
-('7404060', '7404', 'KOLAKA'),
-('7404061', '7404', 'LATAMBAGA'),
-('7404070', '7404', 'WOLO'),
-('7404071', '7404', 'SAMATURU'),
-('7404072', '7404', 'IWOIMENDAA'),
-('7405010', '7405', 'TINANGGEA'),
-('7405011', '7405', 'LALEMBUU'),
-('7405020', '7405', 'ANDOOLO'),
-('7405021', '7405', 'BUKE'),
-('7405022', '7405', 'ANDOOLO BARAT'),
-('7405030', '7405', 'PALANGGA'),
-('7405031', '7405', 'PALANGGA SELATAN'),
-('7405032', '7405', 'BAITO'),
-('7405040', '7405', 'LAINEA'),
-('7405041', '7405', 'LAEYA'),
-('7405050', '7405', 'KOLONO'),
-('7405051', '7405', 'KOLONO TIMUR'),
-('7405060', '7405', 'LAONTI'),
-('7405070', '7405', 'MORAMO'),
-('7405071', '7405', 'MORAMO UTARA'),
-('7405080', '7405', 'KONDA'),
-('7405081', '7405', 'WOLASI'),
-('7405090', '7405', 'RANOMEETO'),
-('7405091', '7405', 'RANOMEETO BARAT'),
-('7405100', '7405', 'LANDONO'),
-('7405101', '7405', 'MOWILA'),
-('7405102', '7405', 'SABULAKOA'),
-('7405110', '7405', 'ANGATA'),
-('7405111', '7405', 'BENUA'),
-('7405112', '7405', 'BASALA'),
-('7406010', '7406', 'KABAENA'),
-('7406011', '7406', 'KABAENA UTARA'),
-('7406012', '7406', 'KABAENA SELATAN'),
-('7406013', '7406', 'KABAENA BARAT'),
-('7406020', '7406', 'KABAENA TIMUR'),
-('7406021', '7406', 'KABAENA TENGAH'),
-('7406030', '7406', 'RUMBIA'),
-('7406031', '7406', 'MATA OLEO'),
-('7406032', '7406', 'KEP. MASALOKA RAYA'),
-('7406033', '7406', 'RUMBIA TENGAH'),
-('7406040', '7406', 'RAROWATU'),
-('7406041', '7406', 'RAROWATU UTARA'),
-('7406042', '7406', 'MATA USU'),
-('7406043', '7406', 'LANTARI JAYA'),
-('7406050', '7406', 'POLEANG TIMUR'),
-('7406051', '7406', 'POLEANG UTARA'),
-('7406052', '7406', 'POLEANG SELATAN'),
-('7406053', '7406', 'POLEANG TENGGARA'),
-('7406060', '7406', 'POLEANG'),
-('7406061', '7406', 'POLEANG BARAT'),
-('7406062', '7406', 'TONTONUNU'),
-('7406063', '7406', 'POLEANG TENGAH'),
-('7407010', '7407', 'BINONGKO'),
-('7407011', '7407', 'TOGO BINONGKO'),
-('7407020', '7407', 'TOMIA'),
-('7407021', '7407', 'TOMIA TIMUR'),
-('7407030', '7407', 'KALEDUPA'),
-('7407031', '7407', 'KALEDUPA SELATAN'),
-('7407040', '7407', 'WANGI-WANGI'),
-('7407050', '7407', 'WANGI-WANGI SELATAN'),
-('7408010', '7408', 'RANTEANGIN'),
-('7408011', '7408', 'LAMBAI'),
-('7408012', '7408', 'WAWO'),
-('7408020', '7408', 'LASUSUA'),
-('7408021', '7408', 'KATOI'),
-('7408030', '7408', 'KODEOHA'),
-('7408031', '7408', 'TIWU'),
-('7408040', '7408', 'NGAPA'),
-('7408041', '7408', 'WATUNOHU'),
-('7408050', '7408', 'PAKUE'),
-('7408051', '7408', 'PAKUE UTARA'),
-('7408052', '7408', 'PAKUE TENGAH'),
-('7408060', '7408', 'BATU PUTIH'),
-('7408061', '7408', 'POREHU'),
-('7408062', '7408', 'TOLALA'),
-('7409100', '7409', 'BONEGUNU'),
-('7409101', '7409', 'KAMBOWA'),
-('7409110', '7409', 'WAKORUMBA'),
-('7409120', '7409', 'KULISUSU'),
-('7409121', '7409', 'KULISUSU BARAT'),
-('7409122', '7409', 'KULISUSU UTARA'),
-('7410010', '7410', 'SAWA'),
-('7410011', '7410', 'MOTUI'),
-('7410020', '7410', 'LEMBO'),
-('7410030', '7410', 'LASOLO'),
-('7410040', '7410', 'MOLAWE'),
-('7410050', '7410', 'ASERA'),
-('7410051', '7410', 'ANDOWIA'),
-('7410052', '7410', 'OHEO'),
-('7410060', '7410', 'LANGGIKIMA'),
-('7410070', '7410', 'WIWIRANO'),
-('7411010', '7411', 'AERE'),
-('7411020', '7411', 'LAMBANDIA'),
-('7411030', '7411', 'POLI-POLIA'),
-('7411040', '7411', 'DANGIA'),
-('7411050', '7411', 'LADONGI'),
-('7411060', '7411', 'LOEA'),
-('7411070', '7411', 'TIRAWUTA'),
-('7411080', '7411', 'LALOLAE'),
-('7411090', '7411', 'MOWEWE'),
-('7411100', '7411', 'TINONDO'),
-('7411110', '7411', 'ULUIWOI'),
-('7411120', '7411', 'UEESI'),
-('7412010', '7412', 'WAWONII TENGGARA'),
-('7412020', '7412', 'WAWONII TIMUR'),
-('7412030', '7412', 'WAWONII TIMUR LAUT'),
-('7412040', '7412', 'WAWONII UTARA'),
-('7412050', '7412', 'WAWONII SELATAN'),
-('7412060', '7412', 'WAWONII TENGAH'),
-('7412070', '7412', 'WAWONII BARAT'),
-('7413001', '7413', 'TIWORO KEPULAUAN'),
-('7413002', '7413', 'MAGINTI'),
-('7413003', '7413', 'TIWORO TENGAH'),
-('7413004', '7413', 'TIWORO SELATAN'),
-('7413005', '7413', 'TIWORO UTARA'),
-('7413006', '7413', 'LAWA'),
-('7413007', '7413', 'SAWERIGADI'),
-('7413008', '7413', 'BARANGKA'),
-('7413009', '7413', 'WA DAGA'),
-('7413010', '7413', 'KUSAMBI'),
-('7413011', '7413', 'NAPANO KUSAMBI'),
-('7414010', '7414', 'TALAGA RAYA'),
-('7414020', '7414', 'MAWASANGKA'),
-('7414030', '7414', 'MAWASANGKA TENGAH'),
-('7414040', '7414', 'MAWASANGKA TIMUR'),
-('7414050', '7414', 'LAKUDO'),
-('7414060', '7414', 'GU'),
-('7414070', '7414', 'SANGIA WAMBULU'),
-('7415010', '7415', 'BATU ATAS'),
-('7415020', '7415', 'LAPANDEWA'),
-('7415030', '7415', 'SAMPOLAWA'),
-('7415040', '7415', 'BATAUGA'),
-('7415050', '7415', 'SIOMPU BARAT'),
-('7415060', '7415', 'SIOMPU'),
-('7415070', '7415', 'KADATUA'),
-('7471010', '7471', 'MANDONGA'),
-('7471011', '7471', 'BARUGA'),
-('7471012', '7471', 'PUUWATU'),
-('7471013', '7471', 'KADIA'),
-('7471014', '7471', 'WUA-WUA'),
-('7471020', '7471', 'POASIA'),
-('7471021', '7471', 'ABELI'),
-('7471022', '7471', 'KAMBU'),
-('7471030', '7471', 'KENDARI'),
-('7471031', '7471', 'KENDARI BARAT'),
-('7472010', '7472', 'BETOAMBARI'),
-('7472011', '7472', 'MURHUM'),
-('7472012', '7472', 'BATUPOARO'),
-('7472020', '7472', 'WOLIO'),
-('7472021', '7472', 'KOKALUKUNA'),
-('7472030', '7472', 'SORAWOLIO'),
-('7472040', '7472', 'BUNGI'),
-('7472041', '7472', 'LEA-LEA'),
-('7501031', '7501', 'MANANGGU'),
-('7501040', '7501', 'TILAMUTA'),
-('7501041', '7501', 'DULUPI'),
-('7501042', '7501', 'BOTUMOITO'),
-('7501050', '7501', 'PAGUYAMAN'),
-('7501051', '7501', 'WONOSARI'),
-('7501052', '7501', 'PAGUYAMAN PANTAI'),
-('7502010', '7502', 'BATUDAA PANTAI'),
-('7502011', '7502', 'BILUHU'),
-('7502020', '7502', 'BATUDAA'),
-('7502021', '7502', 'BONGOMEME'),
-('7502022', '7502', 'TABONGO'),
-('7502023', '7502', 'DUNGALIYO'),
-('7502030', '7502', 'TIBAWA'),
-('7502031', '7502', 'PULUBALA'),
-('7502040', '7502', 'BOLIYOHUTO'),
-('7502041', '7502', 'MOOTILANGO'),
-('7502042', '7502', 'TOLANGOHULA'),
-('7502043', '7502', 'ASPARAGA'),
-('7502044', '7502', 'BILATO'),
-('7502070', '7502', 'LIMBOTO'),
-('7502071', '7502', 'LIMBOTO BARAT'),
-('7502080', '7502', 'TELAGA'),
-('7502081', '7502', 'TELAGA BIRU'),
-('7502082', '7502', 'TILANGO'),
-('7502083', '7502', 'TELAGA JAYA'),
-('7503010', '7503', 'POPAYATO'),
-('7503011', '7503', 'POPAYATO BARAT'),
-('7503012', '7503', 'POPAYATO TIMUR'),
-('7503020', '7503', 'LEMITO'),
-('7503021', '7503', 'WANGGARASI'),
-('7503030', '7503', 'MARISA'),
-('7503031', '7503', 'PATILANGGIO'),
-('7503032', '7503', 'BUNTULIA'),
-('7503033', '7503', 'DUHIADAA'),
-('7503040', '7503', 'RANDANGAN'),
-('7503041', '7503', 'TALUDITI'),
-('7503050', '7503', 'PAGUAT'),
-('7503051', '7503', 'DENGILO'),
-('7504010', '7504', 'TAPA'),
-('7504011', '7504', 'BULANGO UTARA'),
-('7504012', '7504', 'BULANGO SELATAN'),
-('7504013', '7504', 'BULANGO TIMUR'),
-('7504014', '7504', 'BULANGO ULU'),
-('7504020', '7504', 'KABILA'),
-('7504021', '7504', 'BOTU PINGGE'),
-('7504022', '7504', 'TILONGKABILA'),
-('7504030', '7504', 'SUWAWA'),
-('7504031', '7504', 'SUWAWA SELATAN'),
-('7504032', '7504', 'SUWAWA TIMUR'),
-('7504033', '7504', 'SUWAWA TENGAH'),
-('7504034', '7504', 'PINOGU'),
-('7504040', '7504', 'BONEPANTAI'),
-('7504041', '7504', 'KABILA BONE'),
-('7504042', '7504', 'BONE RAYA'),
-('7504043', '7504', 'BONE'),
-('7504044', '7504', 'BULAWA'),
-('7505010', '7505', 'ATINGGOLA'),
-('7505011', '7505', 'GENTUMA RAYA'),
-('7505020', '7505', 'KWANDANG'),
-('7505021', '7505', 'TOMILITO'),
-('7505022', '7505', 'PONELO KEPULAUAN'),
-('7505030', '7505', 'ANGGREK'),
-('7505031', '7505', 'MONANO'),
-('7505040', '7505', 'SUMALATA'),
-('7505041', '7505', 'SUMALATA TIMUR'),
-('7505050', '7505', 'TOLINGGULA'),
-('7505051', '7505', 'BIAU'),
-('7571010', '7571', 'KOTA BARAT'),
-('7571011', '7571', 'DUNGINGI'),
-('7571020', '7571', 'KOTA SELATAN'),
-('7571021', '7571', 'KOTA TIMUR'),
-('7571022', '7571', 'HULONTHALANGI'),
-('7571023', '7571', 'DUMBO RAYA'),
-('7571030', '7571', 'KOTA UTARA'),
-('7571031', '7571', 'KOTA TENGAH'),
-('7571032', '7571', 'SIPATANA'),
-('7601010', '7601', 'BANGGAE'),
-('7601011', '7601', 'BANGGAE TIMUR'),
-('7601020', '7601', 'PAMBOANG'),
-('7601030', '7601', 'SENDANA'),
-('7601031', '7601', 'TAMMERODO'),
-('7601033', '7601', 'TUBO SENDANA'),
-('7601040', '7601', 'MALUNDA'),
-('7601041', '7601', 'ULUMANDA'),
-('7602010', '7602', 'TINAMBUNG'),
-('7602011', '7602', 'BALANIPA'),
-('7602012', '7602', 'LIMBORO'),
-('7602020', '7602', 'TUBBI TARAMANU'),
-('7602021', '7602', 'ALU'),
-('7602030', '7602', 'CAMPALAGIAN'),
-('7602031', '7602', 'LUYO'),
-('7602040', '7602', 'WONOMULYO'),
-('7602041', '7602', 'MAPILLI'),
-('7602042', '7602', 'TAPANGO'),
-('7602043', '7602', 'MATAKALI'),
-('7602044', '7602', 'B U L O');
-INSERT INTO `tbl_kecamatan` (`id_kecamatan`, `id_kabupaten`, `nama_kecamatan`) VALUES
-('7602050', '7602', 'POLEWALI'),
-('7602051', '7602', 'BINUANG'),
-('7602052', '7602', 'ANREAPI'),
-('7602061', '7602', 'MATANGNGA'),
-('7603010', '7603', 'SUMARORONG'),
-('7603020', '7603', 'MESSAWA'),
-('7603030', '7603', 'PANA'),
-('7603031', '7603', 'NOSU'),
-('7603040', '7603', 'TABANG'),
-('7603050', '7603', 'MAMASA'),
-('7603060', '7603', 'TANDUK KALUA'),
-('7603061', '7603', 'BALLA'),
-('7603070', '7603', 'SESENAPADANG'),
-('7603071', '7603', 'TAWALIAN'),
-('7603080', '7603', 'MAMBI'),
-('7603081', '7603', 'BAMBANG'),
-('7603082', '7603', 'RANTEBULAHAN TIMUR'),
-('7603083', '7603', 'MEHALAAN'),
-('7603090', '7603', 'ARALLE'),
-('7603091', '7603', 'BUNTU MALANGKA'),
-('7603100', '7603', 'TABULAHAN'),
-('7604010', '7604', 'TAPALANG'),
-('7604011', '7604', 'TAPALANG BARAT'),
-('7604020', '7604', 'MAMUJU'),
-('7604022', '7604', 'SIMBORO'),
-('7604023', '7604', 'BALABALAKANG'),
-('7604030', '7604', 'KALUKKU'),
-('7604031', '7604', 'PAPALANG'),
-('7604032', '7604', 'SAMPAGA'),
-('7604033', '7604', 'TOMMO'),
-('7604040', '7604', 'KALUMPANG'),
-('7604041', '7604', 'BONEHAU'),
-('7605010', '7605', 'SARUDU'),
-('7605011', '7605', 'DAPURANG'),
-('7605012', '7605', 'DURIPOKU'),
-('7605020', '7605', 'BARAS'),
-('7605021', '7605', 'BULU TABA'),
-('7605022', '7605', 'LARIANG'),
-('7605030', '7605', 'PASANGKAYU'),
-('7605031', '7605', 'TIKKE RAYA'),
-('7605032', '7605', 'PEDONGGA'),
-('7605040', '7605', 'BAMBALAMOTU'),
-('7605041', '7605', 'BAMBAIRA'),
-('7605042', '7605', 'SARJO'),
-('7606010', '7606', 'PANGALE'),
-('7606020', '7606', 'BUDONG-BUDONG'),
-('7606030', '7606', 'TOBADAK'),
-('7606040', '7606', 'TOPOYO'),
-('7606050', '7606', 'KAROSSA'),
-('8101040', '8101', 'TANIMBAR SELATAN'),
-('8101041', '8101', 'WER TAMRIAN'),
-('8101042', '8101', 'WER MAKTIAN'),
-('8101043', '8101', 'SELARU'),
-('8101050', '8101', 'TANIMBAR UTARA'),
-('8101051', '8101', 'YARU'),
-('8101052', '8101', 'WUAR LABOBAR'),
-('8101053', '8101', 'NIRUNMAS'),
-('8101054', '8101', 'KORMOMOLIN'),
-('8101055', '8101', 'MOLU MARU'),
-('8102010', '8102', 'KEI KECIL'),
-('8102012', '8102', 'KEI KECIL BARAT'),
-('8102013', '8102', 'KEI KECIL TIMUR'),
-('8102014', '8102', 'HOAT SORBAY'),
-('8102015', '8102', 'MANYEUW'),
-('8102016', '8102', 'KEI KECIL TIMUR SELATAN'),
-('8102020', '8102', 'KEI BESAR'),
-('8102021', '8102', 'KEI BESAR UTARA TIMUR'),
-('8102022', '8102', 'KEI BESAR SELATAN'),
-('8102023', '8102', 'KEI BESAR UTARA BARAT'),
-('8102024', '8102', 'KEI BESAR SELATAN BARAT'),
-('8103010', '8103', 'BANDA'),
-('8103040', '8103', 'TEHORU'),
-('8103041', '8103', 'TELUTIH'),
-('8103050', '8103', 'AMAHAI'),
-('8103051', '8103', 'KOTA MASOHI'),
-('8103052', '8103', 'TELUK ELPAPUTIH'),
-('8103060', '8103', 'TEON NILA SERUA'),
-('8103080', '8103', 'SAPARUA'),
-('8103081', '8103', 'NUSALAUT'),
-('8103082', '8103', 'SAPARUA TIMUR'),
-('8103090', '8103', 'P. HARUKU'),
-('8103100', '8103', 'SALAHUTU'),
-('8103110', '8103', 'LEIHITU'),
-('8103111', '8103', 'LEIHITU BARAT'),
-('8103140', '8103', 'SERAM UTARA'),
-('8103141', '8103', 'SERAM UTARA BARAT'),
-('8103142', '8103', 'SERAM UTARA TIMUR KOBI'),
-('8103143', '8103', 'SERAM UTARA TIMUR SETI'),
-('8104020', '8104', 'NAMLEA'),
-('8104021', '8104', 'WAEAPO'),
-('8104022', '8104', 'WAPLAU'),
-('8104023', '8104', 'BATA BUAL'),
-('8104024', '8104', 'TELUK KAIELY'),
-('8104025', '8104', 'WAELATA'),
-('8104026', '8104', 'LOLONG GUBA'),
-('8104027', '8104', 'LILIALY'),
-('8104030', '8104', 'AIR BUAYA'),
-('8104031', '8104', 'FENA LEISELA'),
-('8105010', '8105', 'ARU SELATAN'),
-('8105011', '8105', 'ARU SELATAN TIMUR'),
-('8105012', '8105', 'ARU SELATAN UTARA'),
-('8105020', '8105', 'ARU TENGAH'),
-('8105021', '8105', 'ARU TENGAH TIMUR'),
-('8105022', '8105', 'ARU TENGAH SELATAN'),
-('8105030', '8105', 'PULAU-PULAU ARU'),
-('8105031', '8105', 'ARU UTARA'),
-('8105032', '8105', 'ARU UTARA TIMUR BATULEY'),
-('8105033', '8105', 'SIR-SIR'),
-('8106010', '8106', 'HUAMUAL BELAKANG'),
-('8106011', '8106', 'KEPULAUAN MANIPA'),
-('8106020', '8106', 'SERAM BARAT'),
-('8106021', '8106', 'HUAMUAL'),
-('8106030', '8106', 'KAIRATU'),
-('8106031', '8106', 'KAIRATU BARAT'),
-('8106032', '8106', 'INAMOSOL'),
-('8106033', '8106', 'AMALATU'),
-('8106034', '8106', 'ELPAPUTIH'),
-('8106040', '8106', 'TANIWEL'),
-('8106041', '8106', 'TANIWEL TIMUR'),
-('8107010', '8107', 'PULAU GOROM'),
-('8107011', '8107', 'WAKATE'),
-('8107012', '8107', 'TEOR'),
-('8107013', '8107', 'GOROM TIMUR'),
-('8107014', '8107', 'PULAU PANJANG'),
-('8107020', '8107', 'SERAM TIMUR'),
-('8107021', '8107', 'TUTUK TOLU'),
-('8107022', '8107', 'KILMURY'),
-('8107023', '8107', 'LIAN VITU'),
-('8107024', '8107', 'KIAN DARAT'),
-('8107030', '8107', 'WERINAMA'),
-('8107031', '8107', 'SIWALALAT'),
-('8107040', '8107', 'BULA'),
-('8107041', '8107', 'BULA BARAT'),
-('8107042', '8107', 'TELUK WARU'),
-('8108010', '8108', 'WETAR'),
-('8108011', '8108', 'WETAR BARAT'),
-('8108012', '8108', 'WETAR UTARA'),
-('8108013', '8108', 'WETAR TIMUR'),
-('8108020', '8108', 'PP. TERSELATAN'),
-('8108021', '8108', 'KISAR UTARA'),
-('8108022', '8108', 'KEPULAUAN ROMANG'),
-('8108030', '8108', 'LETTI'),
-('8108041', '8108', 'MOA'),
-('8108042', '8108', 'LAKOR'),
-('8108050', '8108', 'DAMER'),
-('8108060', '8108', 'MDONA HIERA'),
-('8108070', '8108', 'PP. BABAR'),
-('8108071', '8108', 'PULAU WETANG'),
-('8108080', '8108', 'BABAR TIMUR'),
-('8108081', '8108', 'PULAU MASELA'),
-('8108082', '8108', 'DAWELOR DAWERA'),
-('8109010', '8109', 'KEPALA MADAN'),
-('8109020', '8109', 'LEKSULA'),
-('8109021', '8109', 'FENA FAFAN'),
-('8109030', '8109', 'NAMROLE'),
-('8109040', '8109', 'WAISAMA'),
-('8109050', '8109', 'AMBALAU'),
-('8171010', '8171', 'NUSANIWE'),
-('8171020', '8171', 'SIRIMAU'),
-('8171021', '8171', 'LEITIMUR SELATAN'),
-('8171030', '8171', 'TELUK AMBON BAGUALA'),
-('8171031', '8171', 'TELUK AMBON'),
-('8172010', '8172', 'PP. KUR'),
-('8172011', '8172', 'KUR SELATAN'),
-('8172020', '8172', 'TAYANDO TAM'),
-('8172030', '8172', 'PULAU DULLAH UTARA'),
-('8172040', '8172', 'PULAU DULLAH SELATAN'),
-('8201090', '8201', 'JAILOLO'),
-('8201091', '8201', 'JAILOLO SELATAN'),
-('8201100', '8201', 'SAHU'),
-('8201101', '8201', 'SAHU TIMUR'),
-('8201130', '8201', 'IBU'),
-('8201131', '8201', 'IBU SELATAN'),
-('8201132', '8201', 'TABARU'),
-('8201140', '8201', 'LOLODA'),
-('8202030', '8202', 'WEDA'),
-('8202031', '8202', 'WEDA SELATAN'),
-('8202032', '8202', 'WEDA UTARA'),
-('8202033', '8202', 'WEDA TENGAH'),
-('8202034', '8202', 'WEDA TIMUR'),
-('8202041', '8202', 'PULAU GEBE'),
-('8202042', '8202', 'PATANI'),
-('8202043', '8202', 'PATANI UTARA'),
-('8202044', '8202', 'PATANI BARAT'),
-('8202045', '8202', 'PATANI TIMUR'),
-('8203010', '8203', 'SULA BESI BARAT'),
-('8203011', '8203', 'SULABESI SELATAN'),
-('8203020', '8203', 'SANANA'),
-('8203021', '8203', 'SULA BESI TENGAH'),
-('8203022', '8203', 'SULABESI TIMUR'),
-('8203023', '8203', 'SANANA UTARA'),
-('8203030', '8203', 'MANGOLI TIMUR'),
-('8203031', '8203', 'MANGOLI TENGAH'),
-('8203032', '8203', 'MANGOLI UTARA TIMUR'),
-('8203040', '8203', 'MANGOLI BARAT'),
-('8203041', '8203', 'MANGOLI UTARA'),
-('8203042', '8203', 'MANGOLI SELATAN'),
-('8204010', '8204', 'OBI SELATAN'),
-('8204020', '8204', 'OBI'),
-('8204021', '8204', 'OBI BARAT'),
-('8204022', '8204', 'OBI TIMUR'),
-('8204023', '8204', 'OBI UTARA'),
-('8204030', '8204', 'BACAN'),
-('8204031', '8204', 'MANDIOLI SELATAN'),
-('8204032', '8204', 'MANDIOLI UTARA'),
-('8204033', '8204', 'BACAN SELATAN'),
-('8204034', '8204', 'BATANG LOMANG'),
-('8204040', '8204', 'BACAN TIMUR'),
-('8204041', '8204', 'BACAN TIMUR SELATAN'),
-('8204042', '8204', 'BACAN TIMUR TENGAH'),
-('8204050', '8204', 'BACAN BARAT'),
-('8204051', '8204', 'KASIRUTA BARAT'),
-('8204052', '8204', 'KASIRUTA TIMUR'),
-('8204053', '8204', 'BACAN BARAT UTARA'),
-('8204060', '8204', 'KAYOA'),
-('8204061', '8204', 'KAYOA BARAT'),
-('8204062', '8204', 'KAYOA SELATAN'),
-('8204063', '8204', 'KAYOA UTARA'),
-('8204070', '8204', 'PULAU MAKIAN'),
-('8204071', '8204', 'MAKIAN BARAT'),
-('8204080', '8204', 'GANE BARAT'),
-('8204081', '8204', 'GANE BARAT SELATAN'),
-('8204082', '8204', 'GANE BARAT UTARA'),
-('8204083', '8204', 'KEPULAUAN JORONGA'),
-('8204090', '8204', 'GANE TIMUR'),
-('8204091', '8204', 'GANE TIMUR TENGAH'),
-('8204092', '8204', 'GANE TIMUR SELATAN'),
-('8205010', '8205', 'MALIFUT'),
-('8205011', '8205', 'KAO TELUK'),
-('8205020', '8205', 'KAO'),
-('8205021', '8205', 'KAO BARAT'),
-('8205022', '8205', 'KAO UTARA'),
-('8205030', '8205', 'TOBELO SELATAN'),
-('8205031', '8205', 'TOBELO BARAT'),
-('8205032', '8205', 'TOBELO TIMUR'),
-('8205040', '8205', 'TOBELO'),
-('8205041', '8205', 'TOBELO TENGAH'),
-('8205042', '8205', 'TOBELO UTARA'),
-('8205050', '8205', 'GALELA'),
-('8205051', '8205', 'GALELA SELATAN'),
-('8205052', '8205', 'GALELA BARAT'),
-('8205053', '8205', 'GALELA UTARA'),
-('8205060', '8205', 'LOLODA UTARA'),
-('8205061', '8205', 'LOLODA KEPULAUAN'),
-('8206010', '8206', 'MABA SELATAN'),
-('8206011', '8206', 'KOTA MABA'),
-('8206020', '8206', 'WASILE SELATAN'),
-('8206030', '8206', 'WASILE'),
-('8206031', '8206', 'WASILE TIMUR'),
-('8206032', '8206', 'WASILE TENGAH'),
-('8206033', '8206', 'WASILE UTARA'),
-('8206040', '8206', 'MABA'),
-('8206041', '8206', 'MABA TENGAH'),
-('8206042', '8206', 'MABA UTARA'),
-('8207010', '8207', 'MOROTAI SELATAN'),
-('8207020', '8207', 'MOROTAI TIMUR'),
-('8207030', '8207', 'MOROTAI SELATAN BARAT'),
-('8207040', '8207', 'MOROTAI JAYA'),
-('8207050', '8207', 'MOROTAI UTARA'),
-('8208010', '8208', 'TALIABU BARAT'),
-('8208020', '8208', 'TALIABU SELATAN'),
-('8208030', '8208', 'TABONA'),
-('8208040', '8208', 'TALIABU TIMUR SELATAN'),
-('8208050', '8208', 'TALIABU TIMUR'),
-('8208060', '8208', 'TALIABU UTARA'),
-('8208070', '8208', 'LEDE'),
-('8208080', '8208', 'TALIABU BARAT LAUT'),
-('8271010', '8271', 'PULAU TERNATE'),
-('8271011', '8271', 'MOTI'),
-('8271012', '8271', 'PULAU BATANG DUA'),
-('8271013', '8271', 'PULAU HIRI'),
-('8271020', '8271', 'TERNATE SELATAN'),
-('8271021', '8271', 'TERNATE TENGAH'),
-('8271030', '8271', 'TERNATE UTARA'),
-('8272010', '8272', 'TIDORE SELATAN'),
-('8272020', '8272', 'TIDORE UTARA'),
-('8272030', '8272', 'TIDORE'),
-('8272031', '8272', 'TIDORE TIMUR'),
-('8272040', '8272', 'OBA'),
-('8272041', '8272', 'OBA SELATAN'),
-('8272050', '8272', 'OBA UTARA'),
-('8272051', '8272', 'OBA TENGAH'),
-('9101050', '9101', 'FAKFAK TIMUR'),
-('9101051', '9101', 'KARAS'),
-('9101060', '9101', 'FAKFAK'),
-('9101061', '9101', 'FAKFAK TENGAH'),
-('9101070', '9101', 'FAKFAK BARAT'),
-('9101080', '9101', 'KOKAS'),
-('9101081', '9101', 'TELUK PATIPI'),
-('9101082', '9101', 'KRAMONGMONGGA'),
-('9101083', '9101', 'BOMBERAY'),
-('9102010', '9102', 'BURUWAY'),
-('9102020', '9102', 'TELUK ARGUNI'),
-('9102021', '9102', 'TELUK ARGUNI BAWAH'),
-('9102030', '9102', 'KAIMANA'),
-('9102031', '9102', 'KAMBRAU'),
-('9102040', '9102', 'TELUK ETNA'),
-('9102041', '9102', 'YAMOR'),
-('9103010', '9103', 'NAIKERE'),
-('9103020', '9103', 'WONDIBOY'),
-('9103021', '9103', 'RASIEY'),
-('9103022', '9103', 'KURI WAMESA'),
-('9103030', '9103', 'WASIOR'),
-('9103040', '9103', 'DUAIRI'),
-('9103041', '9103', 'ROON'),
-('9103050', '9103', 'WINDESI'),
-('9103051', '9103', 'NIKIWAR'),
-('9103060', '9103', 'WAMESA'),
-('9103061', '9103', 'ROSWAR'),
-('9103070', '9103', 'RUMBERPON'),
-('9103071', '9103', 'SOUG JAYA'),
-('9104010', '9104', 'FAFURWAR'),
-('9104020', '9104', 'BABO'),
-('9104021', '9104', 'SUMURI'),
-('9104022', '9104', 'AROBA'),
-('9104023', '9104', 'KAITARO'),
-('9104030', '9104', 'KURI'),
-('9104040', '9104', 'WAMESA'),
-('9104050', '9104', 'BINTUNI'),
-('9104051', '9104', 'MANIMERI'),
-('9104052', '9104', 'TUHIBA'),
-('9104053', '9104', 'DATARAN BEIMES'),
-('9104060', '9104', 'TEMBUNI'),
-('9104070', '9104', 'ARANDAY'),
-('9104071', '9104', 'KAMUNDAN'),
-('9104072', '9104', 'TOMU'),
-('9104073', '9104', 'WERIAGAR'),
-('9104080', '9104', 'MOSKONA SELATAN'),
-('9104081', '9104', 'MEYADO'),
-('9104082', '9104', 'MOSKONA BARAT'),
-('9104090', '9104', 'MERDEY'),
-('9104091', '9104', 'BISCOOP'),
-('9104092', '9104', 'MASYETA'),
-('9104100', '9104', 'MOSKONA UTARA'),
-('9104101', '9104', 'MOSKONA TIMUR'),
-('9105110', '9105', 'WARMARE'),
-('9105120', '9105', 'PRAFI'),
-('9105141', '9105', 'MANOKWARI BARAT'),
-('9105142', '9105', 'MANOKWARI TIMUR'),
-('9105143', '9105', 'MANOKWARI UTARA'),
-('9105144', '9105', 'MANOKWARI SELATAN'),
-('9105146', '9105', 'TANAH RUBU'),
-('9105170', '9105', 'MASNI'),
-('9105171', '9105', 'SIDEY'),
-('9106010', '9106', 'INANWATAN'),
-('9106011', '9106', 'METEMANI'),
-('9106020', '9106', 'KOKODA'),
-('9106021', '9106', 'KAIS'),
-('9106022', '9106', 'KOKODA UTARA'),
-('9106023', '9106', 'KAIS DARAT'),
-('9106060', '9106', 'MOSWAREN'),
-('9106070', '9106', 'TEMINABUAN'),
-('9106071', '9106', 'SEREMUK'),
-('9106072', '9106', 'WAYER'),
-('9106073', '9106', 'KONDA'),
-('9106074', '9106', 'SAIFI'),
-('9106080', '9106', 'SAWIAT'),
-('9106081', '9106', 'FOKOUR'),
-('9106082', '9106', 'SALKMA'),
-('9107060', '9107', 'MORAID'),
-('9107061', '9107', 'KLASO'),
-('9107100', '9107', 'MAKBON'),
-('9107101', '9107', 'KLAYILI'),
-('9107110', '9107', 'BERAUR'),
-('9107111', '9107', 'KLAMONO'),
-('9107112', '9107', 'KLABOT'),
-('9107113', '9107', 'KLAWAK'),
-('9107120', '9107', 'SALAWATI'),
-('9107121', '9107', 'MAYAMUK'),
-('9107122', '9107', 'SALAWATI TIMUR'),
-('9107130', '9107', 'SEGET'),
-('9107131', '9107', 'SEGUN'),
-('9107132', '9107', 'SALAWATI SELATAN'),
-('9107170', '9107', 'AIMAS'),
-('9107171', '9107', 'MARIAT'),
-('9107172', '9107', 'SORONG'),
-('9107180', '9107', 'SAYOSA'),
-('9107181', '9107', 'MAUDUS'),
-('9108011', '9108', 'MISOOL SELATAN'),
-('9108012', '9108', 'MISOOL BARAT'),
-('9108020', '9108', 'MISOOL'),
-('9108021', '9108', 'KOFIAU'),
-('9108022', '9108', 'MISOOL TIMUR'),
-('9108023', '9108', 'KEPULAUAN SEMBILAN'),
-('9108031', '9108', 'SALAWATI UTARA'),
-('9108033', '9108', 'SALAWATI TENGAH'),
-('9108034', '9108', 'SALAWATI BARAT'),
-('9108035', '9108', 'BATANTA SELATAN'),
-('9108036', '9108', 'BATANTA UTARA'),
-('9108040', '9108', 'WAIGEO SELATAN'),
-('9108041', '9108', 'TELUK MAYALIBIT'),
-('9108042', '9108', 'MEOS MANSAR'),
-('9108043', '9108', 'KOTA WAISAI'),
-('9108044', '9108', 'TIPLOL MAYALIBIT'),
-('9108050', '9108', 'WAIGEO BARAT'),
-('9108051', '9108', 'WAIGEO BARAT KEPULAUAN'),
-('9108060', '9108', 'WAIGEO UTARA'),
-('9108061', '9108', 'WARWARBOMI'),
-('9108062', '9108', 'SUPNIN'),
-('9108070', '9108', 'KEPULAUAN AYAU'),
-('9108071', '9108', 'AYAU'),
-('9108080', '9108', 'WAIGEO TIMUR'),
-('9109010', '9109', 'FEF'),
-('9109011', '9109', 'SYUJAK'),
-('9109020', '9109', 'MIYAH'),
-('9109030', '9109', 'ABUN'),
-('9109040', '9109', 'KWOOR'),
-('9109050', '9109', 'SAUSAPOR'),
-('9109060', '9109', 'YEMBUN'),
-('9109070', '9109', 'KEBAR'),
-('9109080', '9109', 'SENOPI'),
-('9109090', '9109', 'AMBERBAKEN'),
-('9109100', '9109', 'MUBARNI / ARFU'),
-('9110010', '9110', 'AITINYO BARAT/ATHABU'),
-('9110011', '9110', 'AYAMARU SELATAN JAYA'),
-('9110020', '9110', 'AITINYO'),
-('9110021', '9110', 'AITINYO TENGAH'),
-('9110030', '9110', 'AIFAT SELATAN'),
-('9110031', '9110', 'AIFAT TIMUR SELATAN'),
-('9110040', '9110', 'AIFAT'),
-('9110050', '9110', 'AITINYO UTARA'),
-('9110051', '9110', 'AITINYO RAYA'),
-('9110060', '9110', 'AYAMARU TIMUR'),
-('9110061', '9110', 'AYAMARU TIMUR SELATAN'),
-('9110070', '9110', 'AYAMARU'),
-('9110071', '9110', 'AYAMARU SELATAN'),
-('9110072', '9110', 'AYAMARU JAYA'),
-('9110073', '9110', 'AYAMARU TENGAH'),
-('9110074', '9110', 'AYAMARU BARAT'),
-('9110080', '9110', 'AYAMARU UTARA'),
-('9110081', '9110', 'AYAMARU UTARA TIMUR'),
-('9110090', '9110', 'MARE'),
-('9110091', '9110', 'MARE SELATAN'),
-('9110100', '9110', 'AIFAT UTARA'),
-('9110110', '9110', 'AIFAT TIMUR'),
-('9110111', '9110', 'AIFAT TIMUR TENGAH'),
-('9110112', '9110', 'AIFAT TIMUR JAUH'),
-('9111010', '9111', 'TAHOSTA'),
-('9111020', '9111', 'DATARAN ISIM'),
-('9111030', '9111', 'NENEI'),
-('9111040', '9111', 'MOMI WAREN'),
-('9111050', '9111', 'RANSIKI'),
-('9111060', '9111', 'ORANSBARI'),
-('9112010', '9112', 'DIDOHU'),
-('9112020', '9112', 'SURUREY'),
-('9112030', '9112', 'ANGGI GIDA'),
-('9112040', '9112', 'MEMBEY'),
-('9112050', '9112', 'ANGGI'),
-('9112060', '9112', 'TAIGE'),
-('9112070', '9112', 'HINGK'),
-('9112080', '9112', 'MENYAMBOUW'),
-('9112090', '9112', 'CATUBOUW'),
-('9112100', '9112', 'TESTEGA'),
-('9171010', '9171', 'SORONG BARAT'),
-('9171011', '9171', 'SORONG KEPULAUAN'),
-('9171012', '9171', 'MALADOMES'),
-('9171020', '9171', 'SORONG TIMUR'),
-('9171021', '9171', 'SORONG UTARA'),
-('9171022', '9171', 'SORONG'),
-('9171023', '9171', 'SORONG MANOI'),
-('9171024', '9171', 'KLAURUNG'),
-('9171025', '9171', 'MALAIMSIMSA'),
-('9171026', '9171', 'SORONG KOTA'),
-('9401010', '9401', 'KIMAAM'),
-('9401011', '9401', 'WAAN'),
-('9401012', '9401', 'TABONJI'),
-('9401013', '9401', 'ILWAYAB'),
-('9401020', '9401', 'OKABA'),
-('9401021', '9401', 'TUBANG'),
-('9401022', '9401', 'NGGUTI'),
-('9401023', '9401', 'KAPTEL'),
-('9401030', '9401', 'KURIK'),
-('9401031', '9401', 'MALIND'),
-('9401032', '9401', 'ANIMHA'),
-('9401040', '9401', 'MERAUKE'),
-('9401041', '9401', 'SEMANGGA'),
-('9401042', '9401', 'TANAH MIRING'),
-('9401043', '9401', 'JAGEBOB'),
-('9401044', '9401', 'SOTA'),
-('9401045', '9401', 'NAUKENJERAI'),
-('9401050', '9401', 'MUTING'),
-('9401051', '9401', 'ELIGOBEL'),
-('9401052', '9401', 'ULILIN'),
-('9402110', '9402', 'WAMENA'),
-('9402111', '9402', 'ASOLOKOBAL'),
-('9402112', '9402', 'WALELAGAMA'),
-('9402113', '9402', 'TRIKORA'),
-('9402114', '9402', 'NAPUA'),
-('9402115', '9402', 'WALAIK'),
-('9402116', '9402', 'WOUMA'),
-('9402117', '9402', 'WALESI'),
-('9402118', '9402', 'ASOTIPO'),
-('9402119', '9402', 'MAIMA'),
-('9402120', '9402', 'HUBIKOSI'),
-('9402121', '9402', 'PELEBAGA'),
-('9402122', '9402', 'IBELE'),
-('9402123', '9402', 'TAILAREK'),
-('9402124', '9402', 'HUBIKIAK'),
-('9402180', '9402', 'ASOLOGAIMA'),
-('9402181', '9402', 'MUSATFAK'),
-('9402182', '9402', 'SILO KARNO DOGA'),
-('9402183', '9402', 'PYRAMID'),
-('9402184', '9402', 'MULIAMA'),
-('9402190', '9402', 'KURULU'),
-('9402191', '9402', 'USILIMO'),
-('9402192', '9402', 'WITA WAYA'),
-('9402193', '9402', 'LIBAREK'),
-('9402194', '9402', 'WADANGKU'),
-('9402195', '9402', 'PISUGI'),
-('9402220', '9402', 'BOLAKME'),
-('9402221', '9402', 'WOLLO'),
-('9402222', '9402', 'YALENGGA'),
-('9402223', '9402', 'TAGIME'),
-('9402224', '9402', 'MOLAGALOME'),
-('9402225', '9402', 'TAGINERI'),
-('9402226', '9402', 'BUGI'),
-('9402227', '9402', 'BPIRI'),
-('9402228', '9402', 'KORAGI'),
-('9402611', '9402', 'ITLAY HASIGE'),
-('9402612', '9402', 'SIEPKOSI'),
-('9403080', '9403', 'KAUREH'),
-('9403081', '9403', 'AIRU'),
-('9403082', '9403', 'YAPSI'),
-('9403140', '9403', 'KEMTUK'),
-('9403150', '9403', 'KEMTUK GRESI'),
-('9403151', '9403', 'GRESI SELATAN'),
-('9403160', '9403', 'NIMBORAN'),
-('9403161', '9403', 'NIMBORAN TIMUR / NAMBLONG'),
-('9403170', '9403', 'NIMBOKRANG'),
-('9403180', '9403', 'UNURUM GUAY'),
-('9403200', '9403', 'DEMTA'),
-('9403201', '9403', 'YOKARI'),
-('9403210', '9403', 'DEPAPRE'),
-('9403211', '9403', 'RAVENIRARA'),
-('9403220', '9403', 'SENTANI BARAT'),
-('9403221', '9403', 'WAIBU'),
-('9403230', '9403', 'SENTANI'),
-('9403231', '9403', 'EBUNGFAU'),
-('9403240', '9403', 'SENTANI TIMUR'),
-('9404050', '9404', 'UWAPA'),
-('9404051', '9404', 'MENOU'),
-('9404052', '9404', 'DIPA'),
-('9404060', '9404', 'YAUR'),
-('9404061', '9404', 'TELUK UMAR'),
-('9404070', '9404', 'WANGGAR'),
-('9404071', '9404', 'NABIRE BARAT'),
-('9404080', '9404', 'NABIRE'),
-('9404081', '9404', 'TELUK KIMI'),
-('9404090', '9404', 'NAPAN'),
-('9404091', '9404', 'MAKIMI'),
-('9404092', '9404', 'WAPOGA'),
-('9404093', '9404', 'KEPULAUAN MOORA'),
-('9404100', '9404', 'SIRIWO'),
-('9404110', '9404', 'YARO'),
-('9408040', '9408', 'YAPEN TIMUR'),
-('9408041', '9408', 'PANTURA YAPEN'),
-('9408042', '9408', 'TELUK AMPIMOI'),
-('9408043', '9408', 'RAIMBAWI'),
-('9408044', '9408', 'PULAU KURUDU'),
-('9408050', '9408', 'ANGKAISERA'),
-('9408051', '9408', 'KEP. AMBAI'),
-('9408060', '9408', 'YAPEN SELATAN'),
-('9408061', '9408', 'KOSIWO'),
-('9408070', '9408', 'YAPEN BARAT'),
-('9408071', '9408', 'WONAWA'),
-('9408072', '9408', 'PULAU YERUI'),
-('9408080', '9408', 'POOM'),
-('9408081', '9408', 'WINDESI'),
-('9409010', '9409', 'NUMFOR BARAT'),
-('9409011', '9409', 'ORKERI'),
-('9409020', '9409', 'NUMFOR TIMUR'),
-('9409021', '9409', 'BRUYADORI'),
-('9409022', '9409', 'POIRU'),
-('9409030', '9409', 'PADAIDO'),
-('9409031', '9409', 'AIMANDO PADAIDO'),
-('9409040', '9409', 'BIAK TIMUR'),
-('9409041', '9409', 'ORIDEK'),
-('9409050', '9409', 'BIAK KOTA'),
-('9409060', '9409', 'SAMOFA'),
-('9409070', '9409', 'YENDIDORI'),
-('9409080', '9409', 'BIAK UTARA'),
-('9409081', '9409', 'ANDEY'),
-('9409090', '9409', 'WARSA'),
-('9409091', '9409', 'YAWOSI'),
-('9409092', '9409', 'BONDIFUAR'),
-('9409100', '9409', 'BIAK BARAT'),
-('9409101', '9409', 'SWANDIWE'),
-('9410030', '9410', 'PANIAI TIMUR'),
-('9410031', '9410', 'YATAMO'),
-('9410032', '9410', 'KEBO'),
-('9410040', '9410', 'BIBIDA'),
-('9410041', '9410', 'DUMADAMA'),
-('9410070', '9410', 'ARADIDE'),
-('9410071', '9410', 'EKADIDE'),
-('9410080', '9410', 'PANIAI BARAT'),
-('9410081', '9410', 'SIRIWO'),
-('9410090', '9410', 'BOGOBAIDA'),
-('9411040', '9411', 'FAWI'),
-('9411041', '9411', 'DAGAI'),
-('9411042', '9411', 'KIYAGE'),
-('9411050', '9411', 'MULIA'),
-('9411053', '9411', 'YAMBI'),
-('9411054', '9411', 'ILAMBURAWI'),
-('9411055', '9411', 'MUARA'),
-('9411056', '9411', 'PAGALEME'),
-('9411057', '9411', 'GURAGE'),
-('9411058', '9411', 'IRIMULI'),
-('9411060', '9411', 'ILU'),
-('9411061', '9411', 'TORERE'),
-('9411063', '9411', 'YAMONERI'),
-('9411064', '9411', 'WAEGI'),
-('9411065', '9411', 'NUME'),
-('9411066', '9411', 'NIOGA'),
-('9411067', '9411', 'GUBUME'),
-('9411068', '9411', 'TAGANOMBAK'),
-('9411070', '9411', 'TINGGINAMBUT'),
-('9411071', '9411', 'KALOME'),
-('9411072', '9411', 'WANWI'),
-('9411080', '9411', 'MEWOLUK'),
-('9411081', '9411', 'LUMO'),
-('9411082', '9411', 'MOLANIKIME'),
-('9411090', '9411', 'YAMO'),
-('9411091', '9411', 'DOKOME'),
-('9412010', '9412', 'MIMIKA BARAT'),
-('9412011', '9412', 'MIMIKA BARAT JAUH'),
-('9412012', '9412', 'MIMIKA BARAT TENGAH'),
-('9412013', '9412', 'AMAR'),
-('9412020', '9412', 'MIMIKA TIMUR'),
-('9412021', '9412', 'MIMIKA TENGAH'),
-('9412022', '9412', 'MIMIKA TIMUR JAUH'),
-('9412030', '9412', 'MIMIKA BARU'),
-('9412031', '9412', 'KUALA KENCANA'),
-('9412032', '9412', 'TEMBAGAPURA'),
-('9412033', '9412', 'WANIA'),
-('9412034', '9412', 'IWAKA'),
-('9412035', '9412', 'KWAMKI NARAMA'),
-('9412040', '9412', 'AGIMUGA'),
-('9412041', '9412', 'JILA'),
-('9412042', '9412', 'JITA'),
-('9412043', '9412', 'ALAMA'),
-('9412044', '9412', 'HOYA'),
-('9413010', '9413', 'JAIR'),
-('9413011', '9413', 'SUBUR'),
-('9413013', '9413', 'KIA'),
-('9413020', '9413', 'MINDIPTANA'),
-('9413021', '9413', 'INIYANDIT'),
-('9413022', '9413', 'KOMBUT'),
-('9413023', '9413', 'SESNUK'),
-('9413030', '9413', 'MANDOBO'),
-('9413031', '9413', 'FOFI'),
-('9413032', '9413', 'ARIMOP'),
-('9413040', '9413', 'KOUH'),
-('9413041', '9413', 'BOMAKIA'),
-('9413042', '9413', 'FIRIWAGE'),
-('9413043', '9413', 'MANGGELUM'),
-('9413044', '9413', 'YANIRUMA'),
-('9413045', '9413', 'KAWAGIT'),
-('9413046', '9413', 'KOMBAY'),
-('9413050', '9413', 'WAROPKO'),
-('9413051', '9413', 'AMBATKWI'),
-('9413052', '9413', 'NINATI'),
-('9414010', '9414', 'NAMBIOMAN BAPAI'),
-('9414011', '9414', 'MINYAMUR'),
-('9414020', '9414', 'EDERA'),
-('9414021', '9414', 'VENAHA'),
-('9414022', '9414', 'SYAHCAME'),
-('9414023', '9414', 'BAMGI'),
-('9414024', '9414', 'YAKOMI'),
-('9414030', '9414', 'OBAA'),
-('9414031', '9414', 'PASSUE'),
-('9414040', '9414', 'HAJU'),
-('9414050', '9414', 'ASSUE'),
-('9414060', '9414', 'CITAKMITAK'),
-('9414061', '9414', 'KAIBAR'),
-('9414062', '9414', 'PASSUE BAWAH'),
-('9414063', '9414', 'TI-ZAIN'),
-('9415010', '9415', 'PANTAI KASUARI'),
-('9415011', '9415', 'KOPAY'),
-('9415012', '9415', 'DER KOUMUR'),
-('9415013', '9415', 'SAFAN'),
-('9415020', '9415', 'FAYIT'),
-('9415030', '9415', 'ATSY'),
-('9415031', '9415', 'SIRETS'),
-('9415032', '9415', 'AYIP'),
-('9415033', '9415', 'BECTBAMU'),
-('9415040', '9415', 'SUATOR'),
-('9415041', '9415', 'KOLF BRAZA'),
-('9415050', '9415', 'AKAT'),
-('9415051', '9415', 'JETSY'),
-('9415060', '9415', 'AGATS'),
-('9415070', '9415', 'SAWA ERMA'),
-('9415071', '9415', 'SURU-SURU'),
-('9415072', '9415', 'UNIR SIRAU'),
-('9415073', '9415', 'JOERAT'),
-('9415074', '9415', 'PULAU TIGA'),
-('9416010', '9416', 'KURIMA'),
-('9416011', '9416', 'MUSAIK'),
-('9416013', '9416', 'DEKAI'),
-('9416014', '9416', 'OBIO'),
-('9416015', '9416', 'PASEMA'),
-('9416016', '9416', 'AMUMA'),
-('9416017', '9416', 'SURU-SURU'),
-('9416018', '9416', 'WUSAMA'),
-('9416019', '9416', 'SILIMO'),
-('9416020', '9416', 'NINIA'),
-('9416021', '9416', 'HOLUWON'),
-('9416022', '9416', 'LOLAT'),
-('9416023', '9416', 'LANGDA'),
-('9416024', '9416', 'BOMELA'),
-('9416025', '9416', 'SUNTAMON'),
-('9416026', '9416', 'SOBAHAM'),
-('9416027', '9416', 'KORUPUN'),
-('9416028', '9416', 'SELA'),
-('9416029', '9416', 'KWELAMDUA'),
-('9416030', '9416', 'ANGGRUK'),
-('9416031', '9416', 'PANGGEMA'),
-('9416032', '9416', 'WALMA'),
-('9416033', '9416', 'KOSAREK'),
-('9416034', '9416', 'UBAHAK'),
-('9416035', '9416', 'NALCA'),
-('9416036', '9416', 'PULDAMA'),
-('9416037', '9416', 'NIPSAN'),
-('9416041', '9416', 'SAMENAGE'),
-('9416042', '9416', 'TANGMA'),
-('9416043', '9416', 'SOBA'),
-('9416044', '9416', 'MUGI'),
-('9416045', '9416', 'YOGOSEM'),
-('9416046', '9416', 'KAYO'),
-('9416047', '9416', 'SUMO'),
-('9416048', '9416', 'HOGIO'),
-('9416049', '9416', 'UKHA'),
-('9416051', '9416', 'WERIMA'),
-('9416052', '9416', 'SOLOIKMA'),
-('9416053', '9416', 'SERADALA'),
-('9416054', '9416', 'KABIANGGAMA'),
-('9416055', '9416', 'KWIKMA'),
-('9416056', '9416', 'HILIPUK'),
-('9416057', '9416', 'YAHULIAMBUT'),
-('9416058', '9416', 'HEREAPINI'),
-('9416059', '9416', 'UBALIHI'),
-('9416061', '9416', 'TALAMBO'),
-('9416062', '9416', 'PRONGGOLI'),
-('9416063', '9416', 'ENDOMEN'),
-('9416065', '9416', 'KONA'),
-('9416066', '9416', 'DURAM'),
-('9416067', '9416', 'DIRWEMNA'),
-('9417010', '9417', 'IWUR'),
-('9417011', '9417', 'KAWOR'),
-('9417012', '9417', 'TARUP'),
-('9417013', '9417', 'AWINBON'),
-('9417020', '9417', 'OKSIBIL'),
-('9417021', '9417', 'PEPERA'),
-('9417022', '9417', 'ALEMSOM'),
-('9417023', '9417', 'SERAMBAKON'),
-('9417024', '9417', 'KOLOMDOL'),
-('9417025', '9417', 'OKSOP'),
-('9417026', '9417', 'OK BAPE'),
-('9417027', '9417', 'OK AON'),
-('9417030', '9417', 'BORME'),
-('9417031', '9417', 'BIME'),
-('9417032', '9417', 'EPUMEK'),
-('9417033', '9417', 'WEIME'),
-('9417034', '9417', 'PAMEK'),
-('9417035', '9417', 'NONGME'),
-('9417036', '9417', 'BATANI'),
-('9417040', '9417', 'OKBI'),
-('9417041', '9417', 'ABOY'),
-('9417042', '9417', 'OKBAB'),
-('9417043', '9417', 'TEIRAPLU'),
-('9417044', '9417', 'YEFTA'),
-('9417050', '9417', 'KIWIROK'),
-('9417051', '9417', 'KIWIROK TIMUR'),
-('9417052', '9417', 'OKSEBANG'),
-('9417053', '9417', 'OKHIKA'),
-('9417054', '9417', 'OKLIP'),
-('9417055', '9417', 'OKSAMOL'),
-('9417056', '9417', 'OKBEMTA'),
-('9417060', '9417', 'BATOM'),
-('9417061', '9417', 'MURKIM'),
-('9417062', '9417', 'MOFINOP'),
-('9418010', '9418', 'KANGGIME'),
-('9418011', '9418', 'WONIKI'),
-('9418012', '9418', 'NABUNAGE'),
-('9418013', '9418', 'GILUBANDU'),
-('9418014', '9418', 'WAKUO'),
-('9418015', '9418', 'AWEKU'),
-('9418016', '9418', 'BOGONUK'),
-('9418020', '9418', 'KARUBAGA'),
-('9418021', '9418', 'GOYAGE'),
-('9418022', '9418', 'WUNIN'),
-('9418023', '9418', 'KONDAGA'),
-('9418024', '9418', 'NELAWI'),
-('9418025', '9418', 'KUARI'),
-('9418026', '9418', 'LIANOGOMA'),
-('9418027', '9418', 'BIUK'),
-('9418030', '9418', 'BOKONDINI'),
-('9418031', '9418', 'BOKONERI'),
-('9418032', '9418', 'BEWANI'),
-('9418040', '9418', 'KEMBU'),
-('9418041', '9418', 'WINA'),
-('9418042', '9418', 'UMAGI'),
-('9418043', '9418', 'PANAGA'),
-('9418044', '9418', 'POGANERI'),
-('9418045', '9418', 'KAMBONERI'),
-('9418046', '9418', 'AIR GARAM'),
-('9418047', '9418', 'DOW'),
-('9418048', '9418', 'WARI / TAIYEVE'),
-('9418049', '9418', 'EGIAM'),
-('9418051', '9418', 'NUNGGAWI'),
-('9418060', '9418', 'KUBU'),
-('9418061', '9418', 'ANAWI'),
-('9418062', '9418', 'WUGI'),
-('9418070', '9418', 'GEYA'),
-('9418071', '9418', 'WENAM'),
-('9418080', '9418', 'NUMBA'),
-('9418081', '9418', 'KAI'),
-('9418090', '9418', 'DUNDU'),
-('9418100', '9418', 'GUNDAGI'),
-('9418110', '9418', 'TIMORI'),
-('9418121', '9418', 'YUNERI'),
-('9418125', '9418', 'TAGIME'),
-('9418126', '9418', 'DANIME'),
-('9418127', '9418', 'YUKO'),
-('9418541', '9418', 'TELENGGEME'),
-('9418542', '9418', 'GIKA'),
-('9418543', '9418', 'TAGINERI'),
-('9419021', '9419', 'PANTAI TIMUR BAGIAN BARAT'),
-('9419022', '9419', 'PANTAI TIMUR'),
-('9419024', '9419', 'SUNGAI BIRI'),
-('9419031', '9419', 'BONGGO'),
-('9419032', '9419', 'BONGGO TIMUR'),
-('9419033', '9419', 'BONGGO BARAT'),
-('9419040', '9419', 'TOR ATAS'),
-('9419041', '9419', 'ISMARI'),
-('9419050', '9419', 'SARMI'),
-('9419051', '9419', 'SARMI TIMUR'),
-('9419052', '9419', 'SARMI SELATAN'),
-('9419053', '9419', 'SOBEY'),
-('9419054', '9419', 'MUARA TOR'),
-('9419055', '9419', 'VERKAM'),
-('9419060', '9419', 'PANTAI BARAT'),
-('9419061', '9419', 'APAWER HULU'),
-('9419062', '9419', 'APAWER HILIR'),
-('9419063', '9419', 'APAWER TENGAH'),
-('9420010', '9420', 'WEB'),
-('9420011', '9420', 'TOWE'),
-('9420020', '9420', 'SENGGI'),
-('9420030', '9420', 'WARIS'),
-('9420040', '9420', 'ARSO'),
-('9420041', '9420', 'ARSO TIMUR'),
-('9420050', '9420', 'SKANTO'),
-('9426010', '9426', 'WAROPEN BAWAH'),
-('9426011', '9426', 'INGGERUS'),
-('9426012', '9426', 'UREI FAISEI'),
-('9426013', '9426', 'OUDATE'),
-('9426014', '9426', 'WAPOGA'),
-('9426020', '9426', 'MASIREI'),
-('9426021', '9426', 'RISEI SAYATI'),
-('9426022', '9426', 'DEMBA'),
-('9426030', '9426', 'WALANI'),
-('9426040', '9426', 'KIRIHI'),
-('9427010', '9427', 'SUPIORI SELATAN'),
-('9427011', '9427', 'KEPULAUAN ARURI'),
-('9427020', '9427', 'SUPIORI UTARA'),
-('9427021', '9427', 'SUPIORI BARAT'),
-('9427030', '9427', 'SUPIORI TIMUR'),
-('9428030', '9428', 'WAROPEN ATAS'),
-('9428031', '9428', 'BENUKI'),
-('9428032', '9428', 'SAWAI'),
-('9428040', '9428', 'MAMBERAMO ILIR'),
-('9428050', '9428', 'MAMBERAMO TENGAH'),
-('9428051', '9428', 'IWASO'),
-('9428060', '9428', 'MAMBERAMO TENGAH TIMUR'),
-('9428070', '9428', 'ROFAER'),
-('9428080', '9428', 'MAMBERAMO ULU'),
-('9429010', '9429', 'WOSAK'),
-('9429020', '9429', 'KENYAM'),
-('9429030', '9429', 'GESELMA'),
-('9429040', '9429', 'MAPENDUMA'),
-('9429050', '9429', 'MUGI'),
-('9429060', '9429', 'YIGI'),
-('9429070', '9429', 'MBUWA'),
-('9429080', '9429', 'GEAREK'),
-('9430010', '9430', 'MAKKI'),
-('9430020', '9430', 'PIRIME'),
-('9430030', '9430', 'TIOM'),
-('9430040', '9430', 'BALINGGA'),
-('9430050', '9430', 'KUYAWAGE'),
-('9430060', '9430', 'MALAGAINERI'),
-('9430070', '9430', 'TIOMNERI'),
-('9430080', '9430', 'DIMBA'),
-('9430090', '9430', 'GAMELIA'),
-('9430100', '9430', 'POGA'),
-('9431010', '9431', 'KOBAKMA'),
-('9431020', '9431', 'ILUGWA'),
-('9431030', '9431', 'KELILA'),
-('9431040', '9431', 'ERAGAYAM'),
-('9431050', '9431', 'MEGAMBILIS'),
-('9432010', '9432', 'WELAREK'),
-('9432020', '9432', 'APALAPSILI'),
-('9432030', '9432', 'ABENAHO'),
-('9432040', '9432', 'ELELIM'),
-('9432050', '9432', 'BENAWA'),
-('9433010', '9433', 'AGADUGUME'),
-('9433020', '9433', 'GOME'),
-('9433030', '9433', 'ILAGA'),
-('9433040', '9433', 'SINAK'),
-('9433050', '9433', 'POGOMA'),
-('9433060', '9433', 'WANGBE'),
-('9433070', '9433', 'BEOGA'),
-('9433080', '9433', 'DOUFO'),
-('9434010', '9434', 'SUKIKAI SELATAN'),
-('9434020', '9434', 'PIYAIYE'),
-('9434030', '9434', 'MAPIA BARAT'),
-('9434040', '9434', 'MAPIA TENGAH'),
-('9434050', '9434', 'MAPIA'),
-('9434060', '9434', 'DOGIYAI'),
-('9434070', '9434', 'KAMU SELATAN'),
-('9434080', '9434', 'KAMU'),
-('9434090', '9434', 'KAMU TIMUR'),
-('9434100', '9434', 'KAMU UTARA'),
-('9435010', '9435', 'HOMEYO'),
-('9435020', '9435', 'SUGAPA'),
-('9435030', '9435', 'HITADIPA'),
-('9435040', '9435', 'AGISIGA'),
-('9435050', '9435', 'BIANDOGA'),
-('9435060', '9435', 'WANDAI'),
-('9436010', '9436', 'KAPIRAYA'),
-('9436020', '9436', 'TIGI BARAT'),
-('9436030', '9436', 'TIGI'),
-('9436040', '9436', 'TIGI TIMUR'),
-('9436050', '9436', 'BOWOBADO'),
-('9471010', '9471', 'MUARA TAMI'),
-('9471020', '9471', 'ABEPURA'),
-('9471021', '9471', 'HERAM'),
-('9471030', '9471', 'JAYAPURA SELATAN'),
-('9471040', '9471', 'JAYAPURA UTARA');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_kelahiran`
---
-
+-- ----------------------------
+-- Table structure for tbl_kelahiran
+-- ----------------------------
 DROP TABLE IF EXISTS `tbl_kelahiran`;
-CREATE TABLE IF NOT EXISTS `tbl_kelahiran` (
+CREATE TABLE `tbl_kelahiran`  (
   `id_lahir` int(11) NOT NULL,
-  `id_penduduk` int(11) DEFAULT NULL,
-  `jam_lahir` varchar(25) DEFAULT NULL,
-  `nama_ayah` varchar(50) DEFAULT NULL,
-  `nama_ibu` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`id_lahir`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id_penduduk` int(11) NULL DEFAULT NULL,
+  `jam_lahir` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `nama_ayah` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `nama_ibu` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id_lahir`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
---
--- Dumping data for table `tbl_kelahiran`
---
+-- ----------------------------
+-- Records of tbl_kelahiran
+-- ----------------------------
+INSERT INTO `tbl_kelahiran` VALUES (20, 76, '16:30', 'FERI ', 'FINA');
+INSERT INTO `tbl_kelahiran` VALUES (21, 80, '14:29', 'H. A.Latif', 'sri');
 
-INSERT INTO `tbl_kelahiran` (`id_lahir`, `id_penduduk`, `jam_lahir`, `nama_ayah`, `nama_ibu`) VALUES
-(20, 76, '16:30', 'FERI ', 'FINA'),
-(21, 80, '14:29', 'H. A.Latif', 'sri');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_keluarga`
---
-
+-- ----------------------------
+-- Table structure for tbl_keluarga
+-- ----------------------------
 DROP TABLE IF EXISTS `tbl_keluarga`;
-CREATE TABLE IF NOT EXISTS `tbl_keluarga` (
+CREATE TABLE `tbl_keluarga`  (
   `id_keluarga` int(11) NOT NULL,
-  `no_kk` varchar(25) DEFAULT NULL,
-  `kepala_keluarga` varchar(25) DEFAULT NULL,
-  `alamat` text NOT NULL,
-  `rt` varchar(4) NOT NULL,
-  `rw` varchar(4) NOT NULL,
-  `desa` varchar(15) NOT NULL,
-  `kecamatan` varchar(15) NOT NULL,
-  `kabupaten` varchar(15) NOT NULL,
-  `provinsi` varchar(15) NOT NULL,
-  `kode_pos` varchar(10) NOT NULL,
-  PRIMARY KEY (`id_keluarga`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `no_kk` varchar(25) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `kepala_keluarga` varchar(25) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `alamat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `rt` varchar(4) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `rw` varchar(4) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `desa` varchar(15) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `id_kecamatan` int(7) NULL DEFAULT NULL,
+  `id_kabupaten` int(4) NULL DEFAULT NULL,
+  `id_provinsi` int(2) NULL DEFAULT NULL,
+  `kode_pos` varchar(10) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id_keluarga`) USING BTREE
+) ENGINE = MyISAM CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
---
--- Dumping data for table `tbl_keluarga`
---
+-- ----------------------------
+-- Records of tbl_keluarga
+-- ----------------------------
+INSERT INTO `tbl_keluarga` VALUES (7, '3203182304200001', 'Sarah', '', '', '', '', 3203100, 3203, 32, '43266');
+INSERT INTO `tbl_keluarga` VALUES (6, '3202182206160003', 'Hj. Mulyati', '', '', '', '', 3203100, 3203, 32, '43266');
+INSERT INTO `tbl_keluarga` VALUES (8, '3203181011051709', 'Kaeji', '', '', '', '', 3203100, 3203, 32, '43266');
+INSERT INTO `tbl_keluarga` VALUES (9, '3203182903160004', 'DANIAL PAOJI', '', '', '', '', 3203100, 3203, 32, '43266');
+INSERT INTO `tbl_keluarga` VALUES (10, '3203180510120037', 'UDAN', '', '', '', '', 3203100, 3203, 32, '43266');
+INSERT INTO `tbl_keluarga` VALUES (11, '3203181810170005', 'FERI', '', '', '', '', 3203100, 3203, 32, '43266');
+INSERT INTO `tbl_keluarga` VALUES (12, '3203181709120010', 'ASEP', '', '', '', '', 3203100, 3203, 32, '43266');
+INSERT INTO `tbl_keluarga` VALUES (13, '3202181011051761', 'JUKARDI', '', '', '', '', 3203100, 3203, 32, '43266');
+INSERT INTO `tbl_keluarga` VALUES (14, '3202181011051742', 'DAYAT', '', '', '', '', 3203100, 3203, 32, '43266');
+INSERT INTO `tbl_keluarga` VALUES (15, '3202181011051759', 'H. ROYANI', '', '', '', '', 3203100, 3203, 32, '43266');
+INSERT INTO `tbl_keluarga` VALUES (16, '3203181311190001', 'ANJASMARA DARUSALAM PAKIH', '', '', '', '', 3203100, 3203, 32, '43266');
+INSERT INTO `tbl_keluarga` VALUES (17, '3203182705090001', 'ACENG MUSTIKA', '', '', '', '', 3203100, 3203, 32, '43266');
+INSERT INTO `tbl_keluarga` VALUES (18, '3203183105180007', 'IDOH', '', '', '', '', 3203100, 3203, 32, '43266');
+INSERT INTO `tbl_keluarga` VALUES (19, '3203182010110002', 'H. ATORI', '', '', '', '', 3203100, 3203, 32, '43266');
+INSERT INTO `tbl_keluarga` VALUES (20, '3203182607150010', 'H. RAMDANI ISKANDAR, S.Pd', '', '', '', '', 3203100, 3203, 32, '43266');
+INSERT INTO `tbl_keluarga` VALUES (21, '3203181011056467', 'HAMDAN', '', '', '', '', 3203100, 3203, 32, '43266');
+INSERT INTO `tbl_keluarga` VALUES (22, '3203181603110781', 'MUNAWAR', '', '', '', '', 3203100, 3203, 32, '43266');
+INSERT INTO `tbl_keluarga` VALUES (23, '3203181704080005', 'SIBYAN', '', '', '', '', 3203100, 3203, 32, '43266');
+INSERT INTO `tbl_keluarga` VALUES (25, '3203109392928989', 'jjjjjkm', 'Kp. Selaawi', '2', 'Cian', '', 3203100, 3203, 32, '43266');
+INSERT INTO `tbl_keluarga` VALUES (26, '3203109392928', 'Jujun J', 'Kp. Selaawi', '2', 'Cian', '', 3203100, 3203, 32, '43266');
+INSERT INTO `tbl_keluarga` VALUES (0, '123123', 'Keluarga EE', 'Jl. Prof.H.M.Yamin No.173, Kisaran Naga, Kisaran Timur., Kabupaten Asahan, Sumatera Utara 21222 Indonesia', '123', '123', 'Desa Situhiang', 3203100, 3203, 32, '43266');
 
-INSERT INTO `tbl_keluarga` (`id_keluarga`, `no_kk`, `kepala_keluarga`, `alamat`, `rt`, `rw`, `desa`, `kecamatan`, `kabupaten`, `provinsi`, `kode_pos`) VALUES
-(7, '3203182304200001', 'Sarah', '', '', '', '', '', '', '', ''),
-(6, '3202182206160003', 'Hj. Mulyati', '', '', '', '', '', '', '', ''),
-(8, '3203181011051709', 'Kaeji', '', '', '', '', '', '', '', ''),
-(9, '3203182903160004', 'DANIAL PAOJI', '', '', '', '', '', '', '', ''),
-(10, '3203180510120037', 'UDAN', '', '', '', '', '', '', '', ''),
-(11, '3203181810170005', 'FERI', '', '', '', '', '', '', '', ''),
-(12, '3203181709120010', 'ASEP', '', '', '', '', '', '', '', ''),
-(13, '3202181011051761', 'JUKARDI', '', '', '', '', '', '', '', ''),
-(14, '3202181011051742', 'DAYAT', '', '', '', '', '', '', '', ''),
-(15, '3202181011051759', 'H. ROYANI', '', '', '', '', '', '', '', ''),
-(16, '3203181311190001', 'ANJASMARA DARUSALAM PAKIH', '', '', '', '', '', '', '', ''),
-(17, '3203182705090001', 'ACENG MUSTIKA', '', '', '', '', '', '', '', ''),
-(18, '3203183105180007', 'IDOH', '', '', '', '', '', '', '', ''),
-(19, '3203182010110002', 'H. ATORI', '', '', '', '', '', '', '', ''),
-(20, '3203182607150010', 'H. RAMDANI ISKANDAR, S.Pd', '', '', '', '', '', '', '', ''),
-(21, '3203181011056467', 'HAMDAN', '', '', '', '', '', '', '', ''),
-(22, '3203181603110781', 'MUNAWAR', '', '', '', '', '', '', '', ''),
-(23, '3203181704080005', 'SIBYAN', '', '', '', '', '', '', '', ''),
-(25, '3203109392928989', 'jjjjjkm', 'Kp. Selaawi', '2', 'Cian', '', '', '', '', ''),
-(26, '3203109392928', 'Jujun J', 'Kp. Selaawi', '2', 'Cian', '', '', '', '', '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_kematian`
---
-
+-- ----------------------------
+-- Table structure for tbl_kematian
+-- ----------------------------
 DROP TABLE IF EXISTS `tbl_kematian`;
-CREATE TABLE IF NOT EXISTS `tbl_kematian` (
+CREATE TABLE `tbl_kematian`  (
   `id_kematian` int(2) NOT NULL,
   `id_penduduk` int(2) NOT NULL,
-  `tempat_kematian` varchar(15) NOT NULL,
+  `tempat_kematian` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `tgl_kematian` date NOT NULL,
-  `penyebab` varchar(20) NOT NULL,
-  PRIMARY KEY (`id_kematian`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `penyebab` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id_kematian`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
---
--- Dumping data for table `tbl_kematian`
---
+-- ----------------------------
+-- Records of tbl_kematian
+-- ----------------------------
+INSERT INTO `tbl_kematian` VALUES (5, 77, 'Rumah Pribadi', '2022-11-26', 'Sakit Berat');
+INSERT INTO `tbl_kematian` VALUES (6, 36, 'Rumah sakit', '2022-12-01', 'Sakit Berat');
 
-INSERT INTO `tbl_kematian` (`id_kematian`, `id_penduduk`, `tempat_kematian`, `tgl_kematian`, `penyebab`) VALUES
-(5, 77, 'Rumah Pribadi', '2022-11-26', 'Sakit Berat'),
-(6, 36, 'Rumah sakit', '2022-12-01', 'Sakit Berat');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_pekerjaan`
---
-
+-- ----------------------------
+-- Table structure for tbl_pekerjaan
+-- ----------------------------
 DROP TABLE IF EXISTS `tbl_pekerjaan`;
-CREATE TABLE IF NOT EXISTS `tbl_pekerjaan` (
+CREATE TABLE `tbl_pekerjaan`  (
   `id_pekerjaan` int(2) NOT NULL,
-  `pekerjaan` varchar(255) DEFAULT NULL,
+  `pekerjaan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_pekerjaan`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
---
--- Dumping data for table `tbl_pekerjaan`
---
+-- ----------------------------
+-- Records of tbl_pekerjaan
+-- ----------------------------
+INSERT INTO `tbl_pekerjaan` VALUES (1, 'PNS');
+INSERT INTO `tbl_pekerjaan` VALUES (2, 'Swasta');
+INSERT INTO `tbl_pekerjaan` VALUES (3, 'TNI/POLRI');
+INSERT INTO `tbl_pekerjaan` VALUES (4, 'Wiraswasta');
+INSERT INTO `tbl_pekerjaan` VALUES (5, 'Buruh');
+INSERT INTO `tbl_pekerjaan` VALUES (6, 'Ibu Rumah Tangga');
+INSERT INTO `tbl_pekerjaan` VALUES (7, 'Petani/Pekebun');
+INSERT INTO `tbl_pekerjaan` VALUES (8, 'Lainnya');
+INSERT INTO `tbl_pekerjaan` VALUES (9, 'Tidak/Belum Bekerja');
+INSERT INTO `tbl_pekerjaan` VALUES (10, 'Perangkat Desa');
 
-INSERT INTO `tbl_pekerjaan` (`id_pekerjaan`, `pekerjaan`) VALUES
-(1, 'PNS'),
-(2, 'Swasta'),
-(3, 'TNI/POLRI'),
-(4, 'Wiraswasta'),
-(5, 'Buruh'),
-(6, 'Ibu Rumah Tangga'),
-(7, 'Petani/Pekebun'),
-(8, 'Lainnya'),
-(9, 'Tidak/Belum Bekerja'),
-(10, 'Perangkat Desa');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_pendidikan`
---
-
+-- ----------------------------
+-- Table structure for tbl_pendidikan
+-- ----------------------------
 DROP TABLE IF EXISTS `tbl_pendidikan`;
-CREATE TABLE IF NOT EXISTS `tbl_pendidikan` (
+CREATE TABLE `tbl_pendidikan`  (
   `id_pendidikan` int(2) NOT NULL,
-  `pendidikan` varchar(255) DEFAULT NULL,
+  `pendidikan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_pendidikan`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
---
--- Dumping data for table `tbl_pendidikan`
---
+-- ----------------------------
+-- Records of tbl_pendidikan
+-- ----------------------------
+INSERT INTO `tbl_pendidikan` VALUES (0, 'Tidak Sekolah/Belum Sekolah');
+INSERT INTO `tbl_pendidikan` VALUES (1, 'TK/Paud');
+INSERT INTO `tbl_pendidikan` VALUES (2, 'SD/Setara');
+INSERT INTO `tbl_pendidikan` VALUES (3, 'SMP/Setara');
+INSERT INTO `tbl_pendidikan` VALUES (4, 'SMA/Setara');
+INSERT INTO `tbl_pendidikan` VALUES (5, 'D1');
+INSERT INTO `tbl_pendidikan` VALUES (6, 'D2');
+INSERT INTO `tbl_pendidikan` VALUES (7, 'D3');
+INSERT INTO `tbl_pendidikan` VALUES (8, 'D4');
+INSERT INTO `tbl_pendidikan` VALUES (9, 'S1');
+INSERT INTO `tbl_pendidikan` VALUES (10, 'S2');
+INSERT INTO `tbl_pendidikan` VALUES (12, 'S3');
+INSERT INTO `tbl_pendidikan` VALUES (13, 'Belum Tamat SD');
 
-INSERT INTO `tbl_pendidikan` (`id_pendidikan`, `pendidikan`) VALUES
-(0, 'Tidak Sekolah/Belum Sekolah'),
-(1, 'TK/Paud'),
-(2, 'SD/Setara'),
-(3, 'SMP/Setara'),
-(4, 'SMA/Setara'),
-(5, 'D1'),
-(6, 'D2'),
-(7, 'D3'),
-(8, 'D4'),
-(9, 'S1'),
-(10, 'S2'),
-(12, 'S3'),
-(13, 'Belum Tamat SD');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_penduduk`
---
-
+-- ----------------------------
+-- Table structure for tbl_penduduk
+-- ----------------------------
 DROP TABLE IF EXISTS `tbl_penduduk`;
-CREATE TABLE IF NOT EXISTS `tbl_penduduk` (
+CREATE TABLE `tbl_penduduk`  (
   `id_penduduk` int(2) NOT NULL,
-  `no_kk` varchar(25) DEFAULT NULL,
-  `hubungan_keluarga` varchar(20) DEFAULT NULL,
-  `nik` varchar(25) DEFAULT NULL,
-  `nama` varchar(30) DEFAULT NULL,
-  `tempat_lahir` varchar(20) DEFAULT NULL,
-  `tgl_lahir` date DEFAULT NULL,
-  `jk` varchar(1) DEFAULT NULL,
-  `gol_darah` varchar(4) DEFAULT NULL,
-  `provinsi` varchar(15) NOT NULL,
-  `id_kabupaten` int(4) DEFAULT NULL,
-  `id_kecamatan` int(7) DEFAULT NULL,
-  `alamat` text,
-  `rt` varchar(4) DEFAULT NULL,
-  `rw` varchar(4) DEFAULT NULL,
-  `agama` varchar(10) DEFAULT NULL,
-  `status_perkawinan` varchar(15) DEFAULT NULL,
-  `id_pendidikan` varchar(2) DEFAULT NULL,
-  `id_pekerjaan` int(2) DEFAULT NULL,
-  `id_penghasilan` int(2) DEFAULT NULL,
-  `id_bantuan` int(2) DEFAULT NULL,
-  `status_tinggal` varchar(15) DEFAULT NULL,
-  `kewarganegaraan` varchar(15) DEFAULT NULL,
-  `status` int(1) DEFAULT '1',
-  `password` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id_penduduk`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `no_kk` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `hubungan_keluarga` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `nik` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `nama` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `tempat_lahir` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `tgl_lahir` date NULL DEFAULT NULL,
+  `jk` varchar(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `gol_darah` varchar(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `provinsi` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `id_kabupaten` int(4) NULL DEFAULT NULL,
+  `id_kecamatan` int(7) NULL DEFAULT NULL,
+  `alamat` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+  `rt` varchar(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `rw` varchar(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `agama` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `status_perkawinan` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `id_pendidikan` varchar(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `id_pekerjaan` int(2) NULL DEFAULT NULL,
+  `id_penghasilan` int(2) NULL DEFAULT NULL,
+  `id_bantuan` int(2) NULL DEFAULT NULL,
+  `status_tinggal` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `kewarganegaraan` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `status` int(1) NULL DEFAULT 1,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id_penduduk`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
---
--- Dumping data for table `tbl_penduduk`
---
+-- ----------------------------
+-- Records of tbl_penduduk
+-- ----------------------------
+INSERT INTO `tbl_penduduk` VALUES (29, '3202182206160003', 'Kepala Keluarga', '3203181989700024', 'Hj. Mulyati', 'Cianjur', '1970-02-07', 'P', 'A', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '3', '2', 6, 2, 2, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (30, '3202182206160003', 'Anak', '3203182609980002', 'Moh. Salman Parizi', 'Cianjur', '1998-09-26', 'L', 'A', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '2', '9', 1, 1, NULL, '2', 'WNI', 3, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (31, '3203182304200001', 'Kepala Keluarga', '3203185305470000', 'Sarah', 'Cianjur', '1947-05-13', 'P', 'B', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '2', 'Islam', '3', '2', 7, 2, 3, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (32, '3203181011051709', 'Kepala Keluarga', '3203180107410080', 'Kaeji', 'Cianjur', '1947-07-08', '-', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '2', 'Islam', '1', '2', 7, 2, 3, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (33, '3203181011051709', 'Istri', '3203185002750007', 'WASIA', 'Cianjur', '1978-10-03', 'P', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '2', 'Islam', '1', '2', 6, 1, NULL, '1', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (34, '3203182903160004', 'Kepala Keluarga', '3203181201500011', 'DANIAL PAOJI', 'Cianjur', '1960-01-12', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '1', '2', 5, 2, 2, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (35, '3203182903160004', 'Istri', '3203184406640009', 'AI BASIROH', 'Cianjur', '1964-06-04', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '4', '2', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (36, '3203182903160004', 'Anak', '3203180701910008', 'CEP DAROR APIP', 'Cianjur', '1991-01-07', 'L', 'A', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '2', '2', 8, 2, 5, '2', 'WNI', 2, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (37, '3203180510120037', 'Kepala Keluarga', '3203180406870008', 'UDAN', 'Cianjur', '1967-04-04', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '2', 4, 2, 3, '1', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (38, '3203180510120037', 'Istri', '3203184107600401', 'MICIH', 'Cianjur', '1968-07-01', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '2', 6, 1, NULL, '1', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (39, '3203181810170005', 'Istri', '3203185804980005', 'FINA', 'Cianjur', '1998-04-18', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '2', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (40, '3203181810170005', 'Kepala Keluarga', '3203182301950003', 'FERI', 'Cianjur', '1995-01-23', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '3', 5, 2, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (41, '3203181810170005', 'Anak', '3203181210170001', 'M. RAFFA IRAWAN', 'Cianjur', '2017-10-12', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '2', '1', 8, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (42, '3203181709120010', 'Kepala Keluarga', '3203180607870011', 'ASEP', 'Cianjur', '1987-07-06', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '2', 5, 2, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (43, '3203181709120010', 'Istri', '3203185604890005', 'DEDAH', 'Cianjur', '1989-04-15', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '2', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (44, '3203181709120010', 'Anak', '3203180311110003', 'M. RIZKI IBRAHIM', 'Cianjur', '2011-11-03', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '2', '13', 8, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (45, '3202181011051761', 'Kepala Keluarga', '3203180665670083', 'JUKARDI', 'Cianjur', '1967-07-06', 'L', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '2', 'Islam', '1', '2', 4, 2, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (46, '3202181011051761', 'Istri', '3203184107750025', 'NURHABIBAH', 'Cianjur', '1975-07-01', 'P', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '3', 'Islam', '1', '2', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (47, '3202181011051761', 'Anak', '3203184759621845', 'HAIKAL RAHMANDA', 'Cianjur', '2016-06-14', 'L', 'B', '32', 3203, 3203100, 'Kp. Legok Gintung', '2', '2', 'Islam', '2', '13', 9, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (48, '3202181011051742', 'Kepala Keluarga', '3203181905550004', 'DAYAT', 'Cianjur', '1966-06-19', 'L', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '2', 'Islam', '1', '2', 5, 2, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (49, '3202181011051742', 'Istri', '3203184301580004', 'NURMASITI', 'Cianjur', '1968-01-03', 'P', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '2', 'Islam', '1', '2', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (50, '3202181011051742', 'Anak', '3203180505900010', 'ROHIDIN', 'Cianjur', '1990-06-05', 'L', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '2', 'Islam', '2', '2', 5, 2, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (51, '3202181011051759', 'Kepala Keluarga', '3203181206340002', 'H. ROYANI', 'Cianjur', '1934-06-12', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '1', '2', 7, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (52, '3202181011051759', 'Istri', '3203184407480004', 'HJ. NURHASANAH', 'Cianjur', '1948-07-04', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '1', '2', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (53, '3203181311190001', 'Kepala Keluarga', '3203181502920004', 'ANJASMARA DARUSALAM PAKIHA', 'Cianjur', '1992-02-16', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '4', 4, 2, NULL, '1', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (54, '3203181311190001', 'Istri', '3203186602030003', 'SINTIA BELA', 'Cianjur', '2001-02-26', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '3', 6, 1, NULL, '1', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (55, '3203181311190001', 'Anak', '3203185505200002', 'SYAHNAZ SHAKIRA PAQIH', 'Cianjur', '2020-05-15', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '2', '0', 9, 1, NULL, '1', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (56, '3203182705090001', 'Kepala Keluarga', '3203181512820001', 'ACENG MUSTIKA', 'Cianjur', '1982-12-15', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '2', 4, 4, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (57, '3203182705090001', 'Istri', '3203186404880001', 'LIA HANDAYANI', 'Cianjur', '1988-04-24', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '3', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (58, '3203182705090001', 'Anak', '32031880601170002', 'DAFFA MAULANA ARDIANSAH', 'Cianjur', '2017-01-04', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '2', '0', 9, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (59, '3203183105180007', 'Kepala Keluarga', '3203185207560002', 'IDOH', 'Cianjur', '1956-07-12', 'P', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '2', 'Islam', '2', '2', 6, 1, NULL, '2', 'WNI', 3, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (60, '3203182010110002', 'Kepala Keluarga', '3203185806900009', 'H. ATORI', 'Cianjur', '1972-07-13', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '1', '3', 4, 4, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (61, '3203182010110002', 'Istri', '3203185805900009', 'AISAH', 'Cianjur', '1990-06-18', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '1', '3', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (62, '3203182010110002', 'Anak', '3203184806110003', 'KANESA', 'Cianjur', '2011-06-06', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '2', '13', 9, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (63, '3203182010110002', 'Anak', '3203186603150001', 'SENY AWALIYAH MARWAH', 'Cianjur', '2015-03-26', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '2', '13', 9, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (64, '3203182607150010', 'Kepala Keluarga', '3203181805890005', 'H. RAMDANI ISKANDAR, S.Pd.I', 'Saudi Arabia', '1989-05-10', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '9', 10, 7, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (65, '3203182607150010', 'Istri', '3203185703930001', 'RENI', 'Cianjur', '1993-03-17', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '3', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (66, '3203182607150010', 'Anak', '3203181105270001', 'RIKI HUSNI MUBAROK', 'Cianjur', '2017-05-11', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '2', '0', 9, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (67, '3203181011056467', 'Kepala Keluarga', '3203181801740002', 'HAMDAN', 'Cianjur', '1974-01-18', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '2', 4, 3, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (68, '3203181011056467', 'Istri', '3203185005780018', 'YANI MULYANI', 'Cianjur', '1978-05-10', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '2', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (69, '3203181603110781', 'Kepala Keluarga', '3203180901700003', 'MUNAWAR', 'Cianjur', '1970-05-06', 'L', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '3', 'Islam', '1', '2', 7, 2, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (70, '3203181603110781', 'Istri', '3203186104750003', 'DEDE', 'Cianjur', '1975-04-19', 'P', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '2', 'Islam', '1', '2', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (71, '3203181603110781', 'Anak', '3203181901000010', 'RIPAL', 'Cianjur', '2000-01-19', 'L', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '2', 'Islam', '2', '4', 9, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (72, '3203181704080005', 'Kepala Keluarga', '3203181210790002', 'SIBYAN', 'Cianjur', '1979-10-12', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '1', '2', 5, 2, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (73, '3203181704080005', 'Istri', '3203185606840001', 'ERU ROBIAH, S.Pd.', 'Cianjur', '1984-06-15', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '1', '9', 2, 4, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (74, '3203181704080005', 'Anak', '3203180712070001', 'DESCA KHOERUNISA B', 'Cianjur', '2007-12-27', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '2', '3', 9, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (75, '3203181704080005', 'Anak', '3203185610150001', 'DEBBY NUR ANNISA', 'Cianjur', '2015-10-19', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '2', '0', 9, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (76, '3203181810170005', 'Anak', NULL, 'INDRI LESTARI', 'Rumah Sakit', '2022-11-17', 'P', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL);
+INSERT INTO `tbl_penduduk` VALUES (77, '3203180517689201', 'Kepala Keluarga', '3203182709195001', 'HJ. KODARIAH', 'Cianjur', '1950-09-27', 'P', 'AB', '32', 3203, 3203100, 'Kp. Pajagan', '1', '2', 'Islam', '2', '2', 6, 1, NULL, '2', 'WNI', 2, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (78, '3203181603110781', 'Anak', '3203184702700024', 'Saepul ', 'Cianjur', '2022-12-04', 'L', 'B', '16', 1604, 1604041, 'Kp. Legok Gintung', '2', '3', 'Islam', '2', '0', 9, 1, NULL, '1', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (79, '3203109392928989', 'Kepala Keluarga', '32031844066409898', 'gygy', 'Cianjur', '2022-11-30', 'L', 'AB', '13', 1308, 1308022, 'Kp. Selaawi', '2', '2', 'Islam', '1', '4', 10, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (80, '3203109392928989', 'Anak', NULL, 'jsdfj', 'Cianjur', '2022-12-08', 'P', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL);
 
-INSERT INTO `tbl_penduduk` (`id_penduduk`, `no_kk`, `hubungan_keluarga`, `nik`, `nama`, `tempat_lahir`, `tgl_lahir`, `jk`, `gol_darah`, `provinsi`, `id_kabupaten`, `id_kecamatan`, `alamat`, `rt`, `rw`, `agama`, `status_perkawinan`, `id_pendidikan`, `id_pekerjaan`, `id_penghasilan`, `id_bantuan`, `status_tinggal`, `kewarganegaraan`, `status`, `password`) VALUES
-(29, '3202182206160003', 'Kepala Keluarga', '3203181989700024', 'Hj. Mulyati', 'Cianjur', '1970-02-07', 'P', 'A', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '3', '2', 6, 2, 2, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(30, '3202182206160003', 'Anak', '3203182609980002', 'Moh. Salman Parizi', 'Cianjur', '1998-09-26', 'L', 'A', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '2', '9', 1, 1, NULL, '2', 'WNI', 3, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(31, '3203182304200001', 'Kepala Keluarga', '3203185305470000', 'Sarah', 'Cianjur', '1947-05-13', 'P', 'B', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '2', 'Islam', '3', '2', 7, 2, 3, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(32, '3203181011051709', 'Kepala Keluarga', '3203180107410080', 'Kaeji', 'Cianjur', '1947-07-08', '-', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '2', 'Islam', '1', '2', 7, 2, 3, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(33, '3203181011051709', 'Istri', '3203185002750007', 'WASIA', 'Cianjur', '1978-10-03', 'P', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '2', 'Islam', '1', '2', 6, 1, NULL, '1', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(34, '3203182903160004', 'Kepala Keluarga', '3203181201500011', 'DANIAL PAOJI', 'Cianjur', '1960-01-12', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '1', '2', 5, 2, 2, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(35, '3203182903160004', 'Istri', '3203184406640009', 'AI BASIROH', 'Cianjur', '1964-06-04', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '1', '2', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(36, '3203182903160004', 'Anak', '3203180701910008', 'CEP DAROR APIP', 'Cianjur', '1991-01-07', 'L', 'A', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '2', '2', 8, 2, 5, '2', 'WNI', 2, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(37, '3203180510120037', 'Kepala Keluarga', '3203180406870008', 'UDAN', 'Cianjur', '1967-04-04', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '2', 4, 2, 3, '1', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(38, '3203180510120037', 'Istri', '3203184107600401', 'MICIH', 'Cianjur', '1968-07-01', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '2', 6, 1, NULL, '1', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(39, '3203181810170005', 'Istri', '3203185804980005', 'FINA', 'Cianjur', '1998-04-18', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '2', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(40, '3203181810170005', 'Kepala Keluarga', '3203182301950003', 'FERI', 'Cianjur', '1995-01-23', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '3', 5, 2, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(41, '3203181810170005', 'Anak', '3203181210170001', 'M. RAFFA IRAWAN', 'Cianjur', '2017-10-12', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '2', '1', 8, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(42, '3203181709120010', 'Kepala Keluarga', '3203180607870011', 'ASEP', 'Cianjur', '1987-07-06', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '2', 5, 2, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(43, '3203181709120010', 'Istri', '3203185604890005', 'DEDAH', 'Cianjur', '1989-04-15', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '2', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(44, '3203181709120010', 'Anak', '3203180311110003', 'M. RIZKI IBRAHIM', 'Cianjur', '2011-11-03', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '2', '13', 8, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(45, '3202181011051761', 'Kepala Keluarga', '3203180665670083', 'JUKARDI', 'Cianjur', '1967-07-06', 'L', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '2', 'Islam', '1', '2', 4, 2, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(46, '3202181011051761', 'Istri', '3203184107750025', 'NURHABIBAH', 'Cianjur', '1975-07-01', 'P', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '3', 'Islam', '1', '2', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(47, '3202181011051761', 'Anak', '3203184759621845', 'HAIKAL RAHMANDA', 'Cianjur', '2016-06-14', 'L', 'B', '32', 3203, 3203100, 'Kp. Legok Gintung', '2', '2', 'Islam', '2', '13', 9, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(48, '3202181011051742', 'Kepala Keluarga', '3203181905550004', 'DAYAT', 'Cianjur', '1966-06-19', 'L', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '2', 'Islam', '1', '2', 5, 2, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(49, '3202181011051742', 'Istri', '3203184301580004', 'NURMASITI', 'Cianjur', '1968-01-03', 'P', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '2', 'Islam', '1', '2', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(50, '3202181011051742', 'Anak', '3203180505900010', 'ROHIDIN', 'Cianjur', '1990-06-05', 'L', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '2', 'Islam', '2', '2', 5, 2, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(51, '3202181011051759', 'Kepala Keluarga', '3203181206340002', 'H. ROYANI', 'Cianjur', '1934-06-12', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '1', '2', 7, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(52, '3202181011051759', 'Istri', '3203184407480004', 'HJ. NURHASANAH', 'Cianjur', '1948-07-04', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '1', '2', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(53, '3203181311190001', 'Kepala Keluarga', '3203181502920004', 'ANJASMARA DARUSALAM PAKIHA', 'Cianjur', '1992-02-16', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '4', 4, 2, NULL, '1', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(54, '3203181311190001', 'Istri', '3203186602030003', 'SINTIA BELA', 'Cianjur', '2001-02-26', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '3', 6, 1, NULL, '1', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(55, '3203181311190001', 'Anak', '3203185505200002', 'SYAHNAZ SHAKIRA PAQIH', 'Cianjur', '2020-05-15', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '2', '0', 9, 1, NULL, '1', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(56, '3203182705090001', 'Kepala Keluarga', '3203181512820001', 'ACENG MUSTIKA', 'Cianjur', '1982-12-15', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '2', 4, 4, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(57, '3203182705090001', 'Istri', '3203186404880001', 'LIA HANDAYANI', 'Cianjur', '1988-04-24', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '3', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(58, '3203182705090001', 'Anak', '32031880601170002', 'DAFFA MAULANA ARDIANSAH', 'Cianjur', '2017-01-04', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '2', '0', 9, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(59, '3203183105180007', 'Kepala Keluarga', '3203185207560002', 'IDOH', 'Cianjur', '1956-07-12', 'P', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '2', 'Islam', '2', '2', 6, 1, NULL, '2', 'WNI', 3, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(60, '3203182010110002', 'Kepala Keluarga', '3203185806900009', 'H. ATORI', 'Cianjur', '1972-07-13', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '1', '3', 4, 4, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(61, '3203182010110002', 'Istri', '3203185805900009', 'AISAH', 'Cianjur', '1990-06-18', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '1', '3', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(62, '3203182010110002', 'Anak', '3203184806110003', 'KANESA', 'Cianjur', '2011-06-06', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '2', '13', 9, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(63, '3203182010110002', 'Anak', '3203186603150001', 'SENY AWALIYAH MARWAH', 'Cianjur', '2015-03-26', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '2', '13', 9, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(64, '3203182607150010', 'Kepala Keluarga', '3203181805890005', 'H. RAMDANI ISKANDAR, S.Pd.I', 'Saudi Arabia', '1989-05-10', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '9', 10, 7, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(65, '3203182607150010', 'Istri', '3203185703930001', 'RENI', 'Cianjur', '1993-03-17', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '3', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(66, '3203182607150010', 'Anak', '3203181105270001', 'RIKI HUSNI MUBAROK', 'Cianjur', '2017-05-11', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '2', '0', 9, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(67, '3203181011056467', 'Kepala Keluarga', '3203181801740002', 'HAMDAN', 'Cianjur', '1974-01-18', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '2', 4, 3, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(68, '3203181011056467', 'Istri', '3203185005780018', 'YANI MULYANI', 'Cianjur', '1978-05-10', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '2', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(69, '3203181603110781', 'Kepala Keluarga', '3203180901700003', 'MUNAWAR', 'Cianjur', '1970-05-06', 'L', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '3', 'Islam', '1', '2', 7, 2, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(70, '3203181603110781', 'Istri', '3203186104750003', 'DEDE', 'Cianjur', '1975-04-19', 'P', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '2', 'Islam', '1', '2', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(71, '3203181603110781', 'Anak', '3203181901000010', 'RIPAL', 'Cianjur', '2000-01-19', 'L', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '2', 'Islam', '2', '4', 9, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(72, '3203181704080005', 'Kepala Keluarga', '3203181210790002', 'SIBYAN', 'Cianjur', '1979-10-12', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '1', '2', 5, 2, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(73, '3203181704080005', 'Istri', '3203185606840001', 'ERU ROBIAH, S.Pd.', 'Cianjur', '1984-06-15', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '1', '9', 2, 4, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(74, '3203181704080005', 'Anak', '3203180712070001', 'DESCA KHOERUNISA B', 'Cianjur', '2007-12-27', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '2', '3', 9, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(75, '3203181704080005', 'Anak', '3203185610150001', 'DEBBY NUR ANNISA', 'Cianjur', '2015-10-19', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '2', '0', 9, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(76, '3203181810170005', 'Anak', NULL, 'INDRI LESTARI', 'Rumah Sakit', '2022-11-17', 'P', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL),
-(77, '3203180517689201', 'Kepala Keluarga', '3203182709195001', 'HJ. KODARIAH', 'Cianjur', '1950-09-27', 'P', 'AB', '32', 3203, 3203100, 'Kp. Pajagan', '1', '2', 'Islam', '2', '2', 6, 1, NULL, '2', 'WNI', 2, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(78, '3203181603110781', 'Anak', '3203184702700024', 'Saepul ', 'Cianjur', '2022-12-04', 'L', 'B', '16', 1604, 1604041, 'Kp. Legok Gintung', '2', '3', 'Islam', '2', '0', 9, 1, NULL, '1', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(79, '3203109392928989', 'Kepala Keluarga', '32031844066409898', 'gygy', 'Cianjur', '2022-11-30', 'L', 'AB', '13', 1308, 1308022, 'Kp. Selaawi', '2', '2', 'Islam', '1', '4', 10, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(80, '3203109392928989', 'Anak', NULL, 'jsdfj', 'Cianjur', '2022-12-08', 'P', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_penghasilan`
---
-
+-- ----------------------------
+-- Table structure for tbl_penghasilan
+-- ----------------------------
 DROP TABLE IF EXISTS `tbl_penghasilan`;
-CREATE TABLE IF NOT EXISTS `tbl_penghasilan` (
+CREATE TABLE `tbl_penghasilan`  (
   `id_penghasilan` int(2) NOT NULL,
-  `penghasilan` varchar(255) DEFAULT NULL,
-  `penerima_bantuan` int(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+  `penghasilan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `penerima_bantuan` int(1) NULL DEFAULT NULL
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
---
--- Dumping data for table `tbl_penghasilan`
---
+-- ----------------------------
+-- Records of tbl_penghasilan
+-- ----------------------------
+INSERT INTO `tbl_penghasilan` VALUES (1, 'Rp.0', 2);
+INSERT INTO `tbl_penghasilan` VALUES (2, 'Rp.0 s/d Rp.300,000', 1);
+INSERT INTO `tbl_penghasilan` VALUES (3, 'Rp.1,000,000 s/d Rp.1,500,000', 1);
+INSERT INTO `tbl_penghasilan` VALUES (4, 'Rp.1,500,000 s/d Rp.2,000,000', 2);
+INSERT INTO `tbl_penghasilan` VALUES (6, 'Rp.2,000,000 s/d Rp.2,500,000', 2);
+INSERT INTO `tbl_penghasilan` VALUES (7, 'Rp.2,500,000 s/d Rp.3,000,000', 2);
+INSERT INTO `tbl_penghasilan` VALUES (8, 'Rp.3,000,000 s/d Rp.3,500,000', 2);
+INSERT INTO `tbl_penghasilan` VALUES (9, 'Rp.3,500,000 s/d Rp.4,000,000', 2);
+INSERT INTO `tbl_penghasilan` VALUES (11, 'Rp.4,000,000 s/d Rp.5,000,000', 2);
+INSERT INTO `tbl_penghasilan` VALUES (12, '>Rp.5,000,000', 2);
 
-INSERT INTO `tbl_penghasilan` (`id_penghasilan`, `penghasilan`, `penerima_bantuan`) VALUES
-(1, 'Rp.0', 2),
-(2, 'Rp.0 s/d Rp.300,000', 1),
-(3, 'Rp.1,000,000 s/d Rp.1,500,000', 1),
-(4, 'Rp.1,500,000 s/d Rp.2,000,000', 2),
-(6, 'Rp.2,000,000 s/d Rp.2,500,000', 2),
-(7, 'Rp.2,500,000 s/d Rp.3,000,000', 2),
-(8, 'Rp.3,000,000 s/d Rp.3,500,000', 2),
-(9, 'Rp.3,500,000 s/d Rp.4,000,000', 2),
-(11, 'Rp.4,000,000 s/d Rp.5,000,000', 2),
-(12, '>Rp.5,000,000', 2);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_pindah`
---
-
+-- ----------------------------
+-- Table structure for tbl_pindah
+-- ----------------------------
 DROP TABLE IF EXISTS `tbl_pindah`;
-CREATE TABLE IF NOT EXISTS `tbl_pindah` (
+CREATE TABLE `tbl_pindah`  (
   `id_pindah` int(11) NOT NULL,
-  `id_penduduk` varchar(25) DEFAULT NULL,
-  `tgl_pindah` date DEFAULT NULL,
-  `alamat_pindah` text,
-  `klasifikasi_pindah` varchar(15) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id_penduduk` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `tgl_pindah` date NULL DEFAULT NULL,
+  `alamat_pindah` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+  `klasifikasi_pindah` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
---
--- Dumping data for table `tbl_pindah`
---
+-- ----------------------------
+-- Records of tbl_pindah
+-- ----------------------------
+INSERT INTO `tbl_pindah` VALUES (4, '59', '2022-11-24', 'Kp. Selakopi, RT/RW 01/03, Desa Pangadegan, Kec. Pagelaran', 'Pindah Desa');
+INSERT INTO `tbl_pindah` VALUES (5, '30', '2022-12-01', 'keluarga', 'Pindah Desa');
 
-INSERT INTO `tbl_pindah` (`id_pindah`, `id_penduduk`, `tgl_pindah`, `alamat_pindah`, `klasifikasi_pindah`) VALUES
-(4, '59', '2022-11-24', 'Kp. Selakopi, RT/RW 01/03, Desa Pangadegan, Kec. Pagelaran', 'Pindah Desa'),
-(5, '30', '2022-12-01', 'keluarga', 'Pindah Desa');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_provinsi`
---
-
+-- ----------------------------
+-- Table structure for tbl_provinsi
+-- ----------------------------
 DROP TABLE IF EXISTS `tbl_provinsi`;
-CREATE TABLE IF NOT EXISTS `tbl_provinsi` (
-  `id_provinsi` char(2) COLLATE utf8_unicode_ci NOT NULL,
-  `nama_provinsi` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+CREATE TABLE `tbl_provinsi`  (
+  `id_provinsi` char(2) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `nama_provinsi` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id_provinsi`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = DYNAMIC;
 
---
--- Dumping data for table `tbl_provinsi`
---
+-- ----------------------------
+-- Records of tbl_provinsi
+-- ----------------------------
+INSERT INTO `tbl_provinsi` VALUES ('11', 'ACEH');
+INSERT INTO `tbl_provinsi` VALUES ('12', 'SUMATERA UTARA');
+INSERT INTO `tbl_provinsi` VALUES ('13', 'SUMATERA BARAT');
+INSERT INTO `tbl_provinsi` VALUES ('14', 'RIAU');
+INSERT INTO `tbl_provinsi` VALUES ('15', 'JAMBI');
+INSERT INTO `tbl_provinsi` VALUES ('16', 'SUMATERA SELATAN');
+INSERT INTO `tbl_provinsi` VALUES ('17', 'BENGKULU');
+INSERT INTO `tbl_provinsi` VALUES ('18', 'LAMPUNG');
+INSERT INTO `tbl_provinsi` VALUES ('19', 'KEPULAUAN BANGKA BELITUNG');
+INSERT INTO `tbl_provinsi` VALUES ('21', 'KEPULAUAN RIAU');
+INSERT INTO `tbl_provinsi` VALUES ('31', 'DKI JAKARTA');
+INSERT INTO `tbl_provinsi` VALUES ('32', 'JAWA BARAT');
+INSERT INTO `tbl_provinsi` VALUES ('33', 'JAWA TENGAH');
+INSERT INTO `tbl_provinsi` VALUES ('34', 'DI YOGYAKARTA');
+INSERT INTO `tbl_provinsi` VALUES ('35', 'JAWA TIMUR');
+INSERT INTO `tbl_provinsi` VALUES ('36', 'BANTEN');
+INSERT INTO `tbl_provinsi` VALUES ('51', 'BALI');
+INSERT INTO `tbl_provinsi` VALUES ('52', 'NUSA TENGGARA BARAT');
+INSERT INTO `tbl_provinsi` VALUES ('53', 'NUSA TENGGARA TIMUR');
+INSERT INTO `tbl_provinsi` VALUES ('61', 'KALIMANTAN BARAT');
+INSERT INTO `tbl_provinsi` VALUES ('62', 'KALIMANTAN TENGAH');
+INSERT INTO `tbl_provinsi` VALUES ('63', 'KALIMANTAN SELATAN');
+INSERT INTO `tbl_provinsi` VALUES ('64', 'KALIMANTAN TIMUR');
+INSERT INTO `tbl_provinsi` VALUES ('65', 'KALIMANTAN UTARA');
+INSERT INTO `tbl_provinsi` VALUES ('71', 'SULAWESI UTARA');
+INSERT INTO `tbl_provinsi` VALUES ('72', 'SULAWESI TENGAH');
+INSERT INTO `tbl_provinsi` VALUES ('73', 'SULAWESI SELATAN');
+INSERT INTO `tbl_provinsi` VALUES ('74', 'SULAWESI TENGGARA');
+INSERT INTO `tbl_provinsi` VALUES ('75', 'GORONTALO');
+INSERT INTO `tbl_provinsi` VALUES ('76', 'SULAWESI BARAT');
+INSERT INTO `tbl_provinsi` VALUES ('81', 'MALUKU');
+INSERT INTO `tbl_provinsi` VALUES ('82', 'MALUKU UTARA');
+INSERT INTO `tbl_provinsi` VALUES ('91', 'PAPUA BARAT');
+INSERT INTO `tbl_provinsi` VALUES ('94', 'PAPUA');
 
-INSERT INTO `tbl_provinsi` (`id_provinsi`, `nama_provinsi`) VALUES
-('11', 'ACEH'),
-('12', 'SUMATERA UTARA'),
-('13', 'SUMATERA BARAT'),
-('14', 'RIAU'),
-('15', 'JAMBI'),
-('16', 'SUMATERA SELATAN'),
-('17', 'BENGKULU'),
-('18', 'LAMPUNG'),
-('19', 'KEPULAUAN BANGKA BELITUNG'),
-('21', 'KEPULAUAN RIAU'),
-('31', 'DKI JAKARTA'),
-('32', 'JAWA BARAT'),
-('33', 'JAWA TENGAH'),
-('34', 'DI YOGYAKARTA'),
-('35', 'JAWA TIMUR'),
-('36', 'BANTEN'),
-('51', 'BALI'),
-('52', 'NUSA TENGGARA BARAT'),
-('53', 'NUSA TENGGARA TIMUR'),
-('61', 'KALIMANTAN BARAT'),
-('62', 'KALIMANTAN TENGAH'),
-('63', 'KALIMANTAN SELATAN'),
-('64', 'KALIMANTAN TIMUR'),
-('65', 'KALIMANTAN UTARA'),
-('71', 'SULAWESI UTARA'),
-('72', 'SULAWESI TENGAH'),
-('73', 'SULAWESI SELATAN'),
-('74', 'SULAWESI TENGGARA'),
-('75', 'GORONTALO'),
-('76', 'SULAWESI BARAT'),
-('81', 'MALUKU'),
-('82', 'MALUKU UTARA'),
-('91', 'PAPUA BARAT'),
-('94', 'PAPUA');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_setting`
---
-
+-- ----------------------------
+-- Table structure for tbl_setting
+-- ----------------------------
 DROP TABLE IF EXISTS `tbl_setting`;
-CREATE TABLE IF NOT EXISTS `tbl_setting` (
+CREATE TABLE `tbl_setting`  (
   `id` int(1) NOT NULL,
-  `nama_desa` varchar(50) DEFAULT NULL,
-  `kepala_desa` varchar(50) DEFAULT NULL,
-  `id_kecamatan` int(7) DEFAULT NULL,
-  `id_kabupaten` int(4) DEFAULT NULL,
-  `id_provinsi` int(2) DEFAULT NULL,
-  `logo` varchar(255) DEFAULT NULL,
-  `kode_pos` varchar(50) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `nama_desa` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `kepala_desa` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `id_kecamatan` int(7) NULL DEFAULT NULL,
+  `id_kabupaten` int(4) NULL DEFAULT NULL,
+  `id_provinsi` int(2) NULL DEFAULT NULL,
+  `logo` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `kode_pos` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL
+) ENGINE = MyISAM CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
---
--- Dumping data for table `tbl_setting`
---
+-- ----------------------------
+-- Records of tbl_setting
+-- ----------------------------
+INSERT INTO `tbl_setting` VALUES (1, 'Desa Situhiang', 'Arifin Hidayat, S.IP', 3203100, 3203, 32, '1668617311_ceaca5cb506d1786f2f3.png', '43266');
 
-INSERT INTO `tbl_setting` (`id`, `nama_desa`, `kepala_desa`, `id_kecamatan`, `id_kabupaten`, `id_provinsi`, `logo`, `kode_pos`) VALUES
-(1, 'Desa Situhiang', 'Arifin Hidayat, S.IP', 3203100, 3203, 32, '1668617311_ceaca5cb506d1786f2f3.png', '43266');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_user`
---
-
+-- ----------------------------
+-- Table structure for tbl_user
+-- ----------------------------
 DROP TABLE IF EXISTS `tbl_user`;
-CREATE TABLE IF NOT EXISTS `tbl_user` (
+CREATE TABLE `tbl_user`  (
   `id_users` int(2) NOT NULL,
-  `nama_user` varchar(30) NOT NULL,
-  `username` varchar(20) NOT NULL,
-  `foto` varchar(255) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `nama_user` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `username` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `foto` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `level` int(1) NOT NULL,
   `id_jabatan` int(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
---
--- Dumping data for table `tbl_user`
---
+-- ----------------------------
+-- Records of tbl_user
+-- ----------------------------
+INSERT INTO `tbl_user` VALUES (1, 'Moh. Salman Parizi', 'admin', '1671419796_baa31760374f649fd96e.png', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 1, 2);
+INSERT INTO `tbl_user` VALUES (43, 'Arifin Hidayat, S.IP', 'kawil', '1668499178_6ed8325cd05658d1a2af.png', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 2, 1);
+INSERT INTO `tbl_user` VALUES (44, 'Abdul Ajij', 'kawilcimahpar', '1671419909_a080d223212dfb2b6b4d.png', '883394e2927444f850421c3b6f48f1ea48018445', 2, 0);
+INSERT INTO `tbl_user` VALUES (45, 'Rustandi', 'kawilselaawi', '1671419946_cdd4bfbb2d0fb1259b33.png', '6b33f3a9af58b2aa54f52c55ca257159fa5347f4', 2, 0);
+INSERT INTO `tbl_user` VALUES (46, 'H. Palentin AM, S.Pd.', 'kawilpajagan', '1671419969_71ee482f1fe25eeb8136.png', 'a82a3ba8871ad8b4845ef80c7fca26bbb5c9ca4b', 2, 0);
+INSERT INTO `tbl_user` VALUES (47, 'Sutisna', 'kawilsimpang', '1671419993_81b4ece5fabc8510799d.png', 'ca8a4075a4752aedf0771bcb1bba0722bab58cff', 2, 0);
+INSERT INTO `tbl_user` VALUES (48, 'Dayat', 'kawilcibacang', '1671420018_e49c9d9bf5a41bc7ddaa.png', 'f2147295f9ff2c5819f5f196f3056071aa037f55', 2, 0);
+INSERT INTO `tbl_user` VALUES (49, 'Supriatna', 'kawilbeber', '1671420040_03be05ee24cbb9548aef.png', 'd39cc71fab9af902b6e192a93eb580b57e53f02c', 2, 0);
+INSERT INTO `tbl_user` VALUES (52, 'H. Ramdani I, S.Pd.I', 'adminspd', '1671420268_59b5bf83d824742fc9d9.png', 'b851d720ea4af420e286d0f47e3a4c4292de87db', 1, 0);
 
-INSERT INTO `tbl_user` (`id_users`, `nama_user`, `username`, `foto`, `password`, `level`, `id_jabatan`) VALUES
-(1, 'Moh. Salman Parizi', 'admin', '1671419796_baa31760374f649fd96e.png', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 1, 2),
-(43, 'Arifin Hidayat, S.IP', 'kawil', '1668499178_6ed8325cd05658d1a2af.png', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 2, 1),
-(44, 'Abdul Ajij', 'kawilcimahpar', '1671419909_a080d223212dfb2b6b4d.png', '883394e2927444f850421c3b6f48f1ea48018445', 2, 0),
-(45, 'Rustandi', 'kawilselaawi', '1671419946_cdd4bfbb2d0fb1259b33.png', '6b33f3a9af58b2aa54f52c55ca257159fa5347f4', 2, 0),
-(46, 'H. Palentin AM, S.Pd.', 'kawilpajagan', '1671419969_71ee482f1fe25eeb8136.png', 'a82a3ba8871ad8b4845ef80c7fca26bbb5c9ca4b', 2, 0),
-(47, 'Sutisna', 'kawilsimpang', '1671419993_81b4ece5fabc8510799d.png', 'ca8a4075a4752aedf0771bcb1bba0722bab58cff', 2, 0),
-(48, 'Dayat', 'kawilcibacang', '1671420018_e49c9d9bf5a41bc7ddaa.png', 'f2147295f9ff2c5819f5f196f3056071aa037f55', 2, 0),
-(49, 'Supriatna', 'kawilbeber', '1671420040_03be05ee24cbb9548aef.png', 'd39cc71fab9af902b6e192a93eb580b57e53f02c', 2, 0),
-(52, 'H. Ramdani I, S.Pd.I', 'adminspd', '1671420268_59b5bf83d824742fc9d9.png', 'b851d720ea4af420e286d0f47e3a4c4292de87db', 1, 0);
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+SET FOREIGN_KEY_CHECKS = 1;
