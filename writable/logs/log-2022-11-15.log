@@ -1,0 +1,910 @@
+ERROR - 2022-11-15 01:49:32 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'spd_situhiang' in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', '', 'spd_situhiang', 3306, '', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\Model_auth.php(14): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\spd\app\Controllers\Auth.php(45): App\Models\Model_auth->login('admin@gmail.com', '7110eda4d09e062...')
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Auth->login()
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'spd_situhiang' in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\wamp64\www\spd\app\Models\Model_auth.php(14): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\wamp64\www\spd\app\Controllers\Auth.php(45): App\Models\Model_auth->login('admin@gmail.com', '7110eda4d09e062...')
+#5 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Auth->login()
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-11-15 01:49:32 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'spd_situhiang'
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tb_users`
+WHERE `username` = :username:
+AND `password` = :password:', [...], false)
+ 3 APPPATH\Models\Model_auth.php(14): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Auth.php(45): App\Models\Model_auth->login('admin@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220')
+ 5 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Auth->login()
+ 6 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-15 01:50:33 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'spd_situhiang' in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', '', 'spd_situhiang', 3306, '', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\Model_auth.php(14): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\spd\app\Controllers\Auth.php(45): App\Models\Model_auth->login('admin@gmail.com', '7110eda4d09e062...')
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Auth->login()
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'spd_situhiang' in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\wamp64\www\spd\app\Models\Model_auth.php(14): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\wamp64\www\spd\app\Controllers\Auth.php(45): App\Models\Model_auth->login('admin@gmail.com', '7110eda4d09e062...')
+#5 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Auth->login()
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-11-15 01:50:33 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'spd_situhiang'
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tb_users`
+WHERE `username` = :username:
+AND `password` = :password:', [...], false)
+ 3 APPPATH\Models\Model_auth.php(14): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Auth.php(45): App\Models\Model_auth->login('admin@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220')
+ 5 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Auth->login()
+ 6 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 01:59:32 --> Trying to access array offset on value of type null
+in APPPATH\Views\pages\pengguna\pengguna_edit.php on line 15.
+ 1 APPPATH\Views\pages\pengguna\pengguna_edit.php(15): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Views\\pages\\pengguna\\pengguna_edit.php', 15)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\pages\\pengguna\\pengguna_edit.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('pages/pengguna/pengguna_edit', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('pages/pengguna/pengguna_edit')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Pengguna.php(130): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Pengguna->edit('1665305144_e80d3a83f0a7efea2511.png')
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengguna))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 01:59:51 --> strpos(): Passing null to parameter #1 ($haystack) of type string is deprecated
+in SYSTEMPATH\Debug\Toolbar.php on line 420.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(8192, 'strpos(): Passing null to parameter #1 ($haystack) of type string is deprecated', 'SYSTEMPATH\\Debug\\Toolbar.php', 420)
+ 2 SYSTEMPATH\Debug\Toolbar.php(420): strpos(null, '<head>')
+ 3 SYSTEMPATH\Filters\DebugToolbar.php(40): CodeIgniter\Debug\Toolbar->prepare(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\RedirectResponse))
+ 4 SYSTEMPATH\Filters\Filters.php(196): CodeIgniter\Filters\DebugToolbar->after(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\RedirectResponse), null)
+ 5 SYSTEMPATH\CodeIgniter.php(477): CodeIgniter\Filters\Filters->run('C:\\', 'after')
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 02:04:45 --> strpos(): Passing null to parameter #1 ($haystack) of type string is deprecated
+in SYSTEMPATH\Debug\Toolbar.php on line 420.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(8192, 'strpos(): Passing null to parameter #1 ($haystack) of type string is deprecated', 'SYSTEMPATH\\Debug\\Toolbar.php', 420)
+ 2 SYSTEMPATH\Debug\Toolbar.php(420): strpos(null, '<head>')
+ 3 SYSTEMPATH\Filters\DebugToolbar.php(40): CodeIgniter\Debug\Toolbar->prepare(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\RedirectResponse))
+ 4 SYSTEMPATH\Filters\Filters.php(196): CodeIgniter\Filters\DebugToolbar->after(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\RedirectResponse), null)
+ 5 SYSTEMPATH\CodeIgniter.php(477): CodeIgniter\Filters\Filters->run('C:\\', 'after')
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 02:04:49 --> strpos(): Passing null to parameter #1 ($haystack) of type string is deprecated
+in SYSTEMPATH\Debug\Toolbar.php on line 420.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(8192, 'strpos(): Passing null to parameter #1 ($haystack) of type string is deprecated', 'SYSTEMPATH\\Debug\\Toolbar.php', 420)
+ 2 SYSTEMPATH\Debug\Toolbar.php(420): strpos(null, '<head>')
+ 3 SYSTEMPATH\Filters\DebugToolbar.php(40): CodeIgniter\Debug\Toolbar->prepare(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\RedirectResponse))
+ 4 SYSTEMPATH\Filters\Filters.php(196): CodeIgniter\Filters\DebugToolbar->after(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\RedirectResponse), null)
+ 5 SYSTEMPATH\CodeIgniter.php(477): CodeIgniter\Filters\Filters->run('C:\\', 'after')
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 02:04:54 --> strpos(): Passing null to parameter #1 ($haystack) of type string is deprecated
+in SYSTEMPATH\Debug\Toolbar.php on line 420.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(8192, 'strpos(): Passing null to parameter #1 ($haystack) of type string is deprecated', 'SYSTEMPATH\\Debug\\Toolbar.php', 420)
+ 2 SYSTEMPATH\Debug\Toolbar.php(420): strpos(null, '<head>')
+ 3 SYSTEMPATH\Filters\DebugToolbar.php(40): CodeIgniter\Debug\Toolbar->prepare(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\RedirectResponse))
+ 4 SYSTEMPATH\Filters\Filters.php(196): CodeIgniter\Filters\DebugToolbar->after(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\RedirectResponse), null)
+ 5 SYSTEMPATH\CodeIgniter.php(477): CodeIgniter\Filters\Filters->run('C:\\', 'after')
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-15 02:50:17 --> mysqli_sql_exception: Table 'spd-situhiang.tb_users' doesn't exist in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\Model_auth.php(14): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\spd\app\Controllers\Auth.php(45): App\Models\Model_auth->login('admin', 'd033e22ae348aeb...')
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Auth->login()
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-11-15 02:50:17 --> Table 'spd-situhiang.tb_users' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `tb_users`
+WHERE `username` = \'admin\'
+AND `password` = \'d033e22ae348aeb5660fc2140aec35850c4da997\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tb_users`
+WHERE `username` = \'admin\'
+AND `password` = \'d033e22ae348aeb5660fc2140aec35850c4da997\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tb_users`
+WHERE `username` = \'admin\'
+AND `password` = \'d033e22ae348aeb5660fc2140aec35850c4da997\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tb_users`
+WHERE `username` = :username:
+AND `password` = :password:', [...], false)
+ 5 APPPATH\Models\Model_auth.php(14): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Auth.php(45): App\Models\Model_auth->login('admin', 'd033e22ae348aeb5660fc2140aec35850c4da997')
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Auth->login()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-15 02:52:19 --> mysqli_sql_exception: Table 'spd-situhiang.tb_users' doesn't exist in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\Model_pengguna.php(14): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\spd\app\Controllers\Pengguna.php(22): App\Models\Model_pengguna->alldata()
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Pengguna->index()
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengguna))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-11-15 02:52:19 --> Table 'spd-situhiang.tb_users' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `tb_users`
+LEFT JOIN `jabatan` ON `jabatan`.`id_jabatan` = `tb_users`.`id_jabatan`
+ORDER BY `id_users` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tb_users`
+LEFT JOIN `jabatan` ON `jabatan`.`id_jabatan` = `tb_users`.`id_jabatan`
+ORDER BY `id_users` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tb_users`
+LEFT JOIN `jabatan` ON `jabatan`.`id_jabatan` = `tb_users`.`id_jabatan`
+ORDER BY `id_users` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tb_users`
+LEFT JOIN `jabatan` ON `jabatan`.`id_jabatan` = `tb_users`.`id_jabatan`
+ORDER BY `id_users` DESC', [], false)
+ 5 APPPATH\Models\Model_pengguna.php(14): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Pengguna.php(22): App\Models\Model_pengguna->alldata()
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Pengguna->index()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengguna))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 04:11:49 --> Undefined property: App\Controllers\Keluarga::$Model_keluarga
+in APPPATH\Controllers\Keluarga.php on line 13.
+ 1 APPPATH\Controllers\Keluarga.php(13): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: App\\Controllers\\Keluarga::$Model_keluarga', 'APPPATH\\Controllers\\Keluarga.php', 13, [])
+ 2 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Keluarga->index()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keluarga))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 04:13:08 --> Class 'App\Controllers\Model_penduduk' not found
+in APPPATH\Controllers\Keluarga.php on line 12.
+ 1 SYSTEMPATH\CodeIgniter.php(869): App\Controllers\Keluarga->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(448): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 04:13:20 --> Undefined variable: value
+in APPPATH\Views\keluarga\keluarga_view.php on line 49.
+ 1 APPPATH\Views\keluarga\keluarga_view.php(49): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: value', 'APPPATH\\Views\\keluarga\\keluarga_view.php', 49, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\keluarga\\keluarga_view.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('keluarga/keluarga_view', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('keluarga/keluarga_view')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Keluarga.php(22): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Keluarga->index()
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keluarga))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 04:22:10 --> Undefined variable: data_keluarga
+in APPPATH\Views\keluarga\keluarga_view.php on line 31.
+ 1 APPPATH\Views\keluarga\keluarga_view.php(31): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: data_keluarga', 'APPPATH\\Views\\keluarga\\keluarga_view.php', 31, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\keluarga\\keluarga_view.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('keluarga/keluarga_view', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('keluarga/keluarga_view')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Keluarga.php(22): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Keluarga->index()
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keluarga))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 04:23:07 --> Undefined variable: data_keluarga
+in APPPATH\Views\keluarga\keluarga_view.php on line 31.
+ 1 APPPATH\Views\keluarga\keluarga_view.php(31): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: data_keluarga', 'APPPATH\\Views\\keluarga\\keluarga_view.php', 31, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\keluarga\\keluarga_view.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('keluarga/keluarga_view', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('keluarga/keluarga_view')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Keluarga.php(22): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Keluarga->index()
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keluarga))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 04:23:33 --> Undefined variable: data_keluarga
+in APPPATH\Views\keluarga\keluarga_view.php on line 31.
+ 1 APPPATH\Views\keluarga\keluarga_view.php(31): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: data_keluarga', 'APPPATH\\Views\\keluarga\\keluarga_view.php', 31, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\keluarga\\keluarga_view.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('keluarga/keluarga_view', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('keluarga/keluarga_view')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Keluarga.php(22): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Keluarga->index()
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keluarga))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 05:02:38 --> Undefined property: App\Controllers\Keluarga::$ModelSetting
+in APPPATH\Controllers\Keluarga.php on line 40.
+ 1 APPPATH\Controllers\Keluarga.php(40): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: App\\Controllers\\Keluarga::$ModelSetting', 'APPPATH\\Controllers\\Keluarga.php', 40, [])
+ 2 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Keluarga->kabupaten()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keluarga))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 05:03:11 --> Undefined property: App\Controllers\Keluarga::$ModelSetting
+in APPPATH\Controllers\Keluarga.php on line 40.
+ 1 APPPATH\Controllers\Keluarga.php(40): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: App\\Controllers\\Keluarga::$ModelSetting', 'APPPATH\\Controllers\\Keluarga.php', 40, [])
+ 2 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Keluarga->kabupaten()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keluarga))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 05:03:15 --> Undefined property: App\Controllers\Keluarga::$ModelSetting
+in APPPATH\Controllers\Keluarga.php on line 40.
+ 1 APPPATH\Controllers\Keluarga.php(40): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: App\\Controllers\\Keluarga::$ModelSetting', 'APPPATH\\Controllers\\Keluarga.php', 40, [])
+ 2 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Keluarga->kabupaten('11')
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keluarga))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 05:03:23 --> Undefined property: App\Controllers\Keluarga::$ModelSetting
+in APPPATH\Controllers\Keluarga.php on line 40.
+ 1 APPPATH\Controllers\Keluarga.php(40): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: App\\Controllers\\Keluarga::$ModelSetting', 'APPPATH\\Controllers\\Keluarga.php', 40, [])
+ 2 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Keluarga->kabupaten('1')
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keluarga))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 05:04:12 --> Undefined property: App\Controllers\Keluarga::$ModelWilayah
+in APPPATH\Controllers\Keluarga.php on line 41.
+ 1 APPPATH\Controllers\Keluarga.php(41): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: App\\Controllers\\Keluarga::$ModelWilayah', 'APPPATH\\Controllers\\Keluarga.php', 41, [...])
+ 2 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Keluarga->kabupaten('1')
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keluarga))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 05:04:13 --> Undefined property: App\Controllers\Keluarga::$ModelWilayah
+in APPPATH\Controllers\Keluarga.php on line 41.
+ 1 APPPATH\Controllers\Keluarga.php(41): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: App\\Controllers\\Keluarga::$ModelWilayah', 'APPPATH\\Controllers\\Keluarga.php', 41, [...])
+ 2 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Keluarga->kabupaten('1')
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keluarga))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 05:46:35 --> You must set the database table to be used with your query.
+in SYSTEMPATH\Database\BaseConnection.php on line 872.
+ 1 SYSTEMPATH\Model.php(587): CodeIgniter\Database\BaseConnection->table(null)
+ 2 SYSTEMPATH\Model.php(764): CodeIgniter\Model->builder()
+ 3 APPPATH\Controllers\Keluarga.php(103): CodeIgniter\Model->__call('detail_data', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Keluarga->edit('5')
+ 5 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keluarga))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 05:46:38 --> You must set the database table to be used with your query.
+in SYSTEMPATH\Database\BaseConnection.php on line 872.
+ 1 SYSTEMPATH\Model.php(587): CodeIgniter\Database\BaseConnection->table(null)
+ 2 SYSTEMPATH\Model.php(764): CodeIgniter\Model->builder()
+ 3 APPPATH\Controllers\Keluarga.php(103): CodeIgniter\Model->__call('detail_data', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Keluarga->edit('5')
+ 5 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keluarga))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-15 05:50:43 --> mysqli_sql_exception: Duplicate entry '5' for key 'PRIMARY' in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\Model_keluarga.php(28): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\wamp64\www\spd\app\Controllers\Keluarga.php(157): App\Models\Model_keluarga->add(Array)
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Keluarga->Update('5')
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keluarga))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-11-15 05:50:43 --> Duplicate entry '5' for key 'PRIMARY'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tbl_keluarga` (`id_keluarga`, `no_kk`, `kepala_keluarga`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`) VALUES (\'5\', \'3203109392932\', \'Keluarga E\', \'12\', \'1208\', \'1208170\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_keluarga` (`id_keluarga`, `no_kk`, `kepala_keluarga`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`) VALUES (\'5\', \'3203109392932\', \'Keluarga E\', \'12\', \'1208\', \'1208170\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_keluarga` (`id_keluarga`, `no_kk`, `kepala_keluarga`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`) VALUES (\'5\', \'3203109392932\', \'Keluarga E\', \'12\', \'1208\', \'1208170\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_keluarga` (`id_keluarga`, `no_kk`, `kepala_keluarga`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`) VALUES (:id_keluarga:, :no_kk:, :kepala_keluarga:, :id_provinsi:, :id_kabupaten:, :id_kecamatan:)', [...], false)
+ 5 APPPATH\Models\Model_keluarga.php(28): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Keluarga.php(157): App\Models\Model_keluarga->add([...])
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Keluarga->Update('5')
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keluarga))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-15 06:04:44 --> mysqli_sql_exception: Table 'spd-situhiang.data_penduduk' doesn't exist in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\Model_penduduk.php(13): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\spd\app\Controllers\Penduduk.php(18): App\Models\Model_penduduk->alldata()
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Penduduk->index()
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penduduk))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-11-15 06:04:44 --> Table 'spd-situhiang.data_penduduk' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `data_penduduk`
+ORDER BY `id_penduduk` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `data_penduduk`
+ORDER BY `id_penduduk` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `data_penduduk`
+ORDER BY `id_penduduk` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `data_penduduk`
+ORDER BY `id_penduduk` DESC', [], false)
+ 5 APPPATH\Models\Model_penduduk.php(13): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Penduduk.php(18): App\Models\Model_penduduk->alldata()
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Penduduk->index()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penduduk))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 07:22:52 --> Invalid file: pages/penduduk/penduduk_add.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('pages/penduduk/penduduk_add.php')
+ 2 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('pages/penduduk/penduduk_add', [], true)
+ 3 APPPATH\Views\layout\content_view.php(3): view('pages/penduduk/penduduk_add')
+ 4 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 7 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+ 8 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+ 9 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+10 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+11 APPPATH\Controllers\Penduduk.php(34): view('layout/wrapper_view', [...])
+12 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Penduduk->add()
+13 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penduduk))
+14 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 07:23:10 --> Invalid file: pages/penduduk/penduduk_add.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('pages/penduduk/penduduk_add.php')
+ 2 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('pages/penduduk/penduduk_add', [], true)
+ 3 APPPATH\Views\layout\content_view.php(3): view('pages/penduduk/penduduk_add')
+ 4 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 7 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+ 8 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+ 9 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+10 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+11 APPPATH\Controllers\Penduduk.php(34): view('layout/wrapper_view', [...])
+12 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Penduduk->add()
+13 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penduduk))
+14 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-15 07:35:36 --> mysqli_sql_exception: Table 'spd-situhiang.data_penduduk' doesn't exist in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1614): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', NULL, false)
+#4 C:\wamp64\www\spd\app\Models\Model_home.php(16): CodeIgniter\Database\BaseBuilder->countAll()
+#5 C:\wamp64\www\spd\app\Controllers\Home.php(19): App\Models\Model_home->total_penduduk()
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Home->index()
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-11-15 07:35:36 --> Table 'spd-situhiang.data_penduduk' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*) AS `numrows` FROM `data_penduduk`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows` FROM `data_penduduk`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows` FROM `data_penduduk`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1614): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `data_penduduk`', null, false)
+ 5 APPPATH\Models\Model_home.php(16): CodeIgniter\Database\BaseBuilder->countAll()
+ 6 APPPATH\Controllers\Home.php(19): App\Models\Model_home->total_penduduk()
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 07:36:45 --> Undefined variable: validasi
+in APPPATH\Views\penduduk\penduduk_edit.php on line 10.
+ 1 APPPATH\Views\penduduk\penduduk_edit.php(10): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: validasi', 'APPPATH\\Views\\penduduk\\penduduk_edit.php', 10, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\penduduk\\penduduk_edit.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('penduduk/penduduk_edit', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('penduduk/penduduk_edit')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Penduduk.php(213): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Penduduk->edit('9')
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penduduk))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 07:36:56 --> Undefined variable: validasi
+in APPPATH\Views\penduduk\penduduk_edit.php on line 10.
+ 1 APPPATH\Views\penduduk\penduduk_edit.php(10): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: validasi', 'APPPATH\\Views\\penduduk\\penduduk_edit.php', 10, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\penduduk\\penduduk_edit.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('penduduk/penduduk_edit', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('penduduk/penduduk_edit')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Penduduk.php(213): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Penduduk->edit('9')
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penduduk))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 07:37:05 --> Undefined variable: validasi
+in APPPATH\Views\penduduk\penduduk_edit.php on line 10.
+ 1 APPPATH\Views\penduduk\penduduk_edit.php(10): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: validasi', 'APPPATH\\Views\\penduduk\\penduduk_edit.php', 10, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\penduduk\\penduduk_edit.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('penduduk/penduduk_edit', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('penduduk/penduduk_edit')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Penduduk.php(213): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Penduduk->edit('9')
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penduduk))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 07:52:24 --> Undefined variable: provinsi
+in APPPATH\Views\penduduk\penduduk_add.php on line 95.
+ 1 APPPATH\Views\penduduk\penduduk_add.php(95): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: provinsi', 'APPPATH\\Views\\penduduk\\penduduk_add.php', 95, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\penduduk\\penduduk_add.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('penduduk/penduduk_add', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('penduduk/penduduk_add')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Penduduk.php(36): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Penduduk->add()
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penduduk))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-15 19:40:28 --> mysqli_sql_exception: Table 'spd-situhiang.pekerjaan' doesn't exist in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\Model_pekerjaan.php(13): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\spd\app\Controllers\Pekerjaan.php(19): App\Models\Model_pekerjaan->AllData()
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Pekerjaan->index()
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pekerjaan))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-11-15 19:40:28 --> Table 'spd-situhiang.pekerjaan' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `pekerjaan`
+ORDER BY `id_pekerjaan` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `pekerjaan`
+ORDER BY `id_pekerjaan` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `pekerjaan`
+ORDER BY `id_pekerjaan` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `pekerjaan`
+ORDER BY `id_pekerjaan` DESC', [], false)
+ 5 APPPATH\Models\Model_pekerjaan.php(13): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Pekerjaan.php(19): App\Models\Model_pekerjaan->AllData()
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Pekerjaan->index()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pekerjaan))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-15 19:41:01 --> mysqli_sql_exception: Table 'spd-situhiang.pekerjaan' doesn't exist in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\Model_pekerjaan.php(13): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\spd\app\Controllers\Pekerjaan.php(19): App\Models\Model_pekerjaan->AllData()
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Pekerjaan->index()
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pekerjaan))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-11-15 19:41:01 --> Table 'spd-situhiang.pekerjaan' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `pekerjaan`
+ORDER BY `id_pekerjaan` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `pekerjaan`
+ORDER BY `id_pekerjaan` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `pekerjaan`
+ORDER BY `id_pekerjaan` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `pekerjaan`
+ORDER BY `id_pekerjaan` DESC', [], false)
+ 5 APPPATH\Models\Model_pekerjaan.php(13): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Pekerjaan.php(19): App\Models\Model_pekerjaan->AllData()
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Pekerjaan->index()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pekerjaan))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 20:04:29 --> Undefined variable: validation
+in APPPATH\Views\penduduk\penduduk_add.php on line 86.
+ 1 APPPATH\Views\penduduk\penduduk_add.php(86): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: validation', 'APPPATH\\Views\\penduduk\\penduduk_add.php', 86, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\penduduk\\penduduk_add.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('penduduk/penduduk_add', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('penduduk/penduduk_add')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Penduduk.php(39): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Penduduk->add()
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penduduk))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-15 20:10:03 --> mysqli_sql_exception: Unknown column 'pekerjaan' in 'field list' in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\Model_penduduk.php(25): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\wamp64\www\spd\app\Controllers\Penduduk.php(222): App\Models\Model_penduduk->add(Array)
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Penduduk->insert()
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penduduk))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-11-15 20:10:03 --> Unknown column 'pekerjaan' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tbl_penduduk` (`no_kk`, `nik`, `nama`, `tempat_lahir`, `tgl_lahir`, `jk`, `alamat`, `rt`, `rw`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `status_tinggal`, `gol_darah`, `kewarganegaraan`) VALUES (\'3203109392931\', \'1111111111111111\', \'Penduduk A\', \'Padang\', \'2022-11-16\', \'1\', \'Jl. Prof.H.M.Yamin No.173\', \'1\', \'1\', \'1\', \'1\', \'4\', NULL, \'1\', \'O\', \'WNI\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_penduduk` (`no_kk`, `nik`, `nama`, `tempat_lahir`, `tgl_lahir`, `jk`, `alamat`, `rt`, `rw`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `status_tinggal`, `gol_darah`, `kewarganegaraan`) VALUES (\'3203109392931\', \'1111111111111111\', \'Penduduk A\', \'Padang\', \'2022-11-16\', \'1\', \'Jl. Prof.H.M.Yamin No.173\', \'1\', \'1\', \'1\', \'1\', \'4\', NULL, \'1\', \'O\', \'WNI\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_penduduk` (`no_kk`, `nik`, `nama`, `tempat_lahir`, `tgl_lahir`, `jk`, `alamat`, `rt`, `rw`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `status_tinggal`, `gol_darah`, `kewarganegaraan`) VALUES (\'3203109392931\', \'1111111111111111\', \'Penduduk A\', \'Padang\', \'2022-11-16\', \'1\', \'Jl. Prof.H.M.Yamin No.173\', \'1\', \'1\', \'1\', \'1\', \'4\', NULL, \'1\', \'O\', \'WNI\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_penduduk` (`no_kk`, `nik`, `nama`, `tempat_lahir`, `tgl_lahir`, `jk`, `alamat`, `rt`, `rw`, `agama`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `status_tinggal`, `gol_darah`, `kewarganegaraan`) VALUES (:no_kk:, :nik:, :nama:, :tempat_lahir:, :tgl_lahir:, :jk:, :alamat:, :rt:, :rw:, :agama:, :status_perkawinan:, :pendidikan:, :pekerjaan:, :status_tinggal:, :gol_darah:, :kewarganegaraan:)', [...], false)
+ 5 APPPATH\Models\Model_penduduk.php(25): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Penduduk.php(222): App\Models\Model_penduduk->add([...])
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Penduduk->insert()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penduduk))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-15 21:40:56 --> mysqli_sql_exception: Column 'id_penduduk' cannot be null in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\Model_kematian.php(27): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\wamp64\www\spd\app\Controllers\Kematian.php(32): App\Models\Model_kematian->InsertData(Array)
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Kematian->Insert()
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kematian))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-11-15 21:40:56 --> Column 'id_penduduk' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tbl_kematian` (`id_penduduk`, `tempat_kematian`, `tgl_kematian`, `penyebab`) VALUES (NULL, \'asd\', \'2022-11-16\', \'sakit\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_kematian` (`id_penduduk`, `tempat_kematian`, `tgl_kematian`, `penyebab`) VALUES (NULL, \'asd\', \'2022-11-16\', \'sakit\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_kematian` (`id_penduduk`, `tempat_kematian`, `tgl_kematian`, `penyebab`) VALUES (NULL, \'asd\', \'2022-11-16\', \'sakit\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_kematian` (`id_penduduk`, `tempat_kematian`, `tgl_kematian`, `penyebab`) VALUES (:id_penduduk:, :tempat_kematian:, :tgl_kematian:, :penyebab:)', [...], false)
+ 5 APPPATH\Models\Model_kematian.php(27): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Kematian.php(32): App\Models\Model_kematian->InsertData([...])
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Kematian->Insert()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kematian))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-15 21:51:22 --> mysqli_sql_exception: Table 'spd-situhiang.data_kematian' doesn't exist in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1614): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', NULL, false)
+#4 C:\wamp64\www\spd\app\Models\Model_home.php(24): CodeIgniter\Database\BaseBuilder->countAll()
+#5 C:\wamp64\www\spd\app\Controllers\Home.php(21): App\Models\Model_home->total_kematian()
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Home->index()
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-11-15 21:51:22 --> Table 'spd-situhiang.data_kematian' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*) AS `numrows` FROM `data_kematian`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows` FROM `data_kematian`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows` FROM `data_kematian`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1614): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `data_kematian`', null, false)
+ 5 APPPATH\Models\Model_home.php(24): CodeIgniter\Database\BaseBuilder->countAll()
+ 6 APPPATH\Controllers\Home.php(21): App\Models\Model_home->total_kematian()
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-15 21:52:22 --> mysqli_sql_exception: Unknown column 'status' in 'where clause' in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1669): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\Model_home.php(26): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\wamp64\www\spd\app\Controllers\Home.php(21): App\Models\Model_home->total_kematian()
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Home->index()
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-11-15 21:52:22 --> Unknown column 'status' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM `tbl_kematian`
+WHERE `status` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `tbl_kematian`
+WHERE `status` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `tbl_kematian`
+WHERE `status` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1669): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `tbl_kematian`
+WHERE `status` = :status:', [...], false)
+ 5 APPPATH\Models\Model_home.php(26): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 6 APPPATH\Controllers\Home.php(21): App\Models\Model_home->total_kematian()
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-15 21:56:30 --> mysqli_sql_exception: Unknown column 'status' in 'where clause' in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1669): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\Model_home.php(26): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\wamp64\www\spd\app\Controllers\Home.php(21): App\Models\Model_home->total_kematian()
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Home->index()
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-11-15 21:56:30 --> Unknown column 'status' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM `tbl_kematian`
+WHERE `status` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `tbl_kematian`
+WHERE `status` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `tbl_kematian`
+WHERE `status` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1669): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `tbl_kematian`
+WHERE `status` = :status:', [...], false)
+ 5 APPPATH\Models\Model_home.php(26): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 6 APPPATH\Controllers\Home.php(21): App\Models\Model_home->total_kematian()
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 22:08:20 --> Undefined index: nama_bayi
+in APPPATH\Views\pages\kelahiran\kelahiran_view.php on line 38.
+ 1 APPPATH\Views\pages\kelahiran\kelahiran_view.php(38): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index: nama_bayi', 'APPPATH\\Views\\pages\\kelahiran\\kelahiran_view.php', 38, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\pages\\kelahiran\\kelahiran_view.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('pages/kelahiran/kelahiran_view', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('pages/kelahiran/kelahiran_view')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Kelahiran.php(24): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Kelahiran->index()
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kelahiran))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 22:12:47 --> Undefined index: nama_bayi
+in APPPATH\Views\pages\kelahiran\kelahiran_view.php on line 38.
+ 1 APPPATH\Views\pages\kelahiran\kelahiran_view.php(38): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index: nama_bayi', 'APPPATH\\Views\\pages\\kelahiran\\kelahiran_view.php', 38, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\pages\\kelahiran\\kelahiran_view.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('pages/kelahiran/kelahiran_view', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('pages/kelahiran/kelahiran_view')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Kelahiran.php(24): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Kelahiran->index()
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kelahiran))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 22:17:30 --> Undefined index: pukul
+in APPPATH\Views\pages\kelahiran\kelahiran_view.php on line 38.
+ 1 APPPATH\Views\pages\kelahiran\kelahiran_view.php(38): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index: pukul', 'APPPATH\\Views\\pages\\kelahiran\\kelahiran_view.php', 38, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\pages\\kelahiran\\kelahiran_view.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('pages/kelahiran/kelahiran_view', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('pages/kelahiran/kelahiran_view')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Kelahiran.php(24): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Kelahiran->index()
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kelahiran))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 22:34:10 --> Undefined variable: keluarga
+in APPPATH\Views\pages\kelahiran\kelahiran_add.php on line 15.
+ 1 APPPATH\Views\pages\kelahiran\kelahiran_add.php(15): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: keluarga', 'APPPATH\\Views\\pages\\kelahiran\\kelahiran_add.php', 15, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\pages\\kelahiran\\kelahiran_add.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('pages/kelahiran/kelahiran_add', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('pages/kelahiran/kelahiran_add')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Kelahiran.php(36): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Kelahiran->add()
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kelahiran))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 22:34:58 --> Undefined variable: keluarga
+in APPPATH\Views\pages\kelahiran\kelahiran_add.php on line 15.
+ 1 APPPATH\Views\pages\kelahiran\kelahiran_add.php(15): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: keluarga', 'APPPATH\\Views\\pages\\kelahiran\\kelahiran_add.php', 15, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\pages\\kelahiran\\kelahiran_add.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('pages/kelahiran/kelahiran_add', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('pages/kelahiran/kelahiran_add')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Kelahiran.php(34): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Kelahiran->add()
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kelahiran))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 22:35:09 --> Undefined variable: keluarga
+in APPPATH\Views\pages\kelahiran\kelahiran_add.php on line 15.
+ 1 APPPATH\Views\pages\kelahiran\kelahiran_add.php(15): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: keluarga', 'APPPATH\\Views\\pages\\kelahiran\\kelahiran_add.php', 15, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\pages\\kelahiran\\kelahiran_add.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('pages/kelahiran/kelahiran_add', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('pages/kelahiran/kelahiran_add')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Kelahiran.php(35): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Kelahiran->add()
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kelahiran))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-15 22:37:10 --> Undefined variable: keluarga
+in APPPATH\Views\pages\kelahiran\kelahiran_add.php on line 19.
+ 1 APPPATH\Views\pages\kelahiran\kelahiran_add.php(19): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: keluarga', 'APPPATH\\Views\\pages\\kelahiran\\kelahiran_add.php', 19, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\pages\\kelahiran\\kelahiran_add.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('pages/kelahiran/kelahiran_add', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('pages/kelahiran/kelahiran_add')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Kelahiran.php(33): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Kelahiran->add()
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kelahiran))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

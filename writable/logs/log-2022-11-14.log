@@ -1,0 +1,453 @@
+CRITICAL - 2022-11-14 02:12:42 --> Undefined variable: tittle
+in APPPATH\Views\login_view.php on line 5.
+ 1 APPPATH\Views\login_view.php(5): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: tittle', 'APPPATH\\Views\\login_view.php', 5, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\login_view.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('login_view', [], true)
+ 5 APPPATH\Controllers\Auth.php(19): view('login_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Auth->index()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-14 03:29:42 --> Undefined variable: validasi
+in APPPATH\Views\login_view.php on line 45.
+ 1 APPPATH\Views\login_view.php(45): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: validasi', 'APPPATH\\Views\\login_view.php', 45, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\login_view.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('login_view', [], true)
+ 5 APPPATH\Controllers\Auth.php(19): view('login_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Auth->index()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-14 21:09:00 --> Trying to access array offset on value of type null
+in APPPATH\Views\pages\penduduk\penduduk_edit.php on line 5.
+ 1 APPPATH\Views\pages\penduduk\penduduk_edit.php(5): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to access array offset on value of type null', 'APPPATH\\Views\\pages\\penduduk\\penduduk_edit.php', 5, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\pages\\penduduk\\penduduk_edit.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('pages/penduduk/penduduk_edit', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('pages/penduduk/penduduk_edit')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Penduduk.php(213): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Penduduk->edit('1665305144_e80d3a83f0a7efea2511.png')
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penduduk))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-14 21:11:27 --> mysqli_sql_exception: MySQL server has gone away in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\spd\app\Models\Model_jabatan.php(13): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\spd\app\Controllers\Jabatan.php(19): App\Models\Model_jabatan->alldata()
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Jabatan->index()
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Jabatan))
+#8 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-11-14 21:11:27 --> MySQL server has gone away
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `jabatan`
+ORDER BY `id_jabatan` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `jabatan`
+ORDER BY `id_jabatan` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `jabatan`
+ORDER BY `id_jabatan` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `jabatan`
+ORDER BY `id_jabatan` DESC', [], false)
+ 5 APPPATH\Models\Model_jabatan.php(13): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Jabatan.php(19): App\Models\Model_jabatan->alldata()
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Jabatan->index()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Jabatan))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-14 21:11:31 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it.
+ in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', '', 'spd_situhiang', 3306, '', 0)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\spd\app\Models\Model_pengguna.php(14): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\spd\app\Controllers\Pengguna.php(22): App\Models\Model_pengguna->alldata()
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Pengguna->index()
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengguna))
+#8 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it.
+ in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\spd\app\Models\Model_pengguna.php(14): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\spd\app\Controllers\Pengguna.php(22): App\Models\Model_pengguna->alldata()
+#5 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Pengguna->index()
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengguna))
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-11-14 21:11:31 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it.
+
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tb_users`
+LEFT JOIN `jabatan` ON `jabatan`.`id_jabatan` = `tb_users`.`id_jabatan`
+ORDER BY `id_users` DESC', [], false)
+ 3 APPPATH\Models\Model_pengguna.php(14): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Pengguna.php(22): App\Models\Model_pengguna->alldata()
+ 5 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Pengguna->index()
+ 6 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengguna))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-14 21:11:35 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it.
+ in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', '', 'spd_situhiang', 3306, '', 0)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\spd\app\Models\Model_pengguna.php(14): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\spd\app\Controllers\Pengguna.php(22): App\Models\Model_pengguna->alldata()
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Pengguna->index()
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengguna))
+#8 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it.
+ in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\spd\app\Models\Model_pengguna.php(14): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\spd\app\Controllers\Pengguna.php(22): App\Models\Model_pengguna->alldata()
+#5 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Pengguna->index()
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengguna))
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-11-14 21:11:35 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it.
+
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tb_users`
+LEFT JOIN `jabatan` ON `jabatan`.`id_jabatan` = `tb_users`.`id_jabatan`
+ORDER BY `id_users` DESC', [], false)
+ 3 APPPATH\Models\Model_pengguna.php(14): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Pengguna.php(22): App\Models\Model_pengguna->alldata()
+ 5 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Pengguna->index()
+ 6 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengguna))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-14 21:11:48 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it.
+ in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', '', 'spd_situhiang', 3306, '', 0)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(1614): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', NULL, false)
+#4 C:\xampp\htdocs\spd\app\Models\Model_home.php(11): CodeIgniter\Database\BaseBuilder->countAll()
+#5 C:\xampp\htdocs\spd\app\Controllers\Home.php(18): App\Models\Model_home->total_penduduk()
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Home->index()
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it.
+ in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(1614): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', NULL, false)
+#3 C:\xampp\htdocs\spd\app\Models\Model_home.php(11): CodeIgniter\Database\BaseBuilder->countAll()
+#4 C:\xampp\htdocs\spd\app\Controllers\Home.php(18): App\Models\Model_home->total_penduduk()
+#5 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Home->index()
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-11-14 21:11:48 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it.
+
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1614): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `data_penduduk`', null, false)
+ 3 APPPATH\Models\Model_home.php(11): CodeIgniter\Database\BaseBuilder->countAll()
+ 4 APPPATH\Controllers\Home.php(18): App\Models\Model_home->total_penduduk()
+ 5 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Home->index()
+ 6 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-14 21:11:53 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it.
+ in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', '', 'spd_situhiang', 3306, '', 0)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\spd\app\Models\Model_penduduk.php(13): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\spd\app\Controllers\Penduduk.php(18): App\Models\Model_penduduk->alldata()
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Penduduk->index()
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penduduk))
+#8 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it.
+ in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\spd\app\Models\Model_penduduk.php(13): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\spd\app\Controllers\Penduduk.php(18): App\Models\Model_penduduk->alldata()
+#5 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Penduduk->index()
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penduduk))
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-11-14 21:11:53 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it.
+
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `data_penduduk`
+ORDER BY `id_penduduk` DESC', [], false)
+ 3 APPPATH\Models\Model_penduduk.php(13): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Penduduk.php(18): App\Models\Model_penduduk->alldata()
+ 5 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Penduduk->index()
+ 6 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penduduk))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-14 21:11:57 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it.
+ in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', '', 'spd_situhiang', 3306, '', 0)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\spd\app\Models\Model_penduduk.php(13): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\spd\app\Controllers\Penduduk.php(18): App\Models\Model_penduduk->alldata()
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Penduduk->index()
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penduduk))
+#8 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it.
+ in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\spd\app\Models\Model_penduduk.php(13): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\spd\app\Controllers\Penduduk.php(18): App\Models\Model_penduduk->alldata()
+#5 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Penduduk->index()
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penduduk))
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-11-14 21:11:57 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it.
+
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `data_penduduk`
+ORDER BY `id_penduduk` DESC', [], false)
+ 3 APPPATH\Models\Model_penduduk.php(13): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Penduduk.php(18): App\Models\Model_penduduk->alldata()
+ 5 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Penduduk->index()
+ 6 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penduduk))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-14 21:14:59 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it.
+ in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', '', 'spd_situhiang', 3306, '', 0)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\spd\app\Models\Model_kelahiran.php(14): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\spd\app\Controllers\Kelahiran.php(21): App\Models\Model_kelahiran->alldata()
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Kelahiran->index()
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kelahiran))
+#8 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it.
+ in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\spd\app\Models\Model_kelahiran.php(14): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\spd\app\Controllers\Kelahiran.php(21): App\Models\Model_kelahiran->alldata()
+#5 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Kelahiran->index()
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kelahiran))
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-11-14 21:14:59 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it.
+
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `data_kelahiran`
+ORDER BY `id_lahir` DESC', [], false)
+ 3 APPPATH\Models\Model_kelahiran.php(14): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Kelahiran.php(21): App\Models\Model_kelahiran->alldata()
+ 5 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Kelahiran->index()
+ 6 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kelahiran))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-14 21:15:04 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it.
+ in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', '', 'spd_situhiang', 3306, '', 0)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\spd\app\Models\Model_kelahiran.php(14): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\spd\app\Controllers\Kelahiran.php(21): App\Models\Model_kelahiran->alldata()
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Kelahiran->index()
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kelahiran))
+#8 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it.
+ in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\spd\app\Models\Model_kelahiran.php(14): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\spd\app\Controllers\Kelahiran.php(21): App\Models\Model_kelahiran->alldata()
+#5 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Kelahiran->index()
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kelahiran))
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-11-14 21:15:04 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it.
+
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `data_kelahiran`
+ORDER BY `id_lahir` DESC', [], false)
+ 3 APPPATH\Models\Model_kelahiran.php(14): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Kelahiran.php(21): App\Models\Model_kelahiran->alldata()
+ 5 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Kelahiran->index()
+ 6 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kelahiran))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-14 21:15:08 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it.
+ in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', '', 'spd_situhiang', 3306, '', 0)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\spd\app\Models\Model_kelahiran.php(14): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\spd\app\Controllers\Kelahiran.php(21): App\Models\Model_kelahiran->alldata()
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Kelahiran->index()
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kelahiran))
+#8 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it.
+ in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\spd\app\Models\Model_kelahiran.php(14): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\spd\app\Controllers\Kelahiran.php(21): App\Models\Model_kelahiran->alldata()
+#5 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Kelahiran->index()
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kelahiran))
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-11-14 21:15:08 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it.
+
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `data_kelahiran`
+ORDER BY `id_lahir` DESC', [], false)
+ 3 APPPATH\Models\Model_kelahiran.php(14): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Kelahiran.php(21): App\Models\Model_kelahiran->alldata()
+ 5 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Kelahiran->index()
+ 6 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kelahiran))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-14 21:49:44 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it.
+ in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', '', 'spd_situhiang', 3306, '', 0)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\spd\app\Models\Model_auth.php(14): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\spd\app\Controllers\Auth.php(45): App\Models\Model_auth->login('farizzsalman', '7c4a8d09ca3762a...')
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Auth->login()
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#8 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it.
+ in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\spd\app\Models\Model_auth.php(14): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\spd\app\Controllers\Auth.php(45): App\Models\Model_auth->login('farizzsalman', '7c4a8d09ca3762a...')
+#5 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Auth->login()
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-11-14 21:49:44 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it.
+
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tb_users`
+WHERE `username` = :username:
+AND `password` = :password:', [...], false)
+ 3 APPPATH\Models\Model_auth.php(14): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Auth.php(45): App\Models\Model_auth->login('farizzsalman', '7c4a8d09ca3762af61e59520943dc26494f8941b')
+ 5 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Auth->login()
+ 6 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

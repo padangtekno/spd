@@ -1,0 +1,248 @@
+CRITICAL - 2022-12-28 07:23:56 --> Undefined index: kode_pos
+in APPPATH\Views\keluarga\keluarga_add.php on line 86.
+ 1 APPPATH\Views\keluarga\keluarga_add.php(86): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index: kode_pos', 'APPPATH\\Views\\keluarga\\keluarga_add.php', 86, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\keluarga\\keluarga_add.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('keluarga/keluarga_add', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('keluarga/keluarga_add')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Keluarga.php(42): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Keluarga->add()
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keluarga))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-28 07:25:35 --> Undefined index: kode_pos
+in APPPATH\Views\setting_view.php on line 66.
+ 1 APPPATH\Views\setting_view.php(66): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index: kode_pos', 'APPPATH\\Views\\setting_view.php', 66, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\setting_view.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('setting_view', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('setting_view')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Home.php(51): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Home->setting()
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-28 09:36:10 --> mysqli_sql_exception: Unknown column 'tbl_keluarga.id_provinsi' in 'on clause' in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\Model_keluarga.php(54): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\spd\app\Controllers\Keluarga.php(215): App\Models\Model_keluarga->RincianData('3203109392928')
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Keluarga->Rincian('3203109392928')
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keluarga))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-12-28 09:36:10 --> Unknown column 'tbl_keluarga.id_provinsi' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `tbl_keluarga`
+LEFT JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi`=`tbl_keluarga`.`id_provinsi`
+LEFT JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten`=`tbl_keluarga`.`id_kabupaten`
+LEFT JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan`=`tbl_keluarga`.`id_kecamatan`
+WHERE `no_kk` = \'3203109392928\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_keluarga`
+LEFT JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi`=`tbl_keluarga`.`id_provinsi`
+LEFT JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten`=`tbl_keluarga`.`id_kabupaten`
+LEFT JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan`=`tbl_keluarga`.`id_kecamatan`
+WHERE `no_kk` = \'3203109392928\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_keluarga`
+LEFT JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi`=`tbl_keluarga`.`id_provinsi`
+LEFT JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten`=`tbl_keluarga`.`id_kabupaten`
+LEFT JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan`=`tbl_keluarga`.`id_kecamatan`
+WHERE `no_kk` = \'3203109392928\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_keluarga`
+LEFT JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi`=`tbl_keluarga`.`id_provinsi`
+LEFT JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten`=`tbl_keluarga`.`id_kabupaten`
+LEFT JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan`=`tbl_keluarga`.`id_kecamatan`
+WHERE `no_kk` = :no_kk:', [...], false)
+ 5 APPPATH\Models\Model_keluarga.php(54): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Keluarga.php(215): App\Models\Model_keluarga->RincianData('3203109392928')
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Keluarga->Rincian('3203109392928')
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keluarga))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-28 09:36:16 --> mysqli_sql_exception: Unknown column 'tbl_keluarga.id_provinsi' in 'on clause' in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\Model_keluarga.php(24): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\spd\app\Controllers\Keluarga.php(133): App\Models\Model_keluarga->detail_data('26')
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Keluarga->edit('26')
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keluarga))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-12-28 09:36:16 --> Unknown column 'tbl_keluarga.id_provinsi' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `tbl_keluarga`
+LEFT JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi`=`tbl_keluarga`.`id_provinsi`
+LEFT JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten`=`tbl_keluarga`.`id_kabupaten`
+LEFT JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan`=`tbl_keluarga`.`id_kecamatan`
+WHERE `id_keluarga` = \'26\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_keluarga`
+LEFT JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi`=`tbl_keluarga`.`id_provinsi`
+LEFT JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten`=`tbl_keluarga`.`id_kabupaten`
+LEFT JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan`=`tbl_keluarga`.`id_kecamatan`
+WHERE `id_keluarga` = \'26\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_keluarga`
+LEFT JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi`=`tbl_keluarga`.`id_provinsi`
+LEFT JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten`=`tbl_keluarga`.`id_kabupaten`
+LEFT JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan`=`tbl_keluarga`.`id_kecamatan`
+WHERE `id_keluarga` = \'26\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_keluarga`
+LEFT JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi`=`tbl_keluarga`.`id_provinsi`
+LEFT JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten`=`tbl_keluarga`.`id_kabupaten`
+LEFT JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan`=`tbl_keluarga`.`id_kecamatan`
+WHERE `id_keluarga` = :id_keluarga:', [...], false)
+ 5 APPPATH\Models\Model_keluarga.php(24): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Keluarga.php(133): App\Models\Model_keluarga->detail_data('26')
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Keluarga->edit('26')
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keluarga))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-28 09:37:21 --> mysqli_sql_exception: Unknown column 'id_provinsi' in 'field list' in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\Model_keluarga.php(30): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\wamp64\www\spd\app\Controllers\Keluarga.php(114): App\Models\Model_keluarga->add(Array)
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Keluarga->insert()
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keluarga))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-12-28 09:37:21 --> Unknown column 'id_provinsi' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tbl_keluarga` (`no_kk`, `kepala_keluarga`, `alamat`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `rt`, `rw`, `desa`, `kode_pos`) VALUES (\'123123\', \'Keluarga EE\', \'Jl. Prof.H.M.Yamin No.173, Kisaran Naga, Kisaran Timur., Kabupaten Asahan, Sumatera Utara 21222 Indonesia\', \'32\', \'3203\', \'3203100\', \'123\', \'123\', \'Desa Situhiang\', \'43266\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_keluarga` (`no_kk`, `kepala_keluarga`, `alamat`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `rt`, `rw`, `desa`, `kode_pos`) VALUES (\'123123\', \'Keluarga EE\', \'Jl. Prof.H.M.Yamin No.173, Kisaran Naga, Kisaran Timur., Kabupaten Asahan, Sumatera Utara 21222 Indonesia\', \'32\', \'3203\', \'3203100\', \'123\', \'123\', \'Desa Situhiang\', \'43266\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_keluarga` (`no_kk`, `kepala_keluarga`, `alamat`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `rt`, `rw`, `desa`, `kode_pos`) VALUES (\'123123\', \'Keluarga EE\', \'Jl. Prof.H.M.Yamin No.173, Kisaran Naga, Kisaran Timur., Kabupaten Asahan, Sumatera Utara 21222 Indonesia\', \'32\', \'3203\', \'3203100\', \'123\', \'123\', \'Desa Situhiang\', \'43266\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_keluarga` (`no_kk`, `kepala_keluarga`, `alamat`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `rt`, `rw`, `desa`, `kode_pos`) VALUES (:no_kk:, :kepala_keluarga:, :alamat:, :id_provinsi:, :id_kabupaten:, :id_kecamatan:, :rt:, :rw:, :desa:, :kode_pos:)', [...], false)
+ 5 APPPATH\Models\Model_keluarga.php(30): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Keluarga.php(114): App\Models\Model_keluarga->add([...])
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Keluarga->insert()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keluarga))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-28 09:43:23 --> mysqli_sql_exception: Unknown column 'tbl_penduduk.id_pekerjaan' in 'on clause' in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\Model_penduduk.php(16): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\spd\app\Controllers\Penduduk.php(30): App\Models\Model_penduduk->alldata()
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Penduduk->index()
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penduduk))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-12-28 09:43:23 --> Unknown column 'tbl_penduduk.id_pekerjaan' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_pekerjaan` ON `tbl_pekerjaan`.`id_pekerjaan`=`tbl_penduduk`.`id_pekerjaan`
+LEFT JOIN `tbl_penghasilan` ON `tbl_penghasilan`.`id_penghasilan`=`tbl_penduduk`.`id_penghasilan`
+WHERE `status` = \'1\'
+ORDER BY `no_kk` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_pekerjaan` ON `tbl_pekerjaan`.`id_pekerjaan`=`tbl_penduduk`.`id_pekerjaan`
+LEFT JOIN `tbl_penghasilan` ON `tbl_penghasilan`.`id_penghasilan`=`tbl_penduduk`.`id_penghasilan`
+WHERE `status` = \'1\'
+ORDER BY `no_kk` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_pekerjaan` ON `tbl_pekerjaan`.`id_pekerjaan`=`tbl_penduduk`.`id_pekerjaan`
+LEFT JOIN `tbl_penghasilan` ON `tbl_penghasilan`.`id_penghasilan`=`tbl_penduduk`.`id_penghasilan`
+WHERE `status` = \'1\'
+ORDER BY `no_kk` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_pekerjaan` ON `tbl_pekerjaan`.`id_pekerjaan`=`tbl_penduduk`.`id_pekerjaan`
+LEFT JOIN `tbl_penghasilan` ON `tbl_penghasilan`.`id_penghasilan`=`tbl_penduduk`.`id_penghasilan`
+WHERE `status` = :status:
+ORDER BY `no_kk` DESC', [...], false)
+ 5 APPPATH\Models\Model_penduduk.php(16): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Penduduk.php(30): App\Models\Model_penduduk->alldata()
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Penduduk->index()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penduduk))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-28 10:03:08 --> mysqli_sql_exception: Duplicate entry '0' for key 'PRIMARY' in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\Model_keluarga.php(30): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\wamp64\www\spd\app\Controllers\Keluarga.php(114): App\Models\Model_keluarga->add(Array)
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Keluarga->insert()
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keluarga))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-12-28 10:03:08 --> Duplicate entry '0' for key 'PRIMARY'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tbl_keluarga` (`no_kk`, `kepala_keluarga`, `alamat`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `rt`, `rw`, `desa`, `kode_pos`) VALUES (\'22222222222\', \'Keluarga EE\', \'Jl. Prof.H.M.Yamin No.173, Kisaran Naga, Kisaran Timur., Kabupaten Asahan, Sumatera Utara 21222 Indonesia\', \'32\', \'3203\', \'3203100\', \'123\', \'123\', \'Desa Situhiang\', \'43266\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_keluarga` (`no_kk`, `kepala_keluarga`, `alamat`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `rt`, `rw`, `desa`, `kode_pos`) VALUES (\'22222222222\', \'Keluarga EE\', \'Jl. Prof.H.M.Yamin No.173, Kisaran Naga, Kisaran Timur., Kabupaten Asahan, Sumatera Utara 21222 Indonesia\', \'32\', \'3203\', \'3203100\', \'123\', \'123\', \'Desa Situhiang\', \'43266\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_keluarga` (`no_kk`, `kepala_keluarga`, `alamat`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `rt`, `rw`, `desa`, `kode_pos`) VALUES (\'22222222222\', \'Keluarga EE\', \'Jl. Prof.H.M.Yamin No.173, Kisaran Naga, Kisaran Timur., Kabupaten Asahan, Sumatera Utara 21222 Indonesia\', \'32\', \'3203\', \'3203100\', \'123\', \'123\', \'Desa Situhiang\', \'43266\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_keluarga` (`no_kk`, `kepala_keluarga`, `alamat`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `rt`, `rw`, `desa`, `kode_pos`) VALUES (:no_kk:, :kepala_keluarga:, :alamat:, :id_provinsi:, :id_kabupaten:, :id_kecamatan:, :rt:, :rw:, :desa:, :kode_pos:)', [...], false)
+ 5 APPPATH\Models\Model_keluarga.php(30): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Keluarga.php(114): App\Models\Model_keluarga->add([...])
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Keluarga->insert()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keluarga))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-28 10:13:04 --> mysqli_sql_exception: Duplicate entry '0' for key 'PRIMARY' in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\Model_kelahiran.php(34): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\wamp64\www\spd\app\Controllers\Kelahiran.php(129): App\Models\Model_kelahiran->InsertPenduduk(Array)
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Kelahiran->Insert()
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kelahiran))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-12-28 10:13:04 --> Duplicate entry '0' for key 'PRIMARY'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tbl_penduduk` (`hubungan_keluarga`, `nama`, `tgl_lahir`, `tempat_lahir`, `no_kk`, `jk`, `agama`) VALUES (\'Anak\', \'In e\', \'2018-01-24\', \'Eos\', \'3203181011051709\', \'L\', \'Islam\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_penduduk` (`hubungan_keluarga`, `nama`, `tgl_lahir`, `tempat_lahir`, `no_kk`, `jk`, `agama`) VALUES (\'Anak\', \'In e\', \'2018-01-24\', \'Eos\', \'3203181011051709\', \'L\', \'Islam\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_penduduk` (`hubungan_keluarga`, `nama`, `tgl_lahir`, `tempat_lahir`, `no_kk`, `jk`, `agama`) VALUES (\'Anak\', \'In e\', \'2018-01-24\', \'Eos\', \'3203181011051709\', \'L\', \'Islam\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_penduduk` (`hubungan_keluarga`, `nama`, `tgl_lahir`, `tempat_lahir`, `no_kk`, `jk`, `agama`) VALUES (:hubungan_keluarga:, :nama:, :tgl_lahir:, :tempat_lahir:, :no_kk:, :jk:, :agama:)', [...], false)
+ 5 APPPATH\Models\Model_kelahiran.php(34): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Kelahiran.php(129): App\Models\Model_kelahiran->InsertPenduduk([...])
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Kelahiran->Insert()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kelahiran))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

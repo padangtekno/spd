@@ -1,0 +1,207 @@
+CRITICAL - 2022-11-13 08:45:12 --> Trying to access array offset on value of type null
+in APPPATH\Views\pages\penduduk\penduduk_edit.php on line 5.
+ 1 APPPATH\Views\pages\penduduk\penduduk_edit.php(5): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to access array offset on value of type null', 'APPPATH\\Views\\pages\\penduduk\\penduduk_edit.php', 5, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\pages\\penduduk\\penduduk_edit.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('pages/penduduk/penduduk_edit', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('pages/penduduk/penduduk_edit')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Penduduk.php(213): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Penduduk->edit('1665305144_e80d3a83f0a7efea2511.png')
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penduduk))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-13 08:46:13 --> Undefined variable: data_penduduk
+in APPPATH\Views\pages\kelahiran\kelahiran_add.php on line 84.
+ 1 APPPATH\Views\pages\kelahiran\kelahiran_add.php(84): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: data_penduduk', 'APPPATH\\Views\\pages\\kelahiran\\kelahiran_add.php', 84, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\pages\\kelahiran\\kelahiran_add.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('pages/kelahiran/kelahiran_add', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('pages/kelahiran/kelahiran_add')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Kelahiran.php(38): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Kelahiran->add()
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kelahiran))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-13 08:49:27 --> mysqli_sql_exception: Unknown column 'data_kelahiran.id_penduduk' in 'on clause' in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\spd\app\Models\Model_kelahiran.php(15): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\spd\app\Controllers\Kelahiran.php(23): App\Models\Model_kelahiran->alldata()
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Kelahiran->index()
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kelahiran))
+#8 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-11-13 08:49:27 --> Unknown column 'data_kelahiran.id_penduduk' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `data_kelahiran`
+LEFT JOIN `data_penduduk` ON `data_penduduk`.`id_penduduk` = `data_kelahiran`.`id_penduduk`
+ORDER BY `id_lahir` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `data_kelahiran`
+LEFT JOIN `data_penduduk` ON `data_penduduk`.`id_penduduk` = `data_kelahiran`.`id_penduduk`
+ORDER BY `id_lahir` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `data_kelahiran`
+LEFT JOIN `data_penduduk` ON `data_penduduk`.`id_penduduk` = `data_kelahiran`.`id_penduduk`
+ORDER BY `id_lahir` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `data_kelahiran`
+LEFT JOIN `data_penduduk` ON `data_penduduk`.`id_penduduk` = `data_kelahiran`.`id_penduduk`
+ORDER BY `id_lahir` DESC', [], false)
+ 5 APPPATH\Models\Model_kelahiran.php(15): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Kelahiran.php(23): App\Models\Model_kelahiran->alldata()
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Kelahiran->index()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kelahiran))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-13 08:50:11 --> mysqli_sql_exception: Unknown column 'data_kelahiran.id_penduduk' in 'on clause' in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\spd\app\Models\Model_kelahiran.php(15): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\spd\app\Controllers\Kelahiran.php(23): App\Models\Model_kelahiran->alldata()
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Kelahiran->index()
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kelahiran))
+#8 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-11-13 08:50:11 --> Unknown column 'data_kelahiran.id_penduduk' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `data_kelahiran`
+LEFT JOIN `data_penduduk` ON `data_penduduk`.`id_penduduk` = `data_kelahiran`.`id_penduduk`
+ORDER BY `id_lahir` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `data_kelahiran`
+LEFT JOIN `data_penduduk` ON `data_penduduk`.`id_penduduk` = `data_kelahiran`.`id_penduduk`
+ORDER BY `id_lahir` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `data_kelahiran`
+LEFT JOIN `data_penduduk` ON `data_penduduk`.`id_penduduk` = `data_kelahiran`.`id_penduduk`
+ORDER BY `id_lahir` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `data_kelahiran`
+LEFT JOIN `data_penduduk` ON `data_penduduk`.`id_penduduk` = `data_kelahiran`.`id_penduduk`
+ORDER BY `id_lahir` DESC', [], false)
+ 5 APPPATH\Models\Model_kelahiran.php(15): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Kelahiran.php(23): App\Models\Model_kelahiran->alldata()
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Kelahiran->index()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kelahiran))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-13 09:01:32 --> Undefined variable: jabatan
+in APPPATH\Views\pages\pengguna\pengguna_add.php on line 49.
+ 1 APPPATH\Views\pages\pengguna\pengguna_add.php(49): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: jabatan', 'APPPATH\\Views\\pages\\pengguna\\pengguna_add.php', 49, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\pages\\pengguna\\pengguna_add.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('pages/pengguna/pengguna_add', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('pages/pengguna/pengguna_add')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Pengguna.php(36): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Pengguna->add()
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengguna))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-13 09:01:44 --> Undefined variable: jabatan
+in APPPATH\Views\pages\pengguna\pengguna_add.php on line 49.
+ 1 APPPATH\Views\pages\pengguna\pengguna_add.php(49): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: jabatan', 'APPPATH\\Views\\pages\\pengguna\\pengguna_add.php', 49, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\pages\\pengguna\\pengguna_add.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('pages/pengguna/pengguna_add', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('pages/pengguna/pengguna_add')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Pengguna.php(36): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Pengguna->add()
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengguna))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-13 10:08:08 --> Undefined variable: jabatan
+in APPPATH\Views\pages\pengguna\pengguna_add.php on line 49.
+ 1 APPPATH\Views\pages\pengguna\pengguna_add.php(49): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: jabatan', 'APPPATH\\Views\\pages\\pengguna\\pengguna_add.php', 49, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\pages\\pengguna\\pengguna_add.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('pages/pengguna/pengguna_add', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('pages/pengguna/pengguna_add')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Pengguna.php(36): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Pengguna->add()
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengguna))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-13 10:14:40 --> Use of undefined constant d - assumed 'd' (this will throw an Error in a future version of PHP)
+in APPPATH\Views\home_view.php on line 67.
+ 1 APPPATH\Views\home_view.php(67): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Use of undefined constant d - assumed \'d\' (this will throw an Error in a future version of PHP)', 'APPPATH\\Views\\home_view.php', 67, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\home_view.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('home_view', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('home_view')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Home.php(21): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Home->index()
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-13 10:15:46 --> Use of undefined constant d - assumed 'd' (this will throw an Error in a future version of PHP)
+in APPPATH\Views\home_view.php on line 67.
+ 1 APPPATH\Views\home_view.php(67): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Use of undefined constant d - assumed \'d\' (this will throw an Error in a future version of PHP)', 'APPPATH\\Views\\home_view.php', 67, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\home_view.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('home_view', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('home_view')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Home.php(21): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Home->index()
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

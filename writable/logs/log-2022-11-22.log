@@ -1,0 +1,346 @@
+CRITICAL - 2022-11-22 05:58:15 --> Undefined property: App\Controllers\Kematian::$Model_kelahiran
+in APPPATH\Controllers\Kematian.php on line 43.
+ 1 APPPATH\Controllers\Kematian.php(43): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: App\\Controllers\\Kematian::$Model_kelahiran', 'APPPATH\\Controllers\\Kematian.php', 43, [...])
+ 2 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Kematian->ViewLaporanBulanan()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kematian))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-22 05:59:53 --> Invalid file: kelahiran/kematian_tabel.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('kelahiran/kematian_tabel.php')
+ 2 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('kelahiran/kematian_tabel', [], true)
+ 3 APPPATH\Controllers\Kematian.php(47): view('kelahiran/kematian_tabel', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Kematian->ViewLaporanBulanan()
+ 5 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kematian))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-22 05:59:59 --> Invalid file: kelahiran/kematian_tabel.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('kelahiran/kematian_tabel.php')
+ 2 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('kelahiran/kematian_tabel', [], true)
+ 3 APPPATH\Controllers\Kematian.php(47): view('kelahiran/kematian_tabel', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Kematian->ViewLaporanBulanan()
+ 5 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kematian))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-22 06:00:42 --> Invalid file: kelahiran/kematian_tabel.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('kelahiran/kematian_tabel.php')
+ 2 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('kelahiran/kematian_tabel', [], true)
+ 3 APPPATH\Controllers\Kematian.php(47): view('kelahiran/kematian_tabel', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Kematian->ViewLaporanBulanan()
+ 5 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kematian))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-22 06:03:19 --> Invalid file: kelahiran/kematian_tabel.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('kelahiran/kematian_tabel.php')
+ 2 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('kelahiran/kematian_tabel', [], true)
+ 3 APPPATH\Controllers\Kematian.php(47): view('kelahiran/kematian_tabel', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Kematian->ViewLaporanBulanan()
+ 5 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kematian))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-22 06:04:15 --> Invalid file: kelahiran/kematian_tabel.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('kelahiran/kematian_tabel.php')
+ 2 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('kelahiran/kematian_tabel', [], true)
+ 3 APPPATH\Controllers\Kematian.php(47): view('kelahiran/kematian_tabel', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Kematian->ViewLaporanBulanan()
+ 5 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kematian))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-22 06:05:01 --> Undefined variable: databulanan
+in APPPATH\Views\kematian\print_view.php on line 69.
+ 1 APPPATH\Views\kematian\print_view.php(69): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: databulanan', 'APPPATH\\Views\\kematian\\print_view.php', 69, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\kematian\\print_view.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('kematian/print_view', [], true)
+ 5 APPPATH\Controllers\Kematian.php(62): view('kematian/print_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Kematian->Print('11', '2022')
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kematian))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-22 19:34:26 --> mysqli_sql_exception: Not unique table/alias: 'tbl_penduduk' in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\Model_pindah.php(67): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\spd\app\Controllers\Pindah.php(53): App\Models\Model_pindah->DataBulanan(11, 2022)
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Pindah->ViewLaporanBulanan()
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pindah))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-11-22 19:34:26 --> Not unique table/alias: 'tbl_penduduk'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_penduduk` ON `tbl_penduduk`.`id_penduduk`=`tbl_pindah`.`id_penduduk`
+WHERE month(tbl_pindah.tgl_pindah) = 11
+AND year(tbl_pindah.tgl_pindah) = 2022', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_penduduk` ON `tbl_penduduk`.`id_penduduk`=`tbl_pindah`.`id_penduduk`
+WHERE month(tbl_pindah.tgl_pindah) = 11
+AND year(tbl_pindah.tgl_pindah) = 2022')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_penduduk` ON `tbl_penduduk`.`id_penduduk`=`tbl_pindah`.`id_penduduk`
+WHERE month(tbl_pindah.tgl_pindah) = 11
+AND year(tbl_pindah.tgl_pindah) = 2022')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_penduduk` ON `tbl_penduduk`.`id_penduduk`=`tbl_pindah`.`id_penduduk`
+WHERE month(tbl_pindah.tgl_pindah) = :month(tbl_pindah.tgl_pindah):
+AND year(tbl_pindah.tgl_pindah) = :year(tbl_pindah.tgl_pindah):', [...], false)
+ 5 APPPATH\Models\Model_pindah.php(67): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Pindah.php(53): App\Models\Model_pindah->DataBulanan(11, 2022)
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Pindah->ViewLaporanBulanan()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pindah))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-22 19:35:15 --> mysqli_sql_exception: Not unique table/alias: 'tbl_penduduk' in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\Model_pindah.php(67): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\spd\app\Controllers\Pindah.php(53): App\Models\Model_pindah->DataBulanan(11, 2022)
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Pindah->ViewLaporanBulanan()
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pindah))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-11-22 19:35:15 --> Not unique table/alias: 'tbl_penduduk'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_penduduk` ON `tbl_penduduk`.`id_penduduk`=`tbl_pindah`.`id_penduduk`
+WHERE month(tbl_pindah.tgl_pindah) = 11
+AND year(tbl_pindah.tgl_pindah) = 2022', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_penduduk` ON `tbl_penduduk`.`id_penduduk`=`tbl_pindah`.`id_penduduk`
+WHERE month(tbl_pindah.tgl_pindah) = 11
+AND year(tbl_pindah.tgl_pindah) = 2022')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_penduduk` ON `tbl_penduduk`.`id_penduduk`=`tbl_pindah`.`id_penduduk`
+WHERE month(tbl_pindah.tgl_pindah) = 11
+AND year(tbl_pindah.tgl_pindah) = 2022')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_penduduk` ON `tbl_penduduk`.`id_penduduk`=`tbl_pindah`.`id_penduduk`
+WHERE month(tbl_pindah.tgl_pindah) = :month(tbl_pindah.tgl_pindah):
+AND year(tbl_pindah.tgl_pindah) = :year(tbl_pindah.tgl_pindah):', [...], false)
+ 5 APPPATH\Models\Model_pindah.php(67): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Pindah.php(53): App\Models\Model_pindah->DataBulanan(11, 2022)
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Pindah->ViewLaporanBulanan()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pindah))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-22 19:35:16 --> mysqli_sql_exception: Not unique table/alias: 'tbl_penduduk' in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\Model_pindah.php(67): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\spd\app\Controllers\Pindah.php(53): App\Models\Model_pindah->DataBulanan(11, 2022)
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Pindah->ViewLaporanBulanan()
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pindah))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-11-22 19:35:16 --> Not unique table/alias: 'tbl_penduduk'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_penduduk` ON `tbl_penduduk`.`id_penduduk`=`tbl_pindah`.`id_penduduk`
+WHERE month(tbl_pindah.tgl_pindah) = 11
+AND year(tbl_pindah.tgl_pindah) = 2022', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_penduduk` ON `tbl_penduduk`.`id_penduduk`=`tbl_pindah`.`id_penduduk`
+WHERE month(tbl_pindah.tgl_pindah) = 11
+AND year(tbl_pindah.tgl_pindah) = 2022')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_penduduk` ON `tbl_penduduk`.`id_penduduk`=`tbl_pindah`.`id_penduduk`
+WHERE month(tbl_pindah.tgl_pindah) = 11
+AND year(tbl_pindah.tgl_pindah) = 2022')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_penduduk` ON `tbl_penduduk`.`id_penduduk`=`tbl_pindah`.`id_penduduk`
+WHERE month(tbl_pindah.tgl_pindah) = :month(tbl_pindah.tgl_pindah):
+AND year(tbl_pindah.tgl_pindah) = :year(tbl_pindah.tgl_pindah):', [...], false)
+ 5 APPPATH\Models\Model_pindah.php(67): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Pindah.php(53): App\Models\Model_pindah->DataBulanan(11, 2022)
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Pindah->ViewLaporanBulanan()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pindah))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-22 19:35:16 --> mysqli_sql_exception: Not unique table/alias: 'tbl_penduduk' in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\Model_pindah.php(67): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\spd\app\Controllers\Pindah.php(53): App\Models\Model_pindah->DataBulanan(11, 2022)
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Pindah->ViewLaporanBulanan()
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pindah))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-11-22 19:35:16 --> Not unique table/alias: 'tbl_penduduk'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_penduduk` ON `tbl_penduduk`.`id_penduduk`=`tbl_pindah`.`id_penduduk`
+WHERE month(tbl_pindah.tgl_pindah) = 11
+AND year(tbl_pindah.tgl_pindah) = 2022', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_penduduk` ON `tbl_penduduk`.`id_penduduk`=`tbl_pindah`.`id_penduduk`
+WHERE month(tbl_pindah.tgl_pindah) = 11
+AND year(tbl_pindah.tgl_pindah) = 2022')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_penduduk` ON `tbl_penduduk`.`id_penduduk`=`tbl_pindah`.`id_penduduk`
+WHERE month(tbl_pindah.tgl_pindah) = 11
+AND year(tbl_pindah.tgl_pindah) = 2022')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_penduduk` ON `tbl_penduduk`.`id_penduduk`=`tbl_pindah`.`id_penduduk`
+WHERE month(tbl_pindah.tgl_pindah) = :month(tbl_pindah.tgl_pindah):
+AND year(tbl_pindah.tgl_pindah) = :year(tbl_pindah.tgl_pindah):', [...], false)
+ 5 APPPATH\Models\Model_pindah.php(67): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Pindah.php(53): App\Models\Model_pindah->DataBulanan(11, 2022)
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Pindah->ViewLaporanBulanan()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pindah))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-22 19:35:16 --> mysqli_sql_exception: Not unique table/alias: 'tbl_penduduk' in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\Model_pindah.php(67): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\spd\app\Controllers\Pindah.php(53): App\Models\Model_pindah->DataBulanan(11, 2022)
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Pindah->ViewLaporanBulanan()
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pindah))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-11-22 19:35:16 --> Not unique table/alias: 'tbl_penduduk'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_penduduk` ON `tbl_penduduk`.`id_penduduk`=`tbl_pindah`.`id_penduduk`
+WHERE month(tbl_pindah.tgl_pindah) = 11
+AND year(tbl_pindah.tgl_pindah) = 2022', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_penduduk` ON `tbl_penduduk`.`id_penduduk`=`tbl_pindah`.`id_penduduk`
+WHERE month(tbl_pindah.tgl_pindah) = 11
+AND year(tbl_pindah.tgl_pindah) = 2022')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_penduduk` ON `tbl_penduduk`.`id_penduduk`=`tbl_pindah`.`id_penduduk`
+WHERE month(tbl_pindah.tgl_pindah) = 11
+AND year(tbl_pindah.tgl_pindah) = 2022')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_penduduk` ON `tbl_penduduk`.`id_penduduk`=`tbl_pindah`.`id_penduduk`
+WHERE month(tbl_pindah.tgl_pindah) = :month(tbl_pindah.tgl_pindah):
+AND year(tbl_pindah.tgl_pindah) = :year(tbl_pindah.tgl_pindah):', [...], false)
+ 5 APPPATH\Models\Model_pindah.php(67): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Pindah.php(53): App\Models\Model_pindah->DataBulanan(11, 2022)
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Pindah->ViewLaporanBulanan()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pindah))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-22 19:35:32 --> mysqli_sql_exception: Not unique table/alias: 'tbl_penduduk' in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\Model_pindah.php(67): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\spd\app\Controllers\Pindah.php(53): App\Models\Model_pindah->DataBulanan(11, 2022)
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Pindah->ViewLaporanBulanan()
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pindah))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-11-22 19:35:32 --> Not unique table/alias: 'tbl_penduduk'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_penduduk` ON `tbl_penduduk`.`id_penduduk`=`tbl_pindah`.`id_penduduk`
+WHERE month(tbl_pindah.tgl_pindah) = 11
+AND year(tbl_pindah.tgl_pindah) = 2022', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_penduduk` ON `tbl_penduduk`.`id_penduduk`=`tbl_pindah`.`id_penduduk`
+WHERE month(tbl_pindah.tgl_pindah) = 11
+AND year(tbl_pindah.tgl_pindah) = 2022')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_penduduk` ON `tbl_penduduk`.`id_penduduk`=`tbl_pindah`.`id_penduduk`
+WHERE month(tbl_pindah.tgl_pindah) = 11
+AND year(tbl_pindah.tgl_pindah) = 2022')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_penduduk` ON `tbl_penduduk`.`id_penduduk`=`tbl_pindah`.`id_penduduk`
+WHERE month(tbl_pindah.tgl_pindah) = :month(tbl_pindah.tgl_pindah):
+AND year(tbl_pindah.tgl_pindah) = :year(tbl_pindah.tgl_pindah):', [...], false)
+ 5 APPPATH\Models\Model_pindah.php(67): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Pindah.php(53): App\Models\Model_pindah->DataBulanan(11, 2022)
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Pindah->ViewLaporanBulanan()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pindah))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-22 19:36:55 --> Undefined variable: kematian
+in APPPATH\Views\kematian\print_view.php on line 69.
+ 1 APPPATH\Views\kematian\print_view.php(69): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: kematian', 'APPPATH\\Views\\kematian\\print_view.php', 69, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\kematian\\print_view.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('kematian/print_view', [], true)
+ 5 APPPATH\Controllers\Pindah.php(72): view('kematian/print_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Pindah->Print('12', '2022')
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pindah))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-22 19:39:50 --> syntax error, unexpected end of file
+in APPPATH\Views\layout\sidebar_view.php on line 84.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/sidebar_view', [], true)
+ 3 APPPATH\Views\layout\wrapper_view.php(4): view('layout/sidebar_view')
+ 4 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+ 7 APPPATH\Controllers\Home.php(33): view('layout/wrapper_view', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Home->index()
+ 9 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-22 19:40:33 --> syntax error, unexpected end of file
+in APPPATH\Views\layout\sidebar_view.php on line 84.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/sidebar_view', [], true)
+ 3 APPPATH\Views\layout\wrapper_view.php(4): view('layout/sidebar_view')
+ 4 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+ 7 APPPATH\Controllers\Home.php(33): view('layout/wrapper_view', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Home->index()
+ 9 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

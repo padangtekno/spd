@@ -1,0 +1,58 @@
+CRITICAL - 2022-11-17 01:07:19 --> Undefined property: App\Controllers\Pindah::$Model_kematian
+in APPPATH\Controllers\Pindah.php on line 21.
+ 1 APPPATH\Controllers\Pindah.php(21): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: App\\Controllers\\Pindah::$Model_kematian', 'APPPATH\\Controllers\\Pindah.php', 21, [])
+ 2 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Pindah->index()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pindah))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-17 01:10:27 --> Undefined index: id_kematian
+in APPPATH\Views\pindah\pindah_view.php on line 46.
+ 1 APPPATH\Views\pindah\pindah_view.php(46): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index: id_kematian', 'APPPATH\\Views\\pindah\\pindah_view.php', 46, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\pindah\\pindah_view.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('pindah/pindah_view', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('pindah/pindah_view')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Pindah.php(24): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Pindah->index()
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pindah))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-11-17 01:20:58 --> mysqli_sql_exception: Column 'tempat_kematian' cannot be null in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\Model_kematian.php(28): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\wamp64\www\spd\app\Controllers\Kematian.php(60): App\Models\Model_kematian->InsertData(Array)
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Kematian->Insert()
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kematian))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-11-17 01:20:58 --> Column 'tempat_kematian' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tbl_kematian` (`id_penduduk`, `tempat_kematian`, `tgl_kematian`, `penyebab`) VALUES (\'\', NULL, NULL, NULL)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_kematian` (`id_penduduk`, `tempat_kematian`, `tgl_kematian`, `penyebab`) VALUES (\'\', NULL, NULL, NULL)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_kematian` (`id_penduduk`, `tempat_kematian`, `tgl_kematian`, `penyebab`) VALUES (\'\', NULL, NULL, NULL)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_kematian` (`id_penduduk`, `tempat_kematian`, `tgl_kematian`, `penyebab`) VALUES (:id_penduduk:, :tempat_kematian:, :tgl_kematian:, :penyebab:)', [...], false)
+ 5 APPPATH\Models\Model_kematian.php(28): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Kematian.php(60): App\Models\Model_kematian->InsertData([...])
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Kematian->Insert()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kematian))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-11-17 01:21:11 --> Undefined property: App\Controllers\Pindah::$Model_kematian
+in APPPATH\Controllers\Pindah.php on line 70.
+ 1 APPPATH\Controllers\Pindah.php(70): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: App\\Controllers\\Pindah::$Model_kematian', 'APPPATH\\Controllers\\Pindah.php', 70, [...])
+ 2 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Pindah->Insert()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pindah))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

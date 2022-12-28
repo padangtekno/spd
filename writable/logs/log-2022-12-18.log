@@ -1,0 +1,299 @@
+CRITICAL - 2022-12-18 05:51:22 --> Undefined variable: menu
+in APPPATH\Views\layout\sidebar_view.php on line 5.
+ 1 APPPATH\Views\layout\sidebar_view.php(5): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: menu', 'APPPATH\\Views\\layout\\sidebar_view.php', 5, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\sidebar_view.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/sidebar_view', [], true)
+ 5 APPPATH\Views\layout\wrapper_view.php(4): view('layout/sidebar_view')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+ 9 APPPATH\Controllers\Pindah.php(36): view('layout/wrapper_view', [...])
+10 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Pindah->Add()
+11 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pindah))
+12 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-18 05:52:31 --> Undefined variable: menu
+in APPPATH\Views\layout\sidebar_view.php on line 5.
+ 1 APPPATH\Views\layout\sidebar_view.php(5): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: menu', 'APPPATH\\Views\\layout\\sidebar_view.php', 5, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\sidebar_view.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/sidebar_view', [], true)
+ 5 APPPATH\Views\layout\wrapper_view.php(4): view('layout/sidebar_view')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+ 9 APPPATH\Controllers\Kelahiran.php(38): view('layout/wrapper_view', [...])
+10 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Kelahiran->add()
+11 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kelahiran))
+12 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 07:58:00 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-situhiang CHARACTER SET utf8 COLLATE utf8_general_ci' at line 1 in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('CREATE DATABASE...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('CREATE DATABASE...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE DATABASE...')
+#3 C:\wamp64\www\spd\system\Database\Forge.php(223): CodeIgniter\Database\BaseConnection->query('CREATE DATABASE...')
+#4 C:\wamp64\www\spd\system\Commands\Database\CreateDatabase.php(137): CodeIgniter\Database\Forge->createDatabase('spd-situhiang')
+#5 C:\wamp64\www\spd\system\CLI\Commands.php(63): CodeIgniter\Commands\Database\CreateDatabase->run(Array)
+#6 C:\wamp64\www\spd\system\CLI\CommandRunner.php(65): CodeIgniter\CLI\Commands->run('db:create', Array)
+#7 C:\wamp64\www\spd\system\CLI\CommandRunner.php(51): CodeIgniter\CLI\CommandRunner->index(Array)
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(900): CodeIgniter\CLI\CommandRunner->_remap('index', Array)
+#9 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(CodeIgniter\CLI\CommandRunner))
+#10 C:\wamp64\www\spd\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\wamp64\www\spd\system\CLI\Console.php(48): CodeIgniter\CodeIgniter->run()
+#12 C:\wamp64\www\spd\spark(98): CodeIgniter\CLI\Console->run()
+#13 {main}
+ERROR - 2022-12-18 07:59:57 --> mysqli_sql_exception: Can't create database 'spd_situhiang'; database exists in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('CREATE DATABASE...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('CREATE DATABASE...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE DATABASE...')
+#3 C:\wamp64\www\spd\system\Database\Forge.php(223): CodeIgniter\Database\BaseConnection->query('CREATE DATABASE...')
+#4 C:\wamp64\www\spd\system\Commands\Database\CreateDatabase.php(137): CodeIgniter\Database\Forge->createDatabase('spd_situhiang')
+#5 C:\wamp64\www\spd\system\CLI\Commands.php(63): CodeIgniter\Commands\Database\CreateDatabase->run(Array)
+#6 C:\wamp64\www\spd\system\CLI\CommandRunner.php(65): CodeIgniter\CLI\Commands->run('db:create', Array)
+#7 C:\wamp64\www\spd\system\CLI\CommandRunner.php(51): CodeIgniter\CLI\CommandRunner->index(Array)
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(900): CodeIgniter\CLI\CommandRunner->_remap('index', Array)
+#9 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(CodeIgniter\CLI\CommandRunner))
+#10 C:\wamp64\www\spd\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\wamp64\www\spd\system\CLI\Console.php(48): CodeIgniter\CodeIgniter->run()
+#12 C:\wamp64\www\spd\spark(98): CodeIgniter\CLI\Console->run()
+#13 {main}
+CRITICAL - 2022-12-18 20:08:44 --> Trying to access array offset on value of type null
+in APPPATH\Views\v_biodata.php on line 9.
+ 1 APPPATH\Views\v_biodata.php(9): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to access array offset on value of type null', 'APPPATH\\Views\\v_biodata.php', 9, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\v_biodata.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('v_biodata', [], true)
+ 5 APPPATH\Views\v_template.php(153): view('v_biodata')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\v_template.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('v_template', [], true)
+ 9 APPPATH\Controllers\HomePenduduk.php(25): view('v_template', [...])
+10 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\HomePenduduk->index()
+11 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomePenduduk))
+12 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-18 20:08:52 --> Trying to access array offset on value of type null
+in APPPATH\Views\v_biodata.php on line 9.
+ 1 APPPATH\Views\v_biodata.php(9): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to access array offset on value of type null', 'APPPATH\\Views\\v_biodata.php', 9, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\v_biodata.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('v_biodata', [], true)
+ 5 APPPATH\Views\v_template.php(153): view('v_biodata')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\v_template.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('v_template', [], true)
+ 9 APPPATH\Controllers\HomePenduduk.php(25): view('v_template', [...])
+10 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\HomePenduduk->index()
+11 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomePenduduk))
+12 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-18 20:20:15 --> Undefined variable: value
+in APPPATH\Views\penduduk\penduduk_detail.php on line 30.
+ 1 APPPATH\Views\penduduk\penduduk_detail.php(30): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: value', 'APPPATH\\Views\\penduduk\\penduduk_detail.php', 30, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\penduduk\\penduduk_detail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('penduduk/penduduk_detail', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('penduduk/penduduk_detail')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Penduduk.php(510): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Penduduk->Detail('29')
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penduduk))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-18 20:21:14 --> unlink(foto/1671363289_8c7f56de43ab65b456ea.jpeg): No such file or directory
+in APPPATH\Controllers\Pengguna.php on line 188.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(foto/1671363289_8c7f56de43ab65b456ea.jpeg): No such file or directory', 'APPPATH\\Controllers\\Pengguna.php', 188, [...])
+ 2 APPPATH\Controllers\Pengguna.php(188): unlink('foto/1671363289_8c7f56de43ab65b456ea.jpeg')
+ 3 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Pengguna->update('1')
+ 4 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengguna))
+ 5 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 20:38:57 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'spd_situhiang' in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', '', 'spd_situhiang', 3306, '', 0)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\spd\app\Models\Model_auth.php(16): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\spd\app\Controllers\Auth.php(54): App\Models\Model_auth->login('adminspd', 'b851d720ea4af42...', '1')
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Auth->login()
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#8 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'spd_situhiang' in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\spd\app\Models\Model_auth.php(16): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\spd\app\Controllers\Auth.php(54): App\Models\Model_auth->login('adminspd', 'b851d720ea4af42...', '1')
+#5 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Auth->login()
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-12-18 20:38:57 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'spd_situhiang'
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_user`
+WHERE `username` = :username:
+AND `password` = :password:
+AND `level` = :level:', [...], false)
+ 3 APPPATH\Models\Model_auth.php(16): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Auth.php(54): App\Models\Model_auth->login('adminspd', 'b851d720ea4af420e286d0f47e3a4c4292de87db', '1')
+ 5 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Auth->login()
+ 6 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 20:40:31 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'spd_situhiang' in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', '', 'spd_situhiang', 3306, '', 0)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\spd\app\Models\Model_auth.php(16): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\spd\app\Controllers\Auth.php(54): App\Models\Model_auth->login('admin', '7110eda4d09e062...', '1')
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Auth->login()
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#8 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'spd_situhiang' in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\spd\app\Models\Model_auth.php(16): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\spd\app\Controllers\Auth.php(54): App\Models\Model_auth->login('admin', '7110eda4d09e062...', '1')
+#5 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Auth->login()
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-12-18 20:40:31 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'spd_situhiang'
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_user`
+WHERE `username` = :username:
+AND `password` = :password:
+AND `level` = :level:', [...], false)
+ 3 APPPATH\Models\Model_auth.php(16): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Auth.php(54): App\Models\Model_auth->login('admin', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '1')
+ 5 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Auth->login()
+ 6 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 20:40:53 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'spd_situhiang' in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', '', 'spd_situhiang', 3306, '', 0)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\spd\app\Models\Model_auth.php(16): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\spd\app\Controllers\Auth.php(54): App\Models\Model_auth->login('admin', '7110eda4d09e062...', '1')
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Auth->login()
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#8 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'spd_situhiang' in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\spd\app\Models\Model_auth.php(16): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\spd\app\Controllers\Auth.php(54): App\Models\Model_auth->login('admin', '7110eda4d09e062...', '1')
+#5 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Auth->login()
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-12-18 20:40:53 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'spd_situhiang'
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_user`
+WHERE `username` = :username:
+AND `password` = :password:
+AND `level` = :level:', [...], false)
+ 3 APPPATH\Models\Model_auth.php(16): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Auth.php(54): App\Models\Model_auth->login('admin', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '1')
+ 5 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Auth->login()
+ 6 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 20:41:52 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'spd_situhiang' in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', '', 'spd_situhiang', 3306, '', 0)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\spd\app\Models\Model_auth.php(16): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\spd\app\Controllers\Auth.php(54): App\Models\Model_auth->login('admin', '7110eda4d09e062...', '1')
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Auth->login()
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#8 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'spd_situhiang' in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\spd\app\Models\Model_auth.php(16): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\spd\app\Controllers\Auth.php(54): App\Models\Model_auth->login('admin', '7110eda4d09e062...', '1')
+#5 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Auth->login()
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-12-18 20:41:52 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'spd_situhiang'
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_user`
+WHERE `username` = :username:
+AND `password` = :password:
+AND `level` = :level:', [...], false)
+ 3 APPPATH\Models\Model_auth.php(16): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Auth.php(54): App\Models\Model_auth->login('admin', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '1')
+ 5 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Auth->login()
+ 6 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-18 20:52:07 --> syntax error, unexpected ''numeric'' (T_CONSTANT_ENCAPSED_STRING), expecting ']'
+in APPPATH\Controllers\Penduduk.php on line 72.
+ 1 SYSTEMPATH\Router\Router.php(499): CodeIgniter\Router\AutoRouter->getRoute('penduduk/insert')
+ 2 SYSTEMPATH\Router\Router.php(205): CodeIgniter\Router\Router->autoRoute('penduduk/insert')
+ 3 SYSTEMPATH\CodeIgniter.php(782): CodeIgniter\Router\Router->handle('penduduk/insert')
+ 4 SYSTEMPATH\CodeIgniter.php(406): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 5 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-18 20:52:12 --> syntax error, unexpected ''numeric'' (T_CONSTANT_ENCAPSED_STRING), expecting ']'
+in APPPATH\Controllers\Penduduk.php on line 72.
+ 1 SYSTEMPATH\Router\Router.php(499): CodeIgniter\Router\AutoRouter->getRoute('penduduk/add')
+ 2 SYSTEMPATH\Router\Router.php(205): CodeIgniter\Router\Router->autoRoute('penduduk/add')
+ 3 SYSTEMPATH\CodeIgniter.php(782): CodeIgniter\Router\Router->handle('penduduk/add')
+ 4 SYSTEMPATH\CodeIgniter.php(406): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 5 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
