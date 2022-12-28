@@ -60,9 +60,11 @@
                   </td>
                   <td width="100px" class="text-center"><?= $value['penerima_bantuan'] == 1 ? '<span class="badge bg-success">Layak</span>' : '' ?></td>
                   <td><?= $value['jenis_bantuan']; ?></td>
-                  <td class="text-center">
-                    <button class="btn btn-warning btn-sm"><i class="bi-pencil" data-bs-toggle="modal" data-bs-target="#edit<?= $value['id_penduduk']; ?>"></i></button>
-                  </td>
+                  <?php if (session()->get('level') == '1') { ?>
+                    <td class="text-center">
+                      <button class="btn btn-warning btn-sm"><i class="bi-pencil" data-bs-toggle="modal" data-bs-target="#edit<?= $value['id_penduduk']; ?>"></i></button>
+                    </td>
+                  <?php } ?>
                 </tr>
               <?php } ?>
 
