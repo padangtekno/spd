@@ -135,11 +135,7 @@
             </div>
             <div class="col-md-4">
                 <label>Kewarganegaraan</label>
-                <select name="kewarganegaraan" class="form-select">
-                    <option value="">--Pilih--</option>
-                    <option value="WNI" <?= $data_penduduk['kewarganegaraan'] == 'WNI' ? 'selected' : '' ?>>WNI</option>
-                    <option value="WNA" <?= $data_penduduk['kewarganegaraan'] == 'WNA' ? 'selected' : '' ?>>WNA</option>
-                </select>
+                <input type="text" class="form-control" value="WNI" name="kewarganegaraan" readonly>
                 <p class="text-danger"><?= $validasi->getError('status_tinggal') ?></p>
             </div>
             <div class="text-left">

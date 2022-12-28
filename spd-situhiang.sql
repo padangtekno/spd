@@ -11,7 +11,7 @@
  Target Server Version : 50740 (5.7.40)
  File Encoding         : 65001
 
- Date: 28/12/2022 22:50:13
+ Date: 28/12/2022 23:14:57
 */
 
 SET NAMES utf8mb4;
@@ -41,10 +41,10 @@ INSERT INTO `tbl_bantuan` VALUES (5, 'Bantuan Subsidi Upah (BSU)');
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_jabatan`;
 CREATE TABLE `tbl_jabatan`  (
-  `id_jabatan` int(2) NOT NULL,
+  `id_jabatan` int(2) NOT NULL AUTO_INCREMENT,
   `nama_jabatan` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id_jabatan`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tbl_jabatan
@@ -7645,26 +7645,25 @@ INSERT INTO `tbl_kecamatan` VALUES ('9471040', '9471', 'JAYAPURA UTARA');
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_kelahiran`;
 CREATE TABLE `tbl_kelahiran`  (
-  `id_lahir` int(11) NOT NULL,
+  `id_lahir` int(11) NOT NULL AUTO_INCREMENT,
   `id_penduduk` int(11) NULL DEFAULT NULL,
   `jam_lahir` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `nama_ayah` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `nama_ibu` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_lahir`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 25 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tbl_kelahiran
 -- ----------------------------
-INSERT INTO `tbl_kelahiran` VALUES (20, 76, '16:30', 'FERI ', 'FINA');
-INSERT INTO `tbl_kelahiran` VALUES (21, 80, '14:29', 'H. A.Latif', 'sri');
+INSERT INTO `tbl_kelahiran` VALUES (24, 82, '04:30', 'Est ', 'Mini');
 
 -- ----------------------------
 -- Table structure for tbl_keluarga
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_keluarga`;
 CREATE TABLE `tbl_keluarga`  (
-  `id_keluarga` int(11) NOT NULL,
+  `id_keluarga` int(11) NOT NULL AUTO_INCREMENT,
   `no_kk` varchar(25) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `kepala_keluarga` varchar(25) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `alamat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
@@ -7676,7 +7675,7 @@ CREATE TABLE `tbl_keluarga`  (
   `id_provinsi` int(2) NULL DEFAULT NULL,
   `kode_pos` varchar(10) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_keluarga`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 30 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tbl_keluarga
@@ -7701,20 +7700,22 @@ INSERT INTO `tbl_keluarga` VALUES (22, '3203181603110781', 'MUNAWAR', '', '', ''
 INSERT INTO `tbl_keluarga` VALUES (23, '3203181704080005', 'SIBYAN', '', '', '', '', 3203100, 3203, 32, '43266');
 INSERT INTO `tbl_keluarga` VALUES (25, '3203109392928989', 'jjjjjkm', 'Kp. Selaawi', '2', 'Cian', '', 3203100, 3203, 32, '43266');
 INSERT INTO `tbl_keluarga` VALUES (26, '3203109392928', 'Jujun J', 'Kp. Selaawi', '2', 'Cian', '', 3203100, 3203, 32, '43266');
-INSERT INTO `tbl_keluarga` VALUES (0, '123123', 'Keluarga EE', 'Jl. Prof.H.M.Yamin No.173, Kisaran Naga, Kisaran Timur., Kabupaten Asahan, Sumatera Utara 21222 Indonesia', '123', '123', 'Desa Situhiang', 3203100, 3203, 32, '43266');
+INSERT INTO `tbl_keluarga` VALUES (27, '123123', 'Keluarga EE', 'Jl. Prof.H.M.Yamin No.173, Kisaran Naga, Kisaran Timur., Kabupaten Asahan, Sumatera Utara 21222 Indonesia', '123', '123', 'Desa Situhiang', 3203100, 3203, 32, '43266');
+INSERT INTO `tbl_keluarga` VALUES (28, '22222222222', 'Keluarga EE', 'Jl. Prof.H.M.Yamin No.173, Kisaran Naga, Kisaran Timur., Kabupaten Asahan, Sumatera Utara 21222 Indonesia', '123', '123', 'Desa Situhiang', 3203100, 3203, 32, '43266');
+INSERT INTO `tbl_keluarga` VALUES (29, '3333333', 'Keluarga EE', '3333', '1', '1', 'Desa Situhiang', 3203100, 3203, 32, '43266');
 
 -- ----------------------------
 -- Table structure for tbl_kematian
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_kematian`;
 CREATE TABLE `tbl_kematian`  (
-  `id_kematian` int(2) NOT NULL,
+  `id_kematian` int(2) NOT NULL AUTO_INCREMENT,
   `id_penduduk` int(2) NOT NULL,
   `tempat_kematian` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `tgl_kematian` date NOT NULL,
   `penyebab` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id_kematian`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tbl_kematian
@@ -7727,10 +7728,10 @@ INSERT INTO `tbl_kematian` VALUES (6, 36, 'Rumah sakit', '2022-12-01', 'Sakit Be
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_pekerjaan`;
 CREATE TABLE `tbl_pekerjaan`  (
-  `id_pekerjaan` int(2) NOT NULL,
+  `id_pekerjaan` int(2) NOT NULL AUTO_INCREMENT,
   `pekerjaan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_pekerjaan`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of tbl_pekerjaan
@@ -7770,15 +7771,15 @@ INSERT INTO `tbl_pendidikan` VALUES (7, 'D3');
 INSERT INTO `tbl_pendidikan` VALUES (8, 'D4');
 INSERT INTO `tbl_pendidikan` VALUES (9, 'S1');
 INSERT INTO `tbl_pendidikan` VALUES (10, 'S2');
-INSERT INTO `tbl_pendidikan` VALUES (12, 'S3');
-INSERT INTO `tbl_pendidikan` VALUES (13, 'Belum Tamat SD');
+INSERT INTO `tbl_pendidikan` VALUES (11, 'S3');
+INSERT INTO `tbl_pendidikan` VALUES (12, 'Belum Tamat SD');
 
 -- ----------------------------
 -- Table structure for tbl_penduduk
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_penduduk`;
 CREATE TABLE `tbl_penduduk`  (
-  `id_penduduk` int(2) NOT NULL,
+  `id_penduduk` int(2) NOT NULL AUTO_INCREMENT,
   `no_kk` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `hubungan_keluarga` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `nik` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
@@ -7804,11 +7805,12 @@ CREATE TABLE `tbl_penduduk`  (
   `status` int(1) NULL DEFAULT 1,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_penduduk`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 83 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tbl_penduduk
 -- ----------------------------
+INSERT INTO `tbl_penduduk` VALUES (1, '3333333', 'Anak', NULL, '123', 'Padang', '2022-12-28', 'L', NULL, '', NULL, NULL, NULL, NULL, NULL, 'Islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL);
 INSERT INTO `tbl_penduduk` VALUES (29, '3202182206160003', 'Kepala Keluarga', '3203181989700024', 'Hj. Mulyati', 'Cianjur', '1970-02-07', 'P', 'A', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '3', '2', 6, 2, 2, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
 INSERT INTO `tbl_penduduk` VALUES (30, '3202182206160003', 'Anak', '3203182609980002', 'Moh. Salman Parizi', 'Cianjur', '1998-09-26', 'L', 'A', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '2', '9', 1, 1, NULL, '2', 'WNI', 3, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
 INSERT INTO `tbl_penduduk` VALUES (31, '3203182304200001', 'Kepala Keluarga', '3203185305470000', 'Sarah', 'Cianjur', '1947-05-13', 'P', 'B', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '2', 'Islam', '3', '2', 7, 2, 3, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
@@ -7861,16 +7863,19 @@ INSERT INTO `tbl_penduduk` VALUES (77, '3203180517689201', 'Kepala Keluarga', '3
 INSERT INTO `tbl_penduduk` VALUES (78, '3203181603110781', 'Anak', '3203184702700024', 'Saepul ', 'Cianjur', '2022-12-04', 'L', 'B', '16', 1604, 1604041, 'Kp. Legok Gintung', '2', '3', 'Islam', '2', '0', 9, 1, NULL, '1', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
 INSERT INTO `tbl_penduduk` VALUES (79, '3203109392928989', 'Kepala Keluarga', '32031844066409898', 'gygy', 'Cianjur', '2022-11-30', 'L', 'AB', '13', 1308, 1308022, 'Kp. Selaawi', '2', '2', 'Islam', '1', '4', 10, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
 INSERT INTO `tbl_penduduk` VALUES (80, '3203109392928989', 'Anak', NULL, 'jsdfj', 'Cianjur', '2022-12-08', 'P', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL);
+INSERT INTO `tbl_penduduk` VALUES (81, '3203181011051709', 'Anak', NULL, 'In e', 'Eos', '2018-01-24', 'L', NULL, '', NULL, NULL, NULL, NULL, NULL, 'Islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL);
+INSERT INTO `tbl_penduduk` VALUES (82, '3203182304200001', 'Anak', NULL, 'Eos', 'Quis', '2013-05-27', 'L', NULL, '', NULL, NULL, NULL, NULL, NULL, 'Islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL);
 
 -- ----------------------------
 -- Table structure for tbl_penghasilan
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_penghasilan`;
 CREATE TABLE `tbl_penghasilan`  (
-  `id_penghasilan` int(2) NOT NULL,
+  `id_penghasilan` int(2) NOT NULL AUTO_INCREMENT,
   `penghasilan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `penerima_bantuan` int(1) NULL DEFAULT NULL
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+  `penerima_bantuan` int(1) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_penghasilan`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of tbl_penghasilan
@@ -7891,12 +7896,13 @@ INSERT INTO `tbl_penghasilan` VALUES (12, '>Rp.5,000,000', 2);
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_pindah`;
 CREATE TABLE `tbl_pindah`  (
-  `id_pindah` int(11) NOT NULL,
+  `id_pindah` int(11) NOT NULL AUTO_INCREMENT,
   `id_penduduk` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `tgl_pindah` date NULL DEFAULT NULL,
   `alamat_pindah` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
-  `klasifikasi_pindah` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+  `klasifikasi_pindah` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id_pindah`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tbl_pindah
@@ -7977,14 +7983,15 @@ INSERT INTO `tbl_setting` VALUES (1, 'Desa Situhiang', 'Arifin Hidayat, S.IP', 3
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_user`;
 CREATE TABLE `tbl_user`  (
-  `id_users` int(2) NOT NULL,
+  `id_users` int(2) NOT NULL AUTO_INCREMENT,
   `nama_user` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `username` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `foto` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `password` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `level` int(1) NOT NULL,
-  `id_jabatan` int(2) NOT NULL
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+  `id_jabatan` int(2) NOT NULL,
+  PRIMARY KEY (`id_users`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 53 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tbl_user
