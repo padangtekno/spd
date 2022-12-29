@@ -33,6 +33,20 @@ class Penduduk extends BaseController
         return view('layout/wrapper_view', $data);
     }
 
+    public function Detail($id_penduduk)
+    {
+        $penduduk = $this->Model_penduduk->detail_data($id_penduduk);
+
+        $data = [
+            'title' => 'Detail Data Penduduk',
+            'menu' => 'penduduk',
+            'submenu' => '',
+            'penduduk' => $this->Model_penduduk->detail_data($id_penduduk),
+            'isi' => 'penduduk/penduduk_detail',
+        ];
+        return view('layout/wrapper_view', $data);
+    }
+
     public function add()
     {
 
@@ -392,19 +406,7 @@ class Penduduk extends BaseController
         return redirect()->to(base_url('penduduk'));
     }
 
-    public function Detail($id_penduduk)
-    {
-        $penduduk = $this->Model_penduduk->detail_data($id_penduduk);
 
-        $data = [
-            'title' => 'Detail Data Penduduk',
-            'menu' => 'penduduk',
-            'submenu' => '',
-            'penduduk' => $this->Model_penduduk->detail_data($id_penduduk),
-            'isi' => 'penduduk/penduduk_detail',
-        ];
-        return view('layout/wrapper_view', $data);
-    }
 
 
     public function kabupaten()

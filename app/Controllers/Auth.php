@@ -50,7 +50,7 @@ class Auth extends BaseController
             $username = $this->request->getPost('username');
             $level = $this->request->getPost('level');
             $password = sha1($this->request->getPost('password'));
-            if ($level == 1 or $level == 2) {
+            if ($level == 1) {
                 $cek = $this->Model_auth->login($username, $password, $level);
                 if ($cek) {
                     //jika data ada di database
@@ -59,6 +59,19 @@ class Auth extends BaseController
                     session()->set('username', $cek['username']);
                     session()->set('foto', $cek['foto']);
                     return redirect()->to(base_url('home'));
+                } else {
+                    session()->setFlashdata('pesan', 'Login Gagal !!!, Username atau Password salah');
+                    return redirect()->to(base_url('auth/index'));
+                }
+            } elseif ($level == 2) {
+                $cek = $this->Model_auth->login($username, $password, $level);
+                if ($cek) {
+                    //jika data ada di database
+                    session()->set('level', $level);
+                    session()->set('nama_user', $cek['nama_user']);
+                    session()->set('username', $cek['username']);
+                    session()->set('foto', $cek['foto']);
+                    return redirect()->to(base_url('Kawil'));
                 } else {
                     session()->setFlashdata('pesan', 'Login Gagal !!!, Username atau Password salah');
                     return redirect()->to(base_url('auth/index'));

@@ -1,10 +1,11 @@
+
 <section class="section">
   <div class="row">
     <div class="col-lg-12">
       <div class="card">
         <div class="card-body">
 
-          <table class="table table-sm table-borderless">
+          <table id="" class="table table-sm table-borderless">
             <tr>
               <th width="170px">Nomor KK</th>
               <td width="50px" class="text-center">:</td>
@@ -86,7 +87,7 @@
 
           </table>
 
-          <a href="<?= base_url('Keluarga') ?>" class="btn btn-success btn-sm">Kembali</a>
+          <a href="<?= base_url('Kawil/Keluarga') ?>" class="btn btn-success btn-sm">Kembali</a>
         </div>
       </div>
 </section>
