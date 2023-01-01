@@ -11,7 +11,7 @@
  Target Server Version : 50740 (5.7.40)
  File Encoding         : 65001
 
- Date: 28/12/2022 23:14:57
+ Date: 01/01/2023 21:07:09
 */
 
 SET NAMES utf8mb4;
@@ -7805,7 +7805,7 @@ CREATE TABLE `tbl_penduduk`  (
   `status` int(1) NULL DEFAULT 1,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_penduduk`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 83 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 84 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tbl_penduduk
@@ -7865,6 +7865,7 @@ INSERT INTO `tbl_penduduk` VALUES (79, '3203109392928989', 'Kepala Keluarga', '3
 INSERT INTO `tbl_penduduk` VALUES (80, '3203109392928989', 'Anak', NULL, 'jsdfj', 'Cianjur', '2022-12-08', 'P', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL);
 INSERT INTO `tbl_penduduk` VALUES (81, '3203181011051709', 'Anak', NULL, 'In e', 'Eos', '2018-01-24', 'L', NULL, '', NULL, NULL, NULL, NULL, NULL, 'Islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL);
 INSERT INTO `tbl_penduduk` VALUES (82, '3203182304200001', 'Anak', NULL, 'Eos', 'Quis', '2013-05-27', 'L', NULL, '', NULL, NULL, NULL, NULL, NULL, 'Islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL);
+INSERT INTO `tbl_penduduk` VALUES (83, '3203109392928', 'Ponakan', '123123', '123123', '123123', '2023-01-14', 'L', 'A', '', NULL, NULL, NULL, NULL, NULL, 'Kristen', '1', '0', 10, 1, NULL, '1', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
 
 -- ----------------------------
 -- Table structure for tbl_penghasilan
