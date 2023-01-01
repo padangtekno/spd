@@ -20,7 +20,7 @@
             <div class="ps-3">
               <h4><b><?= $total_keluarga ?></b> Keluarga</h4>
               <span class="text-success small pt-1 fw-bold">
-                <a href="<?= base_url('Keluarga') ?>">Data Keluarga</a>
+                <a href="<?= base_url('kawil/Keluarga') ?>">Data Keluarga</a>
                 <!--</span> <span class="text-muted small pt-2 ps-1">increase-->
               </span>
 
@@ -51,7 +51,7 @@
             <div class="ps-3">
               <h4><b><?= $total_penduduk ?></b> Orang</h4>
               <span class="text-success small pt-1 fw-bold">
-                <a href="<?= base_url('Penduduk') ?>">Data Penduduk</a>
+                <a href="<?= base_url('kawil/Penduduk') ?>">Data Penduduk</a>
                 <!--</span> <span class="text-muted small pt-2 ps-1">increase-->
               </span>
 
@@ -83,7 +83,7 @@
             <div class="ps-3">
               <h4><b><?= $total_kelahiran ?></b> Kelahiran</h4>
               <span class="text-success small pt-1 fw-bold">
-                <a href="<?= base_url('Kelahiran') ?>">Data Kelahiran</a>
+                <a href="<?= base_url('kawil/Kelahiran') ?>">Data Kelahiran</a>
                 <!--</span> <span class="text-muted small pt-2 ps-1">increase-->
               </span>
             </div>
@@ -112,7 +112,7 @@
             <div class="ps-3">
               <h4><b><?= $total_kematian ?></b> Orang</h4>
               <span class="text-success small pt-1 fw-bold">
-                <a href="<?= base_url('Kematian') ?>">Data Kematian</a>
+                <a href="<?= base_url('kawil/Kematian') ?>">Data Kematian</a>
                 <!--</span> <span class="text-muted small pt-2 ps-1">increase-->
               </span>
 
@@ -143,7 +143,7 @@
             <div class="ps-3">
               <h4><b><?= $total_pindah ?></b> orang</h4>
               <span class="text-success small pt-1 fw-bold">
-                <a href="<?= base_url('Pindah') ?>">Data Pindah</a>
+                <a href="<?= base_url('kawil/Pindah') ?>">Data Pindah</a>
                 <!--</span> <span class="text-muted small pt-2 ps-1">increase-->
               </span>
             </div>
@@ -170,7 +170,7 @@
             <div class="ps-3">
               <h4><b><?= $total_pengguna ?></b> orang</h4>
               <span class="text-success small pt-1 fw-bold">
-                <a href="<?= base_url('Pengguna') ?>">Data Pengguna</a>
+                <a href="#">Data Pengguna</a>
                 <!--</span> <span class="text-muted small pt-2 ps-1">increase-->
               </span>
             </div>

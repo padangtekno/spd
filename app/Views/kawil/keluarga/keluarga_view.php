@@ -44,7 +44,7 @@
                             ?>
                                 <tr>
                                     <th scope="row"><?= $no++; ?></th>
-                                    <td><a href="<?= base_url('Keluarga/Rincian/' . $value['no_kk']) ?>"><?= $value['no_kk']; ?></a></td>
+                                    <td><a href="<?= base_url('Kawil/RincianKeluarga/' . $value['no_kk']) ?>"><?= $value['no_kk']; ?></a></td>
                                     <td><?= $value['kepala_keluarga']; ?></td>
                                     <td><span class="badge bg-primary"><?= $jml ?> Orang</span></td>
                                     <td>
