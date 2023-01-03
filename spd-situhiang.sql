@@ -11,7 +11,7 @@
  Target Server Version : 50740 (5.7.40)
  File Encoding         : 65001
 
- Date: 03/01/2023 19:33:43
+ Date: 03/01/2023 19:34:59
 */
 
 SET NAMES utf8mb4;
@@ -7772,33 +7772,6 @@ INSERT INTO `tbl_pendidikan` VALUES (9, 'D4');
 INSERT INTO `tbl_pendidikan` VALUES (10, 'S1');
 INSERT INTO `tbl_pendidikan` VALUES (11, 'S2');
 INSERT INTO `tbl_pendidikan` VALUES (12, 'S3');
-
--- ----------------------------
--- Table structure for tbl_pendidikan22
--- ----------------------------
-DROP TABLE IF EXISTS `tbl_pendidikan22`;
-CREATE TABLE `tbl_pendidikan22`  (
-  `id_pendidikan` int(2) NOT NULL,
-  `pendidikan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  PRIMARY KEY (`id_pendidikan`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of tbl_pendidikan22
--- ----------------------------
-INSERT INTO `tbl_pendidikan22` VALUES (0, 'Tidak Sekolah/Belum Sekolah');
-INSERT INTO `tbl_pendidikan22` VALUES (1, 'TK/Paud');
-INSERT INTO `tbl_pendidikan22` VALUES (2, 'SD/Setara');
-INSERT INTO `tbl_pendidikan22` VALUES (3, 'SMP/Setara');
-INSERT INTO `tbl_pendidikan22` VALUES (4, 'SMA/Setara');
-INSERT INTO `tbl_pendidikan22` VALUES (5, 'D1');
-INSERT INTO `tbl_pendidikan22` VALUES (6, 'D2');
-INSERT INTO `tbl_pendidikan22` VALUES (7, 'D3');
-INSERT INTO `tbl_pendidikan22` VALUES (8, 'D4');
-INSERT INTO `tbl_pendidikan22` VALUES (9, 'S1');
-INSERT INTO `tbl_pendidikan22` VALUES (10, 'S2');
-INSERT INTO `tbl_pendidikan22` VALUES (11, 'S3');
-INSERT INTO `tbl_pendidikan22` VALUES (12, 'Belum Tamat SD');
 
 -- ----------------------------
 -- Table structure for tbl_penduduk
