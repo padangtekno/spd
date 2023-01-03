@@ -30,7 +30,7 @@ class Bantuan extends BaseController
     public function Insert()
     {
         $data = [
-            'bantuan' => $this->request->getPost('bantuan'),
+            'jenis_bantuan' => $this->request->getPost('jenis_bantuan'),
         ];
         $this->Model_bantuan->InsertData($data);
         session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
@@ -41,7 +41,7 @@ class Bantuan extends BaseController
     {
         $data = [
             'id_bantuan' => $id_bantuan,
-            'bantuan' => $this->request->getPost('bantuan'),
+            'jenis_bantuan' => $this->request->getPost('jenis_bantuan'),
         ];
         $this->Model_bantuan->UpdateData($data);
         session()->setFlashdata('pesan', 'Data Berhasil Update');

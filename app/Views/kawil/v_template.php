@@ -13,9 +13,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>SITUHIANG</title>
+  <title><?= $title?></title>
   <!-- CSS files -->
-
+  <link href="<?= base_url() ?>/NiceAdmin/assets/img/logo-cjr.png" rel="icon">
   <link href="<?= base_url('tabler') ?>/dist/css/tabler.min.css" rel="stylesheet" />
   <link href="<?= base_url('tabler') ?>/dist/css/tabler-flags.min.css" rel="stylesheet" />
   <link href="<?= base_url('tabler') ?>/dist/css/tabler-payments.min.css" rel="stylesheet" />
@@ -36,7 +36,7 @@
           <a href="<?= base_url() ?>">
             <img src="<?= base_url('foto') ?>/logo.png" width="110" height="32" alt="Tabler" class="navbar-brand-image">
           </a>
-          SITUHIANG
+          DESA SITUHIANG
         </h1>
         <div class="navbar-nav flex-row d-lg-none">
           <div class="nav-item d-none d-md-flex me-3">
@@ -127,6 +127,7 @@
                 </span>
               </a>
             </li>
+            <div class="mt-2">
 
             <li class="nav-item <?= $menu == 'keluarga' ? 'active' : '' ?>">
               <a class="nav-link" href="<?= base_url('Kawil/keluarga') ?>">
@@ -144,6 +145,7 @@
                 </span>
               </a>
             </li>
+            <div class="mt-1">
 
             <li class="nav-item <?= $menu == 'penduduk' ? 'active' : '' ?>">
               <a class="nav-link" href="<?= base_url('Kawil/Penduduk') ?>">
@@ -158,10 +160,11 @@
                   </svg>
                 </span>
                 <span class="nav-link-title">
-                  Penduduk
+                  Data Penduduk
                 </span>
               </a>
             </li>
+            <div class="mt-1">
 
             <li class="nav-item <?= $menu == 'kelahiran' ? 'active' : '' ?>">
               <a class="nav-link" href="<?= base_url('Kawil/Kelahiran') ?>">
@@ -175,10 +178,11 @@
                   </svg>
                 </span>
                 <span class="nav-link-title">
-                  Kelahiran
+                 Data Kelahiran
                 </span>
               </a>
             </li>
+            <div class="mt-1">
 
             <li class="nav-item <?= $menu == 'kematian' ? 'active' : '' ?>">
               <a class="nav-link" href="<?= base_url('Kawil/kematian') ?>">
@@ -192,10 +196,11 @@
                   </svg>
                 </span>
                 <span class="nav-link-title">
-                  Kematian
+                  Data Kematian
                 </span>
               </a>
             </li>
+            <div class="mt-1">
 
             <li class="nav-item <?= $menu == 'pindah' ? 'active' : '' ?>">
               <a class="nav-link" href="<?= base_url('Kawil/pindah') ?>">
@@ -210,10 +215,11 @@
                 </span>
 
                 <span class="nav-link-title">
-                  Pindah
+                 Data Pindah
                 </span>
               </a>
             </li>
+            <div class="mt-1">
 
             <li class="nav-item <?= $menu == 'bantuan' ? 'active' : '' ?>">
               <a class="nav-link" href="<?= base_url('Kawil/bantuan') ?>">
@@ -228,7 +234,7 @@
                   </svg>
                 </span>
                 <span class="nav-link-title">
-                  Penerima Bantuan
+                 Data Penerima Bantuan
                 </span>
               </a>
             </li>
@@ -245,13 +251,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="navbar-nav flex-row order-md-last">
-          <a href="?theme=dark" class="nav-link px-0 hide-theme-dark" title="Enable dark mode" data-bs-toggle="tooltip" data-bs-placement="bottom">
-            <!-- Download SVG icon from http://tabler-icons.io/i/moon -->
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
-            </svg>
-          </a>
+         
           <a href="?theme=light" class="nav-link px-0 hide-theme-light" title="Enable light mode" data-bs-toggle="tooltip" data-bs-placement="bottom">
             <!-- Download SVG icon from http://tabler-icons.io/i/sun -->
             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -278,15 +278,7 @@
           <div>
             <form action="." method="get">
               <div class="input-icon">
-                <span class="input-icon-addon">
-                  <!-- Download SVG icon from http://tabler-icons.io/i/search -->
-                  <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <circle cx="10" cy="10" r="7" />
-                    <line x1="21" y1="21" x2="15" y2="15" />
-                  </svg>
-                </span>
-                <input type="text" class="form-control" placeholder="Search…" aria-label="Search in website">
+             
               </div>
             </form>
           </div>
@@ -320,35 +312,14 @@
       </div>
       <footer class="footer footer-transparent d-print-none">
         <div class="container-xl">
-          <div class="row text-center align-items-center flex-row-reverse">
-            <div class="col-lg-auto ms-lg-auto">
-              <ul class="list-inline list-inline-dots mb-0">
-                <li class="list-inline-item"><a href="./docs/index.html" class="link-secondary">Documentation</a></li>
-                <li class="list-inline-item"><a href="./license.html" class="link-secondary">License</a></li>
-                <li class="list-inline-item"><a href="https://github.com/tabler/tabler" target="_blank" class="link-secondary" rel="noopener">Source code</a></li>
-                <li class="list-inline-item">
-                  <a href="https://github.com/sponsors/codecalm" target="_blank" class="link-secondary" rel="noopener">
-                    <!-- Download SVG icon from http://tabler-icons.io/i/heart -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon text-pink icon-filled icon-inline" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                      <path d="M19.5 13.572l-7.5 7.428l-7.5 -7.428m0 0a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
-                    </svg>
-                    Sponsor
-                  </a>
-                </li>
-              </ul>
-            </div>
             <div class="col-12 col-lg-auto mt-3 mt-lg-0">
               <ul class="list-inline list-inline-dots mb-0">
                 <li class="list-inline-item">
-                  Copyright &copy; 2022
-                  <a href="." class="link-secondary">Tabler</a>.
-                  All rights reserved.
-                </li>
-                <li class="list-inline-item">
-                  <a href="./changelog.html" class="link-secondary" rel="noopener">
-                    v1.0.0-beta5
-                  </a>
+                <div class="copyright"> &copy; Copyright <strong><span>Pemerintahan Desa Situhiang</span></strong>
+         - <script>
+             document.write(new Date().getFullYear())
+         </script>
+     </div>
                 </li>
               </ul>
             </div>

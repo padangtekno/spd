@@ -74,8 +74,8 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Simpan</button>
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Batal</button>
+        <button type="submit" class="btn btn-primary btn-sm">Tambah</button>
       </div>
       <?php echo form_close() ?>
     </div>
@@ -105,8 +105,8 @@
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Simpan</button>
+          <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary btn-sm">Simpan</button>
         </div>
         <?php echo form_close() ?>
       </div>
@@ -130,8 +130,8 @@
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-danger">Delete</button>
+          <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Tidak</button>
+          <button type="submit" class="btn btn-danger btn-sm">Yakin</button>
         </div>
         <?php echo form_close() ?>
       </div>

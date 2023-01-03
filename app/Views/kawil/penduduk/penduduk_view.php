@@ -22,16 +22,16 @@
                     <?php } ?>
                     <table class="table" id="example">
                         <thead>
-                            <tr class="text-center">
+                            <tr>
                                 <th scope="col" width="60px">No</th>
                                 <th scope="col">No. KK</th>
                                 <th scope="col">NIK</th>
                                 <th scope="col">Nama</th>
                                 <th scope="col">Tempat, Tanggal Lahir</th>
-                                <th scope="col">Umur</th>
+                                <th scope="col" width="170px">Umur</th>
 
 
-                                <th scope="col" width="150px">Opsi</th>
+                                <th scope="col" width="70px">Aksi</th>
 
                             </tr>
                         </thead>
@@ -62,7 +62,7 @@
                                     </td>
                                     <td>
 
-                                        <a href="<?= base_url('kawil/detailpenduduk/' . $value['id_penduduk']) ?>" class="btn btn-success btn-sm">
+                                        <a href="<?= base_url('kawil/detailpenduduk/' . $value['id_penduduk']) ?>" class="btn btn-info btn-sm">
                                             <!-- Download SVG icon from http://tabler-icons.io/i/info-circle -->
                                             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />

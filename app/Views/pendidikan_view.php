@@ -67,15 +67,15 @@
 
 
         <div class="col-12">
-          <label for="">pendidikan</label>
+          <label for="">Pendidikan</label>
           <input type="text" class="form-control" name="pendidikan" required>
         </div>
 
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Simpan</button>
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Batal</button>
+        <button type="submit" class="btn btn-primary btn-sm">Tambah</button>
       </div>
       <?php echo form_close() ?>
     </div>
@@ -98,15 +98,15 @@
 
 
           <div class="col-12">
-            <label for="">pendidikan</label>
+            <label for="">Pendidikan</label>
             <input value="<?= $value['pendidikan'] ?>" class="form-control" name="pendidikan" required>
           </div>
 
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Simpan</button>
+          <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary btn-sm">Simpan</button>
         </div>
         <?php echo form_close() ?>
       </div>
@@ -130,8 +130,8 @@
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-danger">Delete</button>
+          <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-danger btn-sm">Yakin</button>
         </div>
         <?php echo form_close() ?>
       </div>

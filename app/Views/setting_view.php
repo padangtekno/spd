@@ -80,7 +80,7 @@
 
 
             <div class="text-left">
-              <button type="submit" class="btn btn-primary">Update</button>
+              <button type="submit" class="btn btn-primary btn-sm">Update</button>
             </div>
             <?php echo form_close(); ?>
           </div>

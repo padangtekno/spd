@@ -1,0 +1,79 @@
+ERROR - 2023-01-01 10:57:45 --> mysqli_sql_exception: Unknown column 'bantuan' in 'field list' in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\xampp\htdocs\spd\app\Models\Model_bantuan.php(18): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\spd\app\Controllers\Bantuan.php(35): App\Models\Model_bantuan->InsertData(Array)
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Bantuan->Insert()
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bantuan))
+#8 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-01-01 10:57:45 --> Unknown column 'bantuan' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tbl_bantuan` (`bantuan`) VALUES (NULL)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_bantuan` (`bantuan`) VALUES (NULL)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_bantuan` (`bantuan`) VALUES (NULL)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_bantuan` (`bantuan`) VALUES (:bantuan:)', [...], false)
+ 5 APPPATH\Models\Model_bantuan.php(18): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Bantuan.php(35): App\Models\Model_bantuan->InsertData([...])
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Bantuan->Insert()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bantuan))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-01-01 10:57:56 --> mysqli_sql_exception: Unknown column 'bantuan' in 'field list' in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('UPDATE `tbl_ban...', 0)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `tbl_ban...')
+#2 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `tbl_ban...')
+#3 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(2079): CodeIgniter\Database\BaseConnection->query('UPDATE `tbl_ban...', Array, false)
+#4 C:\xampp\htdocs\spd\app\Models\Model_bantuan.php(24): CodeIgniter\Database\BaseBuilder->update(Array)
+#5 C:\xampp\htdocs\spd\app\Controllers\Bantuan.php(46): App\Models\Model_bantuan->UpdateData(Array)
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Bantuan->Update('5')
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bantuan))
+#8 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-01-01 10:57:56 --> Unknown column 'bantuan' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('UPDATE `tbl_bantuan` SET `id_bantuan` = \'5\', `bantuan` = NULL
+WHERE `id_bantuan` = \'5\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `tbl_bantuan` SET `id_bantuan` = \'5\', `bantuan` = NULL
+WHERE `id_bantuan` = \'5\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `tbl_bantuan` SET `id_bantuan` = \'5\', `bantuan` = NULL
+WHERE `id_bantuan` = \'5\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2079): CodeIgniter\Database\BaseConnection->query('UPDATE `tbl_bantuan` SET `id_bantuan` = :id_bantuan.1:, `bantuan` = :bantuan:
+WHERE `id_bantuan` = :id_bantuan:', [...], false)
+ 5 APPPATH\Models\Model_bantuan.php(24): CodeIgniter\Database\BaseBuilder->update([...])
+ 6 APPPATH\Controllers\Bantuan.php(46): App\Models\Model_bantuan->UpdateData([...])
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Bantuan->Update('5')
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bantuan))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-01-01 11:01:03 --> mysqli_sql_exception: Duplicate entry '0' for key 'PRIMARY' in C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\xampp\htdocs\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\xampp\htdocs\spd\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\xampp\htdocs\spd\app\Models\Model_pendidikan.php(18): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\spd\app\Controllers\Pendidikan.php(33): App\Models\Model_pendidikan->InsertData(Array)
+#6 C:\xampp\htdocs\spd\system\CodeIgniter.php(907): App\Controllers\Pendidikan->Insert()
+#7 C:\xampp\htdocs\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pendidikan))
+#8 C:\xampp\htdocs\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-01-01 11:01:03 --> Duplicate entry '0' for key 'PRIMARY'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tbl_pendidikan` (`pendidikan`) VALUES (\'asas\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_pendidikan` (`pendidikan`) VALUES (\'asas\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_pendidikan` (`pendidikan`) VALUES (\'asas\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_pendidikan` (`pendidikan`) VALUES (:pendidikan:)', [...], false)
+ 5 APPPATH\Models\Model_pendidikan.php(18): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Pendidikan.php(33): App\Models\Model_pendidikan->InsertData([...])
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Pendidikan->Insert()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pendidikan))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

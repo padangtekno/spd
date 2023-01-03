@@ -11,7 +11,7 @@
  Target Server Version : 50740 (5.7.40)
  File Encoding         : 65001
 
- Date: 01/01/2023 21:07:09
+ Date: 03/01/2023 19:33:43
 */
 
 SET NAMES utf8mb4;
@@ -25,7 +25,7 @@ CREATE TABLE `tbl_bantuan`  (
   `id_bantuan` int(11) NOT NULL AUTO_INCREMENT,
   `jenis_bantuan` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_bantuan`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tbl_bantuan
@@ -7752,27 +7752,53 @@ INSERT INTO `tbl_pekerjaan` VALUES (10, 'Perangkat Desa');
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_pendidikan`;
 CREATE TABLE `tbl_pendidikan`  (
+  `id_pendidikan` int(11) NOT NULL AUTO_INCREMENT,
+  `pendidikan` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id_pendidikan`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 16 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of tbl_pendidikan
+-- ----------------------------
+INSERT INTO `tbl_pendidikan` VALUES (0, 'Tidak Sekolah');
+INSERT INTO `tbl_pendidikan` VALUES (2, 'TK/Paud');
+INSERT INTO `tbl_pendidikan` VALUES (3, 'SD/Setara');
+INSERT INTO `tbl_pendidikan` VALUES (4, 'SMP/Setara');
+INSERT INTO `tbl_pendidikan` VALUES (5, 'SMA/Setara');
+INSERT INTO `tbl_pendidikan` VALUES (6, 'D1');
+INSERT INTO `tbl_pendidikan` VALUES (7, 'D2');
+INSERT INTO `tbl_pendidikan` VALUES (8, 'D3');
+INSERT INTO `tbl_pendidikan` VALUES (9, 'D4');
+INSERT INTO `tbl_pendidikan` VALUES (10, 'S1');
+INSERT INTO `tbl_pendidikan` VALUES (11, 'S2');
+INSERT INTO `tbl_pendidikan` VALUES (12, 'S3');
+
+-- ----------------------------
+-- Table structure for tbl_pendidikan22
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_pendidikan22`;
+CREATE TABLE `tbl_pendidikan22`  (
   `id_pendidikan` int(2) NOT NULL,
   `pendidikan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_pendidikan`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
--- Records of tbl_pendidikan
+-- Records of tbl_pendidikan22
 -- ----------------------------
-INSERT INTO `tbl_pendidikan` VALUES (0, 'Tidak Sekolah/Belum Sekolah');
-INSERT INTO `tbl_pendidikan` VALUES (1, 'TK/Paud');
-INSERT INTO `tbl_pendidikan` VALUES (2, 'SD/Setara');
-INSERT INTO `tbl_pendidikan` VALUES (3, 'SMP/Setara');
-INSERT INTO `tbl_pendidikan` VALUES (4, 'SMA/Setara');
-INSERT INTO `tbl_pendidikan` VALUES (5, 'D1');
-INSERT INTO `tbl_pendidikan` VALUES (6, 'D2');
-INSERT INTO `tbl_pendidikan` VALUES (7, 'D3');
-INSERT INTO `tbl_pendidikan` VALUES (8, 'D4');
-INSERT INTO `tbl_pendidikan` VALUES (9, 'S1');
-INSERT INTO `tbl_pendidikan` VALUES (10, 'S2');
-INSERT INTO `tbl_pendidikan` VALUES (11, 'S3');
-INSERT INTO `tbl_pendidikan` VALUES (12, 'Belum Tamat SD');
+INSERT INTO `tbl_pendidikan22` VALUES (0, 'Tidak Sekolah/Belum Sekolah');
+INSERT INTO `tbl_pendidikan22` VALUES (1, 'TK/Paud');
+INSERT INTO `tbl_pendidikan22` VALUES (2, 'SD/Setara');
+INSERT INTO `tbl_pendidikan22` VALUES (3, 'SMP/Setara');
+INSERT INTO `tbl_pendidikan22` VALUES (4, 'SMA/Setara');
+INSERT INTO `tbl_pendidikan22` VALUES (5, 'D1');
+INSERT INTO `tbl_pendidikan22` VALUES (6, 'D2');
+INSERT INTO `tbl_pendidikan22` VALUES (7, 'D3');
+INSERT INTO `tbl_pendidikan22` VALUES (8, 'D4');
+INSERT INTO `tbl_pendidikan22` VALUES (9, 'S1');
+INSERT INTO `tbl_pendidikan22` VALUES (10, 'S2');
+INSERT INTO `tbl_pendidikan22` VALUES (11, 'S3');
+INSERT INTO `tbl_pendidikan22` VALUES (12, 'Belum Tamat SD');
 
 -- ----------------------------
 -- Table structure for tbl_penduduk
@@ -7805,67 +7831,12 @@ CREATE TABLE `tbl_penduduk`  (
   `status` int(1) NULL DEFAULT 1,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_penduduk`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 84 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 86 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tbl_penduduk
 -- ----------------------------
-INSERT INTO `tbl_penduduk` VALUES (1, '3333333', 'Anak', NULL, '123', 'Padang', '2022-12-28', 'L', NULL, '', NULL, NULL, NULL, NULL, NULL, 'Islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL);
-INSERT INTO `tbl_penduduk` VALUES (29, '3202182206160003', 'Kepala Keluarga', '3203181989700024', 'Hj. Mulyati', 'Cianjur', '1970-02-07', 'P', 'A', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '3', '2', 6, 2, 2, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (30, '3202182206160003', 'Anak', '3203182609980002', 'Moh. Salman Parizi', 'Cianjur', '1998-09-26', 'L', 'A', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '2', '9', 1, 1, NULL, '2', 'WNI', 3, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (31, '3203182304200001', 'Kepala Keluarga', '3203185305470000', 'Sarah', 'Cianjur', '1947-05-13', 'P', 'B', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '2', 'Islam', '3', '2', 7, 2, 3, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (32, '3203181011051709', 'Kepala Keluarga', '3203180107410080', 'Kaeji', 'Cianjur', '1947-07-08', '-', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '2', 'Islam', '1', '2', 7, 2, 3, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (33, '3203181011051709', 'Istri', '3203185002750007', 'WASIA', 'Cianjur', '1978-10-03', 'P', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '2', 'Islam', '1', '2', 6, 1, NULL, '1', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (34, '3203182903160004', 'Kepala Keluarga', '3203181201500011', 'DANIAL PAOJI', 'Cianjur', '1960-01-12', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '1', '2', 5, 2, 2, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (35, '3203182903160004', 'Istri', '3203184406640009', 'AI BASIROH', 'Cianjur', '1964-06-04', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '4', '2', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (36, '3203182903160004', 'Anak', '3203180701910008', 'CEP DAROR APIP', 'Cianjur', '1991-01-07', 'L', 'A', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '2', '2', 8, 2, 5, '2', 'WNI', 2, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (37, '3203180510120037', 'Kepala Keluarga', '3203180406870008', 'UDAN', 'Cianjur', '1967-04-04', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '2', 4, 2, 3, '1', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (38, '3203180510120037', 'Istri', '3203184107600401', 'MICIH', 'Cianjur', '1968-07-01', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '2', 6, 1, NULL, '1', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (39, '3203181810170005', 'Istri', '3203185804980005', 'FINA', 'Cianjur', '1998-04-18', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '2', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (40, '3203181810170005', 'Kepala Keluarga', '3203182301950003', 'FERI', 'Cianjur', '1995-01-23', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '3', 5, 2, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (41, '3203181810170005', 'Anak', '3203181210170001', 'M. RAFFA IRAWAN', 'Cianjur', '2017-10-12', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '2', '1', 8, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (42, '3203181709120010', 'Kepala Keluarga', '3203180607870011', 'ASEP', 'Cianjur', '1987-07-06', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '2', 5, 2, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (43, '3203181709120010', 'Istri', '3203185604890005', 'DEDAH', 'Cianjur', '1989-04-15', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '2', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (44, '3203181709120010', 'Anak', '3203180311110003', 'M. RIZKI IBRAHIM', 'Cianjur', '2011-11-03', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '2', '13', 8, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (45, '3202181011051761', 'Kepala Keluarga', '3203180665670083', 'JUKARDI', 'Cianjur', '1967-07-06', 'L', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '2', 'Islam', '1', '2', 4, 2, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (46, '3202181011051761', 'Istri', '3203184107750025', 'NURHABIBAH', 'Cianjur', '1975-07-01', 'P', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '3', 'Islam', '1', '2', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (47, '3202181011051761', 'Anak', '3203184759621845', 'HAIKAL RAHMANDA', 'Cianjur', '2016-06-14', 'L', 'B', '32', 3203, 3203100, 'Kp. Legok Gintung', '2', '2', 'Islam', '2', '13', 9, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (48, '3202181011051742', 'Kepala Keluarga', '3203181905550004', 'DAYAT', 'Cianjur', '1966-06-19', 'L', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '2', 'Islam', '1', '2', 5, 2, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (49, '3202181011051742', 'Istri', '3203184301580004', 'NURMASITI', 'Cianjur', '1968-01-03', 'P', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '2', 'Islam', '1', '2', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (50, '3202181011051742', 'Anak', '3203180505900010', 'ROHIDIN', 'Cianjur', '1990-06-05', 'L', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '2', 'Islam', '2', '2', 5, 2, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (51, '3202181011051759', 'Kepala Keluarga', '3203181206340002', 'H. ROYANI', 'Cianjur', '1934-06-12', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '1', '2', 7, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (52, '3202181011051759', 'Istri', '3203184407480004', 'HJ. NURHASANAH', 'Cianjur', '1948-07-04', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '1', '2', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (53, '3203181311190001', 'Kepala Keluarga', '3203181502920004', 'ANJASMARA DARUSALAM PAKIHA', 'Cianjur', '1992-02-16', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '4', 4, 2, NULL, '1', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (54, '3203181311190001', 'Istri', '3203186602030003', 'SINTIA BELA', 'Cianjur', '2001-02-26', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '3', 6, 1, NULL, '1', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (55, '3203181311190001', 'Anak', '3203185505200002', 'SYAHNAZ SHAKIRA PAQIH', 'Cianjur', '2020-05-15', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '2', '0', 9, 1, NULL, '1', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (56, '3203182705090001', 'Kepala Keluarga', '3203181512820001', 'ACENG MUSTIKA', 'Cianjur', '1982-12-15', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '2', 4, 4, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (57, '3203182705090001', 'Istri', '3203186404880001', 'LIA HANDAYANI', 'Cianjur', '1988-04-24', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '3', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (58, '3203182705090001', 'Anak', '32031880601170002', 'DAFFA MAULANA ARDIANSAH', 'Cianjur', '2017-01-04', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '2', '0', 9, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (59, '3203183105180007', 'Kepala Keluarga', '3203185207560002', 'IDOH', 'Cianjur', '1956-07-12', 'P', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '2', 'Islam', '2', '2', 6, 1, NULL, '2', 'WNI', 3, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (60, '3203182010110002', 'Kepala Keluarga', '3203185806900009', 'H. ATORI', 'Cianjur', '1972-07-13', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '1', '3', 4, 4, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (61, '3203182010110002', 'Istri', '3203185805900009', 'AISAH', 'Cianjur', '1990-06-18', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '1', '3', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (62, '3203182010110002', 'Anak', '3203184806110003', 'KANESA', 'Cianjur', '2011-06-06', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '2', '13', 9, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (63, '3203182010110002', 'Anak', '3203186603150001', 'SENY AWALIYAH MARWAH', 'Cianjur', '2015-03-26', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '2', '13', 9, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (64, '3203182607150010', 'Kepala Keluarga', '3203181805890005', 'H. RAMDANI ISKANDAR, S.Pd.I', 'Saudi Arabia', '1989-05-10', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '9', 10, 7, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (65, '3203182607150010', 'Istri', '3203185703930001', 'RENI', 'Cianjur', '1993-03-17', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '3', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (66, '3203182607150010', 'Anak', '3203181105270001', 'RIKI HUSNI MUBAROK', 'Cianjur', '2017-05-11', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '2', '0', 9, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (67, '3203181011056467', 'Kepala Keluarga', '3203181801740002', 'HAMDAN', 'Cianjur', '1974-01-18', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '2', 4, 3, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (68, '3203181011056467', 'Istri', '3203185005780018', 'YANI MULYANI', 'Cianjur', '1978-05-10', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '2', '2', 'Islam', '1', '2', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (69, '3203181603110781', 'Kepala Keluarga', '3203180901700003', 'MUNAWAR', 'Cianjur', '1970-05-06', 'L', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '3', 'Islam', '1', '2', 7, 2, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (70, '3203181603110781', 'Istri', '3203186104750003', 'DEDE', 'Cianjur', '1975-04-19', 'P', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '2', 'Islam', '1', '2', 6, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (71, '3203181603110781', 'Anak', '3203181901000010', 'RIPAL', 'Cianjur', '2000-01-19', 'L', 'AB', '32', 3203, 3203100, 'Kp. Legok Gintung', '3', '2', 'Islam', '2', '4', 9, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (72, '3203181704080005', 'Kepala Keluarga', '3203181210790002', 'SIBYAN', 'Cianjur', '1979-10-12', 'L', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '1', '2', 5, 2, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (73, '3203181704080005', 'Istri', '3203185606840001', 'ERU ROBIAH, S.Pd.', 'Cianjur', '1984-06-15', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '1', '9', 2, 4, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (74, '3203181704080005', 'Anak', '3203180712070001', 'DESCA KHOERUNISA B', 'Cianjur', '2007-12-27', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '2', '3', 9, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (75, '3203181704080005', 'Anak', '3203185610150001', 'DEBBY NUR ANNISA', 'Cianjur', '2015-10-19', 'P', 'AB', '32', 3203, 3203100, 'Kp. Selaawi', '3', '2', 'Islam', '2', '0', 9, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (76, '3203181810170005', 'Anak', NULL, 'INDRI LESTARI', 'Rumah Sakit', '2022-11-17', 'P', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL);
-INSERT INTO `tbl_penduduk` VALUES (77, '3203180517689201', 'Kepala Keluarga', '3203182709195001', 'HJ. KODARIAH', 'Cianjur', '1950-09-27', 'P', 'AB', '32', 3203, 3203100, 'Kp. Pajagan', '1', '2', 'Islam', '2', '2', 6, 1, NULL, '2', 'WNI', 2, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (78, '3203181603110781', 'Anak', '3203184702700024', 'Saepul ', 'Cianjur', '2022-12-04', 'L', 'B', '16', 1604, 1604041, 'Kp. Legok Gintung', '2', '3', 'Islam', '2', '0', 9, 1, NULL, '1', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (79, '3203109392928989', 'Kepala Keluarga', '32031844066409898', 'gygy', 'Cianjur', '2022-11-30', 'L', 'AB', '13', 1308, 1308022, 'Kp. Selaawi', '2', '2', 'Islam', '1', '4', 10, 1, NULL, '2', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
-INSERT INTO `tbl_penduduk` VALUES (80, '3203109392928989', 'Anak', NULL, 'jsdfj', 'Cianjur', '2022-12-08', 'P', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL);
-INSERT INTO `tbl_penduduk` VALUES (81, '3203181011051709', 'Anak', NULL, 'In e', 'Eos', '2018-01-24', 'L', NULL, '', NULL, NULL, NULL, NULL, NULL, 'Islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL);
-INSERT INTO `tbl_penduduk` VALUES (82, '3203182304200001', 'Anak', NULL, 'Eos', 'Quis', '2013-05-27', 'L', NULL, '', NULL, NULL, NULL, NULL, NULL, 'Islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL);
-INSERT INTO `tbl_penduduk` VALUES (83, '3203109392928', 'Ponakan', '123123', '123123', '123123', '2023-01-14', 'L', 'A', '', NULL, NULL, NULL, NULL, NULL, 'Kristen', '1', '0', 10, 1, NULL, '1', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `tbl_penduduk` VALUES (85, '3203181011051709', 'Kepala Keluarga', 'Nobi', 'Aliq', 'Et a', '2018-09-05', 'L', 'O', '', NULL, NULL, NULL, NULL, NULL, 'Islam', '4', '5', 5, 2, 5, '1', 'WNI', 1, '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
 
 -- ----------------------------
 -- Table structure for tbl_penghasilan

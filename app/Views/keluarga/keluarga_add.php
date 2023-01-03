@@ -89,8 +89,8 @@
 
 
                         <div>
-                            <button type="submit" value="simpan" class="btn btn-primary"></i>Simpan</button>
-                            <a href="<?= base_url('Keluarga') ?>" class="btn btn-success">Kembali</a>
+                            <button type="submit" value="simpan" class="btn btn-primary btn-sm"></i>Tambah</button>
+                            <a href="<?= base_url('Keluarga') ?>" class="btn btn-secondary btn-sm">Batal</a>
                         </div>
 
                         <?php echo form_close(); ?>

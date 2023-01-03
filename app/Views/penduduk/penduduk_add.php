@@ -152,8 +152,8 @@
                             <p class="text-danger"><?= $validasi->getError('status_tinggal') ?></p>
                         </div>
                         <div class="text-left">
-                            <button type="submit" value="simpan" class="btn btn-primary btn-sm"></i>Simpan</button>
-                            <a href="<?= base_url('Penduduk') ?>" class="btn btn-success btn-sm"></i>Kembali</a>
+                            <button type="submit" value="simpan" class="btn btn-primary btn-sm"></i>Tambah</button>
+                            <a href="<?= base_url('Penduduk') ?>" class="btn btn-secondary btn-sm"></i>Batal</a>
                         </div>
 
                         <?php echo form_close(); ?>

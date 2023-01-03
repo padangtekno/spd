@@ -28,7 +28,7 @@
                                 <th>Kepala Keluarga</th>
                                 <th>Jumlah Anggota</th>
 
-                                <th width="150px">Aksi</th>
+                                <th width="70px">Aksi</th>
 
                             </tr>
                         </thead>

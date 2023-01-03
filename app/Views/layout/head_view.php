@@ -17,7 +17,7 @@ $web = $db->table('tbl_setting')
     </div><!-- End Logo -->
 
     <div class="search-bar">
-        <h5>Sistem Pengolahan Data Penduduk</h5>
+        <h5>Pengolahan Data Penduduk</h5>
     </div><!-- End Search Bar -->
 
     <nav class="header-nav ms-auto">

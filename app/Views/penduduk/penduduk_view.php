@@ -94,8 +94,8 @@ foreach ($data_penduduk as $key => $value) { ?>
 
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-default bx-pull-left" data-bs-dismiss="modal">Tidak</button>
-                    <a href="<?= base_url('penduduk/delete/' . $value['id_penduduk']) ?>" type="submit" class="btn btn-primary">Iya</a>
+                    <button type="submit" class="btn btn-secondary btn-sm bx-pull-left" data-bs-dismiss="modal">Tidak</button>
+                    <a href="<?= base_url('penduduk/delete/' . $value['id_penduduk']) ?>" type="submit" class="btn btn-danger btn-sm">Yakin</a>
                 </div>
             </div>
 
