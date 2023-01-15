@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\Model_keluarga;
 use App\Models\Model_wilayah;
 use App\Models\Model_home;
+use App\Models\Model_penduduk;
 
 class Keluarga extends BaseController
 {
@@ -14,6 +15,7 @@ class Keluarga extends BaseController
         $this->Model_keluarga = new Model_keluarga();
         $this->Model_wilayah = new Model_wilayah();
         $this->Model_home = new Model_home();
+        $this->Model_penduduk = new Model_penduduk();
     }
 
     public function index()
@@ -218,6 +220,19 @@ class Keluarga extends BaseController
         return view('layout/wrapper_view', $data);
     }
 
+    public function DetailAnggota($id_penduduk)
+    {
+        $penduduk = $this->Model_penduduk->detail_data($id_penduduk);
+
+        $data = [
+            'title' => 'Detail Anngota Keluarga',
+            'menu' => 'keluarga',
+            'submenu' => 'keluarga',
+            'penduduk' => $this->Model_penduduk->detail_data($id_penduduk),
+            'isi' => 'keluarga/anggota_detail',
+        ];
+        return view('layout/wrapper_view', $data);
+    }
 
 
     public function kabupaten()

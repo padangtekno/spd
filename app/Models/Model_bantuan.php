@@ -32,11 +32,15 @@ class Model_bantuan extends Model
 
     public function PenerimaBantuan()
     {
+        $penghasilan = $this->db->table('tbl_setting')->where('id', 1)->get()->getRowArray();
+
+        $pdb = $penghasilan['pdb'];
+
         return $this->db->table('tbl_penduduk')
             ->join('tbl_pekerjaan', 'tbl_pekerjaan.id_pekerjaan=tbl_penduduk.id_pekerjaan', 'left')
-            ->join('tbl_penghasilan', 'tbl_penghasilan.id_penghasilan=tbl_penduduk.id_penghasilan', 'left')
             ->join('tbl_bantuan', 'tbl_bantuan.id_bantuan=tbl_penduduk.id_bantuan', 'left')
-            ->where('tbl_penghasilan.penerima_bantuan', '1')
+            ->where('tbl_penduduk.penghasilan < "' . $pdb . '"')
+            ->where('tbl_penduduk.hubungan_keluarga', 'Kepala Keluarga')
             ->get()
             ->getResultArray();
     }

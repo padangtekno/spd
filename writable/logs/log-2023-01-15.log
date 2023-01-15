@@ -1,0 +1,240 @@
+ERROR - 2023-01-15 06:18:05 --> mysqli_sql_exception: Unknown column 'penghasilan' in 'field list' in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\Model_penduduk.php(35): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\wamp64\www\spd\app\Controllers\Penduduk.php(212): App\Models\Model_penduduk->add(Array)
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Penduduk->insert()
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penduduk))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-01-15 06:18:05 --> Unknown column 'penghasilan' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tbl_penduduk` (`no_kk`, `nik`, `nama`, `tempat_lahir`, `tgl_lahir`, `jk`, `agama`, `status_perkawinan`, `id_pendidikan`, `id_pekerjaan`, `penghasilan`, `status_tinggal`, `gol_darah`, `kewarganegaraan`, `hubungan_keluarga`, `password`) VALUES (\'3203182010110002\', \'1111111111111111\', \'H. ATORI\', \'Esse\', \'1984-06-24\', \'L\', \'Islam\', \'2\', \'8\', \'2\', \'1000000\', \'2\', \'A\', \'WNI\', \'Kepala Keluarga\', \'7110eda4d09e062aa5e4a390b0a572ac0d2c0220\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_penduduk` (`no_kk`, `nik`, `nama`, `tempat_lahir`, `tgl_lahir`, `jk`, `agama`, `status_perkawinan`, `id_pendidikan`, `id_pekerjaan`, `penghasilan`, `status_tinggal`, `gol_darah`, `kewarganegaraan`, `hubungan_keluarga`, `password`) VALUES (\'3203182010110002\', \'1111111111111111\', \'H. ATORI\', \'Esse\', \'1984-06-24\', \'L\', \'Islam\', \'2\', \'8\', \'2\', \'1000000\', \'2\', \'A\', \'WNI\', \'Kepala Keluarga\', \'7110eda4d09e062aa5e4a390b0a572ac0d2c0220\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_penduduk` (`no_kk`, `nik`, `nama`, `tempat_lahir`, `tgl_lahir`, `jk`, `agama`, `status_perkawinan`, `id_pendidikan`, `id_pekerjaan`, `penghasilan`, `status_tinggal`, `gol_darah`, `kewarganegaraan`, `hubungan_keluarga`, `password`) VALUES (\'3203182010110002\', \'1111111111111111\', \'H. ATORI\', \'Esse\', \'1984-06-24\', \'L\', \'Islam\', \'2\', \'8\', \'2\', \'1000000\', \'2\', \'A\', \'WNI\', \'Kepala Keluarga\', \'7110eda4d09e062aa5e4a390b0a572ac0d2c0220\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_penduduk` (`no_kk`, `nik`, `nama`, `tempat_lahir`, `tgl_lahir`, `jk`, `agama`, `status_perkawinan`, `id_pendidikan`, `id_pekerjaan`, `penghasilan`, `status_tinggal`, `gol_darah`, `kewarganegaraan`, `hubungan_keluarga`, `password`) VALUES (:no_kk:, :nik:, :nama:, :tempat_lahir:, :tgl_lahir:, :jk:, :agama:, :status_perkawinan:, :id_pendidikan:, :id_pekerjaan:, :penghasilan:, :status_tinggal:, :gol_darah:, :kewarganegaraan:, :hubungan_keluarga:, :password:)', [...], false)
+ 5 APPPATH\Models\Model_penduduk.php(35): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Penduduk.php(212): App\Models\Model_penduduk->add([...])
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Penduduk->insert()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penduduk))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-01-15 06:18:31 --> mysqli_sql_exception: Unknown column 'tbl_penduduk.id_penghasilan' in 'on clause' in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\Model_penduduk.php(16): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\spd\app\Controllers\Penduduk.php(30): App\Models\Model_penduduk->alldata()
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Penduduk->index()
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penduduk))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-01-15 06:18:31 --> Unknown column 'tbl_penduduk.id_penghasilan' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_pekerjaan` ON `tbl_pekerjaan`.`id_pekerjaan`=`tbl_penduduk`.`id_pekerjaan`
+LEFT JOIN `tbl_penghasilan` ON `tbl_penghasilan`.`id_penghasilan`=`tbl_penduduk`.`id_penghasilan`
+WHERE `status` = \'1\'
+ORDER BY `no_kk` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_pekerjaan` ON `tbl_pekerjaan`.`id_pekerjaan`=`tbl_penduduk`.`id_pekerjaan`
+LEFT JOIN `tbl_penghasilan` ON `tbl_penghasilan`.`id_penghasilan`=`tbl_penduduk`.`id_penghasilan`
+WHERE `status` = \'1\'
+ORDER BY `no_kk` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_pekerjaan` ON `tbl_pekerjaan`.`id_pekerjaan`=`tbl_penduduk`.`id_pekerjaan`
+LEFT JOIN `tbl_penghasilan` ON `tbl_penghasilan`.`id_penghasilan`=`tbl_penduduk`.`id_penghasilan`
+WHERE `status` = \'1\'
+ORDER BY `no_kk` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_pekerjaan` ON `tbl_pekerjaan`.`id_pekerjaan`=`tbl_penduduk`.`id_pekerjaan`
+LEFT JOIN `tbl_penghasilan` ON `tbl_penghasilan`.`id_penghasilan`=`tbl_penduduk`.`id_penghasilan`
+WHERE `status` = :status:
+ORDER BY `no_kk` DESC', [...], false)
+ 5 APPPATH\Models\Model_penduduk.php(16): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Penduduk.php(30): App\Models\Model_penduduk->alldata()
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Penduduk->index()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penduduk))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-15 06:21:16 --> Undefined index: id_penghasilan
+in APPPATH\Views\penduduk\penduduk_edit.php on line 110.
+ 1 APPPATH\Views\penduduk\penduduk_edit.php(110): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index: id_penghasilan', 'APPPATH\\Views\\penduduk\\penduduk_edit.php', 110, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\penduduk\\penduduk_edit.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('penduduk/penduduk_edit', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('penduduk/penduduk_edit')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Penduduk.php(238): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Penduduk->edit('88')
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penduduk))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-01-15 06:33:16 --> mysqli_sql_exception: Unknown column 'tbl_penduduk.id_penghasilan' in 'on clause' in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\Model_bantuan.php(45): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\spd\app\Controllers\Bantuan.php(68): App\Models\Model_bantuan->PenerimaBantuan()
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Bantuan->Penerima()
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bantuan))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-01-15 06:33:16 --> Unknown column 'tbl_penduduk.id_penghasilan' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_pekerjaan` ON `tbl_pekerjaan`.`id_pekerjaan`=`tbl_penduduk`.`id_pekerjaan`
+LEFT JOIN `tbl_penghasilan` ON `tbl_penghasilan`.`id_penghasilan`=`tbl_penduduk`.`id_penghasilan`
+LEFT JOIN `tbl_bantuan` ON `tbl_bantuan`.`id_bantuan`=`tbl_penduduk`.`id_bantuan`
+WHERE 0 IS NULL
+AND `tbl_penduduk`.`hubungan_keluarga` = \'Kepala Keluarga\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_pekerjaan` ON `tbl_pekerjaan`.`id_pekerjaan`=`tbl_penduduk`.`id_pekerjaan`
+LEFT JOIN `tbl_penghasilan` ON `tbl_penghasilan`.`id_penghasilan`=`tbl_penduduk`.`id_penghasilan`
+LEFT JOIN `tbl_bantuan` ON `tbl_bantuan`.`id_bantuan`=`tbl_penduduk`.`id_bantuan`
+WHERE 0 IS NULL
+AND `tbl_penduduk`.`hubungan_keluarga` = \'Kepala Keluarga\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_pekerjaan` ON `tbl_pekerjaan`.`id_pekerjaan`=`tbl_penduduk`.`id_pekerjaan`
+LEFT JOIN `tbl_penghasilan` ON `tbl_penghasilan`.`id_penghasilan`=`tbl_penduduk`.`id_penghasilan`
+LEFT JOIN `tbl_bantuan` ON `tbl_bantuan`.`id_bantuan`=`tbl_penduduk`.`id_bantuan`
+WHERE 0 IS NULL
+AND `tbl_penduduk`.`hubungan_keluarga` = \'Kepala Keluarga\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_pekerjaan` ON `tbl_pekerjaan`.`id_pekerjaan`=`tbl_penduduk`.`id_pekerjaan`
+LEFT JOIN `tbl_penghasilan` ON `tbl_penghasilan`.`id_penghasilan`=`tbl_penduduk`.`id_penghasilan`
+LEFT JOIN `tbl_bantuan` ON `tbl_bantuan`.`id_bantuan`=`tbl_penduduk`.`id_bantuan`
+WHERE 0 IS NULL
+AND `tbl_penduduk`.`hubungan_keluarga` = :tbl_penduduk.hubungan_keluarga:', [...], false)
+ 5 APPPATH\Models\Model_bantuan.php(45): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Bantuan.php(68): App\Models\Model_bantuan->PenerimaBantuan()
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Bantuan->Penerima()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bantuan))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-15 06:36:29 --> Undefined index: penerima_bantuan
+in APPPATH\Views\penerima_bantuan_view.php on line 61.
+ 1 APPPATH\Views\penerima_bantuan_view.php(61): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index: penerima_bantuan', 'APPPATH\\Views\\penerima_bantuan_view.php', 61, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\penerima_bantuan_view.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('penerima_bantuan_view', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('penerima_bantuan_view')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Bantuan.php(71): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Bantuan->Penerima()
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bantuan))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-15 06:37:05 --> Undefined index: penerima_bantuan
+in APPPATH\Views\penerima_bantuan_view.php on line 61.
+ 1 APPPATH\Views\penerima_bantuan_view.php(61): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index: penerima_bantuan', 'APPPATH\\Views\\penerima_bantuan_view.php', 61, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\penerima_bantuan_view.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('penerima_bantuan_view', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('penerima_bantuan_view')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Bantuan.php(71): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Bantuan->Penerima()
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bantuan))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-15 06:37:21 --> Undefined index: penerima_bantuan
+in APPPATH\Views\penerima_bantuan_view.php on line 61.
+ 1 APPPATH\Views\penerima_bantuan_view.php(61): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index: penerima_bantuan', 'APPPATH\\Views\\penerima_bantuan_view.php', 61, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\penerima_bantuan_view.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('penerima_bantuan_view', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('penerima_bantuan_view')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Bantuan.php(71): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Bantuan->Penerima()
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bantuan))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-15 06:38:04 --> Undefined index: penerima_bantuan
+in APPPATH\Views\penerima_bantuan_view.php on line 61.
+ 1 APPPATH\Views\penerima_bantuan_view.php(61): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index: penerima_bantuan', 'APPPATH\\Views\\penerima_bantuan_view.php', 61, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\penerima_bantuan_view.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('penerima_bantuan_view', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('penerima_bantuan_view')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Bantuan.php(71): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Bantuan->Penerima()
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Bantuan))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-15 06:47:36 --> Undefined variable: jml
+in APPPATH\Views\keluarga\keluarga_rincian.php on line 99.
+ 1 APPPATH\Views\keluarga\keluarga_rincian.php(99): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: jml', 'APPPATH\\Views\\keluarga\\keluarga_rincian.php', 99, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\keluarga\\keluarga_rincian.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('keluarga/keluarga_rincian', [], true)
+ 5 APPPATH\Views\layout\content_view.php(3): view('keluarga/keluarga_rincian')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\content_view.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/content_view', [], true)
+ 9 APPPATH\Views\layout\wrapper_view.php(5): view('layout/content_view')
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout\\wrapper_view.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('layout/wrapper_view', [], true)
+13 APPPATH\Controllers\Keluarga.php(218): view('layout/wrapper_view', [...])
+14 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Keluarga->Rincian('3203182607150010')
+15 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keluarga))
+16 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-15 06:55:57 --> Undefined property: App\Controllers\Keluarga::$Model_penduduk
+in APPPATH\Controllers\Keluarga.php on line 223.
+ 1 APPPATH\Controllers\Keluarga.php(223): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: App\\Controllers\\Keluarga::$Model_penduduk', 'APPPATH\\Controllers\\Keluarga.php', 223, [...])
+ 2 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Keluarga->DetailAnggota('89')
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keluarga))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

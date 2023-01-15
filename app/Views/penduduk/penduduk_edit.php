@@ -104,13 +104,8 @@
 
             <div class="col-md-4">
                 <label>Penghasilan</label>
-                <select name="id_penghasilan" class="form-select select2">
-                    <option value="">--Pilih--</option>
-                    <?php foreach ($penghasilan as $key => $p) { ?>
-                        <option value="<?= $p['id_penghasilan'] ?>" <?= $p['id_penghasilan'] == $data_penduduk['id_penghasilan'] ? 'selected' : '' ?>><?= $p['penghasilan'] ?></option>
-                    <?php } ?>
-                </select>
-                <p class="text-danger"><?= $validasi->getError('id_penghasilan') ?></p>
+                <input type="number" class="form-control" name="penghasilan" value="<?= $data_penduduk['penghasilan'] ?>">
+                <p class="text-danger"><?= $validasi->getError('penghasilan') ?></p>
             </div>
 
             <div class="col-md-4">

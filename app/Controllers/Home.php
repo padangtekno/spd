@@ -122,6 +122,7 @@ class Home extends BaseController
                 'id_provinsi' => $this->request->getPost('id_provinsi'),
                 'id_kabupaten' => $this->request->getPost('id_kabupaten'),
                 'id_kecamatan' => $this->request->getPost('id_kecamatan'),
+                'pdb' => $this->request->getPost('pdb'),
                 'logo' =>  $nama_file,
             ];
             $this->Model_home->UpdateSetting($data);

@@ -14,7 +14,7 @@
                 <ul id="forms-nav" class="nav-content <?= $menu == 'master-data' ? '' : 'collapse' ?>" data-bs-parent="#sidebar-nav">
                     <li> <a href="<?= base_url('Pekerjaan') ?>" class="<?= $submenu == 'pekerjaan' ? 'active' : '' ?>"> <i class="bi bi-list"></i><span>Pekerjaan</span> </a></li>
                     <li> <a href="<?= base_url('Pendidikan') ?>" class="<?= $submenu == 'pendidikan' ? 'active' : '' ?>"> <i class=" bi bi-list"></i><span>Pendidikan</span> </a></li>
-                    <li> <a href="<?= base_url('Penghasilan') ?>" class="<?= $submenu == 'penghasilan' ? 'active' : '' ?>"> <i class=" bi bi-list"></i><span>Penghasilan</span> </a></li>
+                    <!-- <li> <a href="<?= base_url('Penghasilan') ?>" class="<?= $submenu == 'penghasilan' ? 'active' : '' ?>"> <i class=" bi bi-list"></i><span>Penghasilan</span> </a></li> -->
                     <li> <a href="<?= base_url('Bantuan') ?>" class="<?= $submenu == 'bantuan' ? 'active' : '' ?>"> <i class=" bi bi-list"></i><span>Jenis Bantuan</span> </a></li>
                     <li> <a href="<?= base_url('pengguna') ?>" class="<?= $submenu == 'pengguna' ? 'active' : '' ?>"> <i class=" bi bi-person-lines-fill"></i><span>Pengguna Sistem</span> </a></li>
                 </ul>

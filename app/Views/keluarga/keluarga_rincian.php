@@ -68,10 +68,16 @@
               <th width="150px">Jenis Kelamin</th>
               <th width="150px">Agama</th>
               <th width="150px">Hubungan</th>
+              <th width="150px">Penghasilan</th>
+              <th width="150px"></th>
             </tr>
 
             <?php $no = 1;
-            foreach ($anggota as $key => $a) { ?>
+            foreach ($anggota as $key => $a) {
+
+              $jml[] = $a['penghasilan'];
+
+            ?>
               <tr>
                 <td><?= $no++ ?></td>
                 <td class="text-center"><?= $a['nik'] ?></td>
@@ -80,9 +86,23 @@
                 <td><?= $a['jk'] == 'L' ? 'Laki-Laki' : 'Perempuan' ?></td>
                 <td class="text-center"><?= $a['agama'] ?></td>
                 <td class="text-center"><?= $a['hubungan_keluarga'] ?></td>
-
+                <td class="text-center">Rp. <?= number_format($a['penghasilan'], 0) ?></td>
+                <td>
+                  <a href="<?= base_url('Keluarga/DetailAnggota/' . $a['id_penduduk']) ?>" class="btn btn-success btn-sm"><i class="bi-info-circle"></i></button>
+                </td>
               </tr>
             <?php } ?>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <th></th>
+              <th>Rp. <?= $anggota == null ? '0' : number_format(array_sum($jml), 0) ?></th>
+              <td></td>
+            </tr>
 
           </table>
 

@@ -142,7 +142,7 @@ class Penduduk extends BaseController
                     '{field} Jangan dikosongkan, Wajid Diisi !',
                 ],
             ],
-            'id_penghasilan' => [
+            'penghasilan' => [
                 'label' => 'Penghasilan',
                 'rules' => 'required',
                 'errors' => [
@@ -202,7 +202,7 @@ class Penduduk extends BaseController
                 'status_perkawinan' => $this->request->getPost('status_perkawinan'),
                 'id_pendidikan' => $this->request->getPost('id_pendidikan'),
                 'id_pekerjaan' => $this->request->getPost('id_pekerjaan'),
-                'id_penghasilan' => $this->request->getPost('id_penghasilan'),
+                'penghasilan' => $this->request->getPost('penghasilan'),
                 'status_tinggal' => $this->request->getPost('status_tinggal'),
                 'gol_darah' => $this->request->getPost('gol_darah'),
                 'kewarganegaraan' => $this->request->getPost('kewarganegaraan'),
@@ -315,7 +315,7 @@ class Penduduk extends BaseController
                     '{field} Jangan dikosongkan, Wajid Diisi !',
                 ],
             ],
-            'id_penghasilan' => [
+            'penghasilan' => [
                 'label' => 'Penghasilan',
                 'rules' => 'required',
                 'errors' => [
@@ -375,7 +375,7 @@ class Penduduk extends BaseController
                 'status_perkawinan' => $this->request->getPost('status_perkawinan'),
                 'id_pendidikan' => $this->request->getPost('id_pendidikan'),
                 'id_pekerjaan' => $this->request->getPost('id_pekerjaan'),
-                'id_penghasilan' => $this->request->getPost('id_penghasilan'),
+                'penghasilan' => $this->request->getPost('penghasilan'),
                 'status_tinggal' => $this->request->getPost('status_tinggal'),
                 'gol_darah' => $this->request->getPost('gol_darah'),
                 'kewarganegaraan' => $this->request->getPost('kewarganegaraan'),

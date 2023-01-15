@@ -61,19 +61,25 @@
               <p class="text-danger"><?= $validasi->getError('id_kecamatan') ?></p>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-4">
               <label>Kode POS</label>
               <input name="kode_pos" class="form-control" value="<?= $web['kode_pos'] ?>">
               <p class="text-danger"><?= $validasi->getError('kode_pos') ?></p>
             </div>
 
-            <div class="col-md-5">
+            <div class="col-md-8">
+              <label>Penghasilan Dapat Bantuan Kurang Dari :</label>
+              <input type="number" name="pdb" class="form-control" value="<?= $web['pdb'] ?>">
+              <p class="text-danger"><?= $validasi->getError('pdb') ?></p>
+            </div>
+
+            <div class="col-md-6">
               <label>Logo Desa</label>
               <input type="file" name="logo" class="form-control">
               <p class="text-danger"><?= $validasi->getError('logo') ?></p>
             </div>
 
-            <div class="col-md-5">
+            <div class="col-md-6">
               <img src="<?= base_url('foto/' . $web['logo']) ?>" width="100px">
             </div>
 
