@@ -1,0 +1,4 @@
+1. hidup
+2. mati
+3. pindah
+4. lahir

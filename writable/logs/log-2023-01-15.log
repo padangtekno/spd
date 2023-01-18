@@ -238,3 +238,18 @@ in APPPATH\Controllers\Keluarga.php on line 223.
  3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keluarga))
  4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-15 07:12:05 --> Undefined index: penerima_bantuan
+in APPPATH\Views\kawil\penerima_bantuan_view.php on line 64.
+ 1 APPPATH\Views\kawil\penerima_bantuan_view.php(64): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index: penerima_bantuan', 'APPPATH\\Views\\kawil\\penerima_bantuan_view.php', 64, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\kawil\\penerima_bantuan_view.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('kawil/penerima_bantuan_view', [], true)
+ 5 APPPATH\Views\kawil\v_template.php(309): view('kawil/penerima_bantuan_view')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\kawil\\v_template.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('kawil/v_template', [], true)
+ 9 APPPATH\Controllers\Kawil.php(152): view('kawil/v_template', [...])
+10 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Kawil->Bantuan()
+11 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kawil))
+12 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

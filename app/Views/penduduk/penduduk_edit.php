@@ -33,7 +33,7 @@
 
             <div class="col-md-4">
                 <label for="nik" class="form-label">NIK</label>
-                <input type="text" name="nik" value="<?= $data_penduduk['nik'] ?>" class="form-control" id="nik">
+                <input type="number" name="nik" value="<?= $data_penduduk['nik'] ?>" class="form-control" id="nik">
                 <p class="text-danger"><?= $validasi->getError('nik') ?></p>
             </div>
             <div class="col-6">

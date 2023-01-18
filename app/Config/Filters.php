@@ -57,6 +57,7 @@ class Filters extends BaseConfig
                     'Penghasilan', 'Penghasilan/*',
                     'Bantuan', 'Bantuan/*',
                     'Kawil', 'Kawil/*',
+                    'History', 'History/*',
                 ],
             ],
             'Filter_penduduk' => [

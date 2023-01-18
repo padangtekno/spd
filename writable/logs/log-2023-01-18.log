@@ -1,0 +1,57 @@
+CRITICAL - 2023-01-18 06:50:20 --> Class 'TCPDF' not found
+in APPPATH\Controllers\History.php on line 35.
+ 1 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\History->SkLahir()
+ 2 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\History))
+ 3 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-18 06:53:06 --> Class 'TCPDF' not found
+in APPPATH\Controllers\History.php on line 35.
+ 1 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\History->SkLahir()
+ 2 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\History))
+ 3 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-18 06:53:07 --> Class 'TCPDF' not found
+in APPPATH\Controllers\History.php on line 35.
+ 1 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\History->SkLahir()
+ 2 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\History))
+ 3 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-18 07:09:35 --> Undefined variable: web
+in APPPATH\Views\sk\v_sk_lahir.php on line 3.
+ 1 APPPATH\Views\sk\v_sk_lahir.php(3): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: web', 'APPPATH\\Views\\sk\\v_sk_lahir.php', 3, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\sk\\v_sk_lahir.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('sk/v_sk_lahir', [], true)
+ 5 APPPATH\Controllers\History.php(33): view('sk/v_sk_lahir', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\History->SkLahir()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\History))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-18 07:10:59 --> Undefined variable: title
+in APPPATH\Views\sk\v_sk_lahir.php on line 6.
+ 1 APPPATH\Views\sk\v_sk_lahir.php(6): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: title', 'APPPATH\\Views\\sk\\v_sk_lahir.php', 6, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\sk\\v_sk_lahir.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('sk/v_sk_lahir', [], true)
+ 5 APPPATH\Controllers\History.php(33): view('sk/v_sk_lahir', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\History->SkLahir()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\History))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-18 07:11:15 --> Undefined variable: web
+in APPPATH\Views\sk\v_sk_lahir.php on line 33.
+ 1 APPPATH\Views\sk\v_sk_lahir.php(33): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: web', 'APPPATH\\Views\\sk\\v_sk_lahir.php', 33, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\sk\\v_sk_lahir.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('sk/v_sk_lahir', [], true)
+ 5 APPPATH\Controllers\History.php(34): view('sk/v_sk_lahir', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\History->SkLahir()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\History))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-18 07:31:22 --> Call to undefined method Dompdf\Dompdf::filename()
+in APPPATH\Controllers\History.php on line 43.
+ 1 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\History->SkLahir()
+ 2 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\History))
+ 3 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

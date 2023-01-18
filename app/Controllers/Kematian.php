@@ -80,6 +80,7 @@ class Kematian extends BaseController
         $data2 = [
             'id_penduduk' => $this->request->getPost('id_penduduk'),
             'status' => '2',
+            'update_at' => date('Y-m-d'),
         ];
         $this->Model_kematian->InsertData($data);
         $this->Model_kematian->UpdateDataPenduduk($data2);

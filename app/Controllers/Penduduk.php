@@ -208,6 +208,7 @@ class Penduduk extends BaseController
                 'kewarganegaraan' => $this->request->getPost('kewarganegaraan'),
                 'hubungan_keluarga' => $this->request->getPost('hubungan_keluarga'),
                 'password' => sha1(1234),
+                'update_at' => date('Y-m-d'),
             ];
             $this->Model_penduduk->add($data);
             session()->setFlashdata('pesan', 'Penduduk Berhasil Ditambahkan');
@@ -380,6 +381,7 @@ class Penduduk extends BaseController
                 'gol_darah' => $this->request->getPost('gol_darah'),
                 'kewarganegaraan' => $this->request->getPost('kewarganegaraan'),
                 'hubungan_keluarga' => $this->request->getPost('hubungan_keluarga'),
+                'update_at' => date('Y-m-d'),
             ];
             $this->Model_penduduk->edit($data);
             session()->setFlashdata(

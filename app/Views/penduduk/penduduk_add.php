@@ -40,7 +40,7 @@
 
                         <div class="col-md-4">
                             <label>NIK</label>
-                            <input type="text" name="nik" class="form-control" id="nik" value="<?= old('nik') ?>">
+                            <input type="number" name="nik" class="form-control" id="nik" value="<?= old('nik') ?>">
                             <p class="text-danger"><?= $validasi->getError('nik') ?></p>
                         </div>
 

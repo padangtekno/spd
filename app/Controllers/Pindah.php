@@ -128,6 +128,7 @@ class Pindah extends BaseController
             $data2 = [
                 'id_penduduk' => $this->request->getPost('id_penduduk'),
                 'status' => '3',
+                'update_at' => date('Y-m-d'),
             ];
             $this->Model_pindah->UpdateDataPenduduk($data2);
             session()->setFlashdata('pesan', 'Data Pindah Berhasil Ditambahkan');

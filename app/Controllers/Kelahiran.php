@@ -125,6 +125,8 @@ class Kelahiran extends BaseController
                 'no_kk' => $this->request->getPost('no_kk'),
                 'jk' => $this->request->getPost('jk'),
                 'agama' => $this->request->getPost('agama'),
+                'status' => '4',
+                'update_at' => date('Y-m-d'),
             ];
             $this->Model_kelahiran->InsertPenduduk($data2);
             session()->setFlashdata('pesan', 'Data Kelahiran Berhasil Ditambahkan');

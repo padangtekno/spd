@@ -16,7 +16,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label for="no_kk" class="form-label">No Kartu Keluarga</label>
-                            <input type="text" name="no_kk" class="form-control" placeholder="No Kartu Keluarga" value="<?= $keluarga['no_kk'] ?>" readonly>
+                            <input type="number" name="no_kk" class="form-control" placeholder="No Kartu Keluarga" value="<?= $keluarga['no_kk'] ?>" readonly>
                             <p class="text-danger"><?= $validasi->getError('no_kk') ?></p>
                         </div>
                         <div class="col-md-6">

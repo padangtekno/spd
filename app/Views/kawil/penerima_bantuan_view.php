@@ -61,7 +61,7 @@
                     ?>
 
                   </td>
-                  <td width="100px" class="text-center"><?= $value['penerima_bantuan'] == 1 ? '<span class="badge bg-success">Layak</span>' : '' ?></td>
+                  <td width="100px" class="text-center"><span class="badge bg-success">Layak</span></td>
                   <td><?= $value['jenis_bantuan']; ?></td>
                   <?php if (session()->get('level') == '1') { ?>
                     <td class="text-center">

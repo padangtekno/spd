@@ -70,6 +70,13 @@
                     <li> <a href="<?= base_url('Bantuan/Laporan') ?>" class="<?= $submenu == 'laporan_bantuan' ? 'active' : '' ?>"> <i class="bi bi-circle"></i><span>Laporan Penerima Bantuan</span> </a></li>
                 </ul>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link <?= $menu == 'history' ? '' : 'collapsed' ?>" href="<?= base_url('History') ?>">
+                    <i class="bi bi-alarm"></i>
+                    <span>History</span>
+                </a>
+            </li>
         <?php } ?>
         <?php if (session()->get('level') == '1') { ?>
             <li class="nav-heading">Setting</li>
