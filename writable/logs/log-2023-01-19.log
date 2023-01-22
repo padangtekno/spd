@@ -1,0 +1,122 @@
+ERROR - 2023-01-19 08:14:15 --> mysqli_sql_exception: Column 'id_penduduk' in where clause is ambiguous in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\ModelHistory.php(24): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\spd\app\Controllers\History.php(36): App\Models\ModelHistory->DetailLahir('90')
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\History->SkLahir('90')
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\History))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-01-19 08:14:15 --> Column 'id_penduduk' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_kelahiran` ON `tbl_kelahiran`.`id_penduduk`=`tbl_penduduk`.`id_penduduk`
+WHERE `id_penduduk` = \'90\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_kelahiran` ON `tbl_kelahiran`.`id_penduduk`=`tbl_penduduk`.`id_penduduk`
+WHERE `id_penduduk` = \'90\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_kelahiran` ON `tbl_kelahiran`.`id_penduduk`=`tbl_penduduk`.`id_penduduk`
+WHERE `id_penduduk` = \'90\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_kelahiran` ON `tbl_kelahiran`.`id_penduduk`=`tbl_penduduk`.`id_penduduk`
+WHERE `id_penduduk` = :id_penduduk:', [...], false)
+ 5 APPPATH\Models\ModelHistory.php(24): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\History.php(36): App\Models\ModelHistory->DetailLahir('90')
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\History->SkLahir('90')
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\History))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-01-19 08:15:23 --> mysqli_sql_exception: Column 'id_penduduk' in where clause is ambiguous in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\ModelHistory.php(24): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\spd\app\Controllers\History.php(36): App\Models\ModelHistory->DetailLahir('90')
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\History->SkLahir('90')
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\History))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-01-19 08:15:23 --> Column 'id_penduduk' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_kelahiran` ON `tbl_kelahiran`.`id_penduduk`=`tbl_penduduk`.`id_penduduk`
+WHERE `id_penduduk` = \'90\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_kelahiran` ON `tbl_kelahiran`.`id_penduduk`=`tbl_penduduk`.`id_penduduk`
+WHERE `id_penduduk` = \'90\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_kelahiran` ON `tbl_kelahiran`.`id_penduduk`=`tbl_penduduk`.`id_penduduk`
+WHERE `id_penduduk` = \'90\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_kelahiran` ON `tbl_kelahiran`.`id_penduduk`=`tbl_penduduk`.`id_penduduk`
+WHERE `id_penduduk` = :id_penduduk:', [...], false)
+ 5 APPPATH\Models\ModelHistory.php(24): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\History.php(36): App\Models\ModelHistory->DetailLahir('90')
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\History->SkLahir('90')
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\History))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-01-19 08:15:30 --> mysqli_sql_exception: Column 'id_penduduk' in where clause is ambiguous in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\ModelHistory.php(24): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\spd\app\Controllers\History.php(36): App\Models\ModelHistory->DetailLahir('90')
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\History->SkLahir('90')
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\History))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-01-19 08:15:30 --> Column 'id_penduduk' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_kelahiran` ON `tbl_kelahiran`.`id_penduduk`=`tbl_penduduk`.`id_penduduk`
+WHERE `id_penduduk` = \'90\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_kelahiran` ON `tbl_kelahiran`.`id_penduduk`=`tbl_penduduk`.`id_penduduk`
+WHERE `id_penduduk` = \'90\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_kelahiran` ON `tbl_kelahiran`.`id_penduduk`=`tbl_penduduk`.`id_penduduk`
+WHERE `id_penduduk` = \'90\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_penduduk`
+LEFT JOIN `tbl_kelahiran` ON `tbl_kelahiran`.`id_penduduk`=`tbl_penduduk`.`id_penduduk`
+WHERE `id_penduduk` = :id_penduduk:', [...], false)
+ 5 APPPATH\Models\ModelHistory.php(24): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\History.php(36): App\Models\ModelHistory->DetailLahir('90')
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\History->SkLahir('90')
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\History))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-19 08:24:02 --> Trying to access array offset on value of type null
+in APPPATH\Views\sk\v_sk_lahir.php on line 57.
+ 1 APPPATH\Views\sk\v_sk_lahir.php(57): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to access array offset on value of type null', 'APPPATH\\Views\\sk\\v_sk_lahir.php', 57, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\sk\\v_sk_lahir.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('sk/v_sk_lahir', [], true)
+ 5 APPPATH\Controllers\History.php(38): view('sk/v_sk_lahir', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\History->SkLahir('91')
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\History))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

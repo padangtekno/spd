@@ -41,17 +41,53 @@
 
 
   <center>
-    <h4>SURAT KENAL LAHIR</h4>
+    <h4>SURAT KEMATIAN</h4>
     <p>Nomor : <?= $penduduk['id_penduduk'] ?>/2023</p>
   </center>
 
 
-  <p>
-    Yang bertanda tangan di bawah ini Kepala Desa Situhiang Kecamatan Pagelaran Kabupaten Cianjur, menerangkan bahwa pada :
-  </p>
+
+
+  <table class="table">
+
+    <tr>
+      <td width="150px">Nama</td>
+      <td>:</td>
+      <td><?= $penduduk['nama'] ?></td>
+    </tr>
+    <tr>
+      <td>Jenis Kelamin</td>
+      <td>:</td>
+      <td><?= $penduduk['jk'] == 'L' ? 'Laki-Laki' : 'Perempuan' ?></td>
+    </tr>
+    <tr>
+      <td>Tempat Lahir</td>
+      <td>:</td>
+      <td><?= $penduduk['tempat_lahir'] ?></td>
+    </tr>
+    <tr>
+      <td>Tanggal Lahir</td>
+      <td>:</td>
+      <td><?= date('d M Y', strtotime($penduduk['tgl_lahir'])) ?></td>
+    </tr>
+
+    <tr>
+      <td>Alamat</td>
+      <td>:</td>
+      <td><?= $penduduk['alamat'] ?></td>
+    </tr>
+
+
+
+
+  </table>
+
+  <br>
+  <p>Telah meninggal dunia pada :</p>
+  <br>
 
   <?php
-  $tanggal = $penduduk['tgl_lahir'];
+  $tanggal = $penduduk['tgl_kematian'];
   $day = date('D', strtotime($tanggal));
   $dayList = array(
     'Sun' => 'Minggu',
@@ -63,56 +99,30 @@
     'Sat' => 'Sabtu'
   );
   ?>
-  <table class="table">
-
+  <table>
     <tr>
-      <td>Hari</td>
+      <td width="150px">Hari</td>
       <td>:</td>
       <td><?= $dayList[$day] ?></td>
     </tr>
-
     <tr>
-      <td>Tempat Lahir</td>
+      <td>Tanggal</td>
       <td>:</td>
-      <td><?= $penduduk['tempat_lahir'] ?></td>
+      <td><?= date('d M Y', strtotime($penduduk['tgl_kematian']))  ?></td>
     </tr>
     <tr>
-      <td>Tanggal Lahir</td>
+      <td>Di</td>
       <td>:</td>
-      <td><?= date('d M Y', strtotime($penduduk['tgl_lahir'])) ?></td>
+      <td><?= $penduduk['tempat_kematian'] ?></td>
     </tr>
     <tr>
-      <td>Telah Lahir Seorang Anak </td>
+      <td>Disebabkan karena</td>
       <td>:</td>
-      <td><?= $penduduk['jk'] == 'L' ? 'Laki-Laki' : 'Perempuan' ?></td>
+      <td><?= $penduduk['penyebab'] ?></td>
     </tr>
-    <tr>
-      <td>Bernama</td>
-      <td>:</td>
-      <td><?= $penduduk['nama'] ?></td>
-    </tr>
-    <tr>
-      <td>Dari Seorang Ibu Bernama</td>
-      <td>:</td>
-      <td><?= $penduduk['nama_ibu'] ?></td>
-    </tr>
-    <tr>
-      <td>Agama</td>
-      <td>:</td>
-      <td><?= $penduduk['agama'] ?></td>
-    </tr>
-    <tr>
-      <td>Istri Dari</td>
-      <td>:</td>
-      <td><?= $penduduk['nama_ayah'] ?></td>
-    </tr>
-    <br>
-    <p>Demikian Surat keterangan ini dibuat atas dasar yang sebenarnya.</p>
-
   </table>
 
-
-
+  <p>Demikian Surat keterangan ini dibuat atas dasar yang sebenarnya.</p>
 
   <center>
     <table width="100%">

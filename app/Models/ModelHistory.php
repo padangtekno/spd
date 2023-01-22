@@ -15,4 +15,22 @@ class ModelHistory extends Model
             ->get()
             ->getResultArray();
     }
+
+    public function DetailLahir($id_penduduk)
+    {
+        return $this->db->table('tbl_penduduk')
+            ->join('tbl_kelahiran', 'tbl_kelahiran.id_penduduk=tbl_penduduk.id_penduduk', 'left')
+            ->where('tbl_penduduk.id_penduduk', $id_penduduk)
+            ->get()
+            ->getRowArray();
+    }
+
+    public function DetailKematian($id_penduduk)
+    {
+        return $this->db->table('tbl_penduduk')
+            ->join('tbl_kematian', 'tbl_kematian.id_penduduk=tbl_penduduk.id_penduduk', 'left')
+            ->where('tbl_penduduk.id_penduduk', $id_penduduk)
+            ->get()
+            ->getRowArray();
+    }
 }

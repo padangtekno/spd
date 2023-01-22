@@ -14,20 +14,23 @@ class Model_home extends Model
     public function total_penduduk()
     {
         return $this->db->table('tbl_penduduk')
-            ->where('status', '1')
+            ->where('status <> 2')
+            ->where('status <> 3')
             ->countAllResults();
     }
     public function total_L()
     {
         return $this->db->table('tbl_penduduk')
-            ->where('status', '1')
+            ->where('status <> 2')
+            ->where('status <> 3')
             ->where('jk', 'L')
             ->countAllResults();
     }
     public function total_P()
     {
         return $this->db->table('tbl_penduduk')
-            ->where('status', '1')
+            ->where('status <> 2')
+            ->where('status <> 3')
             ->where('jk', 'P')
             ->countAllResults();
     }

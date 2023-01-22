@@ -47,11 +47,11 @@
                   <td>
                     <?php
                     if ($value['status'] == 2) { ?>
-                      <a href="" class="btn btn-primary btn-sm">SK Meninggal</a>
+                      <a href="<?= base_url('History/SkKematian/' . $value['id_penduduk']) ?>" target="_blank" class="btn btn-primary btn-sm">SK Kematian</a>
                     <?php } elseif ($value['status'] == 3) { ?>
                       <a href="" class="btn btn-primary btn-sm">SK Pindah</a>
                     <?php   } elseif ($value['status'] == 4) { ?>
-                      <a href="<?= base_url('History/SkLahir') ?>" target="_blank" class="btn btn-primary btn-sm">SK Lahir</a>
+                      <a href="<?= base_url('History/SkLahir/' . $value['id_penduduk']) ?>" target="_blank" class="btn btn-primary btn-sm">SK Lahir</a>
                     <?php  } ?>
 
                   </td>

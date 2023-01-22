@@ -10,8 +10,8 @@ class Model_penduduk extends Model
     {
         return $this->db->table('tbl_penduduk')
             ->join('tbl_pekerjaan', 'tbl_pekerjaan.id_pekerjaan=tbl_penduduk.id_pekerjaan', 'left')
-           
-            ->where('status', '1')
+            ->where('status <> 2')
+            ->where('status <> 3')
             ->orderBy('no_kk', 'DESC')
             ->get()
             ->getResultArray();
@@ -21,7 +21,7 @@ class Model_penduduk extends Model
         return $this->db->table('tbl_penduduk')
             ->join('tbl_pendidikan', 'tbl_pendidikan.id_pendidikan=tbl_penduduk.id_pendidikan', 'left')
             ->join('tbl_pekerjaan', 'tbl_pekerjaan.id_pekerjaan=tbl_penduduk.id_pekerjaan', 'left')
-          
+
             ->join('tbl_keluarga', 'tbl_keluarga.no_kk=tbl_penduduk.no_kk', 'left')
             ->join('tbl_provinsi', 'tbl_provinsi.id_provinsi=tbl_keluarga.id_provinsi', 'left')
             ->join('tbl_kabupaten', 'tbl_kabupaten.id_kabupaten=tbl_keluarga.id_kabupaten', 'left')

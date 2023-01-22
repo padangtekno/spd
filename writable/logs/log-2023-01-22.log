@@ -1,0 +1,25 @@
+ERROR - 2023-01-22 00:54:05 --> mysqli_sql_exception: Duplicate entry '0' for key 'PRIMARY' in C:\wamp64\www\spd\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\wamp64\www\spd\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\wamp64\www\spd\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\wamp64\www\spd\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\wamp64\www\spd\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\wamp64\www\spd\app\Models\Model_kelahiran.php(34): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\wamp64\www\spd\app\Controllers\Kelahiran.php(131): App\Models\Model_kelahiran->InsertPenduduk(Array)
+#6 C:\wamp64\www\spd\system\CodeIgniter.php(907): App\Controllers\Kelahiran->Insert()
+#7 C:\wamp64\www\spd\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kelahiran))
+#8 C:\wamp64\www\spd\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\spd\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-01-22 00:54:05 --> Duplicate entry '0' for key 'PRIMARY'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tbl_penduduk` (`hubungan_keluarga`, `nama`, `tgl_lahir`, `tempat_lahir`, `no_kk`, `jk`, `agama`, `status`, `update_at`) VALUES (\'Anak\', \'Dayut\', \'2023-01-17\', \'Padang\', \'3202181011051742\', \'L\', \'Islam\', \'4\', \'2023-01-22\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_penduduk` (`hubungan_keluarga`, `nama`, `tgl_lahir`, `tempat_lahir`, `no_kk`, `jk`, `agama`, `status`, `update_at`) VALUES (\'Anak\', \'Dayut\', \'2023-01-17\', \'Padang\', \'3202181011051742\', \'L\', \'Islam\', \'4\', \'2023-01-22\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_penduduk` (`hubungan_keluarga`, `nama`, `tgl_lahir`, `tempat_lahir`, `no_kk`, `jk`, `agama`, `status`, `update_at`) VALUES (\'Anak\', \'Dayut\', \'2023-01-17\', \'Padang\', \'3202181011051742\', \'L\', \'Islam\', \'4\', \'2023-01-22\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_penduduk` (`hubungan_keluarga`, `nama`, `tgl_lahir`, `tempat_lahir`, `no_kk`, `jk`, `agama`, `status`, `update_at`) VALUES (:hubungan_keluarga:, :nama:, :tgl_lahir:, :tempat_lahir:, :no_kk:, :jk:, :agama:, :status:, :update_at:)', [...], false)
+ 5 APPPATH\Models\Model_kelahiran.php(34): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Kelahiran.php(131): App\Models\Model_kelahiran->InsertPenduduk([...])
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Kelahiran->Insert()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kelahiran))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

@@ -18,7 +18,8 @@ class Model_kematian extends Model
     public function AllDataPenduduk()
     {
         return $this->db->table('tbl_penduduk')
-            ->where('status', '1')
+            ->where('status <> 2')
+            ->where('status <> 3')
             ->get()
             ->getResultArray();
     }
